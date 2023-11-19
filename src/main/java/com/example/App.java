@@ -19,8 +19,8 @@ public class App implements ActionListener{
     JTextArea[] infoArray = new JTextArea[32];
     int teamAmount = 32;
 
+    /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
-
         Font myFont = new Font(null, Font.BOLD, 15);
 
         APIStuff.populateArrays();
@@ -59,7 +59,7 @@ public class App implements ActionListener{
 
         ////////////////////////////
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
+        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){ // Loads the images from a local folder
 
             ImageIcon img = new ImageIcon("images/" + teams[teamIndex].ab + ".png");
             images[teamIndex] = new JLabel();
@@ -69,7 +69,7 @@ public class App implements ActionListener{
             frame.add(images[teamIndex]);
         }
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
+        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){ // Loads the team name buttons
 
             teamNameButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
             teamNameButton.setBounds(20, teamIndex*18+60, 200, 20);
@@ -91,7 +91,7 @@ public class App implements ActionListener{
             infoArray[teamIndex].setFont(myFont);
             infoArray[teamIndex].setBorder(BorderFactory.createCompoundBorder(
                 infoArray[teamIndex].getBorder(), 
-                BorderFactory.createEmptyBorder(8, 8, 8, 8)));
+                BorderFactory.createEmptyBorder(8, 8, 8, 8))); //Adds padding to the info box
             frame.add(infoArray[teamIndex]);
         }
 
@@ -101,12 +101,14 @@ public class App implements ActionListener{
     }
 
 
-    public static void main(String[] args) throws IOException, URISyntaxException{
+    /** Starts an instance of the app */
+    public static void main(String[] args) throws IOException, URISyntaxException{ 
 
         @SuppressWarnings("unused")
         App e = new App();
     }
 
+    /** Handle clicks */
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -118,7 +120,7 @@ public class App implements ActionListener{
             showTeamsPage();
         }
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
+        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){ // Doing this with a loop to avoid code bloat
             if(e.getSource() == teamNameButtons[teamIndex]){
                 try {
                     showTeamInfo(teamIndex);
@@ -131,7 +133,14 @@ public class App implements ActionListener{
         }
     }
 
+    /** Shows the team info for a specified index */
     public void showTeamInfo(int index) throws IOException, URISyntaxException{
+
+        String bonusMsg = "";
+
+        if(teams[index].points == teams[0].points){
+            bonusMsg = " (Leading the NHL)";
+        }
 
         teamNameButtons[index].setForeground(Color.green);
 
@@ -144,14 +153,22 @@ public class App implements ActionListener{
         if(teams[index].nextMatch == null){
             APIStuff.populateNextMatch(index);
         }
+
+        if(teams[index].last5 == null){
+            APIStuff.populateLast5(index);
+        }
         
         infoArray[index].setVisible(true);
         infoArray[index].setText(
-                "Team Name:\n\n" + teams[index].name + "\n\nCurrent team points:\n\n" + teams[index].points  + "\n\nUpcoming match:\n\n" + teams[index].nextMatch
+                teams[index].name 
+                + "\n\nCurrent team points:\n  " + teams[index].points + bonusMsg
+                + "\n\nUpcoming match:\n  " + teams[index].nextMatch 
+                + "\n\nLast 5 matches:\n " + teams[index].last5
             );
         images[index].setVisible(true);
     }
 
+    /** TODO: Shows the players page */
     public void showPlayersPage(){
 
         topBarPlayers.setBackground(Color.green);
@@ -164,20 +181,22 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
 
         }
-
     }
 
+    /** Shows the teams page */
     public void showTeamsPage(){
+
+        topBarPlayers.setBackground(Color.white);
+        topBarTeams.setBackground(Color.green);
+
 
         for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
 
             infoArray[teamIndex].setVisible(true);
             teamNameButtons[teamIndex].setVisible(true);
-            images[0].setVisible(true);
+            images[teamIndex].setVisible(false);
         }
 
-        topBarPlayers.setBackground(Color.white);
-        topBarTeams.setBackground(Color.green);
-
+        images[0].setVisible(true);
     }
 }
