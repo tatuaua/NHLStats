@@ -8,6 +8,7 @@ public class Team {
     String ab;
     String nextMatch;
     String last5;
+    String[] allSeasonMatches;
     
     Team(){
     }

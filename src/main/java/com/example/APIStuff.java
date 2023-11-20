@@ -52,11 +52,12 @@ public class APIStuff {
     }
 
     /** Gets the last 5 games for a specified team */ 
-    public static void populateLast5(int teamIndex) throws URISyntaxException, IOException{
+    public static void populatePrevMatches(int teamIndex) throws URISyntaxException, IOException{
 
         String ab = teams[teamIndex].ab;
         String contentString;
         String last5 = "";
+        String allSeasonMatches = "";
 
         //System.out.println("Opening endpoint for " + ab);
 
@@ -81,40 +82,41 @@ public class APIStuff {
         //Fetching nested Json using JSONArray
         JSONArray arrObj = jsonObj.getJSONArray("games");
 
-        String gameState = "";
+        for(int k = 0; k < 100; k++){
 
-        for(int i = 0; i < 100; i++){ // Loop through all games in the season for this team
+            if(arrObj.getJSONObject(k).getString("gameState").equals("FUT")){ // Stop once we find the latest match
+                break;
+            }
 
-            gameState = arrObj.getJSONObject(i).getString("gameState");
+            if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getString("abbrev").equals(teams[teamIndex].ab)){
 
-            if(gameState.equals("FUT")){ // Stop once we find the latest match
+                if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getInt("score") >= arrObj.getJSONObject(k).getJSONObject("homeTeam").getInt("score")){
+                    allSeasonMatches = allSeasonMatches + " W";
+                } else {
+                    allSeasonMatches = allSeasonMatches + " L";
+                }
+                
+            } else {
 
-                for(int j = 5; j > 0; j--){ // Go back 5 matches and get the results
-
-                    if(arrObj.getJSONObject(i-j).getJSONObject("awayTeam").getString("abbrev").equals(teams[teamIndex].ab)){
-
-                        if(arrObj.getJSONObject(i-j).getJSONObject("awayTeam").getInt("score") >= arrObj.getJSONObject(i-j).getJSONObject("homeTeam").getInt("score")){
-                            last5 = last5 + " W";
-                        } else {
-                            last5 = last5 + " L";
-                        }
-                        
-                    } else {
-
-                        if(arrObj.getJSONObject(i-j).getJSONObject("awayTeam").getInt("score") >= arrObj.getJSONObject(i-j).getJSONObject("homeTeam").getInt("score")){
-                            last5 = last5 + " L";
-                        } else {
-                            last5 = last5 + " W";
-                        }
-
-                    }
+                if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getInt("score") >= arrObj.getJSONObject(k).getJSONObject("homeTeam").getInt("score")){
+                    allSeasonMatches = allSeasonMatches + " L";
+                } else {
+                    allSeasonMatches = allSeasonMatches + " W";
                 }
 
-                break;
             }
         }
 
+        String[] arr = allSeasonMatches.substring(1).split(" "); // Remove first space and split into array of strings
+
+        for(int x = 5; x > 0; x--){ // Getting the last 5 matches' results
+
+            last5 = last5 + " " + arr[arr.length-x];
+        }
+   
         teams[teamIndex].last5 = last5;
+        teams[teamIndex].allSeasonMatches = arr;
+
     }
 
     /** Gets the next match info for a specified team */ 

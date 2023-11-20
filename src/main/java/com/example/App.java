@@ -12,16 +12,20 @@ public class App implements ActionListener{
     
     Team[] teams = new Team[32];
     static JFrame frame;
-    JButton teamNameButton, topBarTeams, topBarPlayers;
+    JButton teamNameButton, topBarTeams, topBarMoreStats;
     JButton[] teamNameButtons = new JButton[32];
     JLabel[] images = new JLabel[32];
+    JLabel[] dataPoints;
+    JTextArea seasonPerformance = new JTextArea();
+    JTextArea moreStatsPageTitle = new JTextArea();
     JLabel topBar;
     JTextArea[] infoArray = new JTextArea[32];
     int teamAmount = 32;
+    int currentSelected;
+    Font myFont = new Font(null, Font.BOLD, 15);
 
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
-        Font myFont = new Font(null, Font.BOLD, 15);
 
         APIStuff.populateArrays();
         teams = APIStuff.getTeams();
@@ -42,13 +46,13 @@ public class App implements ActionListener{
         topBarTeams.addActionListener(this);
         frame.add(topBarTeams);
 
-        topBarPlayers = new JButton("Players");
-        topBarPlayers.setBounds(120, 10, 80, 30);
-        topBarPlayers.setVisible(true);
-        topBarPlayers.setForeground(Color.black);
-        topBarPlayers.setBackground(Color.white);
-        topBarPlayers.addActionListener(this);
-        frame.add(topBarPlayers);
+        topBarMoreStats = new JButton("More stats");
+        topBarMoreStats.setBounds(120, 10, 120, 30);
+        topBarMoreStats.setVisible(true);
+        topBarMoreStats.setForeground(Color.black);
+        topBarMoreStats.setBackground(Color.white);
+        topBarMoreStats.addActionListener(this);
+        frame.add(topBarMoreStats);
 
         ImageIcon topBarImg = new ImageIcon("images/topBar.png");
         topBar = new JLabel(topBarImg);
@@ -112,8 +116,8 @@ public class App implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource() == topBarPlayers){
-            showPlayersPage();
+        if(e.getSource() == topBarMoreStats){
+            showMoreStatsPage(currentSelected);
         }
 
         if(e.getSource() == topBarTeams){
@@ -124,6 +128,7 @@ public class App implements ActionListener{
             if(e.getSource() == teamNameButtons[teamIndex]){
                 try {
                     showTeamInfo(teamIndex);
+                    currentSelected = teamIndex;
                 } catch (IOException | URISyntaxException e1) {
                     e1.printStackTrace();
                 }
@@ -155,7 +160,7 @@ public class App implements ActionListener{
         }
 
         if(teams[index].last5 == null){
-            APIStuff.populateLast5(index);
+            APIStuff.populatePrevMatches(index);
         }
         
         infoArray[index].setVisible(true);
@@ -168,10 +173,10 @@ public class App implements ActionListener{
         images[index].setVisible(true);
     }
 
-    /** TODO: Shows the players page */
-    public void showPlayersPage(){
+    /** Shows more stats for chosen team */
+    public void showMoreStatsPage(int index){
 
-        topBarPlayers.setBackground(Color.green);
+        topBarMoreStats.setBackground(Color.green);
         topBarTeams.setBackground(Color.white);
 
         for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
@@ -181,22 +186,71 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
 
         }
+
+        moreStatsPageTitle.setText(teams[index].name);
+        moreStatsPageTitle.setBounds(20, 60, 230, 20);
+        moreStatsPageTitle.setFont(myFont);
+        moreStatsPageTitle.setBackground(Color.darkGray);
+        moreStatsPageTitle.setForeground(Color.white);
+        moreStatsPageTitle.setVisible(true);
+        frame.add(moreStatsPageTitle);
+
+        dataPoints = new JLabel[teams[index].allSeasonMatches.length];
+        ImageIcon greenPoint = new ImageIcon("images/greenpoint.png");
+        ImageIcon redPoint = new ImageIcon("images/redpoint.png");
+
+        // Draw data for all games in the season for this team. Green point means win, red means loss. Win increases Y by 6 pixels and loss decreases by 6
+        for(int i = 0; i < teams[index].allSeasonMatches.length; i++){
+
+            dataPoints[i] = new JLabel();
+
+            if(teams[index].allSeasonMatches[i].equals("W")){
+                
+                dataPoints[i].setIcon(greenPoint);
+
+                if(i == 0){
+                    dataPoints[i].setBounds(i*9+330, 200, 5, 5);
+                } else {
+                    dataPoints[i].setBounds(i*9+330, dataPoints[i-1].getY()-6, 5, 5);
+                }
+                dataPoints[i].setVisible(true);
+                frame.add(dataPoints[i]);
+
+            } else {
+
+                dataPoints[i].setIcon(redPoint);
+
+                if(i == 0){
+                    dataPoints[i].setBounds(i*9+330, 200, 5, 5);
+                } else {
+                    dataPoints[i].setBounds(i*9+330, dataPoints[i-1].getY()+6, 5, 5);
+                }
+                dataPoints[i].setVisible(true);
+                frame.add(dataPoints[i]);
+
+            }
+        }
     }
 
     /** Shows the teams page */
     public void showTeamsPage(){
 
-        topBarPlayers.setBackground(Color.white);
+        topBarMoreStats.setBackground(Color.white);
         topBarTeams.setBackground(Color.green);
 
+        for(int i = 0; i < dataPoints.length; i++){
+
+            dataPoints[i].setVisible(false);
+        }
 
         for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
 
-            infoArray[teamIndex].setVisible(true);
+            infoArray[teamIndex].setVisible(false);
             teamNameButtons[teamIndex].setVisible(true);
             images[teamIndex].setVisible(false);
         }
 
-        images[0].setVisible(true);
+        infoArray[currentSelected].setVisible(true);
+        images[currentSelected].setVisible(true);
     }
 }
