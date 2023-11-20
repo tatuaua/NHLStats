@@ -54,7 +54,6 @@ public class APIStuff {
     /** Gets the last 5 games for a specified team */ 
     public static void populateLast5(int teamIndex) throws URISyntaxException, IOException{
 
-        String date = LocalDate.now().toString();
         String ab = teams[teamIndex].ab;
         String contentString;
         String last5 = "";
@@ -82,17 +81,13 @@ public class APIStuff {
         //Fetching nested Json using JSONArray
         JSONArray arrObj = jsonObj.getJSONArray("games");
 
-        int currentDay =  Integer.parseInt(date.charAt(8) + "" + date.charAt(9));
-        int currentMonth = Integer.parseInt(date.charAt(5) + "" + date.charAt(6));
-        int thisMatchDay = 0;
-        int thisMatchMonth = 0;
+        String gameState = "";
 
         for(int i = 0; i < 100; i++){ // Loop through all games in the season for this team
 
-            thisMatchDay = Integer.parseInt((arrObj.getJSONObject(i).getString("gameDate").charAt(8) + "" + arrObj.getJSONObject(i).getString("gameDate").charAt(9)));
-            thisMatchMonth = Integer.parseInt((arrObj.getJSONObject(i).getString("gameDate").charAt(5) + "" + arrObj.getJSONObject(i).getString("gameDate").charAt(6)));
-            
-            if((thisMatchMonth > currentMonth) || (thisMatchMonth == currentMonth && thisMatchDay >= currentDay)){ // Stop once we find the latest match
+            gameState = arrObj.getJSONObject(i).getString("gameState");
+
+            if(gameState.equals("FUT")){ // Stop once we find the latest match
 
                 for(int j = 5; j > 0; j--){ // Go back 5 matches and get the results
 
