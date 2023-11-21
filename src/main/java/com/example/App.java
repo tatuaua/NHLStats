@@ -1,6 +1,9 @@
 package com.example;
 
 import javax.swing.*;
+
+import java.awt.Image;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
@@ -17,12 +20,16 @@ public class App implements ActionListener{
     JLabel[] images = new JLabel[32];
     JLabel[] dataPoints;
     JTextArea seasonPerformance = new JTextArea();
-    JTextArea moreStatsPageTitle = new JTextArea();
+    JTextArea moreStatsTeamName = new JTextArea();
+    JLabel moreStatsTeamLogo = new JLabel();
     JLabel topBar;
     JTextArea[] infoArray = new JTextArea[32];
     int teamAmount = 32;
     int currentSelected;
     Font myFont = new Font(null, Font.BOLD, 15);
+    Font myFontBigger = new Font(null, Font.BOLD, 20);
+    Font myFontLighter = new Font(null, Font.PLAIN, 15);
+    Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
 
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
@@ -92,7 +99,8 @@ public class App implements ActionListener{
             infoArray[teamIndex].setBounds(300, 70, 250, 520);
             infoArray[teamIndex].setBackground(new Color(30, 30, 30));
             infoArray[teamIndex].setForeground(Color.white);
-            infoArray[teamIndex].setFont(myFont);
+            infoArray[teamIndex].setFont(myFontLighter);
+            infoArray[teamIndex].setEditable(false);
             infoArray[teamIndex].setBorder(BorderFactory.createCompoundBorder(
                 infoArray[teamIndex].getBorder(), 
                 BorderFactory.createEmptyBorder(8, 8, 8, 8))); //Adds padding to the info box
@@ -186,14 +194,31 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
 
         }
+        
+        ImageIcon resizedLogo = new ImageIcon("images/" + teams[index].ab + ".png");
+        resizedLogo = new ImageIcon(resizedLogo.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH));
+        moreStatsTeamLogo.setIcon(resizedLogo);
+        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+5, 50, 70, 70);
+        moreStatsTeamLogo.setVisible(true);
+        frame.add(moreStatsTeamLogo);
 
-        moreStatsPageTitle.setText(teams[index].name);
-        moreStatsPageTitle.setBounds(20, 60, 230, 20);
-        moreStatsPageTitle.setFont(myFont);
-        moreStatsPageTitle.setBackground(Color.darkGray);
-        moreStatsPageTitle.setForeground(Color.white);
-        moreStatsPageTitle.setVisible(true);
-        frame.add(moreStatsPageTitle);
+        moreStatsTeamName.setText(teams[index].name);
+        moreStatsTeamName.setBounds(20, 70, 230, 30);
+        moreStatsTeamName.setFont(myFontBigger);
+        moreStatsTeamName.setBackground(Color.darkGray);
+        moreStatsTeamName.setForeground(Color.white);
+        moreStatsTeamName.setVisible(true);
+        moreStatsTeamName.setEditable(false);
+        frame.add(moreStatsTeamName);
+
+        seasonPerformance.setText("Season performance:");
+        seasonPerformance.setBounds(50, 185, 200, 30);
+        seasonPerformance.setFont(myFontLighterBigger);
+        seasonPerformance.setBackground(Color.darkGray);
+        seasonPerformance.setForeground(Color.white);
+        seasonPerformance.setVisible(true);
+        seasonPerformance.setEditable(false);
+        frame.add(seasonPerformance);
 
         dataPoints = new JLabel[teams[index].allSeasonMatches.length];
         ImageIcon greenPoint = new ImageIcon("images/greenpoint.png");
@@ -209,9 +234,9 @@ public class App implements ActionListener{
                 dataPoints[i].setIcon(greenPoint);
 
                 if(i == 0){
-                    dataPoints[i].setBounds(i*9+330, 200, 5, 5);
+                    dataPoints[i].setBounds(270, 200, 5, 5);
                 } else {
-                    dataPoints[i].setBounds(i*9+330, dataPoints[i-1].getY()-6, 5, 5);
+                    dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()-6, 5, 5);
                 }
                 dataPoints[i].setVisible(true);
                 frame.add(dataPoints[i]);
@@ -221,9 +246,9 @@ public class App implements ActionListener{
                 dataPoints[i].setIcon(redPoint);
 
                 if(i == 0){
-                    dataPoints[i].setBounds(i*9+330, 200, 5, 5);
+                    dataPoints[i].setBounds(270, 200, 5, 5);
                 } else {
-                    dataPoints[i].setBounds(i*9+330, dataPoints[i-1].getY()+6, 5, 5);
+                    dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()+6, 5, 5);
                 }
                 dataPoints[i].setVisible(true);
                 frame.add(dataPoints[i]);
@@ -252,5 +277,8 @@ public class App implements ActionListener{
 
         infoArray[currentSelected].setVisible(true);
         images[currentSelected].setVisible(true);
+        moreStatsTeamLogo.setVisible(false);
+        moreStatsTeamName.setVisible(false);
+        seasonPerformance.setVisible(false);
     }
 }
