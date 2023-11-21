@@ -13,19 +13,26 @@ import java.net.URISyntaxException;
 public class App implements ActionListener{
 
     
-    Team[] teams = new Team[32];
-    static JFrame frame;
-    JButton teamNameButton, topBarTeams, topBarMoreStats;
+    //Part of the teams page
+    JButton teamNameButton;
     JButton[] teamNameButtons = new JButton[32];
-    JLabel[] images = new JLabel[32];
+    JTextArea[] infoArray = new JTextArea[32];
+
+    // Part of the more stats page
     JLabel[] dataPoints;
     JTextArea seasonPerformance = new JTextArea();
     JTextArea moreStatsTeamName = new JTextArea();
     JLabel moreStatsTeamLogo = new JLabel();
+    JTextArea dataPointsBackground = new JTextArea();
+
+    // General variables
+    static JFrame frame;
     JLabel topBar;
-    JTextArea[] infoArray = new JTextArea[32];
-    int teamAmount = 32;
+    JButton topBarTeams, topBarMoreStats;
+    Team[] teams = new Team[32];
+    JLabel[] images = new JLabel[32];
     int currentSelected;
+    int teamAmount = 32;
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
     Font myFontLighter = new Font(null, Font.PLAIN, 15);
@@ -255,6 +262,40 @@ public class App implements ActionListener{
 
             }
         }
+
+        int[] values = calcDataBgSize();
+
+        dataPointsBackground.setBounds(values[0], values[1], values[2], values[3]);
+        dataPointsBackground.setBackground(new Color(30, 30, 30));
+        dataPointsBackground.setVisible(true);
+        frame.add(dataPointsBackground);
+    }
+
+    public int[] calcDataBgSize(){ // What the fuck
+
+        int[] values = new int[4];
+        int lowest = 0; // Largest Y
+        int highest = 600; // Smallest Y
+        int amount = dataPoints.length;
+
+        for(int i = 0; i < dataPoints.length; i++){
+
+            if(dataPoints[i].getY() >= lowest){
+                lowest = dataPoints[i].getY();
+            } 
+
+            if(dataPoints[i].getY() < highest){
+                highest = dataPoints[i].getY();
+            }
+        }
+
+        values[0] = 260; // X
+        values[1] = highest-7; // Y
+        values[2] = amount*9+20; // Width
+        values[3] = lowest-highest+25; // Height
+
+        return values;
+
     }
 
     /** Shows the teams page */
@@ -280,5 +321,6 @@ public class App implements ActionListener{
         moreStatsTeamLogo.setVisible(false);
         moreStatsTeamName.setVisible(false);
         seasonPerformance.setVisible(false);
+        dataPointsBackground.setVisible(false);
     }
 }
