@@ -88,6 +88,10 @@ public class APIStuff {
                 break;
             }
 
+            if(arrObj.getJSONObject(k).getString("gameState").equals("FINAL")){ // Stop once we find the latest match
+                continue;
+            }
+
             if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getString("abbrev").equals(teams[teamIndex].ab)){
 
                 if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getInt("score") >= arrObj.getJSONObject(k).getJSONObject("homeTeam").getInt("score")){

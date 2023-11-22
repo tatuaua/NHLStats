@@ -32,6 +32,7 @@ public class App implements ActionListener{
     Team[] teams = new Team[32];
     JLabel[] images = new JLabel[32];
     int currentSelected;
+    int currentPage = 0;
     int teamAmount = 32;
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
@@ -131,11 +132,13 @@ public class App implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource() == topBarMoreStats){
+        if(e.getSource() == topBarMoreStats && currentPage != 1){
+            currentPage = 1;
             showMoreStatsPage(currentSelected);
         }
 
-        if(e.getSource() == topBarTeams){
+        if(e.getSource() == topBarTeams && currentPage != 0){
+            currentPage = 0;
             showTeamsPage();
         }
 
@@ -194,6 +197,7 @@ public class App implements ActionListener{
         topBarMoreStats.setBackground(Color.green);
         topBarTeams.setBackground(Color.white);
 
+        // Hiding things from previous page
         for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
@@ -201,11 +205,12 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
 
         }
+        ///////////////////////////////////
         
         ImageIcon resizedLogo = new ImageIcon("images/" + teams[index].ab + ".png");
         resizedLogo = new ImageIcon(resizedLogo.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH));
         moreStatsTeamLogo.setIcon(resizedLogo);
-        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+5, 50, 70, 70);
+        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+8, 50, 70, 70);
         moreStatsTeamLogo.setVisible(true);
         frame.add(moreStatsTeamLogo);
 
@@ -218,10 +223,9 @@ public class App implements ActionListener{
         moreStatsTeamName.setEditable(false);
         frame.add(moreStatsTeamName);
 
-        seasonPerformance.setText("Season performance:");
-        seasonPerformance.setBounds(50, 185, 200, 30);
+        seasonPerformance.setBounds(70, 185, 200, 200);
         seasonPerformance.setFont(myFontLighterBigger);
-        seasonPerformance.setBackground(Color.darkGray);
+        seasonPerformance.setBackground(new Color(30, 30, 30));
         seasonPerformance.setForeground(Color.white);
         seasonPerformance.setVisible(true);
         seasonPerformance.setEditable(false);
@@ -230,6 +234,8 @@ public class App implements ActionListener{
         dataPoints = new JLabel[teams[index].allSeasonMatches.length];
         ImageIcon greenPoint = new ImageIcon("images/greenpoint.png");
         ImageIcon redPoint = new ImageIcon("images/redpoint.png");
+        int wins = 0;
+        int losses = 0;
 
         // Draw data for all games in the season for this team. Green point means win, red means loss. Win increases Y by 6 pixels and loss decreases by 6
         for(int i = 0; i < teams[index].allSeasonMatches.length; i++){
@@ -237,11 +243,13 @@ public class App implements ActionListener{
             dataPoints[i] = new JLabel();
 
             if(teams[index].allSeasonMatches[i].equals("W")){
+    
+                wins++;
                 
                 dataPoints[i].setIcon(greenPoint);
 
                 if(i == 0){
-                    dataPoints[i].setBounds(270, 200, 5, 5);
+                    dataPoints[i].setBounds(340, 280, 5, 5);
                 } else {
                     dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()-6, 5, 5);
                 }
@@ -250,10 +258,12 @@ public class App implements ActionListener{
 
             } else {
 
+                losses++;
+
                 dataPoints[i].setIcon(redPoint);
 
                 if(i == 0){
-                    dataPoints[i].setBounds(270, 200, 5, 5);
+                    dataPoints[i].setBounds(340, 280, 5, 5);
                 } else {
                     dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()+6, 5, 5);
                 }
@@ -263,39 +273,13 @@ public class App implements ActionListener{
             }
         }
 
-        int[] values = calcDataBgSize();
-
-        dataPointsBackground.setBounds(values[0], values[1], values[2], values[3]);
+        seasonPerformance.setText("Season performance" + "\n\n Wins: " + wins + "\n\n Losses: " + losses);
+  
+        dataPointsBackground.setBounds(40, 145, 550, 300);
         dataPointsBackground.setBackground(new Color(30, 30, 30));
         dataPointsBackground.setVisible(true);
+        dataPointsBackground.setEditable(false);
         frame.add(dataPointsBackground);
-    }
-
-    public int[] calcDataBgSize(){ // What the fuck
-
-        int[] values = new int[4];
-        int lowest = 0; // Largest Y
-        int highest = 600; // Smallest Y
-        int amount = dataPoints.length;
-
-        for(int i = 0; i < dataPoints.length; i++){
-
-            if(dataPoints[i].getY() >= lowest){
-                lowest = dataPoints[i].getY();
-            } 
-
-            if(dataPoints[i].getY() < highest){
-                highest = dataPoints[i].getY();
-            }
-        }
-
-        values[0] = 260; // X
-        values[1] = highest-7; // Y
-        values[2] = amount*9+20; // Width
-        values[3] = lowest-highest+25; // Height
-
-        return values;
-
     }
 
     /** Shows the teams page */
@@ -304,6 +288,7 @@ public class App implements ActionListener{
         topBarMoreStats.setBackground(Color.white);
         topBarTeams.setBackground(Color.green);
 
+        // Hiding things from previous page
         for(int i = 0; i < dataPoints.length; i++){
 
             dataPoints[i].setVisible(false);
@@ -316,11 +301,13 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
         }
 
-        infoArray[currentSelected].setVisible(true);
-        images[currentSelected].setVisible(true);
         moreStatsTeamLogo.setVisible(false);
         moreStatsTeamName.setVisible(false);
         seasonPerformance.setVisible(false);
         dataPointsBackground.setVisible(false);
+        ///////////////////////////////////
+
+        infoArray[currentSelected].setVisible(true);
+        images[currentSelected].setVisible(true);
     }
 }
