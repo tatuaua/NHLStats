@@ -9,18 +9,20 @@ import java.awt.Font;
 import java.awt.event.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.text.DecimalFormat;
 
 public class App implements ActionListener{
 
-    
+    final int TEAM_AMOUNT = 32;
+
     //Part of the teams page
     JButton teamNameButton;
-    JButton[] teamNameButtons = new JButton[32];
-    JTextArea[] infoArray = new JTextArea[32];
+    JButton[] teamNameButtons = new JButton[TEAM_AMOUNT];
+    JTextArea[] infoArray = new JTextArea[TEAM_AMOUNT];
 
     // Part of the more stats page
     JLabel[] dataPoints;
-    JTextArea seasonPerformance = new JTextArea();
+    JTextPane seasonPerformance = new JTextPane();
     JTextArea moreStatsTeamName = new JTextArea();
     JLabel moreStatsTeamLogo = new JLabel();
     JTextArea dataPointsBackground = new JTextArea();
@@ -29,15 +31,15 @@ public class App implements ActionListener{
     static JFrame frame;
     JLabel topBar;
     JButton topBarTeams, topBarMoreStats;
-    Team[] teams = new Team[32];
-    JLabel[] images = new JLabel[32];
+    Team[] teams = new Team[TEAM_AMOUNT];
+    JLabel[] images = new JLabel[TEAM_AMOUNT];
     int currentSelected;
     int currentPage = 0;
-    int teamAmount = 32;
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
     Font myFontLighter = new Font(null, Font.PLAIN, 15);
     Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
+    Color myOrange = new Color(248,158,124);
 
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
@@ -57,7 +59,7 @@ public class App implements ActionListener{
         topBarTeams.setBounds(20, 10, 80, 30);
         topBarTeams.setVisible(true);
         topBarTeams.setForeground(Color.black);
-        topBarTeams.setBackground(Color.green);
+        topBarTeams.setBackground(myOrange);
         topBarTeams.addActionListener(this);
         frame.add(topBarTeams);
 
@@ -78,7 +80,7 @@ public class App implements ActionListener{
 
         ////////////////////////////
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){ // Loads the images from a local folder
+        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the images from a local folder
 
             ImageIcon img = new ImageIcon("images/" + teams[teamIndex].ab + ".png");
             images[teamIndex] = new JLabel();
@@ -88,7 +90,7 @@ public class App implements ActionListener{
             frame.add(images[teamIndex]);
         }
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){ // Loads the team name buttons
+        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
 
             teamNameButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
             teamNameButton.setBounds(20, teamIndex*18+60, 200, 20);
@@ -100,7 +102,7 @@ public class App implements ActionListener{
             frame.add(teamNameButton);
         }
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
+        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex] = new JTextArea();
             infoArray[teamIndex].setVisible(false);
@@ -118,6 +120,10 @@ public class App implements ActionListener{
         showTeamInfo(0);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        ImageIcon topLeftIcon = new ImageIcon("images/nhlstatslogo.png");
+        frame.setIconImage(topLeftIcon.getImage());
+
     }
 
 
@@ -142,7 +148,7 @@ public class App implements ActionListener{
             showTeamsPage();
         }
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){ // Doing this with a loop to avoid code bloat
+        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Doing this with a loop to avoid code bloat
             if(e.getSource() == teamNameButtons[teamIndex]){
                 try {
                     showTeamInfo(teamIndex);
@@ -165,9 +171,9 @@ public class App implements ActionListener{
             bonusMsg = " (Leading the NHL)";
         }
 
-        teamNameButtons[index].setForeground(Color.green);
+        teamNameButtons[index].setForeground(myOrange);
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
+        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
@@ -194,11 +200,11 @@ public class App implements ActionListener{
     /** Shows more stats for chosen team */
     public void showMoreStatsPage(int index){
 
-        topBarMoreStats.setBackground(Color.green);
+        topBarMoreStats.setBackground(myOrange);
         topBarTeams.setBackground(Color.white);
 
         // Hiding things from previous page
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
+        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
             teamNameButtons[teamIndex].setVisible(false);
@@ -236,6 +242,7 @@ public class App implements ActionListener{
         ImageIcon redPoint = new ImageIcon("images/redpoint.png");
         int wins = 0;
         int losses = 0;
+        double winPct = 0.0;
 
         // Draw data for all games in the season for this team. Green point means win, red means loss. Win increases Y by 6 pixels and loss decreases by 6
         for(int i = 0; i < teams[index].allSeasonMatches.length; i++){
@@ -273,12 +280,17 @@ public class App implements ActionListener{
             }
         }
 
-        seasonPerformance.setText("Season performance" + "\n\n Wins: " + wins + "\n\n Losses: " + losses);
+
+        winPct = (double)wins/(double)teams[index].allSeasonMatches.length*100;
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        seasonPerformance.setText("Season performance" + "\n\n Wins: " + wins + "\n\n Losses: " + losses + "\n\n Win %: " + df.format(winPct));
   
-        dataPointsBackground.setBounds(40, 145, 550, 300);
+        dataPointsBackground.setBounds(40, 145, 500, 300);
         dataPointsBackground.setBackground(new Color(30, 30, 30));
         dataPointsBackground.setVisible(true);
         dataPointsBackground.setEditable(false);
+        dataPointsBackground.setBorder(BorderFactory.createLineBorder(myOrange));
         frame.add(dataPointsBackground);
     }
 
@@ -286,7 +298,7 @@ public class App implements ActionListener{
     public void showTeamsPage(){
 
         topBarMoreStats.setBackground(Color.white);
-        topBarTeams.setBackground(Color.green);
+        topBarTeams.setBackground(myOrange);
 
         // Hiding things from previous page
         for(int i = 0; i < dataPoints.length; i++){
@@ -294,7 +306,7 @@ public class App implements ActionListener{
             dataPoints[i].setVisible(false);
         }
 
-        for(int teamIndex = 0; teamIndex < teamAmount; teamIndex++){
+        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
             teamNameButtons[teamIndex].setVisible(true);

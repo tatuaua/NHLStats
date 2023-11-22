@@ -88,7 +88,7 @@ public class APIStuff {
                 break;
             }
 
-            if(arrObj.getJSONObject(k).getString("gameState").equals("FINAL")){ // Stop once we find the latest match
+            if(arrObj.getJSONObject(k).getString("gameState").equals("FINAL")){ // Start once we find the earliest match
                 continue;
             }
 
