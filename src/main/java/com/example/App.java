@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 
 public class App implements ActionListener{
 
-    final int TEAM_AMOUNT = 32;
+    final int TEAM_AMOUNT = 32; // Have to change this if a new NHL team is born
 
     //Part of the teams page
     JButton teamNameButton;
@@ -30,10 +30,10 @@ public class App implements ActionListener{
     // General variables
     static JFrame frame;
     JLabel topBar;
-    JButton topBarTeams, topBarMoreStats;
+    JButton topBarTeams, moreStatsButton;
     Team[] teams = new Team[TEAM_AMOUNT];
     JLabel[] images = new JLabel[TEAM_AMOUNT];
-    int currentSelected;
+    int currentSelectedTeamIndex;
     int currentPage = 0;
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
@@ -63,13 +63,13 @@ public class App implements ActionListener{
         topBarTeams.addActionListener(this);
         frame.add(topBarTeams);
 
-        topBarMoreStats = new JButton("More stats");
-        topBarMoreStats.setBounds(120, 10, 120, 30);
-        topBarMoreStats.setVisible(true);
-        topBarMoreStats.setForeground(Color.black);
-        topBarMoreStats.setBackground(Color.white);
-        topBarMoreStats.addActionListener(this);
-        frame.add(topBarMoreStats);
+        moreStatsButton = new JButton("More stats");
+        moreStatsButton.setBounds(300, 590, 120, 30);
+        moreStatsButton.setVisible(true);
+        moreStatsButton.setForeground(Color.black);
+        moreStatsButton.setBackground(Color.white);
+        moreStatsButton.addActionListener(this);
+        frame.add(moreStatsButton);
 
         ImageIcon topBarImg = new ImageIcon("images/topBar.png");
         topBar = new JLabel(topBarImg);
@@ -106,14 +106,12 @@ public class App implements ActionListener{
 
             infoArray[teamIndex] = new JTextArea();
             infoArray[teamIndex].setVisible(false);
-            infoArray[teamIndex].setBounds(300, 70, 250, 520);
+            infoArray[teamIndex].setBounds(300, 70, 250, 500);
             infoArray[teamIndex].setBackground(new Color(30, 30, 30));
             infoArray[teamIndex].setForeground(Color.white);
             infoArray[teamIndex].setFont(myFontLighter);
             infoArray[teamIndex].setEditable(false);
-            infoArray[teamIndex].setBorder(BorderFactory.createCompoundBorder(
-                infoArray[teamIndex].getBorder(), 
-                BorderFactory.createEmptyBorder(8, 8, 8, 8))); //Adds padding to the info box
+            infoArray[teamIndex].setBorder(BorderFactory.createLineBorder(myOrange));
             frame.add(infoArray[teamIndex]);
         }
 
@@ -138,9 +136,9 @@ public class App implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource() == topBarMoreStats && currentPage != 1){
+        if(e.getSource() == moreStatsButton && currentPage != 1){
             currentPage = 1;
-            showMoreStatsPage(currentSelected);
+            showMoreStatsPage(currentSelectedTeamIndex);
         }
 
         if(e.getSource() == topBarTeams && currentPage != 0){
@@ -152,7 +150,7 @@ public class App implements ActionListener{
             if(e.getSource() == teamNameButtons[teamIndex]){
                 try {
                     showTeamInfo(teamIndex);
-                    currentSelected = teamIndex;
+                    currentSelectedTeamIndex = teamIndex;
                 } catch (IOException | URISyntaxException e1) {
                     e1.printStackTrace();
                 }
@@ -189,10 +187,14 @@ public class App implements ActionListener{
         
         infoArray[index].setVisible(true);
         infoArray[index].setText(
-                teams[index].name 
-                + "\n\nCurrent team points:\n  " + teams[index].points + bonusMsg
-                + "\n\nUpcoming match:\n  " + teams[index].nextMatch 
-                + "\n\nLast 5 matches:\n " + teams[index].last5
+                "\n  "
+                + teams[index].name 
+                + "\n\n  Current team points:\n   " 
+                + teams[index].points + bonusMsg
+                + "\n\n  Upcoming match:\n   " 
+                + teams[index].nextMatch 
+                + "\n\n  Last 5 matches:\n   " 
+                + teams[index].last5
             );
         images[index].setVisible(true);
     }
@@ -200,7 +202,8 @@ public class App implements ActionListener{
     /** Shows more stats for chosen team */
     public void showMoreStatsPage(int index){
 
-        topBarMoreStats.setBackground(myOrange);
+        moreStatsButton.setBackground(myOrange);
+        moreStatsButton.setVisible(false);
         topBarTeams.setBackground(Color.white);
 
         // Hiding things from previous page
@@ -256,7 +259,7 @@ public class App implements ActionListener{
                 dataPoints[i].setIcon(greenPoint);
 
                 if(i == 0){
-                    dataPoints[i].setBounds(340, 280, 5, 5);
+                    dataPoints[i].setBounds(270, 280, 5, 5);
                 } else {
                     dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()-6, 5, 5);
                 }
@@ -270,7 +273,7 @@ public class App implements ActionListener{
                 dataPoints[i].setIcon(redPoint);
 
                 if(i == 0){
-                    dataPoints[i].setBounds(340, 280, 5, 5);
+                    dataPoints[i].setBounds(270, 280, 5, 5);
                 } else {
                     dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()+6, 5, 5);
                 }
@@ -297,7 +300,8 @@ public class App implements ActionListener{
     /** Shows the teams page */
     public void showTeamsPage(){
 
-        topBarMoreStats.setBackground(Color.white);
+        moreStatsButton.setBackground(Color.white);
+        moreStatsButton.setVisible(true);
         topBarTeams.setBackground(myOrange);
 
         // Hiding things from previous page
@@ -319,7 +323,7 @@ public class App implements ActionListener{
         dataPointsBackground.setVisible(false);
         ///////////////////////////////////
 
-        infoArray[currentSelected].setVisible(true);
-        images[currentSelected].setVisible(true);
+        infoArray[currentSelectedTeamIndex].setVisible(true);
+        images[currentSelectedTeamIndex].setVisible(true);
     }
 }
