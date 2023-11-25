@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.time.LocalDate;
 
 public class APIStuff {
@@ -21,32 +20,8 @@ public class APIStuff {
     public static void populateArrays() throws IOException, URISyntaxException {
 
         long start = System.nanoTime();
-    	
-        URI uri = new URI("https://api-web.nhle.com/v1/standings/now");
-        URL url = uri.toURL();
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("GET");
-        con.setDoOutput(true);
 
-        StringBuffer content = new StringBuffer();
-
-        try{
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-    
-            String inputLine;       
-            content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
-            in.close();
-        } catch (UnknownHostException e){
-            System.out.println("ERROR: Problem with internet connection");
-            e.printStackTrace();
-        }
-
-        String contentString = content.toString();
-        //Using JSONObject 
-        JSONObject jsonObj = new JSONObject(contentString);
+        JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/standings/now"));
         
         //Fetching nested Json using JSONArray
         JSONArray arrObj = jsonObj.getJSONArray("standings");
@@ -72,29 +47,11 @@ public class APIStuff {
         long start = System.nanoTime();
 
         String ab = teams[teamIndex].ab;
-        String contentString;
         String last5 = "";
         String allSeasonMatches = "";
 
-        //System.out.println("Opening endpoint for " + ab);
 
-        URI uri = new URI("https://api-web.nhle.com/v1/club-schedule-season/" + ab + "/20232024");
-        URL url = uri.toURL();
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("GET");
-        con.setDoOutput(true);
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;       
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-        }
-        in.close();
-
-        contentString = content.toString();
-
-        JSONObject jsonObj = new JSONObject(contentString);
+        JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/club-schedule-season/" + ab + "/20232024"));
         
         //Fetching nested Json using JSONArray
         JSONArray arrObj = jsonObj.getJSONArray("games");
@@ -151,23 +108,7 @@ public class APIStuff {
         String ab = teams[teamIndex].ab;
         String date = LocalDate.now().toString();
 
-        URI uri = new URI("https://api-web.nhle.com/v1/club-schedule/" + ab +  "/week/now");
-        URL url = uri.toURL();
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("GET");
-        con.setDoOutput(true);
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;       
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-        }
-        in.close();
-
-        String contentString = content.toString();
-        //Using JSONObject 
-        JSONObject jsonObj = new JSONObject(contentString);
+        JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/club-schedule/" + ab +  "/week/now"));
         
         //Fetching nested Json using JSONArray
         JSONArray arrObj = jsonObj.getJSONArray("games");
@@ -191,6 +132,25 @@ public class APIStuff {
     
         long total = System.nanoTime()-start;    
         System.out.println("Populating next match took " + total/1000000 + " ms");
+    }
+
+    private static String getJSON(String urlString) throws IOException, URISyntaxException {
+
+        URI uri = new URI(urlString);
+        URL url = uri.toURL();
+        HttpURLConnection con = (HttpURLConnection)url.openConnection();
+        con.setRequestMethod("GET");
+        con.setDoOutput(true);
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String inputLine;       
+        StringBuffer content = new StringBuffer();
+        while ((inputLine = in.readLine()) != null) {
+            content.append(inputLine);
+        }
+        in.close();
+
+        return content.toString();
     }
     
     /** Returns all the teams */ 
