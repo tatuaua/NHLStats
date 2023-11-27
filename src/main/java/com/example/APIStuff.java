@@ -1,6 +1,7 @@
 package com.example;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -18,7 +19,6 @@ public class APIStuff {
 
     /** Populates the basic info for teams */ 
     public static void populateArrays() throws IOException, URISyntaxException {
-
         long start = System.nanoTime();
 
         JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/standings/now"));
@@ -39,6 +39,9 @@ public class APIStuff {
 
         long total = System.nanoTime()-start;
         System.out.println("Populating arrays took " + total/1000000 + " ms");
+
+        getIDs();
+
     }
 
     /** Gets the last 5 games for a specified team */ 
@@ -151,6 +154,92 @@ public class APIStuff {
         in.close();
 
         return content.toString();
+    }
+
+    private static void getIDs() throws FileNotFoundException{
+
+        /** ab, id, ab, id... */
+        String[] dataArray = {
+            "NYR",
+            "3",
+            "BOS",
+            "6",
+            "VGK",
+            "54",
+            "LAK",
+            "26",
+            "VAN",
+            "23",
+            "COL",
+            "21",
+            "DAL",
+            "25",
+            "WPG",
+            "52",
+            "FLA",
+            "13",
+            "DET",
+            "17",
+            "TBL",
+            "14",
+            "CAR",
+            "12",
+            "TOR",
+            "10",
+            "STL",
+            "19",
+            "PHI",
+            "4",
+            "WSH",
+            "15",
+            "NYI",
+            "2",
+            "SEA",
+            "55",
+            "PIT",
+            "5",
+            "NSH",
+            "18",
+            "ARI",
+            "53",
+            "BUF",
+            "7",
+            "MTL",
+            "8",
+            "NJD",
+            "1",
+            "CGY",
+            "20",
+            "ANA",
+            "24",
+            "OTT",
+            "9",
+            "CBJ",
+            "29",
+            "EDM",
+            "22",
+            "MIN",
+            "30",
+            "CHI",
+            "16",
+            "SJS",
+            "28"
+        };
+
+        for(int i = 0; i < dataArray.length; i++){
+
+            for(int j = 0; j < teams.length; j++){
+
+                if(dataArray[i].equals(teams[j].ab)){
+                    teams[j].teamId = Integer.parseInt(dataArray[i+1]);
+                }
+            }
+        }
+
+        for(int k = 0; k < teams.length; k++){
+
+            System.out.println(teams[k].ab + teams[k].teamId);
+        }
     }
     
     /** Returns all the teams */ 

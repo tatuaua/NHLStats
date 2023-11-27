@@ -293,7 +293,7 @@ public class App implements ActionListener{
         dataPointsBackground.setBackground(new Color(30, 30, 30));
         dataPointsBackground.setVisible(true);
         dataPointsBackground.setEditable(false);
-        dataPointsBackground.setBorder(BorderFactory.createLineBorder(myOrange));
+        dataPointsBackground.setBorder(BorderFactory.createLineBorder(myOrange, 5, true));
         frame.add(dataPointsBackground);
     }
 

@@ -4,6 +4,7 @@ public class Team {
     
     String name;
     int points;
+    int teamId;
     /** Abbreviation (eg. VGK - Las Vegas Golden Knights) */
     String ab;
     String nextMatch;
