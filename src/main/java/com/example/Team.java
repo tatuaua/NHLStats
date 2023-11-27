@@ -10,7 +10,6 @@ public class Team {
     String nextMatch;
     String last5;
     String[] allSeasonMatches;
-    
-    Team(){
-    }
+    String[] roster;
+
 }

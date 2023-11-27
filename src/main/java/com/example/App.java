@@ -2,8 +2,9 @@ package com.example;
 
 import javax.swing.*;
 
-import java.awt.Image;
+import org.json.JSONException;
 
+import java.awt.Image;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
@@ -26,6 +27,9 @@ public class App implements ActionListener{
     JTextArea moreStatsTeamName = new JTextArea();
     JLabel moreStatsTeamLogo = new JLabel();
     JTextArea dataPointsBackground = new JTextArea();
+    JTextPane rosterTitle = new JTextPane();
+    JTextPane roster = new JTextPane();
+    JTextArea rosterBackground = new JTextArea();
 
     // General variables
     static JFrame frame;
@@ -49,7 +53,7 @@ public class App implements ActionListener{
 
         frame = new JFrame("NHL Stats");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setSize(650, 700);
+        frame.setSize(650, 850);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.DARK_GRAY);
 
@@ -57,26 +61,26 @@ public class App implements ActionListener{
 
         topBarTeams = new JButton("Teams");
         topBarTeams.setBounds(20, 10, 80, 30);
-        topBarTeams.setVisible(true);
         topBarTeams.setForeground(Color.black);
         topBarTeams.setBackground(myOrange);
         topBarTeams.addActionListener(this);
         frame.add(topBarTeams);
+        topBarTeams.setVisible(true);
 
         moreStatsButton = new JButton("More stats");
         moreStatsButton.setBounds(300, 590, 120, 30);
-        moreStatsButton.setVisible(true);
         moreStatsButton.setForeground(Color.black);
         moreStatsButton.setBackground(Color.white);
         moreStatsButton.addActionListener(this);
         frame.add(moreStatsButton);
+        moreStatsButton.setVisible(true);
 
         ImageIcon topBarImg = new ImageIcon("images/topBar.png");
         topBar = new JLabel(topBarImg);
         topBar.setBounds(0, 0, 650, 50);
-        topBar.setVisible(true);
         topBar.setBackground(new Color(30, 30, 30));
         frame.add(topBar);
+        topBar.setVisible(true);
 
         ////////////////////////////
 
@@ -86,8 +90,8 @@ public class App implements ActionListener{
             images[teamIndex] = new JLabel();
             images[teamIndex].setIcon(img);
             images[teamIndex].setBounds(275, 330, 270, 200);
-            images[teamIndex].setVisible(false);
             frame.add(images[teamIndex]);
+            images[teamIndex].setVisible(false);
         }
 
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
@@ -105,7 +109,6 @@ public class App implements ActionListener{
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex] = new JTextArea();
-            infoArray[teamIndex].setVisible(false);
             infoArray[teamIndex].setBounds(300, 70, 250, 500);
             infoArray[teamIndex].setBackground(new Color(30, 30, 30));
             infoArray[teamIndex].setForeground(Color.white);
@@ -113,6 +116,7 @@ public class App implements ActionListener{
             infoArray[teamIndex].setEditable(false);
             infoArray[teamIndex].setBorder(BorderFactory.createLineBorder(myOrange));
             frame.add(infoArray[teamIndex]);
+            infoArray[teamIndex].setVisible(false);
         }
 
         showTeamInfo(0);
@@ -138,7 +142,12 @@ public class App implements ActionListener{
 
         if(e.getSource() == moreStatsButton && currentPage != 1){
             currentPage = 1;
-            showMoreStatsPage(currentSelectedTeamIndex);
+            try {
+                showMoreStatsPage(currentSelectedTeamIndex);
+            } catch (JSONException | IOException | URISyntaxException e1) {
+                System.out.println("Error showing more stats page");
+                e1.printStackTrace();
+            }
         }
 
         if(e.getSource() == topBarTeams && currentPage != 0){
@@ -152,6 +161,7 @@ public class App implements ActionListener{
                     showTeamInfo(teamIndex);
                     currentSelectedTeamIndex = teamIndex;
                 } catch (IOException | URISyntaxException e1) {
+                    System.out.println("Error showing team info");
                     e1.printStackTrace();
                 }
             } else {
@@ -200,7 +210,11 @@ public class App implements ActionListener{
     }
 
     /** Shows more stats for chosen team */
-    public void showMoreStatsPage(int index){
+    public void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException{
+
+        if(teams[index].roster == null){
+            APIStuff.populateTeamRoster(index);
+        }
 
         moreStatsButton.setBackground(myOrange);
         moreStatsButton.setVisible(false);
@@ -220,25 +234,25 @@ public class App implements ActionListener{
         resizedLogo = new ImageIcon(resizedLogo.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH));
         moreStatsTeamLogo.setIcon(resizedLogo);
         moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+8, 50, 70, 70);
-        moreStatsTeamLogo.setVisible(true);
         frame.add(moreStatsTeamLogo);
+        moreStatsTeamLogo.setVisible(true);
 
         moreStatsTeamName.setText(teams[index].name);
         moreStatsTeamName.setBounds(20, 70, 230, 30);
         moreStatsTeamName.setFont(myFontBigger);
         moreStatsTeamName.setBackground(Color.darkGray);
         moreStatsTeamName.setForeground(Color.white);
-        moreStatsTeamName.setVisible(true);
         moreStatsTeamName.setEditable(false);
         frame.add(moreStatsTeamName);
+        moreStatsTeamName.setVisible(true);
 
-        seasonPerformance.setBounds(70, 185, 200, 200);
+        seasonPerformance.setBounds(70, 170, 200, 200);
         seasonPerformance.setFont(myFontLighterBigger);
         seasonPerformance.setBackground(new Color(30, 30, 30));
         seasonPerformance.setForeground(Color.white);
-        seasonPerformance.setVisible(true);
         seasonPerformance.setEditable(false);
         frame.add(seasonPerformance);
+        seasonPerformance.setVisible(true);
 
         dataPoints = new JLabel[teams[index].allSeasonMatches.length];
         ImageIcon greenPoint = new ImageIcon("images/greenpoint.png");
@@ -263,8 +277,8 @@ public class App implements ActionListener{
                 } else {
                     dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()-6, 5, 5);
                 }
-                dataPoints[i].setVisible(true);
                 frame.add(dataPoints[i]);
+                dataPoints[i].setVisible(true);
 
             } else {
 
@@ -277,8 +291,8 @@ public class App implements ActionListener{
                 } else {
                     dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()+6, 5, 5);
                 }
-                dataPoints[i].setVisible(true);
                 frame.add(dataPoints[i]);
+                dataPoints[i].setVisible(true);
 
             }
         }
@@ -291,10 +305,44 @@ public class App implements ActionListener{
   
         dataPointsBackground.setBounds(40, 145, 500, 300);
         dataPointsBackground.setBackground(new Color(30, 30, 30));
-        dataPointsBackground.setVisible(true);
         dataPointsBackground.setEditable(false);
-        dataPointsBackground.setBorder(BorderFactory.createLineBorder(myOrange, 5, true));
+        dataPointsBackground.setBorder(BorderFactory.createLineBorder(myOrange));
         frame.add(dataPointsBackground);
+        dataPointsBackground.setVisible(true);
+
+        // Roster info //
+
+        rosterTitle.setText(teams[index].name + " roster:");
+        rosterTitle.setBounds(70, 480, 440, 50);
+        rosterTitle.setFont(myFontLighterBigger);
+        rosterTitle.setBackground(new Color(30, 30, 30));
+        rosterTitle.setForeground(Color.white);
+        rosterTitle.setEditable(false);
+        frame.add(rosterTitle);
+        rosterTitle.setVisible(true);
+
+        roster.setText("");
+        for(int i = 0; i < teams[index].roster.length; i++){
+            roster.setText(roster.getText() + teams[index].roster[i]);
+            if(i < teams[index].roster.length-1){
+                roster.setText(roster.getText() + ", ");
+            }
+        }
+        roster.setBounds(70, 530, 440, 200);
+        roster.setFont(myFontLighter);
+        roster.setBackground(new Color(30, 30, 30));
+        roster.setForeground(Color.white);
+        roster.setEditable(false);
+        frame.add(roster);
+        roster.setVisible(true);
+
+        rosterBackground.setBounds(40, dataPointsBackground.getY()+310, 500, 300);
+        rosterBackground.setBackground(new Color(30, 30, 30));
+        rosterBackground.setEditable(false);
+        rosterBackground.setBorder(BorderFactory.createLineBorder(myOrange));
+        frame.add(rosterBackground);
+        rosterBackground.setVisible(true);
+
     }
 
     /** Shows the teams page */
@@ -321,6 +369,9 @@ public class App implements ActionListener{
         moreStatsTeamName.setVisible(false);
         seasonPerformance.setVisible(false);
         dataPointsBackground.setVisible(false);
+        rosterTitle.setVisible(false);
+        roster.setVisible(false);
+        rosterBackground.setVisible(false);
         ///////////////////////////////////
 
         infoArray[currentSelectedTeamIndex].setVisible(true);
