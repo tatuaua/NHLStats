@@ -12,7 +12,6 @@ import org.json.JSONObject;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Arrays;
 
 public class APIStuff {
 
@@ -141,7 +140,10 @@ public class APIStuff {
 
     public static void populateTeamRoster(int teamIndex) throws JSONException, IOException, URISyntaxException{
 
-        StringBuilder b = new StringBuilder();
+        long start = System.nanoTime();
+
+        StringBuilder namesBuilder = new StringBuilder();
+        StringBuilder idsBuilder = new StringBuilder();
         String teamId = Integer.toString(teams[teamIndex].teamId);
 
         JSONObject jsonObj = new JSONObject(getJSON("https://records.nhl.com/site/api/player/byTeam/" + teamId));
@@ -150,12 +152,24 @@ public class APIStuff {
         for(int i = 0; i < arrObj.length(); i++){
 
             if(arrObj.getJSONObject(i).getString("onRoster").equals("Y")){
-                b.append(":" + arrObj.getJSONObject(i).getString("fullName"));
+                namesBuilder.append(":" + arrObj.getJSONObject(i).getString("fullName"));
+                idsBuilder.append(":" + arrObj.getJSONObject(i).getInt("id"));
             }
         }
 
-        teams[teamIndex].roster = b.toString().substring(1).split(":");
-        System.out.println(Arrays.toString(teams[teamIndex].roster));
+        String[] rosterNames;
+        String[] rosterIds;
+        rosterNames = namesBuilder.toString().substring(1).split(":"); // "balls":"gingerbread" --> ["balls", "gingerbread"]
+        rosterIds = idsBuilder.toString().substring(1).split(":"); 
+
+        teams[teamIndex].roster = new Player[rosterNames.length];
+
+        for(int j = 0; j < rosterNames.length; j++){
+            teams[teamIndex].roster[j] = new Player(rosterNames[j], rosterIds[j]);
+        }
+
+        long total = System.nanoTime()-start;    
+        System.out.println("Populating rosters took " + total/1000000 + " ms");
     }
 
     private static String getJSON(String urlString) throws IOException, URISyntaxException {

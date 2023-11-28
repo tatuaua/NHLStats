@@ -68,7 +68,7 @@ public class App implements ActionListener{
         topBarTeams.setVisible(true);
 
         moreStatsButton = new JButton("More stats");
-        moreStatsButton.setBounds(300, 590, 120, 30);
+        moreStatsButton.setBounds(300, 615, 120, 30);
         moreStatsButton.setForeground(Color.black);
         moreStatsButton.setBackground(Color.white);
         moreStatsButton.addActionListener(this);
@@ -97,9 +97,10 @@ public class App implements ActionListener{
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
 
             teamNameButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
-            teamNameButton.setBounds(20, teamIndex*18+60, 200, 20);
+            teamNameButton.setBounds(30, teamIndex*21+90, 200, 20);
             teamNameButton.setForeground(Color.white);
             teamNameButton.setBackground(null);
+            teamNameButton.setFont(myFont);
             teamNameButton.setBorder(null);
             teamNameButton.addActionListener(this);
             teamNameButtons[teamIndex] = teamNameButton;
@@ -109,7 +110,7 @@ public class App implements ActionListener{
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex] = new JTextArea();
-            infoArray[teamIndex].setBounds(300, 70, 250, 500);
+            infoArray[teamIndex].setBounds(300, 95, 250, 500);
             infoArray[teamIndex].setBackground(new Color(30, 30, 30));
             infoArray[teamIndex].setForeground(Color.white);
             infoArray[teamIndex].setFont(myFontLighter);
@@ -323,7 +324,7 @@ public class App implements ActionListener{
 
         roster.setText("");
         for(int i = 0; i < teams[index].roster.length; i++){
-            roster.setText(roster.getText() + teams[index].roster[i]);
+            roster.setText(roster.getText() + teams[index].roster[i].name);
             if(i < teams[index].roster.length-1){
                 roster.setText(roster.getText() + ", ");
             }
