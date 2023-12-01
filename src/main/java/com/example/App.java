@@ -40,11 +40,10 @@ public class App implements ActionListener{
     int currentSelectedTeamIndex;
     int currentPage = 0;
     
-    // TODO: add a font
-    Font myFont = new Font(null, Font.BOLD, 15);
-    Font myFontBigger = new Font(null, Font.BOLD, 20);
-    Font myFontLighter = new Font(null, Font.PLAIN, 15);
-    Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
+    Font myFont = new Font(Font.DIALOG, Font.BOLD, 15);
+    Font myFontBigger = new Font(Font.DIALOG, Font.BOLD, 20);
+    Font myFontLighter = new Font(Font.DIALOG, Font.PLAIN, 15);
+    Font myFontLighterBigger = new Font(Font.DIALOG, Font.PLAIN, 20);
     Color myOrange = new Color(248,158,124);
 
     /** Defining visible elements of the app */
