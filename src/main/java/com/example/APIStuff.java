@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.time.LocalDate;
 
 public class APIStuff {
@@ -52,7 +53,7 @@ public class APIStuff {
 
         String ab = teams[teamIndex].ab;
         String last5 = "";
-        String allSeasonMatches = "";
+        String games = "";
 
 
         JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/club-schedule-season/" + ab + "/20232024"));
@@ -70,26 +71,34 @@ public class APIStuff {
                 continue;
             }
 
+            // If the team were searching for is the awayteam
             if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getString("abbrev").equals(teams[teamIndex].ab)){
 
+                // If the team were searching for won this game    
                 if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getInt("score") >= arrObj.getJSONObject(k).getJSONObject("homeTeam").getInt("score")){
-                    allSeasonMatches = allSeasonMatches + " W";
+                    games = games + " W";
+
+                // If the team were searching for lost this game
                 } else {
-                    allSeasonMatches = allSeasonMatches + " L";
+                    games = games + " L";
                 }
                 
-            } else {
+            // If the team were searching for is the hometeam
+            } else { 
 
+                // If the team were searching for lost this game
                 if(arrObj.getJSONObject(k).getJSONObject("awayTeam").getInt("score") >= arrObj.getJSONObject(k).getJSONObject("homeTeam").getInt("score")){
-                    allSeasonMatches = allSeasonMatches + " L";
+                    games = games + " L";
+                
+                // If the team were searching for won this game    
                 } else {
-                    allSeasonMatches = allSeasonMatches + " W";
+                    games = games + " W";
                 }
 
             }
         }
 
-        String[] arr = allSeasonMatches.substring(1).split(" "); // Remove first space and split into array of strings
+        String[] arr = games.substring(1).split(" "); // Remove first space and split into array of strings
 
         for(int x = 5; x > 0; x--){ // Getting the last 5 matches' results
 
@@ -172,21 +181,58 @@ public class APIStuff {
         System.out.println("Populating rosters took " + total/1000000 + " ms");
     }
 
+    public static void populatePlayerInfo(String playerId, int teamIndex) throws JSONException, IOException, URISyntaxException{
+
+        if(teams[teamIndex].roster.length == 0){
+            throw new NullPointerException("Cannot populate player info for an empty roster");
+        }
+
+        long start = System.nanoTime();
+
+        JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/player/"+ playerId + "/landing"));
+
+        for(int i = 0; i < teams[teamIndex].roster.length; i++){
+            if(teams[teamIndex].roster[i].playerId == playerId){
+                teams[teamIndex].roster[i].points = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("points");
+                teams[teamIndex].roster[i].goals = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("goals");
+                teams[teamIndex].roster[i].assists = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("assists");
+            }
+        }
+
+        long total = System.nanoTime()-start;    
+        System.out.println("Populating player info took " + total/1000000 + " ms");
+
+        
+    }
+
     private static String getJSON(String urlString) throws IOException, URISyntaxException {
 
-        URI uri = new URI(urlString);
-        URL url = uri.toURL();
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("GET");
-        con.setDoOutput(true);
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;       
         StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
+
+        try {
+
+            URI uri = new URI(urlString);
+            URL url = uri.toURL();
+            
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("GET");
+            con.setDoOutput(true);
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;       
+            content = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+            
+        } catch (UnknownHostException e){
+            System.out.println("ERROR: Problem with internet connection");
         }
-        in.close();
+
+        if(content.toString().length() == 0){
+            throw new IOException("ERROR: Problem with API");
+        }
 
         return content.toString();
     }

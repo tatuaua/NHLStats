@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
@@ -30,6 +31,8 @@ public class App implements ActionListener{
     JTextPane rosterTitle = new JTextPane();
     JTextPane roster = new JTextPane();
     JTextArea rosterBackground = new JTextArea();
+    JTextField rosterSearch = new JTextField();
+    JButton rosterSearchButton = new JButton("");
 
     // General variables
     static JFrame frame;
@@ -39,6 +42,7 @@ public class App implements ActionListener{
     JLabel[] images = new JLabel[TEAM_AMOUNT];
     int currentSelectedTeamIndex;
     int currentPage = 0;
+    
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
     Font myFontLighter = new Font(null, Font.PLAIN, 15);
@@ -174,6 +178,8 @@ public class App implements ActionListener{
     /** Shows the team info for a specified index */
     public void showTeamInfo(int index) throws IOException, URISyntaxException{
 
+        System.out.println(teams[index].ab);
+
         String bonusMsg = "";
 
         if(teams[index].points == teams[0].points){
@@ -234,12 +240,12 @@ public class App implements ActionListener{
         ImageIcon resizedLogo = new ImageIcon("images/" + teams[index].ab + ".png");
         resizedLogo = new ImageIcon(resizedLogo.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH));
         moreStatsTeamLogo.setIcon(resizedLogo);
-        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+8, 50, 70, 70);
+        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+8, 55, 70, 70);
         frame.add(moreStatsTeamLogo);
         moreStatsTeamLogo.setVisible(true);
 
         moreStatsTeamName.setText(teams[index].name);
-        moreStatsTeamName.setBounds(20, 70, 230, 30);
+        moreStatsTeamName.setBounds(20, 75, 230, 30);
         moreStatsTeamName.setFont(myFontBigger);
         moreStatsTeamName.setBackground(Color.darkGray);
         moreStatsTeamName.setForeground(Color.white);
@@ -302,7 +308,7 @@ public class App implements ActionListener{
         winPct = (double)wins/(double)teams[index].allSeasonMatches.length*100;
         DecimalFormat df = new DecimalFormat("0.00");
 
-        seasonPerformance.setText("Season performance" + "\n\n Wins: " + wins + "\n\n Losses: " + losses + "\n\n Win %: " + df.format(winPct));
+        seasonPerformance.setText("Season performance:" + "\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df.format(winPct));
   
         dataPointsBackground.setBounds(40, 145, 500, 300);
         dataPointsBackground.setBackground(new Color(30, 30, 30));
@@ -324,18 +330,39 @@ public class App implements ActionListener{
 
         roster.setText("");
         for(int i = 0; i < teams[index].roster.length; i++){
+
             roster.setText(roster.getText() + teams[index].roster[i].name);
+
             if(i < teams[index].roster.length-1){
                 roster.setText(roster.getText() + ", ");
             }
         }
-        roster.setBounds(70, 530, 440, 200);
+        roster.setBounds(70, 530, 440, 170);
         roster.setFont(myFontLighter);
         roster.setBackground(new Color(30, 30, 30));
         roster.setForeground(Color.white);
         roster.setEditable(false);
         frame.add(roster);
         roster.setVisible(true);
+
+        rosterSearch.setBounds(70, 700, 200, 30);
+        rosterSearch.setFont(myFontLighter);
+        rosterSearch.setBackground(new Color(30, 30, 30));
+        rosterSearch.setForeground(Color.white);
+        rosterSearch.setBorder(BorderFactory.createLineBorder(myOrange));
+        rosterSearch.setEditable(true);
+        rosterSearch.setText("Insert player name");
+        frame.add(rosterSearch);
+        rosterSearch.setVisible(true);
+
+        ImageIcon searchIcon = new ImageIcon("images/search.png");
+        searchIcon = new ImageIcon(searchIcon.getImage().getScaledInstance(27, 27, Image.SCALE_SMOOTH));
+        rosterSearchButton.setIcon(searchIcon);
+        rosterSearchButton.setBorder(null);
+        rosterSearchButton.setBackground(new Color(30, 30, 30));
+        rosterSearchButton.setBounds(275, 700, 30, 30);
+        frame.add(rosterSearchButton);
+        rosterSearchButton.setVisible(true);
 
         rosterBackground.setBounds(40, dataPointsBackground.getY()+310, 500, 300);
         rosterBackground.setBackground(new Color(30, 30, 30));
