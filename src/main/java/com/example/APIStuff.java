@@ -122,7 +122,7 @@ public class APIStuff {
         String date = LocalDate.now().toString();
 
         JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/club-schedule/" + ab +  "/week/now"));
-        
+
         //Fetching nested Json using JSONArray
         JSONArray arrObj = jsonObj.getJSONArray("games");
 
@@ -192,7 +192,7 @@ public class APIStuff {
         JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/player/"+ playerId + "/landing"));
 
         for(int i = 0; i < teams[teamIndex].roster.length; i++){
-            if(teams[teamIndex].roster[i].playerId == playerId){
+            if(teams[teamIndex].roster[i].playerId == playerId && teams[teamIndex].roster[i] != null){
                 teams[teamIndex].roster[i].points = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("points");
                 teams[teamIndex].roster[i].goals = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("goals");
                 teams[teamIndex].roster[i].assists = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("assists");

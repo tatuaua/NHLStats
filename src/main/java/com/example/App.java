@@ -1,14 +1,11 @@
 package com.example;
 
 import javax.swing.*;
-
 import org.json.JSONException;
-
 import java.awt.Image;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
@@ -43,6 +40,7 @@ public class App implements ActionListener{
     int currentSelectedTeamIndex;
     int currentPage = 0;
     
+    // TODO: add a font
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
     Font myFontLighter = new Font(null, Font.PLAIN, 15);
@@ -147,8 +145,11 @@ public class App implements ActionListener{
 
         if(e.getSource() == moreStatsButton && currentPage != 1){
             currentPage = 1;
+
             try {
+
                 showMoreStatsPage(currentSelectedTeamIndex);
+
             } catch (JSONException | IOException | URISyntaxException e1) {
                 System.out.println("Error showing more stats page");
                 e1.printStackTrace();
@@ -160,11 +161,36 @@ public class App implements ActionListener{
             showTeamsPage();
         }
 
+        if(e.getSource() == rosterSearchButton){
+
+            String searched = rosterSearch.getText();
+
+            System.out.println("Searching for " + searched);
+
+            for(Player player : teams[currentSelectedTeamIndex].roster){
+
+                if(player.name.equals(searched)){
+
+                    try {
+
+                        showPlayerInfo(player.playerId);
+
+                    } catch (JSONException | IOException | URISyntaxException e1) {
+                        System.out.println("Error showing player info");
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        }
+
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Doing this with a loop to avoid code bloat
             if(e.getSource() == teamNameButtons[teamIndex]){
+
                 try {
+
                     showTeamInfo(teamIndex);
                     currentSelectedTeamIndex = teamIndex;
+
                 } catch (IOException | URISyntaxException e1) {
                     System.out.println("Error showing team info");
                     e1.printStackTrace();
@@ -356,11 +382,12 @@ public class App implements ActionListener{
         rosterSearch.setVisible(true);
 
         ImageIcon searchIcon = new ImageIcon("images/search.png");
-        searchIcon = new ImageIcon(searchIcon.getImage().getScaledInstance(27, 27, Image.SCALE_SMOOTH));
+        searchIcon = new ImageIcon(searchIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
         rosterSearchButton.setIcon(searchIcon);
         rosterSearchButton.setBorder(null);
         rosterSearchButton.setBackground(new Color(30, 30, 30));
         rosterSearchButton.setBounds(275, 700, 30, 30);
+        rosterSearchButton.addActionListener(this);
         frame.add(rosterSearchButton);
         rosterSearchButton.setVisible(true);
 
@@ -371,6 +398,20 @@ public class App implements ActionListener{
         frame.add(rosterBackground);
         rosterBackground.setVisible(true);
 
+    }
+
+    public void showPlayerInfo(String playerId) throws JSONException, IOException, URISyntaxException{
+
+        APIStuff.populatePlayerInfo(playerId, currentSelectedTeamIndex);
+
+        for(Player player : teams[currentSelectedTeamIndex].roster){
+
+            if(player.playerId == playerId) {
+                System.out.println("Found " + player.name);
+                System.out.println("Points: " + player.points);
+                System.out.println("Goals: " + player.goals);
+            }
+        }
     }
 
     /** Shows the teams page */
@@ -400,6 +441,8 @@ public class App implements ActionListener{
         rosterTitle.setVisible(false);
         roster.setVisible(false);
         rosterBackground.setVisible(false);
+        rosterSearch.setVisible(false);
+        rosterSearchButton.setVisible(false);
         ///////////////////////////////////
 
         infoArray[currentSelectedTeamIndex].setVisible(true);
