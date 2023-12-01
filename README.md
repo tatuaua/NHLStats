@@ -24,3 +24,7 @@ Page 1:
 Page 2:
 
 ![page2](images/nhlstatsv1p2.png)
+
+## Try it
+
+Simply download everything in the repository and run NHL.jar. Make sure you have java installed and an internet connection.
