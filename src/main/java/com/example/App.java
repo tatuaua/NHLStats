@@ -30,6 +30,7 @@ public class App implements ActionListener{
     JTextArea rosterBackground = new JTextArea();
     JTextField rosterSearch = new JTextField();
     JButton rosterSearchButton = new JButton("");
+    JTextPane playerInfo = new JTextPane();
 
     // General variables
     static JFrame frame;
@@ -40,10 +41,10 @@ public class App implements ActionListener{
     int currentSelectedTeamIndex;
     int currentPage = 0;
     
-    Font myFont = new Font(Font.DIALOG, Font.BOLD, 15);
-    Font myFontBigger = new Font(Font.DIALOG, Font.BOLD, 20);
-    Font myFontLighter = new Font(Font.DIALOG, Font.PLAIN, 15);
-    Font myFontLighterBigger = new Font(Font.DIALOG, Font.PLAIN, 20);
+    Font myFont = new Font(null, Font.BOLD, 15);
+    Font myFontBigger = new Font(null, Font.BOLD, 20);
+    Font myFontLighter = new Font(null, Font.PLAIN, 15);
+    Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
     Color myOrange = new Color(248,158,124);
 
     /** Defining visible elements of the app */
@@ -166,19 +167,17 @@ public class App implements ActionListener{
 
             System.out.println("Searching for " + searched);
 
-            for(Player player : teams[currentSelectedTeamIndex].roster){
+            if(searched.length() == 0){
+                rosterSearch.setText("Insert player name");
+            } else {
 
-                if(player.name.equals(searched)){
+                try {
+                    showPlayerInfo(searched);
+                } catch (JSONException | IOException | URISyntaxException e1) {
+                    // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
 
-                    try {
-
-                        showPlayerInfo(player.playerId);
-
-                    } catch (JSONException | IOException | URISyntaxException e1) {
-                        System.out.println("Error showing player info");
-                        e1.printStackTrace();
-                    }
-                }
             }
         }
 
@@ -399,19 +398,32 @@ public class App implements ActionListener{
 
     }
 
-    public void showPlayerInfo(String playerId) throws JSONException, IOException, URISyntaxException{
+    public void showPlayerInfo(String name) throws JSONException, IOException, URISyntaxException{
 
-        APIStuff.populatePlayerInfo(playerId, currentSelectedTeamIndex);
+        Player foundPlayer = new Player();
 
         for(Player player : teams[currentSelectedTeamIndex].roster){
+            if(player.name.equals(name)){
+                foundPlayer = player;
 
-            if(player.playerId == playerId) {
-                System.out.println("Found " + player.name);
-                System.out.println("Points: " + player.points);
-                System.out.println("Goals: " + player.goals);
+                System.out.println(foundPlayer.playerId);
             }
         }
+
+        if(foundPlayer.playerId.length() != 0){
+            APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
+        }
+
+        playerInfo.setText("G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points);
+        playerInfo.setBounds(315, 700, 150, 20);
+        playerInfo.setFont(myFontLighter);
+        playerInfo.setBackground(new Color(30, 30, 30));
+        playerInfo.setForeground(Color.white);
+        playerInfo.setEditable(false);
+        frame.add(playerInfo);
+        playerInfo.setVisible(true);
     }
+
 
     /** Shows the teams page */
     public void showTeamsPage(){

@@ -7,6 +7,13 @@ Shoutout Drew Hynes for documenting the NHL API: https://gitlab.com/dword4/nhlap
 
 **Explanation:**
 
+This is a desktop app for viewing live data about the NHL. It includes:
+ - Season statistics (standings)
+ - Team statistics (points, wins, losses, roster)
+ - Player statistics (points, goals, assists)
+
+**Structure:**
+
 The *images* folder contains the images used in the program
 
 The *APIStuff.java* file contains all the calls made to the api

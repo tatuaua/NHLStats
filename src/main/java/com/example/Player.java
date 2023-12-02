@@ -2,11 +2,15 @@ package com.example;
 
 public class Player {
 
-    String name;
-    String playerId;
-    int points;
-    int goals;
-    int assists;
+    String name = "";
+    String playerId = "";
+    int points = 0;
+    int goals = 0;
+    int assists = 0;
+
+    Player(){
+
+    }
 
     Player(String name, String playerId){
 
