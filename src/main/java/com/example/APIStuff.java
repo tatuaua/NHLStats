@@ -184,7 +184,7 @@ public class APIStuff {
     public static void populatePlayerInfo(String playerId, int teamIndex) throws JSONException, IOException, URISyntaxException{
 
         if(teams[teamIndex].roster.length == 0){
-            throw new NullPointerException("Cannot populate player info for an empty roster");
+            throw new NullPointerException("ERROR Cannot populate player info for an empty roster");
         }
 
         long start = System.nanoTime();
@@ -196,6 +196,7 @@ public class APIStuff {
                 teams[teamIndex].roster[i].points = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("points");
                 teams[teamIndex].roster[i].goals = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("goals");
                 teams[teamIndex].roster[i].assists = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("assists");
+                break;
             }
         }
 

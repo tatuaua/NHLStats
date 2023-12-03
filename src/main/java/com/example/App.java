@@ -1,6 +1,9 @@
 package com.example;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 import org.json.JSONException;
 import java.awt.Image;
 import java.awt.Color;
@@ -174,7 +177,7 @@ public class App implements ActionListener{
                 try {
                     showPlayerInfo(searched);
                 } catch (JSONException | IOException | URISyntaxException e1) {
-                    // TODO Auto-generated catch block
+                    System.out.println("Problem showing player info");
                 e1.printStackTrace();
             }
 
@@ -379,6 +382,28 @@ public class App implements ActionListener{
         frame.add(rosterSearch);
         rosterSearch.setVisible(true);
 
+        rosterSearch.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateToolTip();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateToolTip();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                // Plain text components do not fire these events
+            }
+
+            private void updateToolTip() {
+                playerInfo.setText("");
+            }
+        });
+
         ImageIcon searchIcon = new ImageIcon("images/search.png");
         searchIcon = new ImageIcon(searchIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
         rosterSearchButton.setIcon(searchIcon);
@@ -410,11 +435,6 @@ public class App implements ActionListener{
             }
         }
 
-        if(foundPlayer.playerId.length() != 0){
-            APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
-        }
-
-        playerInfo.setText("G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points);
         playerInfo.setBounds(315, 700, 150, 20);
         playerInfo.setFont(myFontLighter);
         playerInfo.setBackground(new Color(30, 30, 30));
@@ -422,6 +442,15 @@ public class App implements ActionListener{
         playerInfo.setEditable(false);
         frame.add(playerInfo);
         playerInfo.setVisible(true);
+
+        if(foundPlayer.playerId.length() != 0){
+            APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
+            playerInfo.setText("G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points);
+
+        } else {
+            
+            playerInfo.setText("Player not found");
+        }
     }
 
 
@@ -454,6 +483,7 @@ public class App implements ActionListener{
         rosterBackground.setVisible(false);
         rosterSearch.setVisible(false);
         rosterSearchButton.setVisible(false);
+        playerInfo.setVisible(false);
         ///////////////////////////////////
 
         infoArray[currentSelectedTeamIndex].setVisible(true);
