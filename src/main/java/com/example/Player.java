@@ -7,6 +7,10 @@ public class Player {
     int points = 0;
     int goals = 0;
     int assists = 0;
+    /** Points per game this season */
+    double ppg;
+    /** Average points per game of career */
+    double historicalPpg;
 
     Player(){
 

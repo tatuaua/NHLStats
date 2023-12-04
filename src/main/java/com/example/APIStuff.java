@@ -196,6 +196,24 @@ public class APIStuff {
                 teams[teamIndex].roster[i].points = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("points");
                 teams[teamIndex].roster[i].goals = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("goals");
                 teams[teamIndex].roster[i].assists = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("assists");
+                teams[teamIndex].roster[i].ppg = (double)teams[teamIndex].roster[i].points / (double)jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("gamesPlayed");
+                
+                JSONObject season;
+                JSONArray seasons = jsonObj.getJSONArray("seasonTotals");
+                int allTimePoints = 0;
+                int allTimeGames = 0;
+
+                for(int j = 0; j < seasons.length(); j++){
+                    season = seasons.getJSONObject(j);
+
+                    if(season.getString("leagueAbbrev").equals("NHL")){
+                        allTimePoints += season.getInt("points");
+                        allTimeGames += season.getInt("gamesPlayed");
+                    }
+                }
+
+                teams[teamIndex].roster[i].historicalPpg = (double)allTimePoints / (double)allTimeGames;
+
                 break;
             }
         }

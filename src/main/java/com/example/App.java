@@ -457,6 +457,7 @@ public class App implements ActionListener{
             APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
             playerInfo.setText("G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points);
 
+            System.out.println("historical ppg: " + foundPlayer.historicalPpg + " season ppg: " + foundPlayer.ppg);
         } else {
             
             playerInfo.setText("Player not found");
