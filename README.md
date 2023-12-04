@@ -28,11 +28,11 @@ The *Player.java* contains the data structure for a player.
 
 Page 1:
 
-![page1](images/nhlstatsv1p1.png)
+![page1](images/nhlstatsv2p1.png)
 
 Page 2:
 
-![page2](images/nhlstatsv1p2.png)
+![page2](images/nhlstatsv2p2.png)
 
 ## Try it
 
