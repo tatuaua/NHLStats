@@ -55,7 +55,6 @@ public class APIStuff {
         String last5 = "";
         String games = "";
 
-
         JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/club-schedule-season/" + ab + "/20232024"));
         
         //Fetching nested Json using JSONArray
@@ -178,7 +177,7 @@ public class APIStuff {
         }
 
         long total = System.nanoTime()-start;    
-        System.out.println("Populating rosters took " + total/1000000 + " ms");
+        System.out.println("Populating roster took " + total/1000000 + " ms");
     }
 
     public static void populatePlayerInfo(String playerId, int teamIndex) throws JSONException, IOException, URISyntaxException{

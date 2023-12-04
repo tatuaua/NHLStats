@@ -23,6 +23,7 @@ public class App implements ActionListener{
     JTextArea[] infoArray = new JTextArea[TEAM_AMOUNT];
 
     // Part of the more stats page
+    JTextPane playerInfo = new JTextPane();
     JLabel[] dataPoints;
     JTextPane seasonPerformance = new JTextPane();
     JTextArea moreStatsTeamName = new JTextArea();
@@ -33,9 +34,10 @@ public class App implements ActionListener{
     JTextArea rosterBackground = new JTextArea();
     JTextField rosterSearch = new JTextField();
     JButton rosterSearchButton = new JButton("");
-    JTextPane playerInfo = new JTextPane();
+
 
     // General variables
+    DecimalFormat df = new DecimalFormat("0.00");
     static JFrame frame;
     JLabel topBar;
     JButton topBarTeams, moreStatsButton;
@@ -52,6 +54,8 @@ public class App implements ActionListener{
 
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
+
+        System.out.println(System.nanoTime()/60000000);
 
         APIStuff.populateArrays();
         teams = APIStuff.getTeams();
@@ -333,7 +337,6 @@ public class App implements ActionListener{
 
 
         winPct = (double)wins/(double)teams[index].allSeasonMatches.length*100;
-        DecimalFormat df = new DecimalFormat("0.00");
 
         seasonPerformance.setText("Season performance:" + "\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df.format(winPct));
   
@@ -445,7 +448,7 @@ public class App implements ActionListener{
             }
         }
 
-        playerInfo.setBounds(315, 700, 150, 20);
+        playerInfo.setBounds(315, 660, 200, 60);
         playerInfo.setFont(myFontLighter);
         playerInfo.setBackground(new Color(30, 30, 30));
         playerInfo.setForeground(Color.white);
@@ -455,12 +458,16 @@ public class App implements ActionListener{
 
         if(foundPlayer.playerId.length() != 0){
             APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
-            playerInfo.setText("G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points);
-
+            playerInfo.setText(
+                "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
+                + "\nSeason PPG: " + df.format(foundPlayer.ppg)
+                + "\nAll time PPG: " + df.format(foundPlayer.historicalPpg)
+            );
+            
             System.out.println("historical ppg: " + foundPlayer.historicalPpg + " season ppg: " + foundPlayer.ppg);
         } else {
             
-            playerInfo.setText("Player not found");
+            playerInfo.setText("\n\nPlayer not found");
         }
     }
 
