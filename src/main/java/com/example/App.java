@@ -309,7 +309,7 @@ public class App implements ActionListener{
                 if(i == 0){
                     dataPoints[i].setBounds(270, 280, 5, 5);
                 } else {
-                    dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()-6, 5, 5);
+                    dataPoints[i].setBounds(dataPoints[i-1].getX()+8, dataPoints[i-1].getY()-6, 5, 5);
                 }
                 frame.add(dataPoints[i]);
                 dataPoints[i].setVisible(true);
@@ -323,7 +323,7 @@ public class App implements ActionListener{
                 if(i == 0){
                     dataPoints[i].setBounds(270, 280, 5, 5);
                 } else {
-                    dataPoints[i].setBounds(dataPoints[i-1].getX()+9, dataPoints[i-1].getY()+6, 5, 5);
+                    dataPoints[i].setBounds(dataPoints[i-1].getX()+8, dataPoints[i-1].getY()+6, 5, 5);
                 }
                 frame.add(dataPoints[i]);
                 dataPoints[i].setVisible(true);
@@ -382,7 +382,17 @@ public class App implements ActionListener{
         frame.add(rosterSearch);
         rosterSearch.setVisible(true);
 
-        rosterSearch.getDocument().addDocumentListener(new DocumentListener() {
+        Action action = new AbstractAction() // Allows the user to press enter to search
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                rosterSearchButton.doClick();
+            }
+        };
+        rosterSearch.addActionListener(action);
+
+        rosterSearch.getDocument().addDocumentListener(new DocumentListener() { // Empties the playerinfo when a change is noticed
 
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -428,7 +438,7 @@ public class App implements ActionListener{
         Player foundPlayer = new Player();
 
         for(Player player : teams[currentSelectedTeamIndex].roster){
-            if(player.name.equals(name)){
+            if(player.name.equalsIgnoreCase(name)){
                 foundPlayer = player;
 
                 System.out.println(foundPlayer.playerId);
