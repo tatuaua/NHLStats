@@ -6,16 +6,12 @@ import javax.swing.event.DocumentListener;
 
 import org.json.JSONException;
 import java.awt.Image;
-import java.awt.Insets;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.event.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
-import javax.swing.border.Border;
 
 public class App implements ActionListener{
 
@@ -152,7 +148,7 @@ public class App implements ActionListener{
                 try {
                     showPlayerInfo(rosterSearch.getText());
                 } catch (JSONException | IOException | URISyntaxException e1) {
-                    // TODO Auto-generated catch block
+                    System.out.println("ERROR: problem showing playerinfo when pressing enter");
                     e1.printStackTrace();
                 }
             }
@@ -203,7 +199,7 @@ public class App implements ActionListener{
                 showMoreStatsPage(currentSelectedTeamIndex);
 
             } catch (JSONException | IOException | URISyntaxException e1) {
-                System.out.println("Error showing more stats page");
+                System.out.println("ERROR: problem showing more stats page");
                 e1.printStackTrace();
             }
         }
@@ -242,7 +238,7 @@ public class App implements ActionListener{
                     currentSelectedTeamIndex = teamIndex;
 
                 } catch (IOException | URISyntaxException e1) {
-                    System.out.println("Error showing team info");
+                    System.out.println("ERROR: problem showing team info");
                     e1.printStackTrace();
                 }
             } else {
@@ -403,15 +399,29 @@ public class App implements ActionListener{
         frame.add(rosterTitle);
         rosterTitle.setVisible(true);
 
+        String[] positions = {"Offense", "Defense", "Goalie"};
         roster.setText("");
-        for(int i = 0; i < teams[index].roster.length; i++){
 
-            roster.setText(roster.getText() + teams[index].roster[i].name);
+        for(String position : positions){ // I could make them separate text elements but wheres the fun in that
 
-            if(i < teams[index].roster.length-1){
-                roster.setText(roster.getText() + ", ");
+            for(int j = 0; j < teams[index].roster.length; j++){
+
+                if(j == 0 && !position.equals("Offense")){
+                    roster.setText(roster.getText() + "\n\n");
+                }
+
+                if(j == 0){
+                    roster.setText(roster.getText() + position + ": ");
+                }
+
+                if(teams[index].roster[j].position.equals(position)){
+                    roster.setText(roster.getText() + teams[index].roster[j].name.split(" ")[1] + ", ");
+                }
             }
         }
+
+        roster.setText(roster.getText().substring(0, roster.getText().length()-2));
+        
         roster.setBounds(70, 530, 440, 170);
         roster.setFont(myFontLighter);
         roster.setBackground(myDarkGray);
@@ -449,12 +459,13 @@ public class App implements ActionListener{
 
     }
 
+    /** Shows player info for a given name */ 
     public void showPlayerInfo(String name) throws JSONException, IOException, URISyntaxException{
 
         Player foundPlayer = new Player();
 
         for(Player player : teams[currentSelectedTeamIndex].roster){
-            if(player.name.equalsIgnoreCase(name)){
+            if(player.name.equalsIgnoreCase(name) || player.name.split(" ")[1].equalsIgnoreCase(name)){ // Also works with only last name
                 foundPlayer = player;
             }
         }
@@ -520,30 +531,5 @@ public class App implements ActionListener{
 
         infoArray[currentSelectedTeamIndex].setVisible(true);
         images[currentSelectedTeamIndex].setVisible(true);
-    }
-}
-
-class RoundedBorder implements Border {
-
-    private int radius;
-
-
-    RoundedBorder(int radius) {
-        this.radius = radius;
-    }
-
-
-    public Insets getBorderInsets(Component c) {
-        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-    }
-
-
-    public boolean isBorderOpaque() {
-        return false;
-    }
-
-
-    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
     }
 }

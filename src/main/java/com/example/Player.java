@@ -4,6 +4,7 @@ public class Player {
 
     String name = "";
     String playerId = "";
+    String position = "";
     int points = 0;
     int goals = 0;
     int assists = 0;
@@ -16,10 +17,20 @@ public class Player {
 
     }
 
-    Player(String name, String playerId){
+    Player(String name, String playerId, String position){
 
         this.name = name;
         this.playerId = playerId;
+
+        if(position.equals("L") || position.equals("C") || position.equals("R")){
+            this.position = "Offense";
+
+        } else if(position.equals("G")){
+            this.position = "Goalie";
+        
+        } else {
+            this.position = "Defense";
+        }
     }
     
 }

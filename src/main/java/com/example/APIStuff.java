@@ -152,6 +152,7 @@ public class APIStuff {
 
         StringBuilder namesBuilder = new StringBuilder();
         StringBuilder idsBuilder = new StringBuilder();
+        StringBuilder posBuilder = new StringBuilder();
         String teamId = Integer.toString(teams[teamIndex].teamId);
 
         JSONObject jsonObj = new JSONObject(getJSON("https://records.nhl.com/site/api/player/byTeam/" + teamId));
@@ -162,18 +163,21 @@ public class APIStuff {
             if(arrObj.getJSONObject(i).getString("onRoster").equals("Y")){
                 namesBuilder.append(":" + arrObj.getJSONObject(i).getString("fullName"));
                 idsBuilder.append(":" + arrObj.getJSONObject(i).getInt("id"));
+                posBuilder.append(":" + arrObj.getJSONObject(i).getString("position"));
             }
         }
 
         String[] rosterNames;
         String[] rosterIds;
+        String[] rosterPositions;
         rosterNames = namesBuilder.toString().substring(1).split(":"); // "balls":"gingerbread" --> ["balls", "gingerbread"]
         rosterIds = idsBuilder.toString().substring(1).split(":"); 
+        rosterPositions = posBuilder.toString().substring(1).split(":");
 
         teams[teamIndex].roster = new Player[rosterNames.length];
 
         for(int j = 0; j < rosterNames.length; j++){
-            teams[teamIndex].roster[j] = new Player(rosterNames[j], rosterIds[j]);
+            teams[teamIndex].roster[j] = new Player(rosterNames[j], rosterIds[j], rosterPositions[j]);
         }
 
         long total = System.nanoTime()-start;    
