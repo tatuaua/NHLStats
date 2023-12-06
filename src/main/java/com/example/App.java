@@ -6,12 +6,16 @@ import javax.swing.event.DocumentListener;
 
 import org.json.JSONException;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
+import javax.swing.border.Border;
 
 public class App implements ActionListener{
 
@@ -45,17 +49,17 @@ public class App implements ActionListener{
     JLabel[] images = new JLabel[TEAM_AMOUNT];
     int currentSelectedTeamIndex;
     int currentPage = 0;
+    String lastSearch;
     
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
     Font myFontLighter = new Font(null, Font.PLAIN, 15);
     Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
     Color myOrange = new Color(248,158,124);
+    Color myDarkGray = new Color(30, 30, 30);
 
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
-
-        System.out.println(System.nanoTime()/60000000);
 
         APIStuff.populateArrays();
         teams = APIStuff.getTeams();
@@ -70,24 +74,28 @@ public class App implements ActionListener{
 
         topBarTeams = new JButton("Teams");
         topBarTeams.setBounds(20, 10, 80, 30);
-        topBarTeams.setForeground(Color.black);
-        topBarTeams.setBackground(myOrange);
+        topBarTeams.setForeground(myOrange);
+        topBarTeams.setBackground(myDarkGray);
         topBarTeams.addActionListener(this);
+        topBarTeams.setBorder(new RoundedBorder(20));
+        topBarTeams.setFocusPainted(false);
         frame.add(topBarTeams);
         topBarTeams.setVisible(true);
 
         moreStatsButton = new JButton("More stats");
-        moreStatsButton.setBounds(300, 615, 120, 30);
-        moreStatsButton.setForeground(Color.black);
-        moreStatsButton.setBackground(Color.white);
+        moreStatsButton.setBounds(310, 555, 120, 30);
+        moreStatsButton.setForeground(myOrange);
+        moreStatsButton.setBackground(myDarkGray);
         moreStatsButton.addActionListener(this);
+        moreStatsButton.setBorder(new RoundedBorder(20));
+        moreStatsButton.setFocusPainted(false);
         frame.add(moreStatsButton);
         moreStatsButton.setVisible(true);
 
         ImageIcon topBarImg = new ImageIcon("images/topBar.png");
         topBar = new JLabel(topBarImg);
         topBar.setBounds(0, 0, 650, 50);
-        topBar.setBackground(new Color(30, 30, 30));
+        topBar.setBackground(myDarkGray);
         frame.add(topBar);
         topBar.setVisible(true);
 
@@ -120,7 +128,7 @@ public class App implements ActionListener{
 
             infoArray[teamIndex] = new JTextArea();
             infoArray[teamIndex].setBounds(300, 95, 250, 500);
-            infoArray[teamIndex].setBackground(new Color(30, 30, 30));
+            infoArray[teamIndex].setBackground(myDarkGray);
             infoArray[teamIndex].setForeground(Color.white);
             infoArray[teamIndex].setFont(myFontLighter);
             infoArray[teamIndex].setEditable(false);
@@ -135,6 +143,43 @@ public class App implements ActionListener{
 
         ImageIcon topLeftIcon = new ImageIcon("images/nhlstatslogo.png");
         frame.setIconImage(topLeftIcon.getImage());
+
+        Action action = new AbstractAction() // Allows the user to press enter to search
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try {
+                    showPlayerInfo(rosterSearch.getText());
+                } catch (JSONException | IOException | URISyntaxException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+        };
+        rosterSearch.addActionListener(action);
+
+        rosterSearch.getDocument().addDocumentListener(new DocumentListener() { // Empties the playerinfo when a change is noticed
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateToolTip();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateToolTip();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                // Plain text components do not fire these events
+            }
+
+            private void updateToolTip() {
+                playerInfo.setText("");
+            }
+        });
 
     }
 
@@ -254,9 +299,9 @@ public class App implements ActionListener{
             APIStuff.populateTeamRoster(index);
         }
 
-        moreStatsButton.setBackground(myOrange);
+        moreStatsButton.setBackground(myDarkGray);
         moreStatsButton.setVisible(false);
-        topBarTeams.setBackground(Color.white);
+        topBarTeams.setBackground(myDarkGray);
 
         // Hiding things from previous page
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
@@ -286,7 +331,7 @@ public class App implements ActionListener{
 
         seasonPerformance.setBounds(70, 170, 200, 200);
         seasonPerformance.setFont(myFontLighterBigger);
-        seasonPerformance.setBackground(new Color(30, 30, 30));
+        seasonPerformance.setBackground(myDarkGray);
         seasonPerformance.setForeground(Color.white);
         seasonPerformance.setEditable(false);
         frame.add(seasonPerformance);
@@ -341,7 +386,7 @@ public class App implements ActionListener{
         seasonPerformance.setText("Season performance:" + "\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df.format(winPct));
   
         dataPointsBackground.setBounds(40, 145, 500, 300);
-        dataPointsBackground.setBackground(new Color(30, 30, 30));
+        dataPointsBackground.setBackground(myDarkGray);
         dataPointsBackground.setEditable(false);
         dataPointsBackground.setBorder(BorderFactory.createLineBorder(myOrange));
         frame.add(dataPointsBackground);
@@ -352,7 +397,7 @@ public class App implements ActionListener{
         rosterTitle.setText(teams[index].name + " roster:");
         rosterTitle.setBounds(70, 480, 440, 50);
         rosterTitle.setFont(myFontLighterBigger);
-        rosterTitle.setBackground(new Color(30, 30, 30));
+        rosterTitle.setBackground(myDarkGray);
         rosterTitle.setForeground(Color.white);
         rosterTitle.setEditable(false);
         frame.add(rosterTitle);
@@ -369,7 +414,7 @@ public class App implements ActionListener{
         }
         roster.setBounds(70, 530, 440, 170);
         roster.setFont(myFontLighter);
-        roster.setBackground(new Color(30, 30, 30));
+        roster.setBackground(myDarkGray);
         roster.setForeground(Color.white);
         roster.setEditable(false);
         frame.add(roster);
@@ -377,7 +422,7 @@ public class App implements ActionListener{
 
         rosterSearch.setBounds(70, 700, 200, 30);
         rosterSearch.setFont(myFontLighter);
-        rosterSearch.setBackground(new Color(30, 30, 30));
+        rosterSearch.setBackground(myDarkGray);
         rosterSearch.setForeground(Color.white);
         rosterSearch.setBorder(BorderFactory.createLineBorder(myOrange));
         rosterSearch.setEditable(true);
@@ -385,50 +430,18 @@ public class App implements ActionListener{
         frame.add(rosterSearch);
         rosterSearch.setVisible(true);
 
-        Action action = new AbstractAction() // Allows the user to press enter to search
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                rosterSearchButton.doClick();
-            }
-        };
-        rosterSearch.addActionListener(action);
-
-        rosterSearch.getDocument().addDocumentListener(new DocumentListener() { // Empties the playerinfo when a change is noticed
-
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                updateToolTip();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                updateToolTip();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                // Plain text components do not fire these events
-            }
-
-            private void updateToolTip() {
-                playerInfo.setText("");
-            }
-        });
-
         ImageIcon searchIcon = new ImageIcon("images/search.png");
         searchIcon = new ImageIcon(searchIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
         rosterSearchButton.setIcon(searchIcon);
         rosterSearchButton.setBorder(null);
-        rosterSearchButton.setBackground(new Color(30, 30, 30));
+        rosterSearchButton.setBackground(myDarkGray);
         rosterSearchButton.setBounds(275, 700, 30, 30);
         rosterSearchButton.addActionListener(this);
         frame.add(rosterSearchButton);
         rosterSearchButton.setVisible(true);
 
         rosterBackground.setBounds(40, dataPointsBackground.getY()+310, 500, 300);
-        rosterBackground.setBackground(new Color(30, 30, 30));
+        rosterBackground.setBackground(myDarkGray);
         rosterBackground.setEditable(false);
         rosterBackground.setBorder(BorderFactory.createLineBorder(myOrange));
         frame.add(rosterBackground);
@@ -443,41 +456,42 @@ public class App implements ActionListener{
         for(Player player : teams[currentSelectedTeamIndex].roster){
             if(player.name.equalsIgnoreCase(name)){
                 foundPlayer = player;
-
-                System.out.println(foundPlayer.playerId);
             }
         }
 
         playerInfo.setBounds(315, 660, 200, 60);
         playerInfo.setFont(myFontLighter);
-        playerInfo.setBackground(new Color(30, 30, 30));
+        playerInfo.setBackground(myDarkGray);
         playerInfo.setForeground(Color.white);
         playerInfo.setEditable(false);
         frame.add(playerInfo);
         playerInfo.setVisible(true);
 
         if(foundPlayer.playerId.length() != 0){
-            APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
+            if(!name.equals(lastSearch)){  // To avoid spamming API calls, eg. holding enter on the search bar
+                APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
+            }
             playerInfo.setText(
                 "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
                 + "\nSeason PPG: " + df.format(foundPlayer.ppg)
                 + "\nAll time PPG: " + df.format(foundPlayer.historicalPpg)
             );
-            
-            System.out.println("historical ppg: " + foundPlayer.historicalPpg + " season ppg: " + foundPlayer.ppg);
+
         } else {
             
             playerInfo.setText("\n\nPlayer not found");
         }
+
+        lastSearch = name;
     }
 
 
     /** Shows the teams page */
     public void showTeamsPage(){
 
-        moreStatsButton.setBackground(Color.white);
+        moreStatsButton.setBackground(myDarkGray);
         moreStatsButton.setVisible(true);
-        topBarTeams.setBackground(myOrange);
+        topBarTeams.setBackground(myDarkGray);
 
         // Hiding things from previous page
         for(int i = 0; i < dataPoints.length; i++){
@@ -506,5 +520,30 @@ public class App implements ActionListener{
 
         infoArray[currentSelectedTeamIndex].setVisible(true);
         images[currentSelectedTeamIndex].setVisible(true);
+    }
+}
+
+class RoundedBorder implements Border {
+
+    private int radius;
+
+
+    RoundedBorder(int radius) {
+        this.radius = radius;
+    }
+
+
+    public Insets getBorderInsets(Component c) {
+        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+    }
+
+
+    public boolean isBorderOpaque() {
+        return false;
+    }
+
+
+    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
     }
 }
