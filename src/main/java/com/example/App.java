@@ -670,7 +670,6 @@ public class App implements ActionListener{
         int newAmount = currPoints+modifier;
 
         String fileName = "src\\main\\java\\com\\example\\points.txt";
-        String date = LocalDate.now().toString();
 
         try {
 
