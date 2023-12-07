@@ -9,9 +9,19 @@ import java.awt.Image;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.Scanner;
 
 public class App implements ActionListener{
 
@@ -224,8 +234,7 @@ public class App implements ActionListener{
                 } catch (JSONException | IOException | URISyntaxException e1) {
                     System.out.println("Problem showing player info");
                 e1.printStackTrace();
-            }
-
+                }
             }
         }
 
@@ -248,7 +257,7 @@ public class App implements ActionListener{
     }
 
     /** Shows the team info for a specified index */
-    public void showTeamInfo(int index) throws IOException, URISyntaxException{
+    private void showTeamInfo(int index) throws IOException, URISyntaxException{
 
         System.out.println(teams[index].ab);
 
@@ -286,10 +295,12 @@ public class App implements ActionListener{
                 + teams[index].last5
             );
         images[index].setVisible(true);
+
+        addBet("W", "VGK");
     }
 
     /** Shows more stats for chosen team */
-    public void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException{
+    private void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException{
 
         if(teams[index].roster == null){
             APIStuff.populateTeamRoster(index);
@@ -460,7 +471,7 @@ public class App implements ActionListener{
     }
 
     /** Shows player info for a given name */ 
-    public void showPlayerInfo(String name) throws JSONException, IOException, URISyntaxException{
+    private void showPlayerInfo(String name) throws JSONException, IOException, URISyntaxException{
 
         Player foundPlayer = new Player();
 
@@ -498,7 +509,7 @@ public class App implements ActionListener{
 
 
     /** Shows the teams page */
-    public void showTeamsPage(){
+    private void showTeamsPage(){
 
         moreStatsButton.setBackground(myDarkGray);
         moreStatsButton.setVisible(true);
@@ -531,5 +542,66 @@ public class App implements ActionListener{
 
         infoArray[currentSelectedTeamIndex].setVisible(true);
         images[currentSelectedTeamIndex].setVisible(true);
+    } 
+
+    private void addBet(String bet, String teamAb){
+
+        String fileName = "src\\main\\java\\com\\example\\bet.txt";
+        String date = LocalDate.now().toString();
+
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(bet + ":" + teamAb  + ":" + date);
+            bufferedWriter.close();
+
+        } catch (IOException e) {
+            System.err.println("ERROR: problem writing to the file: " + fileName);
+            e.printStackTrace();
+        }
+
+        checkBet();
+    }
+
+    private void checkBet(){
+        
+        String data = "";
+
+        try {
+            File myObj = new File("src\\main\\java\\com\\example\\bet.txt");
+            Scanner myReader = new Scanner(myObj);
+
+            while (myReader.hasNextLine()) {
+                data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR: Problem reading bet file");
+            e.printStackTrace();
+        }
+
+        if(data.length() == 0){
+            return;
+        }
+
+        String bet = data.split(":")[0];
+        String teamAb = data.split(":")[1];
+        int betDateToNum = Integer.parseInt(data.split(":")[2].split("-")[0]) * Integer.parseInt(data.split(":")[2].split("-")[1]) * Integer.parseInt(data.split(":")[2].split("-")[2]);
+        
+        System.out.println(betDateToNum);
+        for(int i = 0; i < TEAM_AMOUNT; i++){
+            
+            if(teams[i].ab.equals(teamAb)){
+                if(teams[i].lastGameDateToNum > betDateToNum){
+                    if(teams[i].last5.split(" ")[5].equals("W") && bet.equals("W")){
+                        //TODO increase points
+                    } else if (teams[i].last5.split(" ")[5].equals("L") && bet.equals("L")){
+                        //TODO decrease points
+                    }
+                }
+            }
+        }
     }
 }
