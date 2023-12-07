@@ -64,7 +64,8 @@ public class APIStuff {
         for(int k = 0; k < arrObj.length(); k++){
 
             if(arrObj.getJSONObject(k).getString("gameState").equals("FUT")){ // Stop once we find the latest match
-                lastGameDate = arrObj.getJSONObject(k).getString("gameDate");
+                lastGameDate = arrObj.getJSONObject(k-1).getString("gameDate");
+                System.out.println(lastGameDate);
                 teams[teamIndex].lastGameDateToNum = Integer.parseInt(lastGameDate.split("-")[0]) * Integer.parseInt(lastGameDate.split("-")[1]) * Integer.parseInt(lastGameDate.split("-")[2]);
                 System.out.println("found last game: " + teams[teamIndex].lastGameDateToNum + " for " + teams[teamIndex].ab);
                 break;
