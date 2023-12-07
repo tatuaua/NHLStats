@@ -14,7 +14,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.time.LocalDate;
 
-public class APIStuff {
+class APIStuff {
 
     final static int TEAM_AMOUNT = 32;
     public static Team[] teams = new Team[TEAM_AMOUNT];

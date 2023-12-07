@@ -1,6 +1,7 @@
 package com.example;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -9,15 +10,9 @@ import java.awt.Image;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.util.Scanner;
 
 public class App implements ActionListener{
 
@@ -65,6 +60,11 @@ public class App implements ActionListener{
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
 
+        // Configuring tooltips (when you hover over an element it gives you a hint)
+        UIManager.put("ToolTip.background", Color.gray);
+        UIManager.put("ToolTip.border", new LineBorder(myOrange));
+        UIManager.put("Tooltip.foreground", Color.white);
+
         APIStuff.populateArrays();
         teams = APIStuff.getTeams();
 
@@ -93,6 +93,7 @@ public class App implements ActionListener{
         betButtonW.addActionListener(this);
         betButtonW.setBorder(new RoundedBorder(10));
         betButtonW.setFocusPainted(false);
+        betButtonW.setToolTipText("Bet 10 points on win");
         frame.add(betButtonW);
         betButtonW.setVisible(true);
 
@@ -103,6 +104,7 @@ public class App implements ActionListener{
         betButtonL.addActionListener(this);
         betButtonL.setBorder(new RoundedBorder(10));
         betButtonL.setFocusPainted(false);
+        betButtonL.setToolTipText("Bet 10 points on loss");
         frame.add(betButtonL);
         betButtonL.setVisible(true);
 
@@ -220,11 +222,11 @@ public class App implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == betButtonW){
-            addBet("W", teams[currentSelectedTeamIndex].ab, "10");
+            Betting.addBet("W", teams[currentSelectedTeamIndex].ab, "10");
         }
 
         if(e.getSource() == betButtonL){
-            addBet("L", teams[currentSelectedTeamIndex].ab, "10");
+            Betting.addBet("L", teams[currentSelectedTeamIndex].ab, "10");
         }
 
         if(e.getSource() == moreStatsButton && currentPage != 1){
@@ -321,8 +323,7 @@ public class App implements ActionListener{
             );
         images[index].setVisible(true);
 
-        //addBet("W", "VGK");
-        checkBet();
+        Betting.checkBet();
     }
 
     /** Shows more stats for chosen team */
@@ -566,121 +567,8 @@ public class App implements ActionListener{
         playerInfo.setVisible(false);
         ///////////////////////////////////
 
+        teamNameButtons[currentSelectedTeamIndex].setForeground(myOrange);
         infoArray[currentSelectedTeamIndex].setVisible(true);
         images[currentSelectedTeamIndex].setVisible(true);
     } 
-
-    /** Part of the betting game, rewrites the bet.txt file */ 
-    private void addBet(String winOrLoss, String teamAb, String amount){
-
-        String fileName = "src\\main\\java\\com\\example\\bet.txt";
-        String date = LocalDate.now().toString();
-
-        try {
-            FileWriter fileWriter = new FileWriter(fileName);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(winOrLoss + ":" + teamAb  + ":" + date + ":" + amount);
-            bufferedWriter.close();
-
-        } catch (IOException e) {
-            System.err.println("ERROR: problem writing to the file: " + fileName);
-            e.printStackTrace();
-        }
-    }
-
-    /** Part of the betting game, checks the bet.txt file and updates the points accordingly */
-    private void checkBet(){
-        
-        String data = "";
-
-        try {
-            File myObj = new File("src\\main\\java\\com\\example\\bet.txt");
-            Scanner myReader = new Scanner(myObj);
-
-            while (myReader.hasNextLine()) {
-                data = myReader.nextLine();
-                System.out.println(data);
-            }
-            myReader.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("ERROR: Problem reading bet file");
-            e.printStackTrace();
-        }
-
-        if(data.length() == 0){
-            return;
-        }
-
-        String bet = data.split(":")[0];
-        String teamAb = data.split(":")[1];
-        String date = data.split(":")[2];
-        int amount = Integer.parseInt(data.split(":")[3]);
-
-        int betDateToNum = Integer.parseInt(date.split("-")[0]) * Integer.parseInt(date.split("-")[1]) * Integer.parseInt(date.split("-")[2]);
-        
-        System.out.println(betDateToNum);
-        for(int i = 0; i < TEAM_AMOUNT; i++){
-            
-            if(teams[i].ab.equals(teamAb)){
-                System.out.println(betDateToNum);
-                System.out.println(teams[i].lastGameDateToNum);
-                if(teams[i].lastGameDateToNum > betDateToNum){
-                    
-                    if(teams[i].last5.split(" ")[5].equals("W") && bet.equals("W")){
-                        System.out.println("increasing points by " + amount);
-                        changePoints(amount);
-                    } else if (teams[i].last5.split(" ")[5].equals("L") && bet.equals("L")){
-                        System.out.println("increasing points by " + amount);
-                        changePoints(amount);
-                    } else {
-                        System.out.println("decreasing points by " + amount);
-                        changePoints(-amount);
-                    }
-                } else {
-                    System.out.println("Game has not been played yet");
-                }
-            }
-        }
-    }
-
-    /** Part of the betting game, changes the user's points (points.txt) */
-    private void changePoints(int modifier){
-
-        String data = "";
-
-        try {
-
-            File myObj = new File("src\\main\\java\\com\\example\\points.txt");
-            Scanner myReader = new Scanner(myObj);
-
-            while (myReader.hasNextLine()) {
-                data = myReader.nextLine();
-                System.out.println(data);
-            }
-            myReader.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("ERROR: Problem reading points file");
-            e.printStackTrace();
-        }
-
-        int currPoints = Integer.parseInt(data);
-
-        int newAmount = currPoints+modifier;
-
-        String fileName = "src\\main\\java\\com\\example\\points.txt";
-
-        try {
-
-            FileWriter fileWriter = new FileWriter(fileName);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("" + newAmount);
-            bufferedWriter.close();
-
-        } catch (IOException e) {
-            System.err.println("ERROR: Problem writing to points file");
-            e.printStackTrace();
-        }
-    }
 }
