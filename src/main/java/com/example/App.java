@@ -345,6 +345,8 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
 
         }
+        betButtonW.setVisible(false);
+        betButtonL.setVisible(false);
         ///////////////////////////////////
         
         ImageIcon resizedLogo = new ImageIcon("images/" + teams[index].ab + ".png");
@@ -508,7 +510,7 @@ public class App implements ActionListener{
             }
         }
 
-        playerInfo.setBounds(315, 660, 200, 60);
+        playerInfo.setBounds(315, 665, 200, 60);
         playerInfo.setFont(myFontLighter);
         playerInfo.setBackground(myDarkGray);
         playerInfo.setForeground(Color.white);
@@ -570,5 +572,7 @@ public class App implements ActionListener{
         teamNameButtons[currentSelectedTeamIndex].setForeground(myOrange);
         infoArray[currentSelectedTeamIndex].setVisible(true);
         images[currentSelectedTeamIndex].setVisible(true);
+        betButtonW.setVisible(true);
+        betButtonL.setVisible(true);
     } 
 }

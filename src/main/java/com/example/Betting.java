@@ -62,20 +62,19 @@ class Betting {
 
         int betDateToNum = Integer.parseInt(date.split("-")[0]) * Integer.parseInt(date.split("-")[1]) * Integer.parseInt(date.split("-")[2]);
         
-        System.out.println(betDateToNum);
         for(int i = 0; i < TEAM_AMOUNT; i++){
             
             if(teams[i].ab.equals(teamAb)){
-                System.out.println(betDateToNum);
-                System.out.println(teams[i].lastGameDateToNum);
                 if(teams[i].lastGameDateToNum > betDateToNum){
-                    
                                                     //[5] because last5 has leading whitespace 
                     if(teams[i].last5.split(" ")[5].equals("W") && winOrLose.equals("W")){
+                        System.out.println("You had a bet: " + data + " and you won!");
                         changePoints(amount);
                     } else if (teams[i].last5.split(" ")[5].equals("L") && winOrLose.equals("L")){
+                        System.out.println("You had a bet: " + data + " and you won!");
                         changePoints(amount);
                     } else {
+                        System.out.println("You had a bet: " + data + " and you lost!");
                         changePoints(-amount);
                     }
                 } else {
