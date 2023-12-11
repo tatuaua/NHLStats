@@ -20,7 +20,7 @@ class APIStuff {
     public static Team[] teams = new Team[TEAM_AMOUNT];
 
     /** Populates the basic info for teams */ 
-    public static void populateArrays() throws IOException, URISyntaxException {
+    public static void populateTeams() throws IOException, URISyntaxException {
         long start = System.nanoTime();
 
         JSONObject jsonObj = new JSONObject(getJSON("https://api-web.nhle.com/v1/standings/now"));

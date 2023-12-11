@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ class Betting {
     }
 
     /** Part of the betting game, checks the bet.txt file and updates the points accordingly */
-    public static void checkBet(){
+    public static void checkBet() throws URISyntaxException, IOException{
         
         String data = "";
 
@@ -57,6 +58,14 @@ class Betting {
 
         String winOrLose = data.split(":")[0];
         String teamAb = data.split(":")[1];
+
+        for(int i = 0; i < TEAM_AMOUNT; i++){
+
+            if(teams[i].ab.equals(teamAb)){
+                APIStuff.populatePrevMatches(i);
+            }
+        }
+        
         String date = data.split(":")[2];
         int amount = Integer.parseInt(data.split(":")[3]);
 

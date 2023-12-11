@@ -64,23 +64,23 @@ public class App implements ActionListener{
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
 
-        // Configuring tooltips (when you hover over an element it gives you a hint)
-        UIManager.put("ToolTip.background", Color.gray);
-        UIManager.put("ToolTip.border", new LineBorder(myOrange));
-        UIManager.put("Tooltip.foreground", Color.white);
-
-        APIStuff.populateArrays();
-        teams = APIStuff.getTeams();
-
-        // Check the status of the currently active bet
-        Betting.checkBet();
-
         frame = new JFrame("NHL Stats");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(650, 850);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.DARK_GRAY);
         frame.setResizable(false);
+
+        // Configuring tooltips (when you hover over an element it gives you a hint)
+        UIManager.put("ToolTip.background", Color.gray);
+        UIManager.put("ToolTip.border", new LineBorder(myOrange));
+        UIManager.put("Tooltip.foreground", Color.white);
+
+        APIStuff.populateTeams();
+        teams = APIStuff.getTeams();
+
+        // Check the status of the currently active bet
+        Betting.checkBet();
 
         ////////////////////////////
 
@@ -189,6 +189,7 @@ public class App implements ActionListener{
         betButtonL.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         rosterSearchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         githubButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
         showTeamInfo(0);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -209,8 +210,8 @@ public class App implements ActionListener{
                 }
             }
         };
-        rosterSearch.addActionListener(action);
 
+        rosterSearch.addActionListener(action);
         rosterSearch.getDocument().addDocumentListener(new DocumentListener() { // Empties the playerinfo when a change is noticed
 
             @Override
@@ -263,7 +264,7 @@ public class App implements ActionListener{
                 showMoreStatsPage(currentSelectedTeamIndex);
 
             } catch (JSONException | IOException | URISyntaxException e1) {
-                System.out.println("ERROR: problem showing more stats page");
+                System.out.println("ERROR: Problem showing more stats page");
                 e1.printStackTrace();
             }
         }
@@ -608,6 +609,7 @@ public class App implements ActionListener{
         betButtonL.setVisible(true);
     } 
 
+    /** Opens the GitHub page of this project in the default browser */
     private void openGitHub() throws IOException, URISyntaxException{
 
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
