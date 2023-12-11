@@ -201,10 +201,13 @@ class APIStuff {
 
         for(int i = 0; i < teams[teamIndex].roster.length; i++){
             if(teams[teamIndex].roster[i].playerId == playerId && teams[teamIndex].roster[i] != null && !jsonObj.getString("position").equals("G")){
-                teams[teamIndex].roster[i].points = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("points");
-                teams[teamIndex].roster[i].goals = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("goals");
-                teams[teamIndex].roster[i].assists = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("assists");
-                teams[teamIndex].roster[i].ppg = (double)teams[teamIndex].roster[i].points / (double)jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason").getInt("gamesPlayed");
+
+                JSONObject currSeason = jsonObj.getJSONObject("featuredStats").getJSONObject("regularSeason").getJSONObject("subSeason");
+
+                teams[teamIndex].roster[i].points = currSeason.getInt("points");
+                teams[teamIndex].roster[i].goals = currSeason.getInt("goals");
+                teams[teamIndex].roster[i].assists = currSeason.getInt("assists");
+                teams[teamIndex].roster[i].ppg = (double)teams[teamIndex].roster[i].points / (double)currSeason.getInt("gamesPlayed");
                 
                 JSONObject season;
                 JSONArray seasons = jsonObj.getJSONArray("seasonTotals");

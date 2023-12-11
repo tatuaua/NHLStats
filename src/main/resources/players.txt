@@ -1,0 +1,4354 @@
+Alec Martinez
+8474166
+Shea Theodore
+8477447
+Robin Lehner
+8475215
+Byron Froese
+8475278
+Mason Geertsen
+8477419
+Dysin Mayo
+8478062
+Martins Dzierkals
+8478832
+Gage Quinney
+8479748
+Jonas Rondbjerg
+8480007
+Sheldon Rempal
+8480776
+Grigori Denisenko
+8480844
+Ivan Morozov
+8480894
+Mason Morelli
+8481462
+Isaiah Saville
+8481520
+Ryder Donovan
+8481539
+Marcus Kallionkieli
+8481573
+Layton Ahac
+8481613
+Mason Primeau
+8481664
+Christoffer Sedoff
+8482138
+Lukas Cormier
+8482141
+Brendan Brisson
+8482153
+Jesper Vikman
+8482484
+Noah Ellis
+8482500
+Jackson Hallum
+8482512
+Daniil Miromanov
+8482624
+Daniil Chayka
+8482688
+Jakub Brabenec
+8482724
+Carl Lindbom
+8482761
+Jakub Demek
+8482933
+Artur Cholach
+8482943
+Patrick Guay
+8483106
+Jordan Gustafson
+8483451
+Matyas Sapovaliv
+8483511
+Cameron Whitehead
+8483523
+Abram Wiebe
+8483709
+Ben Hemmerling
+8483748
+Joe Fleming
+8483829
+Mathieu Cataford
+8484155
+David Edstrom
+8484165
+Arttu Karki
+8484397
+Tuomas Uronen
+8484466
+Alex Pietrangelo
+8474565
+Brayden McNabb
+8475188
+Mark Stone
+8475913
+William Karlsson
+8476448
+Jonathan Marchessault
+8476539
+Chandler Stephenson
+8476905
+Ben Hutton
+8477018
+William Carrier
+8477478
+Ivan Barbashev
+8477964
+Michael Amadio
+8478020
+Jack Eichel
+8478403
+Keegan Kolesar
+8478434
+Nicolas Roy
+8478462
+Adin Hill
+8478499
+Brett Howden
+8479353
+Nicolas Hague
+8479980
+Jiri Patera
+8480238
+Logan Thompson
+8480313
+Zach Whitecloud
+8480727
+Paul Cotter
+8481032
+Brayden Pachal
+8481167
+Kaedan Korczak
+8481527
+Milan Lucic
+8473473
+Derek Forbort
+8475762
+Maxim Chudinov
+8475892
+Jayson Megna
+8477126
+Patrick Brown
+8477887
+Anthony Richard
+8478409
+Jakub Zboril
+8478415
+Jakob Forsbacka Karlsson
+8478417
+Parker Wotherspoon
+8478450
+Dan Renouf
+8479252
+Jesper Boqvist
+8480003
+Michael DiPietro
+8480022
+Reilly Walsh
+8480054
+Andrei Svetlakov
+8480251
+Kyle Keyser
+8480356
+Michael Callahan
+8480828
+Alec Regula
+8480831
+Curtis Hall
+8480838
+John Farinacci
+8481558
+Roman Bychkov
+8481610
+Jake Schmaltz
+8481681
+Quinn Olson
+8481739
+Luke Toporowski
+8481866
+Riley Duran
+8482213
+Trevor Kuntar
+8482479
+Mason Langenbrunner
+8482517
+Ty Gallagher
+8482719
+Brett Harrison
+8482739
+Fabian Lysell
+8482763
+Andre Gasseau
+8482776
+Philip Svedeback
+8482870
+Ryan Mast
+8482893
+Jonathan Myrenberg
+8482906
+Oskar Jellvik
+8482907
+Frederic Brunet
+8483017
+Marc McLaughlin
+8483397
+Jackson Edward
+8483438
+Brandon Bussi
+8483548
+Georgii Merkulov
+8483567
+Cole Spicer
+8483701
+Dans Locmelis
+8483704
+Reid Dyck
+8483742
+Beckett Hendrickson
+8484179
+Christopher Pelosi
+8484401
+Ryan Walsh
+8484467
+Casper Nassen
+8484488
+Kristian Kostadinski
+8484496
+Brad Marchand
+8473419
+Kevin Shattenkirk
+8474031
+James van Riemsdyk
+8474037
+Charlie Coyle
+8475745
+Hampus Lindholm
+8476854
+Matt Grzelcyk
+8476891
+Linus Ullmark
+8476999
+David Pastrnak
+8477956
+Danton Heinen
+8478046
+Pavel Zacha
+8478401
+Brandon Carlo
+8478443
+Jake DeBrusk
+8478498
+Charlie McAvoy
+8479325
+Trent Frederic
+8479365
+Oskar Steen
+8479546
+Morgan Geekie
+8479987
+Ian Mitchell
+8480070
+Jeremy Swayman
+8480280
+Jakub Lauko
+8480880
+John Beecher
+8481556
+Mason Lohrei
+8482511
+Filip Chytil
+8480078
+Kaapo Kakko
+8481554
+Mikhail Pashnin
+8475334
+Louis Domingue
+8475839
+Alex Belzile
+8475968
+Turner Elson
+8476505
+Anton Blidh
+8477320
+Ben Harpur
+8477433
+Nikolas Brouillard
+8477522
+Jake Leschyshyn
+8479991
+Mac Hollowell
+8480439
+Lauri Pajuniemi
+8480986
+Olof Lindbom
+8481015
+Simon Kjellberg
+8481038
+Matthew Robertson
+8481525
+Karl Henriksson
+8481548
+Adam Edstrom
+8481726
+Connor Mackey
+8482067
+Brett Berard
+8482132
+Dylan Garand
+8482193
+Matt Rempe
+8482460
+Oliver Tarnstrom
+8482481
+Hugo Ollas
+8482504
+Ryder Korczak
+8482656
+Brennan Othmann
+8482747
+Kalle Vaisanen
+8482868
+Talyn Boyko
+8482869
+Jaroslav Chmelar
+8482877
+Brody Lamb
+8482928
+Hank Kempf
+8482950
+Brandon Scanlin
+8483407
+Maxim Barbashev
+8483423
+Bryce McConnell-Barker
+8483486
+Bobby Trivigno
+8483550
+Adam Sykora
+8483669
+Noah Laba
+8483690
+Zakary Karpa
+8483730
+Victor Mancini
+8483768
+Drew Fortescue
+8484169
+Gabe Perreault
+8484210
+Rasmus Larsson
+8484436
+Ty Henricks
+8484457
+Dylan Roobroeck
+8484461
+Blake Wheeler
+8471218
+Jonathan Quick
+8471734
+Nick Bonino
+8474009
+Riley Nash
+8474062
+Chris Kreider
+8475184
+Tyler Pitlick
+8475752
+Vincent Trocheck
+8476389
+Mika Zibanejad
+8476459
+Barclay Goodrow
+8476624
+Jacob Trouba
+8476885
+Jimmy Vesey
+8476918
+Erik Gustafsson
+8476979
+Jonny Brodzinski
+8477380
+Igor Shesterkin
+8478048
+Artemi Panarin
+8478550
+Adam Fox
+8479323
+Ryan Lindgren
+8479324
+K'Andre Miller
+8480817
+Zac Jones
+8481708
+Braden Schneider
+8482073
+Alexis Lafrenière
+8482109
+Tucker Poolman
+8477359
+Carson Soucy
+8477369
+Guillaume Brisebois
+8478465
+Pius Suter
+8480459
+Kiril Koltsov
+8470117
+Matt Irwin
+8475625
+Christian Wolanin
+8478846
+Dmitry Zhukenov
+8478850
+Zach Sawchenko
+8479313
+Jack Studnicka
+8480021
+Sheldon Dries
+8480326
+Jett Woo
+8480808
+Vitali Kravtsov
+8480833
+Filip Johansson
+8480872
+Linus Karlsson
+8481024
+Artyom Manukyan
+8481045
+Matthew Thiessen
+8481080
+Vasily Podkolzin
+8481617
+Arturs Silovs
+8481668
+Aidan McDonough
+8481683
+Jacob Truscott
+8482119
+Joni Jurmo
+8482170
+Jackson Kunz
+8482198
+Dmitry Zlodeyev
+8482498
+Viktor Persson
+8482502
+Aatu Raty
+8482691
+Josh Bloom
+8482865
+Aku Koskenvuo
+8482875
+Hugo Gabrielson
+8482887
+Lucas Forsell
+8482900
+Danila Klimovich
+8482918
+Tristen Nielsen
+8483039
+Arshdeep Bains
+8483395
+Kirill Kudryavtsev
+8483467
+Jonathan Lekkerimaki
+8483476
+Ty Glover
+8483535
+Elias Pettersson
+8483678
+Daimon Gardner
+8483694
+Jackson Dorrington
+8483750
+Ty Young
+8483751
+Max Sasson
+8484136
+Hunter Brzustewicz
+8484150
+Sawyer Mynio
+8484202
+Tom Willander
+8484240
+Akito Hirose
+8484254
+Nikita Tolopilo
+8484268
+Cole McWard
+8484287
+Ty Mueller
+8484406
+Vilmer Alriksson
+8484408
+Matthew Perkins
+8484419
+Aiden Celebrini
+8484449
+Ian Cole
+8474013
+Tyler Myers
+8474574
+J.T. Miller
+8476468
+Phillip Di Giuseppe
+8476858
+Teddy Blueger
+8476927
+Nikita Zadorov
+8477507
+Thatcher Demko
+8477967
+Mark Friedman
+8478017
+Sam Lafferty
+8478043
+Dakota Joshua
+8478057
+Brock Boeser
+8478444
+Noah Juulsen
+8478454
+Conor Garland
+8478856
+Casey DeSmith
+8479193
+Filip Hronek
+8479425
+Elias Pettersson
+8480012
+Quinn Hughes
+8480800
+Nils Hoglander
+8481535
+Ilya Mikheyev
+8481624
+Nils Aman
+8482496
+Viktor Arvidsson
+8478042
+Kevin Connauton
+8475246
+T.J. Tynan
+8476391
+Steven Santini
+8477463
+Hayden Hodgson
+8478173
+Joe Hicketts
+8478176
+Alexander Dergachyov
+8478494
+David Rittich
+8479496
+Mikhail Maltsev
+8479573
+Tyler Madden
+8480805
+Akil Thomas
+8480851
+Bulat Shafigullin
+8480978
+Cole Krygier
+8481051
+Samuel Fagemo
+8481239
+Alex Turcotte
+8481532
+Kim Nousiainen
+8481696
+Erik Portillo
+8481707
+Andre Lee
+8481732
+Braden Doyle
+8481750
+Kasper Simontaival
+8482128
+Martin Chromiak
+8482160
+Juho Markkanen
+8482450
+Aatu Jamsen
+8482466
+Ben Meehan
+8482489
+Samuel Helenius
+8482726
+Brandt Clarke
+8482730
+Francesco Pinelli
+8482748
+Kirill Kirsanov
+8482922
+Kaleb Lawrence
+8483052
+Taylor Ward
+8483406
+Jack Hughes
+8483456
+Otto Salin
+8483509
+Jack Sparkes
+8483517
+Kenny Connors
+8483675
+Angus Booth
+8483699
+Jared Wright
+8483756
+Jakub Dvorak
+8484163
+Koehn Ziemmer
+8484243
+Hampton Slukynsky
+8484417
+Matthew Mania
+8484435
+Ryan Conmy
+8484458
+Anze Kopitar
+8471685
+Trevor Lewis
+8473453
+Drew Doughty
+8474563
+Cam Talbot
+8475660
+Phillip Danault
+8476479
+Pheonix Copley
+8477831
+Kevin Fiala
+8477942
+Adrian Kempe
+8477960
+Andreas Englund
+8477971
+Vladislav Gavrikov
+8478882
+Matt Roy
+8478911
+Carl Grundstrom
+8479336
+Pierre-Luc Dubois
+8479400
+Jacob Moverare
+8479421
+Trevor Moore
+8479675
+Jaret Anderson-Dolan
+8479994
+Mikey Anderson
+8479998
+Blake Lizotte
+8481481
+Arthur Kaliyev
+8481560
+Tobias Bjornfot
+8481600
+Jordan Spence
+8481606
+Quinton Byfield
+8482124
+Sergei Gayduchenko
+8474179
+Zac Dalpe
+8474610
+Yaroslav Kosov
+8476366
+Alexander Delnov
+8476964
+Aleksi Saarela
+8478839
+Rasmus Asplund
+8479335
+William Lockwood
+8479367
+Egor Korshkov
+8479510
+Lucas Carlsson
+8479523
+Casey Fitzgerald
+8479578
+Gerry Mayhew
+8479933
+Aleksi Heponiemi
+8480037
+Calle Sjalin
+8480228
+Alexander True
+8480384
+Patrick Giles
+8480825
+Santtu Kinnunen
+8481009
+Logan Hutsko
+8481025
+Spencer Knight
+8481519
+Owen Lindmark
+8481531
+Carter Berger
+8481742
+Nathan Staios
+8481795
+Justin Sourdif
+8482088
+Zachary Uens
+8482098
+Mike Benning
+8482107
+Kasper Puutio
+8482203
+Elliot Ekmark
+8482505
+Matt Kiersted
+8482641
+Mackie Samoskevich
+8482713
+Evan Nause
+8482734
+Vladislav Lukashevich
+8482770
+Jakub Kos
+8482894
+Kirill Gerasimyuk
+8482914
+Mack Guzda
+8483122
+Liam Arnsby
+8483422
+Jack Devine
+8483433
+Marek Alscher
+8483687
+Ludvig Jansson
+8483712
+Tyler Muszelik
+8483736
+Josh Davies
+8483740
+Sandis Vilmanis
+8483771
+Kai Schwindt
+8483878
+Gracyn Sawchyn
+8484224
+Ryan McAllister
+8484271
+Ludovic Waeber
+8484372
+Albert Wikman
+8484411
+Olof Glifford
+8484437
+Luke Coughlin
+8484470
+Stepan Zvyagin
+8484475
+Oliver Ekman-Larsson
+8475171
+Dmitry Kulikov
+8475179
+Sergei Bobrovsky
+8475683
+Nick Cousins
+8476393
+Anthony Stolarz
+8476932
+Carter Verhaeghe
+8477409
+Aleksander Barkov
+8477493
+Aaron Ekblad
+8477932
+Sam Reinhart
+8477933
+Sam Bennett
+8477935
+Brandon Montour
+8477986
+Gustav Forsling
+8478055
+Evan Rodrigues
+8478542
+Kevin Stenlund
+8478831
+Niko Mikkola
+8478859
+Steven Lorentz
+8478904
+Ryan Lomberg
+8479066
+Matthew Tkachuk
+8479314
+Josh Mahura
+8479372
+Jonah Gadjovich
+8479981
+Eetu Luostarinen
+8480185
+Anton Lundell
+8482113
+Artturi Lehkonen
+8477476
+Chris Wagner
+8475780
+Gabriel Landeskog
+8476455
+Brad Hunt
+8476779
+Vladislav Kamenev
+8477973
+Spencer Smallman
+8478867
+Sergei Boikov
+8478884
+Riley Tufte
+8479362
+Keaton Middleton
+8479387
+Samuel Girard
+8479398
+Nate Clurman
+8479594
+Arvid Holm
+8480244
+Sampo Ranta
+8480846
+Pavel Francouz
+8480925
+Shamil Shmakov
+8481007
+Justus Annunen
+8481020
+Nikolai Kovalenko
+8481042
+Corey Schueneman
+8481461
+Trent Miner
+8481529
+Alex Beaucage
+8481595
+Gianni Fairbrother
+8481654
+Matt Stienburg
+8481737
+Jack Ahcan
+8482072
+Jean-Luc Foudy
+8482147
+Colby Ambrosio
+8482189
+Sean Behrens
+8482676
+Oskar Olausson
+8482712
+Andrei Buyalsky
+8482779
+Taylor Makar
+8482953
+Ivan Zhigalov
+8482990
+Jeremy Hanzel
+8483086
+Wyatt Aamodt
+8483569
+Ben Meyers
+8483570
+Chris Romaine
+8483725
+Calum Ritchie
+8484221
+Jason Polin
+8484255
+Ondrej Pavel
+8484259
+Mikhail Gulyayev
+8484389
+Nikita Ishimnikov
+8484431
+Maros Jedlicka
+8484497
+Saige Weinstein
+8484556
+Jack Johnson
+8471677
+Andrew Cogliano
+8471699
+Tomas Tatar
+8475193
+Ryan Johansen
+8475793
+Josh Manson
+8476312
+Kurtis MacDermid
+8477073
+Miles Wood
+8477425
+Nathan MacKinnon
+8477492
+Jonathan Drouin
+8477494
+Valeri Nichushkin
+8477501
+Fredrik Olofsson
+8478028
+Devon Toews
+8478038
+Mikko Rantanen
+8478420
+Caleb Jones
+8478452
+Ross Colton
+8479525
+Cale Makar
+8480069
+Alexandar Georgiev
+8480382
+Ivan Prosvetov
+8481031
+Logan O'Connor
+8481186
+Bowen Byram
+8481524
+Joel Kiviranta
+8481641
+Alexander Petrovic
+8475755
+Derrick Pouliot
+8476884
+Adam Mascherin
+8479374
+Nick Caamano
+8479381
+Fredrik Karlström
+8479518
+Gavin Bayreuther
+8479945
+Scott Reedy
+8480060
+Oskar Back
+8480840
+Riley Damiani
+8480988
+Matej Blumel
+8481712
+Jerad Rosburg
+8482051
+Antonio Stranges
+8482120
+Mavrik Bourque
+8482145
+Remi Poirier
+8482465
+Daniel Ljungman
+8482491
+Jack Bar
+8482670
+Ayrton Martino
+8482690
+Artem Grushnikov
+8482695
+Logan Stankoven
+8482702
+Francesco Arcuri
+8482891
+Albert Sjoberg
+8482910
+Justin Ertel
+8482919
+Gavin White
+8483059
+Lian Bichsel
+8483425
+Christian Kyrou
+8483470
+Matthew Seminoff
+8483514
+Matt Murray
+8483575
+George Fegaras
+8483680
+Maxim Mayorov
+8483758
+Kyle McDonald
+8483799
+Chase Wheatcroft
+8484124
+Tristan Bertucci
+8484146
+Brad Gardiner
+8484172
+Aram Minnetian
+8484194
+Arno Tiefensee
+8484442
+Angus MacDonell
+8484468
+Sebastian Bradshaw
+8484495
+Ryan Suter
+8470600
+Joe Pavelski
+8470794
+Jamie Benn
+8473994
+Evgenii Dadonov
+8474149
+Matt Duchene
+8475168
+Craig Smith
+8475225
+Tyler Seguin
+8475794
+Scott Wedgewood
+8475809
+Jani Hakanpää
+8475825
+Radek Faksa
+8476889
+Esa Lindell
+8476902
+Joel Hanley
+8477810
+Roope Hintz
+8478449
+Mason Marchment
+8478975
+Sam Steel
+8479351
+Jake Oettinger
+8479979
+Jason Robertson
+8480027
+Miro Heiskanen
+8480036
+Ty Dellandrea
+8480848
+Nils Lundkvist
+8480878
+Thomas Harley
+8481581
+Mark Giordano
+8470966
+Jake Muzzin
+8474162
+John Klingberg
+8475906
+Joseph Woll
+8479361
+Timothy Liljegren
+8480043
+Kyle Clifford
+8475160
+Matt Murray
+8476899
+Fabrice Herzog
+8477374
+Vladimir Bobylev
+8479528
+Dylan Gambrell
+8479580
+Nikolai Chebykin
+8479599
+Keith Petruzzelli
+8479975
+Vladislav Kara
+8480284
+Semyon Der-Arguchintsev
+8480977
+Pontus Holmberg
+8480995
+Semyon Kizimov
+8481054
+Michael Koster
+8481565
+Mikko Kokkonen
+8481614
+Nick Abruzzese
+8481720
+Roni Hirvonen
+8482130
+Topi Niemela
+8482158
+William Villeneuve
+8482174
+Wyatt Schingoethe
+8482200
+Bobby McMann
+8482259
+Dmitry Ovchinnikov
+8482488
+Artur Akhtyamov
+8482515
+Veeti Miettinen
+8482519
+Joe Miller
+8482520
+John Fusco
+8482522
+Ryan Tverberg
+8482525
+Alex Steeves
+8482634
+Braeden Kressler
+8482741
+Ty Voit
+8482880
+Vyacheslav Peksa
+8482940
+Fraser Minten
+8483489
+Nicholas Moldenhauer
+8483492
+Marshall Rifai
+8483546
+Max Ellis
+8483566
+Brandon Lisowsky
+8483700
+Dennis Hildeby
+8483710
+Nikita Grebenkin
+8483733
+Easton Cowan
+8484158
+Hudson Malinoski
+8484438
+Noah Chadwick
+8484464
+Ryan Reaves
+8471817
+TJ Brodie
+8474673
+Martin Jones
+8474889
+John Tavares
+8475166
+Calle Jarnkrok
+8475714
+Morgan Rielly
+8476853
+Jake McCabe
+8476931
+Tyler Bertuzzi
+8477479
+Max Domi
+8477503
+William Nylander
+8477939
+William Lagesson
+8478021
+Mitchell Marner
+8478483
+Ilya Samsonov
+8478492
+Auston Matthews
+8479318
+Max Lajoie
+8479320
+Noah Gregor
+8479393
+Conor Timmins
+8479982
+David Kampf
+8480144
+Simon Benoit
+8481122
+Nicholas Robertson
+8481582
+Rasmus Kupari
+8480845
+Ilya Nikulin
+8468511
+Ivan Telegin
+8475828
+Dominic Toninato
+8476952
+Ashton Sautner
+8477085
+Pavel Kraskovsky
+8478092
+Kyle Capobianco
+8478476
+Jeffrey Viel
+8479705
+Kristian Vesalainen
+8480005
+Collin Delia
+8480420
+Kristian Reichel
+8480443
+Austin Wong
+8481084
+Simon Lundmark
+8481547
+Artemi Kniazev
+8481552
+Ville Heinola
+8481572
+Harrison Blaisdell
+8481612
+Henri Nikkanen
+8481695
+Logan Neaton
+8481748
+Daniel Torgersson
+8482139
+Jeff Malott
+8482408
+Tyrel Bauer
+8482459
+Anton Johannesson
+8482486
+Chaz Lucius
+8482780
+Nikita Chibrikov
+8482787
+Dmitry Kuzmin
+8482920
+Dmitri Rashevsky
+8482935
+Thomas Milic
+8483114
+Brad Lambert
+8483471
+Rutger McGroarty
+8483487
+Elias Salomonsson
+8483510
+Fabian Wagner
+8483520
+Danil Zhilkin
+8483526
+Wyatt Bongiovanni
+8483579
+Oskari Salminen
+8483598
+Garrett Brown
+8483672
+Domenic DiVincentiis
+8483711
+Parker Ford
+8484135
+Colby Barlow
+8484143
+Zach Nehring
+8484204
+Jacob Julien
+8484430
+Connor Levis
+8484483
+Brenden Dillon
+8475455
+Nino Niederreiter
+8475799
+Laurent Brossoit
+8476316
+Dylan DeMelo
+8476331
+Adam Lowry
+8476392
+Mark Scheifele
+8476460
+Vladislav Namestnikov
+8476480
+Connor Hellebuyck
+8476945
+Nate Schmidt
+8477220
+Josh Morrissey
+8477504
+Nikolaj Ehlers
+8477940
+Kyle Connor
+8478398
+Mason Appleton
+8478891
+Logan Stanley
+8479378
+Axel Jonsson-Fjallby
+8479536
+Gabriel Vilardi
+8480014
+Dylan Samberg
+8480049
+Alex Iafallo
+8480113
+Neal Pionk
+8480145
+Morgan Barron
+8480289
+Declan Chisholm
+8480990
+David Gustafsson
+8481019
+Matt Luff
+8479644
+Miroslav Blatak
+8469577
+Alexander Kadeykin
+8478127
+Austin Czarnik
+8478512
+Joren Van Pottelberghe
+8478847
+Tim Gettinger
+8479364
+Nolan Stevens
+8479588
+Zach Aston-Reese
+8479944
+Jared McIsaac
+8480862
+Jonatan Berggren
+8481013
+Ryan O'Reilly
+8481026
+Taro Hirose
+8481433
+Brogan Rafferty
+8481479
+Antti Tuomisto
+8481587
+Albert Johansson
+8481607
+Elmer Soderblom
+8481725
+Cooper Moore
+8481745
+Carter Gylander
+8481757
+Cross Hanas
+8482106
+Sam Stange
+8482129
+Jan Bednar
+8482135
+Theodor Niederbach
+8482140
+Eemil Viro
+8482163
+William Wallinder
+8482171
+Wyatt Newpower
+8482251
+Kyle Aucoin
+8482492
+Chase Bradley
+8482507
+Kienan Draper
+8482521
+John Lethemon
+8482571
+Sebastian Cossa
+8482657
+Redmond Savage
+8482662
+Simon Edvinsson
+8482762
+Liam Dower Nilsson
+8482764
+Shai Buium
+8482777
+Carter Mazur
+8482802
+Brennan Ali
+8483421
+Dylan James
+8483459
+Marco Kasper
+8483464
+Dmitri Buchelnikov
+8483667
+Anton Johansson
+8483679
+Amadeus Lombardi
+8483695
+Owen Mehlenbacher
+8483717
+Maximilian Kilpinen
+8483726
+Tnias Mathurin
+8483735
+Alexandre Doucet
+8484107
+Trey Augustine
+8484141
+Brady Cleveland
+8484157
+Nate Danielson
+8484160
+Noah Dower Nilsson
+8484161
+Andrew Gibson
+8484174
+Larry Keenan
+8484182
+Axel Sandin Pellikka
+8484223
+Jack Phelan
+8484426
+Kevin Bicker
+8484432
+Rudy Guimond
+8484453
+Emmitt Finnie
+8484471
+James Reimer
+8473503
+Jeff Petry
+8473507
+David Perron
+8474102
+Patrick Kane
+8474141
+Ben Chiarot
+8475279
+Justin Holl
+8475718
+Olli Maatta
+8476874
+Shayne Gostisbehere
+8476906
+Andrew Copp
+8477429
+J.T. Compher
+8477456
+Dylan Larkin
+8477946
+Robby Fabbri
+8477952
+Jake Walman
+8478013
+Ville Husso
+8478024
+Christian Fischer
+8478432
+Daniel Sprong
+8478466
+Alex Lyon
+8479312
+Alex DeBrincat
+8479337
+Michael Rasmussen
+8479992
+Klim Kostin
+8480011
+Joe Veleno
+8480813
+Moritz Seider
+8481542
+Ryan Ellis
+8475176
+Noah Cates
+8480220
+Valeri Vasiliev
+8477037
+Cal Petersen
+8477361
+Felix Sandstrom
+8478433
+Cooper Marody
+8478442
+Matej Tomek
+8478489
+Mikhail Vorobyev
+8478844
+Ivan Fedotov
+8478905
+Adam Brooks
+8478996
+Wade Allison
+8479322
+Victor Mete
+8479376
+Tanner Laczynski
+8479550
+Rhett Gardner
+8479587
+Adam Ginning
+8480874
+Ronnie Attard
+8481521
+Mason Millman
+8481658
+Bryce Brodzinski
+8481735
+Massimo Rizzo
+8481760
+Emil Andrae
+8482126
+Zayde Wisdom
+8482161
+Helge Grans
+8482169
+Elliot Desnoyers
+8482452
+Samu Tuomaala
+8482727
+Aleksei Kolosov
+8482783
+Owen McLaughlin
+8482790
+Ty Murchison
+8482804
+Ethan Samson
+8482890
+Brian Zanetti
+8482930
+Jon-Randall Avon
+8483010
+Cutter Gauthier
+8483445
+Devin Kaplan
+8483461
+Alexis Gendron
+8483697
+Santeri Sulku
+8483720
+Alex Bump
+8483731
+Hunter McDonald
+8483760
+Cole Knuble
+8483787
+Will Zmolek
+8484115
+Denver Barkey
+8484142
+Carson Bjarnason
+8484147
+Oliver Bonk
+8484148
+Alex Ciernik
+8484156
+Matteo Mann
+8484191
+Carter Sotheran
+8484228
+Matvei Michkov
+8484387
+Egor Zavragin
+8484398
+Ryan MacPherson
+8484447
+Marc Staal
+8471686
+Cam Atkinson
+8474715
+Nicolas Deslauriers
+8475235
+Nick Seeler
+8476372
+Sean Couturier
+8476461
+Scott Laughton
+8476872
+Rasmus Ristolainen
+8477499
+Garnet Hathaway
+8477903
+Travis Sanheim
+8477948
+Louie Belpedio
+8478011
+Travis Konecny
+8478439
+Carter Hart
+8479394
+Owen Tippett
+8480015
+Morgan Frost
+8480028
+Ryan Poehling
+8480068
+Olle Lycksell
+8480245
+Sean Walker
+8480336
+Joel Farabee
+8480797
+Samuel Ersson
+8481035
+Egor Zamula
+8481178
+Cam York
+8481546
+Bobby Brink
+8481553
+Adam Pelech
+8476917
+Ryan Pulock
+8477506
+Sebastian Aho
+8480222
+Kristofer Ottosson
+8468628
+Paul LaDue
+8476983
+Brian Pinho
+8477314
+Andong Song
+8478893
+Kenneth Appleby
+8478965
+Dennis Cholowski
+8479395
+Otto Koivula
+8479526
+Robin Salo
+8480071
+Grant Hutton
+8480306
+Jakub Skarek
+8480819
+Karson Kuhlman
+8480901
+Ruslan Iskhakov
+8481016
+Kyle MacLean
+8481237
+Reece Newkirk
+8481666
+Tyce Thompson
+8481740
+Alex Jefferies
+8482154
+William Dufour
+8482207
+Matias Rajaniemi
+8482464
+Alexander Ljungkrantz
+8482480
+Tristan Lennox
+8482668
+Aleksi Malinen
+8482756
+Eetu Liukas
+8482882
+Cameron Berg
+8482932
+Tomas Machu
+8482954
+Matthew Maggio
+8483062
+Daylan Kuefler
+8483104
+Quinn Finley
+8483441
+Isaiah George
+8483448
+Calle Odelius
+8483498
+Justin Gill
+8483913
+Danny Nelson
+8484205
+Jesse Nurmi
+8484208
+Zachary Schulz
+8484225
+Travis Mitchell
+8484262
+Aidan Fulp
+8484263
+Dennis Good Bogg
+8484482
+Cal Clutterbuck
+8473504
+Semyon Varlamov
+8473575
+Robert Bortuzzo
+8474145
+Matt Martin
+8474709
+Kyle Palmieri
+8475151
+Casey Cizikas
+8475231
+Anders Lee
+8475314
+Brock Nelson
+8475754
+Jean-Gabriel Pageau
+8476419
+Mike Reilly
+8476422
+Scott Mayfield
+8476429
+Hudson Fasching
+8477392
+Bo Horvat
+8477500
+Ilya Sorokin
+8478009
+Pierre Engvall
+8478115
+Mathew Barzal
+8478445
+Julien Gauthier
+8479328
+Oliver Wahlstrom
+8480789
+Noah Dobson
+8480865
+Alexander Romanov
+8481014
+Samuel Bolduc
+8481541
+Brent Seabrook
+8470607
+Conor Sheary
+8477839
+Vasily Koshechkin
+8470066
+Matt Tomkins
+8477035
+Philippe Myers
+8479026
+Logan Brown
+8479366
+Sean Day
+8479413
+Gabriel Fortier
+8480863
+Ty Taylor
+8481083
+Hugo Alnefelt
+8481597
+Mikhail Shalagin
+8481684
+McKade Webster
+8481691
+Maxwell Crozier
+8481719
+Mitchell Chaffee
+8482070
+Jack Finley
+8482090
+Eamon Powell
+8482096
+Jack Thompson
+8482144
+Maxim Groshev
+8482168
+Gage Goncalves
+8482201
+Felix Robert
+8482440
+Jaydon Dureau
+8482454
+Nick Capone
+8482493
+Dylan Duke
+8482663
+Roman Schmidt
+8482693
+Niko Huuhtanen
+8482757
+Jack Harvey
+8482774
+Simon Ryfors
+8482818
+Emil Martinsen Lilleberg
+8482929
+Alex Gagne
+8482942
+Daniil Pylenkov
+8482944
+Robert Flinton
+8482951
+Bennett MacArthur
+8483102
+Declan Carlile
+8483398
+Ilya Usau
+8483408
+Lucas Edmonds
+8483437
+Isaac Howard
+8483455
+Klavs Veinbergs
+8483691
+Dyllan Gill
+8483692
+Connor Kurth
+8483727
+Nick Malik
+8483767
+Ethan Gauthier
+8484173
+Jayson Shaugabay
+8484226
+Waltteri Merela
+8484325
+Warren Clark
+8484462
+Ethan Hay
+8484484
+Steven Stamkos
+8474564
+Victor Hedman
+8475167
+Calvin de Haan
+8475177
+Austin Watson
+8475766
+Nikita Kucherov
+8476453
+Luke Glendening
+8476822
+Andrei Vasilevskiy
+8476883
+Tyler Motte
+8477353
+Nicholas Paul
+8477426
+Haydn Fleury
+8477938
+Jonas Johansson
+8477992
+Brayden Point
+8478010
+Darren Raddysh
+8478178
+Erik Cernak
+8478416
+Anthony Cirelli
+8478519
+Mikhail Sergachev
+8479410
+Brandon Hagel
+8479542
+Michael Eyssimont
+8479591
+Tanner Jeannot
+8479661
+Alex Barré-Boulet
+8479718
+Nick Perbix
+8480246
+Nicklas Backstrom
+8473563
+Max Pacioretty
+8474157
+Igor Ignatushkin
+8470228
+Michail Yunkov
+8471275
+Peter Guggisberg
+8471378
+Dylan McIlrath
+8475795
+Michael Sgarbossa
+8475958
+Garrett Haar
+8476291
+Sergey Kostenko
+8477039
+Henrik Borgstrom
+8479404
+Hardy Haman Aktell
+8479522
+Damien Riat
+8479584
+Chase Priskie
+8479597
+Tobias Geisser
+8480283
+Riley Sutter
+8480791
+Mitchell Gibson
+8481064
+Joe Snively
+8481441
+Henrik Rybinski
+8481662
+Hendrix Lapierre
+8482148
+Bogdan Trineyev
+8482167
+Garin Bjorklund
+8482188
+Hunter Shepard
+8482411
+Oskar Magnusson
+8482509
+Alex Limoges
+8482639
+David Gucciardi
+8482683
+Brent Johnson
+8482723
+Vincent Iorio
+8482861
+Haakon Hanelt
+8482879
+Joaquim Lemay
+8482931
+Chase Clark
+8482939
+Ryan Hofer
+8482960
+Brett Hyland
+8483007
+Ryan Chesley
+8483430
+Jake Karabela
+8483462
+Ivan Miroshnichenko
+8483491
+Alexander Suzdalev
+8483518
+Clay Stevenson
+8483532
+Ethen Frank
+8483573
+Ludwig Persson
+8483681
+Pierrick Dube
+8483920
+Cam Allen
+8484140
+Andrew Cristall
+8484159
+Ryan Leonard
+8484186
+Patrick Thomas
+8484404
+Antoine Keller
+8484480
+Alex Ovechkin
+8471214
+T.J. Oshie
+8471698
+John Carlson
+8474590
+Darcy Kuemper
+8475311
+Nick Jensen
+8475324
+Nic Dowd
+8475343
+Evgeny Kuznetsov
+8475744
+Joel Edmundson
+8476441
+Tom Wilson
+8476880
+Anthony Mantha
+8477511
+Trevor van Riemsdyk
+8477845
+Sonny Milano
+8477947
+Nicolas Aube-Kubel
+8477979
+Dylan Strome
+8478440
+Charlie Lindgren
+8479292
+Lucas Johansen
+8479321
+Beck Malenstyn
+8479359
+Matthew Phillips
+8479547
+Martin Fehervary
+8480796
+Alexander Alexeyev
+8480823
+Rasmus Sandin
+8480873
+Connor McMichael
+8481580
+Dougie Hamilton
+8476462
+Tomas Nosek
+8477931
+Ivan Khomutov
+8470686
+Justin Dowling
+8475413
+Mauro Jorg
+8475898
+Keith Kinkaid
+8476234
+Tyler Wotherspoon
+8476452
+Artur Gavrus
+8476993
+Max Willman
+8478051
+Erik Kallgren
+8478902
+Samuel Laberge
+8478956
+Kyle Criscuolo
+8479304
+Cal Foote
+8479984
+Nikita Popugaev
+8480006
+Shane Bowers
+8480032
+Arnaud Durandeau
+8480242
+Yegor Zaitsev
+8480271
+Nolan Foote
+8481518
+Daniil Misyul
+8481536
+Graeme Clarke
+8481578
+Michael Vukojevic
+8481583
+Santeri Hatakka
+8481701
+Arseni Gritsyuk
+8481721
+Cole Brady
+8481744
+Nico Daws
+8482076
+Jaromir Pytlik
+8482084
+Ethan Edwards
+8482194
+Artem Shlaine
+8482214
+Chase Stillman
+8482714
+Samu Salminen
+8482760
+Jakub Malek
+8482867
+Topias Vilen
+8482873
+Viktor Hurtig
+8482908
+Zakhar Bardakov
+8482947
+Tyler Brennan
+8483426
+Seamus Casey
+8483429
+Josh Filmon
+8483439
+Charlie Leddy
+8483474
+Brian Halonen
+8483531
+Daniil Orlov
+8483689
+Artem Barabosha
+8483721
+Petr Hauser
+8483747
+Lenni Hameenaho
+8484177
+Cam Squires
+8484405
+Chase Cheslock
+8484439
+Cole Brown
+8484446
+Daniil Karpovich
+8484465
+Brendan Smith
+8474090
+Erik Haula
+8475287
+Tyler Toffoli
+8475726
+Ondrej Palat
+8476292
+Colin Miller
+8476525
+Chris Tierney
+8476919
+Curtis Lazar
+8477508
+Vitek Vanecek
+8477970
+Jonas Siegenthaler
+8478399
+Timo Meier
+8478414
+John Marino
+8478507
+Jesper Bratt
+8479407
+Nathan Bastian
+8479414
+Michael McLeod
+8479415
+Nico Hischier
+8480002
+Kevin Bahl
+8480860
+Akira Schmid
+8481033
+Jack Hughes
+8481559
+Dawson Mercer
+8482110
+Alexander Holtz
+8482125
+Luke Hughes
+8482684
+Frederik Andersen
+8475883
+David Kase
+8478436
+Tarmo Reunanen
+8479462
+Dylan Coghlan
+8479639
+Joey Keane
+8480466
+Jesper Sellgren
+8481040
+Jacob Kucharski
+8481050
+Domenick Fensore
+8481562
+Cade Webber
+8481570
+Ryan Suzuki
+8481576
+Jamieson Rees
+8481579
+Anttoni Honka
+8481615
+Blake Murray
+8481677
+Tuukka Tieksola
+8481697
+Kirill Slepets
+8481724
+Noel Gunler
+8482080
+Alexander Nikishin
+8482100
+Vasily Ponomarev
+8482102
+Ronan Seeley
+8482187
+Alexander Pashin
+8482212
+Callahan Burke
+8482250
+Zion Nybeck
+8482483
+Lucas Mercuri
+8482518
+Scott Morrow
+8482666
+Ville Koivunen
+8482758
+Justin Robidas
+8482785
+Jackson Blake
+8482809
+Aleksi Heimosalmi
+8482860
+Bryce Montgomery
+8482888
+Nikita Quapp
+8482895
+Yegor Naumov
+8482899
+Joel Nystrom
+8482911
+Nikita Guslistov
+8482917
+Patrik Hamrla
+8482921
+Cruz Lucius
+8483479
+Alexander Perevalov
+8483501
+Gleb Trikozov
+8483519
+Griffin Mendel
+8483560
+Simon Forsmark
+8483674
+Alexander Pelevin
+8483713
+Jakub Vondras
+8483754
+Vladimir Grudinin
+8483773
+Bradly Nadeau
+8484203
+Jayden Perron
+8484211
+Yaniv Perets
+8484293
+Felix Unger Sorum
+8484392
+Alexander Rykov
+8484402
+Stanislav Yarovoi
+8484418
+Charles-Alexis Legault
+8484428
+Ruslan Khazheyev
+8484440
+Timur Mukhanov
+8484445
+Michael Emerson
+8484469
+Yegor Velmakin
+8484493
+Brent Burns
+8470613
+Jordan Staal
+8473533
+Dmitry Orlov
+8475200
+Jesper Fast
+8475855
+Stefan Noesen
+8476474
+Brady Skjei
+8476869
+Teuvo Teravainen
+8476882
+Jordan Martinook
+8476921
+Jaccob Slavin
+8476958
+Antti Raanta
+8477293
+Brett Pesce
+8477488
+Tony DeAngelo
+8477950
+Brendan Lemieux
+8477962
+Michael Bunting
+8478047
+Sebastian Aho
+8478427
+Jalen Chatfield
+8478970
+Martin Necas
+8480039
+Jesperi Kotkaniemi
+8480829
+Andrei Svechnikov
+8480830
+Jack Drury
+8480835
+Pyotr Kochetkov
+8481611
+Bryan Little
+8473412
+Jakub Voracek
+8474161
+Travis Boyd
+8476329
+Barrett Hayton
+8480849
+Jack McBain
+8480855
+Vladislav Kolyachonok
+8481609
+Shea Weber
+8470642
+Dimitri Pestunov
+8470673
+Anton Krysanov
+8471809
+Steven Kampfer
+8474000
+Zach Sanford
+8477482
+Justin Kirkland
+8477993
+Travis Barron
+8479561
+Patrick Kudla
+8479593
+Cameron Crotty
+8480075
+Matt Villalta
+8480191
+Josef Korenar
+8480373
+Curtis Douglas
+8480876
+Jan Jenik
+8480890
+Nathan Smith
+8480979
+John Leonard
+8481077
+Montana Onyebuchi
+8481159
+Victor Soderstrom
+8481599
+Danil Savunov
+8481673
+Aku Raty
+8481699
+Alexandr Darin
+8481713
+Ben McCartney
+8481827
+Filip Barklund
+8482462
+Elliot Ekefjard
+8482467
+Carson Bantle
+8482490
+Josh Doan
+8482659
+Dylan Guenther
+8482699
+Ilya Fedotov
+8482792
+Rasmus Korhonen
+8482871
+Sam Lipkin
+8482924
+Cal Thomas
+8482938
+Anson Thornton
+8483099
+Artem Duda
+8483436
+Conor Geekie
+8483447
+Maveric Lamoureux
+8483472
+Jeremy Langlois
+8483473
+Julian Lutz
+8483483
+Miko Matikka
+8483671
+Adam Zlnka
+8483714
+Matthew Morden
+8483729
+Maksymilian Szuber
+8483763
+Jonathan Castagna
+8484154
+Terrell Goldsmith
+8484175
+Michael Hrabal
+8484181
+Carsen Musser
+8484199
+Noel Nordh
+8484207
+Patrik Koch
+8484326
+Dmitriy Simashev
+8484386
+Daniil But
+8484388
+Tanner Ludtke
+8484394
+Vadim Moroz
+8484399
+Melker Thelin
+8484423
+Justin Kipkie
+8484434
+Samu Bau
+8484444
+Jason Zucker
+8475722
+Nick Bjugstad
+8475760
+Matt Dumba
+8476856
+Alex Kerfoot
+8477021
+Liam O'Brien
+8477070
+Josh Brown
+8477384
+Nick Schmaltz
+8477951
+Travis Dermott
+8478408
+Lawson Crouse
+8478474
+Karel Vejmelka
+8478872
+Connor Ingram
+8478971
+Clayton Keller
+8479343
+Troy Stecher
+8479442
+Michael Carcone
+8479619
+Juuso Valimaki
+8479976
+Ryan McGregor
+8480248
+Sean Durzi
+8480434
+Michael Kesselring
+8480891
+Matias Maccelli
+8481711
+J.J. Moser
+8482655
+Logan Cooley
+8483431
+Kevin Gravel
+8475857
+Mark Jankowski
+8476873
+Troy Grosenick
+8477234
+Roland McKeown
+8477981
+Anthony Angello
+8478074
+Denis Gurianov
+8478495
+Konstantin Volkov
+8479549
+Liam Foudy
+8480853
+Jordan Gross
+8480913
+Vladislav Yeryomenko
+8480991
+Spencer Stastney
+8481056
+Jasper Weatherby
+8481061
+Egor Afanasyev
+8481585
+Alex Campbell
+8481619
+Semyon Chystyakov
+8481718
+Isak Walther
+8481730
+Marc Del Gaizo
+8481743
+Ethan Haider
+8481749
+Navrin Mutter
+8481817
+Luke Prokop
+8482091
+Yaroslav Askarov
+8482137
+Luke Reid
+8482180
+Simon Knak
+8482204
+Adam Wilsby
+8482482
+Gunnarwolfe Fontaine
+8482506
+Chase McLane
+8482508
+Ryan Ufko
+8482715
+Anton Olsson
+8482721
+Zachary L'Heureux
+8482742
+Fedor Svechkov
+8482768
+Jack Matier
+8482808
+Graham Sward
+8482962
+Adam Ingram
+8483458
+Joakim Kemell
+8483465
+Kasper Kulonummi
+8483469
+Reid Schaefer
+8483513
+Cole O'Hara
+8483696
+Ben Strinden
+8483707
+Austin Roest
+8483844
+Nolan Burke
+8483879
+Jesse Kiiskinen
+8484183
+Kalan Lind
+8484187
+Dylan MacKinnon
+8484190
+Tanner Molendyk
+8484196
+Felix Nilsson
+8484206
+Matthew Wood
+8484241
+Jake Livingstone
+8484256
+Juha Jatkola
+8484407
+Joey Willis
+8484412
+Sutter Muzzatti
+8484425
+Aiden Fink
+8484494
+Ryan McDonagh
+8474151
+Luke Schenn
+8474568
+Roman Josi
+8474600
+Gustav Nyquist
+8474679
+Ryan O'Reilly
+8475158
+Tyson Barrie
+8475197
+Filip Forsberg
+8476887
+Colton Sissons
+8476925
+Juuse Saros
+8477424
+Michael McCarron
+8477446
+Tommy Novak
+8478438
+Jeremy Lauzon
+8478468
+Yakov Trenin
+8478508
+Alexandre Carrier
+8478851
+Dante Fabbro
+8479371
+Cody Glass
+8479996
+Kiefer Sherwood
+8480748
+Kevin Lankinen
+8480947
+Philip Tomasino
+8481577
+Juuso Parssinen
+8481704
+Cole Smith
+8482062
+Dimitri Semin
+8469606
+Konstantin Barulin
+8470677
+Evgeny Skachkov
+8470810
+Andrei Pervyshin
+8470842
+Victor Alexandrov
+8471295
+Matthew Peca
+8476285
+Malcolm Subban
+8476876
+Mackenzie MacEachern
+8476907
+Nathan Walker
+8477573
+Josh Jacobs
+8477972
+Adam Gaudette
+8478874
+William Bitten
+8479375
+Calle Rosen
+8480157
+Wyatt Kalynuk
+8480293
+Mathias Laferriere
+8481000
+Colten Ellis
+8481551
+Mikhail Abramov
+8481589
+Keean Washkurak
+8481667
+Vadim Zherenko
+8481689
+Hunter Skinner
+8481715
+Dylan Peterson
+8482121
+Tanner Dickinson
+8482156
+Will Cranley
+8482205
+Noah Beck
+8482468
+Leo Loof
+8482478
+Matthew Kessel
+8482516
+Simon Robertsson
+8482716
+Zachary Bolduc
+8482737
+Zach Dean
+8482784
+Ivan Vorobyov
+8482945
+Jeremie Biakabutuka
+8483061
+Michael Buchinger
+8483427
+Aleksanteri Kaskimaki
+8483463
+Jimmy Snuggerud
+8483516
+Arseni Koromyslov
+8483705
+Landon Sim
+8483741
+Marc-Andre Gaudet
+8483764
+Anton Malmstrom
+8484114
+Quinton Burns
+8484151
+Dalibor Dvorsky
+8484164
+Paul Fischer
+8484167
+Theo Lindstein
+8484188
+Jakub Stancl
+8484229
+Otto Stenberg
+8484230
+Juraj Pekarcik
+8484393
+Matthew Mayich
+8484452
+Nikita Susuyev
+8484476
+Marco Scandella
+8474618
+Brayden Schenn
+8475170
+Nick Leddy
+8475181
+Justin Faulk
+8475753
+Kevin Hayes
+8475763
+Jordan Binnington
+8476412
+Brandon Saad
+8476438
+Torey Krug
+8476792
+Colton Parayko
+8476892
+Oskar Sundqvist
+8476897
+Pavel Buchnevich
+8477402
+Jakub Vrana
+8477944
+Kasperi Kapanen
+8477953
+Sammy Blais
+8478104
+Jordan Kyrou
+8479385
+Robert Thomas
+8480023
+Alexey Toropchenko
+8480281
+Joel Hofer
+8480981
+Tyler Tucker
+8481006
+Scott Perunovich
+8481059
+Hugh McGing
+8481070
+Nikita Alexandrov
+8481543
+Jordan Harris
+8480887
+Rafael Harvey-Pinard
+8481093
+Kirby Dach
+8481523
+Alex Newhook
+8481618
+Carey Price
+8471679
+Chris Wideman
+8475227
+Philippe Maillet
+8477544
+Lias Andersson
+8480072
+Nicolas Beaudin
+8480814
+Jakov Novak
+8481078
+Brady Keeper
+8481442
+Mattias Norlinder
+8481555
+Nathan Légaré
+8481594
+Rhett Pitlick
+8481746
+Xavier Simoneau
+8481794
+Sean Farrell
+8482081
+Ty Smilanic
+8482104
+Blake Biondi
+8482114
+Luke Tuch
+8482134
+Jan Mysak
+8482136
+Emil Heineman
+8482476
+Jakub Dobes
+8482487
+Alexander Gordin
+8482497
+Jack Smith
+8482514
+Joe Vrbetic
+8482669
+Luke Mittelstadt
+8482687
+Dmitri Kostenko
+8482710
+Daniil Sobolev
+8482717
+Logan Mailloux
+8482733
+Joshua Roy
+8482749
+Oliver Kapanen
+8482775
+William Trudeau
+8482806
+Riley Kidney
+8482828
+Arber Xhekaj
+8482964
+Miguël Tourigny
+8483092
+Owen Beck
+8483424
+Lane Hutson
+8483457
+Filip Mesar
+8483488
+Vinzenz Rohrer
+8483507
+Lucas Condotta
+8483549
+Adam Engstrom
+8483686
+Cedrick Guindon
+8483723
+Petteri Nurmi
+8483724
+Jared Davidson
+8483728
+Emmett Croteau
+8483765
+Jacob Fowler
+8484170
+David Reinbacher
+8484220
+Florian Xhekaj
+8484403
+Bogdan Konyushkov
+8484410
+Quentin Miller
+8484416
+Sam Harris
+8484422
+Yevgeni Volokhin
+8484424
+Filip Eriksson
+8484448
+Jake Allen
+8474596
+David Savard
+8475233
+Brendan Gallagher
+8475848
+Joel Armia
+8476469
+Tanner Pearson
+8476871
+Mike Matheson
+8476875
+Josh Anderson
+8476981
+Sean Monahan
+8477497
+Christian Dvorak
+8477989
+Jake Evans
+8478133
+Sam Montembeault
+8478470
+Mitchell Stephens
+8478477
+Michael Pezzetta
+8479543
+Nick Suzuki
+8480018
+Cayden Primeau
+8480051
+Gustav Lindström
+8480184
+Johnathan Kovacevic
+8480192
+Jesse Ylönen
+8481058
+Cole Caufield
+8481540
+Jayden Struble
+8481593
+Kaiden Guhle
+8482087
+Justin Barron
+8482111
+Matt Nieto
+8476442
+Rickard Rakell
+8476483
+Chad Ruhwedel
+8477244
+Noel Acciari
+8478569
+Pierre-Olivier Joseph
+8480058
+Mikhail Kazakevich
+8460744
+Vladimir Malenkykh
+8468030
+Sergei Anshakov
+8470057
+Patrick Ehelechner
+8470731
+Evgeni Isakov
+8470753
+Alexander Pechurskiy
+8474708
+Taylor Fedun
+8476166
+Magnus Hellberg
+8476433
+Xavier Ouellet
+8476443
+Ryan Segalla
+8477351
+Will Butcher
+8477355
+Colin White
+8478400
+Alex Nylander
+8479423
+Kasper Bjorkqvist
+8479512
+Rem Pitlick
+8479514
+Joona Koppanen
+8479533
+Joseph Masonius
+8479579
+Jack Rathbone
+8480056
+Filip Hallander
+8480842
+Ty Smith
+8480883
+Jack St. Ivany
+8481030
+Taylor Gauthier
+8481526
+Dillon Hamaliuk
+8481549
+Sam Poulin
+8481591
+Filip Lindberg
+8481758
+Thimo Nickl
+8482127
+Chase Yoder
+8482195
+Joel Blomqvist
+8482446
+Lukas Svejkovsky
+8482449
+Raivis Ansons
+8482456
+Tristan Broz
+8482698
+Isaac Belliveau
+8482801
+Kirill Tankov
+8482904
+Daniel Laatsch
+8482952
+Jordan Frasca
+8483000
+Corey Andonovski
+8483394
+Owen Pickering
+8483503
+Zam Plante
+8483504
+Sergey Murashov
+8483703
+Luke Devlin
+8483743
+Nolan Collins
+8483759
+Emil Pieniniemi
+8484213
+Brayden Yager
+8484242
+Mikhail Ilyin
+8484427
+Cooper Foster
+8484456
+Kalle Kangas
+8484490
+Emil Jarventie
+8484492
+Jeff Carter
+8470604
+Evgeni Malkin
+8471215
+Sidney Crosby
+8471675
+Kris Letang
+8471724
+Lars Eller
+8474189
+Erik Karlsson
+8474578
+Reilly Smith
+8475191
+Bryan Rust
+8475810
+Vinnie Hinostroza
+8476994
+Jake Guentzel
+8477404
+Ryan Graves
+8477435
+Tristan Jarry
+8477465
+Alex Nedeljkovic
+8477968
+Marcus Pettersson
+8477969
+Jansen Harkins
+8478424
+Ryan Shea
+8478854
+Dmitri Samorukov
+8480041
+Jonathan Gruden
+8480836
+John Ludvig
+8481206
+Valtteri Puustinen
+8481703
+Drew O'Connor
+8482055
+Radim Zohorna
+8482241
+Jacob Markstrom
+8474593
+Jakob Pelletier
+8481592
+Dimitri Riabykin
+8460536
+Ruslan Zainullin
+8468514
+Andrei Taratukhin
+8469493
+Andrei Medvedev
+8469507
+Egor Shastin
+8469572
+Yuri Trubachev
+8469611
+Victor Bobrov
+8470094
+Mark Pysyk
+8475796
+Oscar Dansk
+8476861
+Rushan Rafikov
+8477327
+Clark Bishop
+8478056
+Dryden Hunt
+8478211
+Oliver Kylington
+8478430
+Pavel Karnaukhov
+8478865
+Kevin Rooney
+8479291
+Eetu Tuulola
+8479408
+Nick DeSimone
+8480084
+Ben Jones
+8480259
+Brady Lyle
+8480404
+Mathias Emilio Pettersen
+8481041
+Demetrios Koumontzis
+8481062
+Ilya Nikolaev
+8481590
+Carl-Johan Lerby
+8481625
+Cole Schwindt
+8481655
+Colton Poolman
+8482066
+Yan Kuznetsov
+8482165
+Jeremie Poirier
+8482173
+Jake Boltmann
+8482183
+Rory Kerins
+8482209
+Daniil Chechelev
+8482513
+William Stromgren
+8482766
+Lucas Ciona
+8482889
+Arsenii Sergeev
+8482949
+Topi Ronni
+8483508
+Adam Klapka
+8483609
+Cade Littler
+8483698
+Parker Bell
+8483772
+Samuel Honzek
+8484180
+Jaden Lipinski
+8484189
+Etienne Morin
+8484198
+Aydar Suniev
+8484234
+Yegor Yegorov
+8484459
+Axel Hurtig
+8484481
+Mikael Backlund
+8474150
+Nazem Kadri
+8475172
+Chris Tanev
+8475690
+Blake Coleman
+8476399
+Jonathan Huberdeau
+8476456
+MacKenzie Weegar
+8477346
+Elias Lindholm
+8477496
+Jordan Oesterle
+8477851
+Andrew Mangiapane
+8478233
+Noah Hanifin
+8478396
+Rasmus Andersson
+8478397
+A.J. Greer
+8478421
+Dan Vladar
+8478435
+Dennis Gilbert
+8478502
+Dillon Dube
+8479346
+Adam Ruzicka
+8480008
+Martin Pospisil
+8481028
+Yegor Sharangovich
+8481068
+Dustin Wolf
+8481692
+Connor Zary
+8482074
+Ilya Solovyov
+8482470
+Walker Duehr
+8482652
+Zemgus Girgensons
+8476878
+Alex Tuch
+8477949
+Jordan Greenway
+8478413
+Artem Kriukov
+8468495
+Dustin Tokarski
+8474682
+Connor Hurley
+8477459
+Joseph Cecconi
+8478863
+Ivan Chukarov
+8478901
+Kale Clague
+8479348
+Riley Stillman
+8479388
+Brett Murray
+8479419
+Philip Nyberg
+8479529
+Vasily Glotov
+8479601
+Jeremy Davies
+8479602
+Linus Weissbach
+8480261
+Arttu Ruotsalainen
+8481626
+Filip Cederqvist
+8481722
+Aaron Huglen
+8481741
+Lukas Rousek
+8481751
+Brandon Biro
+8482061
+Jack Quinn
+8482097
+Justin Richards
+8482179
+Matteo Costantini
+8482219
+Devin Cooley
+8482445
+Albert Lyckasen
+8482503
+Jakub Konecny
+8482526
+Aleksandr Kisakov
+8482697
+Olivier Nadeau
+8482746
+Viljami Marjala
+8482759
+Prokhor Poltapov
+8482769
+William Von Barnekow Lofberg
+8482883
+Tyson Kozak
+8482896
+Stiven Sardarian
+8482912
+Nikita Novikov
+8482916
+Jiri Kulich
+8483468
+Topias Leinonen
+8483475
+Mats Lindgren
+8483477
+Viktor Neuchev
+8483496
+Noah Ostlund
+8483500
+Matt Savoie
+8483512
+Linus Sjodin
+8483706
+Joel Ratkovic Berndtsson
+8483716
+Vsevolod Komarov
+8483732
+Gustav Karlsson
+8483739
+Jake Richard
+8483755
+Gavin McCarthy
+8484192
+Ethan Miedema
+8484193
+Scott Ratzlaff
+8484218
+Maxim Strbak
+8484233
+Anton Wahlberg
+8484238
+Sean Keohane
+8484454
+Norwin Panocha
+8484479
+Erik Johnson
+8473446
+Kyle Okposo
+8473449
+Jeff Skinner
+8475784
+Connor Clifton
+8477365
+Eric Comrie
+8477480
+Victor Olofsson
+8478109
+Tyson Jost
+8479370
+Tage Thompson
+8479420
+Casey Mittelstadt
+8479999
+Henri Jokiharju
+8480035
+Ukko-Pekka Luukkonen
+8480045
+Jacob Bryson
+8480196
+Eric Robinson
+8480762
+Mattias Samuelsson
+8480807
+Rasmus Dahlin
+8480839
+Peyton Krebs
+8481522
+Dylan Cozens
+8481528
+Ryan Johnson
+8481564
+JJ Peterka
+8482175
+Devon Levi
+8482221
+Owen Power
+8482671
+Isak Rosen
+8482765
+Dylan Holloway
+8482077
+Brad Malone
+8474089
+Greg McKegg
+8475735
+Jack Campbell
+8475789
+Seth Griffith
+8476495
+Lane Pederson
+8478967
+Markus Niemelainen
+8479338
+Cam Dineen
+8479341
+Drake Caggiula
+8479465
+Noel Hoefenmayer
+8480202
+Philip Kemp
+8480274
+Olivier Rodrigue
+8480885
+Noah Philp
+8481491
+Raphael Lavoie
+8481534
+Philip Broberg
+8481598
+Maxim Denezhkin
+8481734
+Tomas Mazura
+8481752
+Carter Savoie
+8482108
+Tyler Tullio
+8482151
+Maksim Berezkin
+8482202
+Jeremias Lindewall
+8482469
+Xavier Bourgault
+8482673
+Jayden Grubbe
+8482704
+Jake Chiasson
+8482706
+Matvey Petrov
+8482718
+Luca Munzenberger
+8482864
+Maximus Wanner
+8482902
+Shane Lachance
+8482941
+Ryan Fanti
+8483534
+Joel Maatta
+8483693
+Nikita Yevseyev
+8483734
+Samuel Jonsson
+8483769
+Brady Stonehouse
+8483847
+Carl Berglund
+8484127
+Beau Akey
+8484139
+Nathaniel Day
+8484455
+Matt Copponi
+8484491
+Sam Gagner
+8474040
+Evander Kane
+8475169
+Mattias Ekholm
+8475218
+Calvin Pickard
+8475717
+Zach Hyman
+8475786
+Ryan Nugent-Hopkins
+8476454
+Cody Ceci
+8476879
+Brett Kulak
+8476967
+Connor Brown
+8477015
+Mattias Janmark
+8477406
+Adam Erne
+8477454
+Darnell Nurse
+8477498
+Leon Draisaitl
+8477934
+Warren Foegele
+8477998
+Connor McDavid
+8478402
+Derek Ryan
+8478585
+Ben Gleason
+8479416
+Vincent Desharnais
+8479576
+Stuart Skinner
+8479973
+James Hamblin
+8480468
+Ryan McLeod
+8480802
+Jaden Schwartz
+8475768
+Andre Burakovsky
+8477444
+Max McCormick
+8476323
+Chris Driedger
+8476904
+Connor Carrick
+8476941
+John Hayden
+8477401
+Gustav Olofsson
+8477467
+Ales Stezka
+8478848
+Cameron Hughes
+8478888
+Andrew Poturalski
+8479249
+Cale Fleury
+8479985
+Kole Lind
+8479986
+Mitch Reinke
+8480761
+Luke Henman
+8480869
+Jimmy Schuldt
+8481486
+Justin Janicke
+8482694
+Ryan Winterton
+8482751
+Ville Ottavainen
+8482866
+Jacob Melanson
+8482874
+Semyon Vyazovoi
+8482884
+Logan Morrison
+8483012
+Kyle Jackson
+8483013
+Tucker Robertson
+8483043
+Jagger Firkus
+8483442
+David Goyette
+8483449
+Ben MacDonald
+8483484
+Ty Nelson
+8483494
+Jani Nyman
+8483497
+Shane Wright
+8483524
+Peetro Seppala
+8483599
+Ville Petman
+8483635
+Niklas Kokko
+8483668
+Tyson Jugnauth
+8483684
+Barrett Hall
+8483761
+Lukas Dragicevic
+8484162
+Oscar Fisker Molgaard
+8484168
+Caden Price
+8484217
+Carson Rehkopf
+8484219
+Eduard Sale
+8484222
+Andrei Loshko
+8484415
+Kaden Hammell
+8484433
+Visa Vedenpaa
+8484451
+Zeb Forsfjall
+8484463
+Zaccharya Wisdom
+8484486
+Jordan Eberle
+8474586
+Justin Schultz
+8474602
+Brian Dumoulin
+8475208
+Philipp Grubauer
+8475831
+Adam Larsson
+8476457
+Jamie Oleksiak
+8476467
+Yanni Gourde
+8476826
+Devin Shore
+8476913
+Jaycob Megna
+8477034
+Oliver Bjorkstrand
+8477416
+Alex Wennberg
+8477505
+Pierre-Edouard Bellemare
+8477930
+Jared McCann
+8477955
+Vince Dunn
+8478407
+Will Borgen
+8478840
+Joey Daccord
+8478916
+Brandon Tanev
+8479293
+Kailer Yamamoto
+8479977
+Eeli Tolvanen
+8480009
+Marián Studenic
+8480226
+Tye Kartye
+8481789
+Matty Beniers
+8482665
+Boone Jenner
+8476432
+Damon Severson
+8476923
+Elvis Merzlikins
+8478007
+Jack Roslovic
+8478458
+Adam Boqvist
+8480871
+Sergei Mozyakin
+8470253
+Brendan Gaunce
+8476867
+Peter Quenneville
+8477334
+Calvin Thurkauf
+8479557
+Carson Meyer
+8480292
+Trey Fix-Wolansky
+8480441
+Tim Berni
+8481072
+Jake Christiansen
+8481161
+Tyler Angle
+8481690
+Billy Sweezey
+8482399
+Samuel Knazko
+8482448
+Mikael Pyyhtia
+8482451
+Ole Julian Bjorgvik-Holm
+8482453
+Josh Dunne
+8482623
+Corson Ceulemans
+8482678
+Aidan Hreschuk
+8482680
+Guillaume Richard
+8482692
+Stanislav Svozil
+8482711
+James Malatesta
+8482744
+Nikolai Makarov
+8482913
+Martin Rysavy
+8482926
+Cameron Butler
+8483045
+Luca Del Bel Belluz
+8483432
+Kirill Dolzhenkov
+8483434
+Denton Mateychuk
+8483485
+Marcus Bjork
+8483620
+Jordan Dumais
+8483688
+James Fisher
+8483715
+Sergei Ivanov
+8483738
+Nolan Lalonde
+8483869
+Hunter McKown
+8484125
+Gavin Brindley
+8484149
+Tyler Peddle
+8484209
+Luca Pinelli
+8484214
+Andrew Strathmann
+8484232
+William Whitelaw
+8484239
+Melvin Strahl
+8484441
+Oiva Keskinen
+8484472
+Erik Gudbranson
+8475790
+Johnny Gaudreau
+8476346
+Sean Kuraly
+8476374
+Spencer Martin
+8477484
+Zach Werenski
+8478460
+Ivan Provorov
+8478500
+Patrik Laine
+8479339
+Andrew Peeke
+8479369
+Jake Bean
+8479402
+Mathieu Olivier
+8479671
+Justin Danforth
+8479941
+Alexandre Texier
+8480074
+Daniil Tarasov
+8480193
+Emil Bemstrom
+8480205
+Kirill Marchenko
+8480893
+Dmitri Voronkov
+8481716
+Yegor Chinakhov
+8482475
+Kent Johnson
+8482660
+Cole Sillinger
+8482705
+Jet Greaves
+8482982
+David Jiricek
+8483460
+Nick Blankenburg
+8483565
+Thomas Chabot
+8478469
+Mark Kastelic
+8480355
+Mika Stromberg
+8458146
+Petter Ronnquist
+8459200
+Igor Mirnov
+8470660
+Sergei Gimayev
+8470758
+Kirill Lyamin
+8471271
+Dimitri Megalinsky
+8471847
+Timothy Boyle
+8476968
+Dillon Heatherington
+8477471
+Josh Currie
+8477680
+Matthew Highmore
+8478146
+Bokondji Imama
+8478147
+Jacob Larsson
+8478491
+Vitaly Abramov
+8479411
+Garrett Pilon
+8479516
+Alex Formenton
+8480029
+Kevin Mandolese
+8480867
+Angus Crookshank
+8481065
+Egor Sokolov
+8481102
+Cole Reinhardt
+8481133
+Mads Sogaard
+8481544
+Lassi Thomson
+8481575
+Shane Pinto
+8481596
+Maxence Guenette
+8481679
+Tyler Kleven
+8482095
+Donovan Sebrango
+8482131
+Roby Jarventie
+8482162
+Leevi Merilainen
+8482447
+Philippe Daoust
+8482458
+Tyler Boucher
+8482674
+Zack Ostapchuk
+8482859
+Oliver Johansson
+8482862
+Jorian Donovan
+8483435
+Filip Nordberg
+8483670
+Oskar Pettersson
+8483673
+Stephen Halliday
+8483676
+Tomas Hamara
+8483683
+Tyson Dyck
+8483718
+Cameron O'Neill
+8483749
+Theo Wallberg
+8483757
+Kevin Reidler
+8483762
+Nikolas Matinpalo
+8484321
+Hoyt Stanley
+8484409
+Matthew Andonovski
+8484429
+Owen Beckner
+8484478
+Nicholas Vantassell
+8484485
+Vladimir Nikitin
+8484489
+Djibril Toure
+8484534
+Claude Giroux
+8473512
+Travis Hamonic
+8474612
+Vladimir Tarasenko
+8475765
+Anton Forsberg
+8476341
+Joonas Korpisalo
+8476914
+Dominik Kubalik
+8477330
+Rourke Chartier
+8478078
+Mathieu Joseph
+8478472
+Jakob Chychrun
+8479345
+Zack MacEwen
+8479772
+Josh Norris
+8480064
+Erik Brannstrom
+8480073
+Drake Batherson
+8480208
+Parker Kelly
+8480448
+Brady Tkachuk
+8480801
+Jacob Bernard-Docker
+8480879
+Ridly Greig
+8482092
+Jake Sanderson
+8482105
+Tim Stützle
+8482116
+Artem Zub
+8482245
+Julian Walker
+8473487
+Zane McIntyre
+8475876
+Steven Fogarty
+8476396
+Jujhar Khaira
+8476915
+Nic Petan
+8477464
+Vinni Lettieri
+8479968
+Sammy Walker
+8480267
+Nick Swaney
+8480275
+Sam Hentges
+8481012
+Simon Johansson
+8481037
+Jacob Lucchini
+8481422
+Hunter Jones
+8481545
+Adam Beckman
+8481550
+Matvey Guskov
+8481586
+Vladislav Firstov
+8481706
+Max Cajkovic
+8481738
+Daemon Hunt
+8482094
+Ryan O'Rourke
+8482143
+Marat Khusnutdinov
+8482177
+Adam Raska
+8482197
+Pavel Novak
+8482217
+Jesper Wallstedt
+8482661
+Jack Peart
+8482686
+Kyle Masters
+8482707
+Nate Benoit
+8482728
+Carson Lambos
+8482781
+Michael Milne
+8482829
+Caedan Bankier
+8482863
+Hunter Haight
+8483452
+Rieger Lorenz
+8483478
+Liam Ohgren
+8483499
+Servac Petrovsky
+8483502
+Danila Yurov
+8483525
+Ryan Healey
+8483708
+David Spacek
+8483766
+Riley Heidt
+8484178
+Rasmus Kumpulainen
+8484184
+Aaron Pionk
+8484215
+Charlie Stramel
+8484231
+Kalem Parker
+8484460
+James Clark
+8484487
+Marc-Andre Fleury
+8470594
+Alex Goligoski
+8471274
+Pat Maroon
+8474034
+Zach Bogosian
+8474567
+Jared Spurgeon
+8474716
+Marcus Johansson
+8475149
+Marcus Foligno
+8475220
+Mats Zuccarello
+8475692
+Jon Merrill
+8475750
+Jonas Brodin
+8476463
+Ryan Hartman
+8477451
+Dakota Mermis
+8477541
+Frederick Gaudreau
+8477919
+Jake Middleton
+8478136
+Joel Eriksson Ek
+8478493
+Kirill Kaprizov
+8478864
+Filip Gustavsson
+8479406
+Brandon Duhaime
+8479520
+Connor Dewar
+8480980
+Matt Boldy
+8481557
+Marco Rossi
+8482079
+Trevor Zegras
+8481533
+Jamie Drysdale
+8482142
+Alex Stalock
+8471774
+Andrew Agozzino
+8475461
+Trevor Carrick
+8476953
+Robert Hagg
+8477462
+Chase De Leo
+8478029
+Glenn Gawdin
+8478446
+Colton White
+8478841
+Isac Lundestrom
+8480806
+Jack Perbix
+8480815
+Blake McLaughlin
+8480816
+Brayden Tracey
+8481530
+Judd Caulfield
+8481538
+Drew Helleson
+8481563
+William Francis
+8481727
+Nikita Nesterenko
+8481754
+Ethan Bowen
+8482115
+Sam Colangelo
+8482118
+Jacob Perreault
+8482150
+Ian Moore
+8482178
+Calle Clang
+8482477
+Artyom Galimov
+8482485
+Albin Sundsvik
+8482494
+Sasha Pastujov
+8482682
+Tyson Hinds
+8482731
+Olen Zellweger
+8482803
+Kyle Kukkonen
+8482810
+Josh Lopina
+8482925
+Gage Alexander
+8482936
+Ben King
+8482976
+Nathan Gaucher
+8483444
+Tristan Luneau
+8483482
+Noah Warren
+8483521
+Pavol Regenda
+8483630
+Connor Hvidston
+8483744
+Vyacheslav Buteyets
+8483746
+Michael Callow
+8483770
+Jaxsen Wiebe
+8484110
+Nico Myatovic
+8484201
+Coulson Pitre
+8484216
+Carey Terrance
+8484236
+Damian Clara
+8484391
+Konnor Smith
+8484395
+Yegor Sidorov
+8484396
+Rodwin Dionicio
+8484414
+Vojtech Port
+8484443
+Alex Killorn
+8473986
+Adam Henrique
+8474641
+Jakob Silfverberg
+8475164
+Radko Gudas
+8475462
+Cam Fowler
+8475764
+Sam Carrick
+8475842
+John Gibson
+8476434
+Ryan Strome
+8476458
+Brock McGinn
+8476934
+Ross Johnston
+8477527
+Frank Vatrano
+8478366
+Troy Terry
+8478873
+Max Jones
+8479368
+Urho Vaakanainen
+8480001
+Lukas Dostal
+8480843
+Bo Groulx
+8480870
+Ilya Lyubushkin
+8480950
+Brett Leason
+8481517
+Jackson LaCombe
+8481605
+Mason McTavish
+8482745
+Pavel Mintyukov
+8483490
+Taylor Hall
+8475791
+Andreas Athanasiou
+8476960
+Colin Blackwell
+8476278
+Maxim Shalunov
+8476351
+Ivan Nalimov
+8478107
+Luke Philp
+8478224
+Vili Saarijarvi
+8478834
+Brett Seney
+8478881
+Artur Kayumov
+8479426
+Jake Ryczek
+8479568
+Parker Foo
+8480227
+David Gust
+8480328
+Liam Gorman
+8481074
+Antti Saarela
+8481588
+Michal Teply
+8481616
+Dominic Basse
+8481753
+Ryder Rolston
+8482082
+Drew Commesso
+8482123
+Landon Slaggert
+8482172
+Wyatt Kaiser
+8482176
+Michael Krutil
+8482208
+Mike Hardman
+8482635
+Nolan Allan
+8482700
+Colton Dach
+8482703
+Ethan Del Mastro
+8482807
+Jalen Luypen
+8482903
+Victor Stjernborg
+8482905
+Ilya Safonov
+8482915
+Taige Harding
+8482923
+Connor Kelley
+8482948
+Ryan Greene
+8483450
+Gavin Hayes
+8483453
+Kevin Korchinski
+8483466
+Paul Ludwinski
+8483480
+Frank Nazar
+8483493
+Sam Rinzel
+8483506
+Jaxson Stauber
+8483530
+Filip Roos
+8483619
+Samuel Savoie
+8483677
+Aidan Thompson
+8483685
+Riku Tohila
+8483719
+Nils Juntorp
+8483737
+Dominic James
+8483752
+Adam Gajan
+8484171
+Nick Lardis
+8484185
+Martin Misiak
+8484195
+Oliver Moore
+8484197
+Alex Pharand
+8484212
+Roman Kantserov
+8484390
+Jiri Felcman
+8484400
+Marcel Marcel
+8484420
+Milton Oscarson
+8484450
+Janne Peltonen
+8484473
+Nick Foligno
+8473422
+Tyler Johnson
+8474870
+Jarred Tinordi
+8475797
+Petr Mrazek
+8475852
+Connor Murphy
+8476473
+Jason Dickinson
+8477450
+Seth Jones
+8477495
+Ryan Donato
+8477987
+Anthony Beauvillier
+8478463
+Joey Anderson
+8479315
+Boris Katchouk
+8479383
+Taylor Raddysh
+8479390
+Nikita Zaitsev
+8479458
+MacKenzie Entwistle
+8480025
+Cole Guttman
+8480252
+Philipp Kurashev
+8480798
+Reese Johnson
+8481147
+Alex Vlasic
+8481568
+Louis Crevier
+8481806
+Lukas Reichel
+8482117
+Isaak Phillips
+8482192
+Arvid Soderblom
+8482821
+Ryan Carpenter
+8477846
+Oskar Lindblom
+8478067
+Luke Kunin
+8479316
+Ty Emberson
+8480834
+Logan Couture
+8474053
+Scott Sabourin
+8477149
+Jacob Jackson
+8477340
+Emil Galimov
+8477347
+Nathan Todd
+8479309
+Sasha Chmelevski
+8480053
+Radim Simek
+8480160
+Eetu Makiniemi
+8480199
+Jacob Peterson
+8480216
+Leon Gawanke
+8480219
+Martin Kaut
+8480822
+Magnus Chrona
+8480992
+Yegor Spiridonov
+8481603
+Nikolai Knyzhov
+8481812
+Brandon Coe
+8482086
+Danil Gushchin
+8482101
+Ozzy Wiesblatt
+8482103
+Thomas Bordeleau
+8482133
+Shakir Mukhamadullin
+8482166
+Tristen Robins
+8482181
+Ethan Cardwell
+8482206
+Alex Young
+8482523
+Timofey Spitserov
+8482524
+Nick Cicek
+8482824
+Evgenii Kashnikov
+8482898
+Theo Jacobsson
+8482909
+Gannon Laroque
+8482927
+Artem Guryev
+8482934
+Filip Bystedt
+8483428
+Michael Fisher
+8483443
+Cameron Lund
+8483481
+Mitchell Russell
+8483618
+Mattias Havelid
+8483666
+Mason Beaupit
+8483682
+Reese Laubach
+8483702
+Eli Barnett
+8483722
+Jake Furlong
+8483745
+Joey Muldowney
+8483753
+Luca Cagnoni
+8484152
+Kasper Halttunen
+8484176
+Quentin Musty
+8484200
+Will Smith
+8484227
+Brandon Svoboda
+8484235
+Georgi Romanov
+8484312
+Valtteri Pulli
+8484313
+Axel Landen
+8484413
+Eric Pohlkamp
+8484421
+David Klee
+8484474
+Yegor Rimashevskiy
+8484477
+Marc-Edouard Vlasic
+8471709
+Mike Hoffman
+8474884
+Mikael Granlund
+8475798
+Tomas Hertl
+8476881
+Matt Benning
+8476988
+Kyle Burroughs
+8477335
+Anthony Duclair
+8477407
+Justin Bailey
+8477473
+Kaapo Kahkonen
+8478039
+Kevin Labanc
+8478099
+Mackenzie Blackwood
+8478406
+Givani Smith
+8479379
+Jacob MacDonald
+8479439
+Mario Ferraro
+8479983
+Jan Rutta
+8480172
+Fabian Zetterlund
+8480188
+Filip Zadina
+8480821
+Calen Addison
+8480884
+Nico Sturm
+8481477
+Nikita Okhotiuk
+8481537
+Henry Thrun
+8481567
+Alexander Barabanov
+8482222

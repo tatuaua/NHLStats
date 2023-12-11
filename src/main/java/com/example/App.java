@@ -8,9 +8,12 @@ import javax.swing.event.DocumentListener;
 import org.json.JSONException;
 import java.awt.Image;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.*;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 
@@ -24,6 +27,7 @@ public class App implements ActionListener{
     JButton betButtonL = new JButton("L");
     JButton[] teamNameButtons = new JButton[TEAM_AMOUNT];
     JTextArea[] infoArray = new JTextArea[TEAM_AMOUNT];
+    JButton githubButton = new JButton("");
 
     // Part of the more stats page
     JTextPane playerInfo = new JTextPane();
@@ -68,11 +72,15 @@ public class App implements ActionListener{
         APIStuff.populateArrays();
         teams = APIStuff.getTeams();
 
+        // Check the status of the currently active bet
+        Betting.checkBet();
+
         frame = new JFrame("NHL Stats");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(650, 850);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.DARK_GRAY);
+        frame.setResizable(false);
 
         ////////////////////////////
 
@@ -118,6 +126,16 @@ public class App implements ActionListener{
         frame.add(moreStatsButton);
         moreStatsButton.setVisible(true);
 
+        ImageIcon githubIcon = new ImageIcon("images/github.png");
+        githubIcon = new ImageIcon(githubIcon.getImage().getScaledInstance(80, 40, Image.SCALE_SMOOTH));
+        githubButton.setIcon(githubIcon);
+        githubButton.setBorder(null);
+        githubButton.setBackground(Color.darkGray);
+        githubButton.setBounds(550, 750, 80, 40);
+        githubButton.addActionListener(this);
+        frame.add(githubButton);
+        githubButton.setVisible(true);
+
         ImageIcon topBarImg = new ImageIcon("images/topBar.png");
         topBar = new JLabel(topBarImg);
         topBar.setBounds(0, 0, 650, 50);
@@ -145,6 +163,7 @@ public class App implements ActionListener{
             teamNameButton.setBackground(null);
             teamNameButton.setFont(myFont);
             teamNameButton.setBorder(null);
+            teamNameButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             teamNameButton.addActionListener(this);
             teamNameButtons[teamIndex] = teamNameButton;
             frame.add(teamNameButton);
@@ -163,6 +182,13 @@ public class App implements ActionListener{
             infoArray[teamIndex].setVisible(false);
         }
 
+        // Configuring buttons (when you hover over a button, the cursor changes to a hand)
+        topBarTeams.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        moreStatsButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        betButtonW.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        betButtonL.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        rosterSearchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        githubButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         showTeamInfo(0);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -242,6 +268,16 @@ public class App implements ActionListener{
             }
         }
 
+        if(e.getSource() == githubButton){
+
+            try {
+                openGitHub();
+            } catch (IOException | URISyntaxException e1) {
+                System.out.println("ERROR: Problem opening github link");
+                e1.printStackTrace();
+            }
+        }
+
         if(e.getSource() == topBarTeams && currentPage != 0){
             currentPage = 0;
             showTeamsPage();
@@ -287,8 +323,6 @@ public class App implements ActionListener{
     /** Shows the team info for a specified index */
     private void showTeamInfo(int index) throws IOException, URISyntaxException{
 
-        System.out.println(teams[index].ab);
-
         String bonusMsg = "";
 
         if(teams[index].points == teams[0].points){
@@ -306,10 +340,6 @@ public class App implements ActionListener{
         if(teams[index].nextMatch == null){
             APIStuff.populateNextMatch(index);
         }
-
-        if(teams[index].last5 == null){
-            APIStuff.populatePrevMatches(index);
-        }
         
         infoArray[index].setVisible(true);
         infoArray[index].setText(
@@ -322,8 +352,6 @@ public class App implements ActionListener{
                 + "\n\n  Place bet:\n   " 
             );
         images[index].setVisible(true);
-
-        Betting.checkBet();
     }
 
     /** Shows more stats for chosen team */
@@ -333,6 +361,9 @@ public class App implements ActionListener{
             APIStuff.populateTeamRoster(index);
         }
 
+        if(teams[index].allSeasonMatches == null){
+            APIStuff.populatePrevMatches(index);
+        }
         moreStatsButton.setBackground(myDarkGray);
         moreStatsButton.setVisible(false);
         topBarTeams.setBackground(myDarkGray);
@@ -455,7 +486,8 @@ public class App implements ActionListener{
                 }
 
                 if(teams[index].roster[j].position.equals(position)){
-                    roster.setText(roster.getText() + teams[index].roster[j].name.split(" ")[1] + ", ");
+                    String fullName = teams[index].roster[j].name;
+                    roster.setText(roster.getText() + fullName.substring(fullName.indexOf(" ") + 1) + ", ");
                 }
             }
         }
@@ -575,4 +607,12 @@ public class App implements ActionListener{
         betButtonW.setVisible(true);
         betButtonL.setVisible(true);
     } 
+
+    private void openGitHub() throws IOException, URISyntaxException{
+
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            Desktop.getDesktop().browse(new URI("https://github.com/tatuaua/NHLStats"));
+        }
+    }
+
 }
