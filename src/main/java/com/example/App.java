@@ -22,10 +22,10 @@ public class App implements ActionListener{
     final int TEAM_AMOUNT = 32; // Have to change this if a new NHL team is born
 
     //Part of the teams page
-    JButton teamNameButton;
+    JButton teamButton;
     JButton betButtonW = new JButton("W");
     JButton betButtonL = new JButton("L");
-    JButton[] teamNameButtons = new JButton[TEAM_AMOUNT];
+    JButton[] teamButtons = new JButton[TEAM_AMOUNT];
     JTextArea[] infoArray = new JTextArea[TEAM_AMOUNT];
     JButton githubButton = new JButton("");
 
@@ -76,8 +76,8 @@ public class App implements ActionListener{
         UIManager.put("ToolTip.border", new LineBorder(myOrange));
         UIManager.put("Tooltip.foreground", Color.white);
 
-        APIStuff.populateTeams();
-        teams = APIStuff.getTeams();
+        DataFetcher.fetchAndParse();
+        teams = DataFetcher.getTeams();
 
         // Check the status of the currently active bet
         Betting.checkBet();
@@ -157,16 +157,16 @@ public class App implements ActionListener{
 
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
 
-            teamNameButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
-            teamNameButton.setBounds(30, teamIndex*21+90, 200, 20);
-            teamNameButton.setForeground(Color.white);
-            teamNameButton.setBackground(null);
-            teamNameButton.setFont(myFont);
-            teamNameButton.setBorder(null);
-            teamNameButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            teamNameButton.addActionListener(this);
-            teamNameButtons[teamIndex] = teamNameButton;
-            frame.add(teamNameButton);
+            teamButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
+            teamButton.setBounds(30, teamIndex*21+90, 200, 20);
+            teamButton.setForeground(Color.white);
+            teamButton.setBackground(null);
+            teamButton.setFont(myFont);
+            teamButton.setBorder(null);
+            teamButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            teamButton.addActionListener(this);
+            teamButtons[teamIndex] = teamButton;
+            frame.add(teamButton);
         }
 
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
@@ -304,7 +304,7 @@ public class App implements ActionListener{
         }
 
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Doing this with a loop to avoid code bloat
-            if(e.getSource() == teamNameButtons[teamIndex]){
+            if(e.getSource() == teamButtons[teamIndex]){
 
                 try {
 
@@ -316,7 +316,7 @@ public class App implements ActionListener{
                     e1.printStackTrace();
                 }
             } else {
-                teamNameButtons[teamIndex].setForeground(Color.white);
+                teamButtons[teamIndex].setForeground(Color.white);
             }
         }
     }
@@ -330,16 +330,12 @@ public class App implements ActionListener{
             bonusMsg = " (Leading the NHL)";
         }
 
-        teamNameButtons[index].setForeground(myOrange);
+        teamButtons[index].setForeground(myOrange);
 
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
-        }
-
-        if(teams[index].nextMatch == null){
-            APIStuff.populateNextMatch(index);
         }
         
         infoArray[index].setVisible(true);
@@ -358,13 +354,6 @@ public class App implements ActionListener{
     /** Shows more stats for chosen team */
     private void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException{
 
-        if(teams[index].roster == null){
-            APIStuff.populateTeamRoster(index);
-        }
-
-        if(teams[index].allSeasonMatches == null){
-            APIStuff.populatePrevMatches(index);
-        }
         moreStatsButton.setBackground(myDarkGray);
         moreStatsButton.setVisible(false);
         topBarTeams.setBackground(myDarkGray);
@@ -373,7 +362,7 @@ public class App implements ActionListener{
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
-            teamNameButtons[teamIndex].setVisible(false);
+            teamButtons[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
 
         }
@@ -493,7 +482,7 @@ public class App implements ActionListener{
             }
         }
 
-        roster.setText(roster.getText().substring(0, roster.getText().length()-2));
+        roster.setText(roster.getText().substring(0, roster.getText().length()-2)); // Removes last comma
         
         roster.setBounds(70, 530, 440, 170);
         roster.setFont(myFontLighter);
@@ -552,9 +541,7 @@ public class App implements ActionListener{
         playerInfo.setVisible(true);
 
         if(foundPlayer.playerId.length() != 0){
-            if(!name.equals(lastSearch)){  // To avoid spamming API calls, eg. holding enter on the search bar
-                APIStuff.populatePlayerInfo(foundPlayer.playerId, currentSelectedTeamIndex);
-            }
+
             playerInfo.setText(
                 "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
                 + "\nSeason PPG: " + df.format(foundPlayer.ppg)
@@ -586,7 +573,7 @@ public class App implements ActionListener{
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
-            teamNameButtons[teamIndex].setVisible(true);
+            teamButtons[teamIndex].setVisible(true);
             images[teamIndex].setVisible(false);
         }
 
@@ -602,7 +589,7 @@ public class App implements ActionListener{
         playerInfo.setVisible(false);
         ///////////////////////////////////
 
-        teamNameButtons[currentSelectedTeamIndex].setForeground(myOrange);
+        teamButtons[currentSelectedTeamIndex].setForeground(myOrange);
         infoArray[currentSelectedTeamIndex].setVisible(true);
         images[currentSelectedTeamIndex].setVisible(true);
         betButtonW.setVisible(true);

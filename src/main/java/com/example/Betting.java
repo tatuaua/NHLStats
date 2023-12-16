@@ -13,7 +13,7 @@ class Betting {
 
     static final int TEAM_AMOUNT = 32;
     // I hope that the teams are populated at this point
-    static Team[] teams = APIStuff.getTeams();
+    static Team[] teams = DataFetcher.getTeams();
 
     /** Part of the betting game, rewrites the bet.txt file */ 
     public static void addBet(String winOrLoss, String teamAb, String amount){
@@ -28,7 +28,7 @@ class Betting {
             bufferedWriter.close();
 
         } catch (IOException e) {
-            System.err.println("ERROR: problem writing to the file: " + fileName);
+            System.err.println("ERROR: problem writing to the bet file");
             e.printStackTrace();
         }
     }
@@ -53,6 +53,7 @@ class Betting {
         }
 
         if(data.length() == 0){
+            System.out.println("No active bet");
             return;
         }
 
@@ -60,10 +61,6 @@ class Betting {
         String teamAb = data.split(":")[1];
 
         for(int i = 0; i < TEAM_AMOUNT; i++){
-
-            if(teams[i].ab.equals(teamAb)){
-                APIStuff.populatePrevMatches(i);
-            }
         }
         
         String date = data.split(":")[2];
@@ -79,12 +76,15 @@ class Betting {
                     if(teams[i].last5.split(" ")[5].equals("W") && winOrLose.equals("W")){
                         System.out.println("You had a bet: " + data + " and you won!");
                         changePoints(amount);
+                        clearBet();
                     } else if (teams[i].last5.split(" ")[5].equals("L") && winOrLose.equals("L")){
                         System.out.println("You had a bet: " + data + " and you won!");
                         changePoints(amount);
+                        clearBet();
                     } else {
                         System.out.println("You had a bet: " + data + " and you lost!");
                         changePoints(-amount);
+                        clearBet();
                     }
                 } else {
                     System.out.println("Game has not been played yet");
@@ -130,6 +130,26 @@ class Betting {
             System.err.println("ERROR: Problem writing to points file");
             e.printStackTrace();
         }
+    }
+
+    /** Clears the bet file if the active bet was concluded */
+    private static void clearBet(){
+
+        String fileName = "src\\main\\resources\\bet.txt";
+
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write("");
+            bufferedWriter.close();
+
+        } catch (IOException e) {
+            System.err.println("ERROR: problem clearing the bet file");
+            e.printStackTrace();
+        }
+
+        System.out.println("Bet cleared");
+
     }
 
 }
