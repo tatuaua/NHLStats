@@ -15,8 +15,8 @@ This is a desktop app for viewing live data about the NHL. It includes:
  - Season statistics (standings)
  - Team statistics (points, wins, losses, roster)
  - Player statistics (points, goals, assists)
-
  - A small betting game to guess whether a team will win or lose their next game.
+ - (WIP) Leaderboards (goals, points, goalie save%) 
 
 ***
 
