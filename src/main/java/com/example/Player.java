@@ -1,6 +1,6 @@
 package com.example;
 
-public class Player {
+public class Player implements Comparable<Player>{
 
     String name = "";
     String playerId = "";
@@ -31,6 +31,11 @@ public class Player {
         } else {
             this.position = "Defense";
         }
+    }
+
+    @Override
+    public int compareTo(Player o) {
+        return this.goals - o.goals;
     }
     
 }

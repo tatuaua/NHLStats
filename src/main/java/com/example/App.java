@@ -16,6 +16,10 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class App implements ActionListener{
 
@@ -42,12 +46,17 @@ public class App implements ActionListener{
     JTextField rosterSearch = new JTextField();
     JButton rosterSearchButton = new JButton("");
 
+    //Part of the leaderboards page
+    JTextPane goalsLeadersTitle = new JTextPane();
+    JTextPane pointsLeadersTitle = new JTextPane();
+    JTextArea goalsLeaders = new JTextArea();
+    JTextArea pointsLeaders = new JTextArea();
 
     // General variables
     DecimalFormat df = new DecimalFormat("0.00");
     static JFrame frame;
     JLabel topBar;
-    JButton topBarTeams, moreStatsButton;
+    JButton topBarTeams, moreStatsButton, topBarLeaderboards;
     Team[] teams = new Team[TEAM_AMOUNT];
     JLabel[] images = new JLabel[TEAM_AMOUNT];
     int currentSelectedTeamIndex;
@@ -93,6 +102,16 @@ public class App implements ActionListener{
         topBarTeams.setFocusPainted(false);
         frame.add(topBarTeams);
         topBarTeams.setVisible(true);
+
+        topBarLeaderboards = new JButton("Leaderboards");
+        topBarLeaderboards.setBounds(120, 10, 150, 30);
+        topBarLeaderboards.setForeground(myOrange);
+        topBarLeaderboards.setBackground(myDarkGray);
+        topBarLeaderboards.addActionListener(this);
+        topBarLeaderboards.setBorder(new RoundedBorder(20));
+        topBarLeaderboards.setFocusPainted(false);
+        frame.add(topBarLeaderboards);
+        topBarLeaderboards.setVisible(true);
 
         betButtonW.setBounds(310, 305, 30, 30);
         betButtonW.setFont(new Font(null, Font.BOLD, 10));
@@ -257,8 +276,13 @@ public class App implements ActionListener{
         }
 
         if(e.getSource() == moreStatsButton && currentPage != 1){
-            currentPage = 1;
 
+            if(currentPage == 2){
+                hideLeaderboardsPageElements();
+            } else {
+                hideTeamsPageElements();
+            }
+            currentPage = 1;
             try {
 
                 showMoreStatsPage(currentSelectedTeamIndex);
@@ -269,6 +293,31 @@ public class App implements ActionListener{
             }
         }
 
+        if(e.getSource() == topBarTeams && currentPage != 0){
+
+            if(currentPage == 2){
+                hideLeaderboardsPageElements();
+            } else {
+                hideMoreStatsPageElements();
+            }
+
+            currentPage = 0;
+            showTeamsPage();
+        }
+
+        if(e.getSource() == topBarLeaderboards && currentPage != 2){
+
+            if(currentPage == 0){
+                hideTeamsPageElements();
+            } else {
+                hideMoreStatsPageElements();
+            }
+
+            currentPage = 2;
+
+            showLeaderboardsPage();
+        }
+
         if(e.getSource() == githubButton){
 
             try {
@@ -277,11 +326,6 @@ public class App implements ActionListener{
                 System.out.println("ERROR: Problem opening github link");
                 e1.printStackTrace();
             }
-        }
-
-        if(e.getSource() == topBarTeams && currentPage != 0){
-            currentPage = 0;
-            showTeamsPage();
         }
 
         if(e.getSource() == rosterSearchButton){
@@ -355,30 +399,17 @@ public class App implements ActionListener{
     private void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException{
 
         moreStatsButton.setBackground(myDarkGray);
-        moreStatsButton.setVisible(false);
         topBarTeams.setBackground(myDarkGray);
-
-        // Hiding things from previous page
-        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
-
-            infoArray[teamIndex].setVisible(false);
-            teamButtons[teamIndex].setVisible(false);
-            images[teamIndex].setVisible(false);
-
-        }
-        betButtonW.setVisible(false);
-        betButtonL.setVisible(false);
-        ///////////////////////////////////
         
         ImageIcon resizedLogo = new ImageIcon("images/" + teams[index].ab + ".png");
         resizedLogo = new ImageIcon(resizedLogo.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH));
         moreStatsTeamLogo.setIcon(resizedLogo);
-        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+8, 55, 70, 70);
+        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+26, 75, 70, 70);
         frame.add(moreStatsTeamLogo);
         moreStatsTeamLogo.setVisible(true);
 
         moreStatsTeamName.setText(teams[index].name);
-        moreStatsTeamName.setBounds(20, 75, 230, 30);
+        moreStatsTeamName.setBounds(38, 95, 230, 30);
         moreStatsTeamName.setFont(myFontBigger);
         moreStatsTeamName.setBackground(Color.darkGray);
         moreStatsTeamName.setForeground(Color.white);
@@ -386,7 +417,7 @@ public class App implements ActionListener{
         frame.add(moreStatsTeamName);
         moreStatsTeamName.setVisible(true);
 
-        seasonPerformance.setBounds(70, 170, 200, 200);
+        seasonPerformance.setBounds(70, 170, 130, 220);
         seasonPerformance.setFont(myFontLighterBigger);
         seasonPerformance.setBackground(myDarkGray);
         seasonPerformance.setForeground(Color.white);
@@ -401,38 +432,38 @@ public class App implements ActionListener{
         int losses = 0;
         double winPct = 0.0;
 
-        // Draw data for all games in the season for this team. Green point means win, red means loss. Win increases Y by 6 pixels and loss decreases by 6
-        for(int i = 0; i < teams[index].allSeasonMatches.length; i++){
+        // Draw data for all games in the season for this team. Green point means win, red means loss. Win increases Y by 5 pixels and loss decreases by 5
+        for(int matchIndex = 0; matchIndex < teams[index].allSeasonMatches.length; matchIndex++){
 
-            dataPoints[i] = new JLabel();
+            dataPoints[matchIndex] = new JLabel();
 
-            if(teams[index].allSeasonMatches[i].equals("W")){
+            if(teams[index].allSeasonMatches[matchIndex].equals("W")){
     
                 wins++;
                 
-                dataPoints[i].setIcon(greenPoint);
+                dataPoints[matchIndex].setIcon(greenPoint);
 
-                if(i == 0){
-                    dataPoints[i].setBounds(270, 280, 5, 5);
+                if(matchIndex == 0){
+                    dataPoints[matchIndex].setBounds(230, 280, 5, 5);
                 } else {
-                    dataPoints[i].setBounds(dataPoints[i-1].getX()+8, dataPoints[i-1].getY()-6, 5, 5);
+                    dataPoints[matchIndex].setBounds(dataPoints[matchIndex-1].getX()+6, dataPoints[matchIndex-1].getY()-5, 5, 5);
                 }
-                frame.add(dataPoints[i]);
-                dataPoints[i].setVisible(true);
+                frame.add(dataPoints[matchIndex]);
+                dataPoints[matchIndex].setVisible(true);
 
             } else {
 
                 losses++;
 
-                dataPoints[i].setIcon(redPoint);
+                dataPoints[matchIndex].setIcon(redPoint);
 
-                if(i == 0){
-                    dataPoints[i].setBounds(270, 280, 5, 5);
+                if(matchIndex == 0){
+                    dataPoints[matchIndex].setBounds(230, 280, 5, 5);
                 } else {
-                    dataPoints[i].setBounds(dataPoints[i-1].getX()+8, dataPoints[i-1].getY()+6, 5, 5);
+                    dataPoints[matchIndex].setBounds(dataPoints[matchIndex-1].getX()+6, dataPoints[matchIndex-1].getY()+5, 5, 5);
                 }
-                frame.add(dataPoints[i]);
-                dataPoints[i].setVisible(true);
+                frame.add(dataPoints[matchIndex]);
+                dataPoints[matchIndex].setVisible(true);
 
             }
         }
@@ -440,7 +471,7 @@ public class App implements ActionListener{
 
         winPct = (double)wins/(double)teams[index].allSeasonMatches.length*100;
 
-        seasonPerformance.setText("Season performance:" + "\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df.format(winPct));
+        seasonPerformance.setText("\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df.format(winPct));
   
         dataPointsBackground.setBounds(40, 145, 500, 300);
         dataPointsBackground.setBackground(myDarkGray);
@@ -564,30 +595,9 @@ public class App implements ActionListener{
         moreStatsButton.setVisible(true);
         topBarTeams.setBackground(myDarkGray);
 
-        // Hiding things from previous page
-        for(int i = 0; i < dataPoints.length; i++){
-
-            dataPoints[i].setVisible(false);
-        }
-
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
-
-            infoArray[teamIndex].setVisible(false);
             teamButtons[teamIndex].setVisible(true);
-            images[teamIndex].setVisible(false);
         }
-
-        moreStatsTeamLogo.setVisible(false);
-        moreStatsTeamName.setVisible(false);
-        seasonPerformance.setVisible(false);
-        dataPointsBackground.setVisible(false);
-        rosterTitle.setVisible(false);
-        roster.setVisible(false);
-        rosterBackground.setVisible(false);
-        rosterSearch.setVisible(false);
-        rosterSearchButton.setVisible(false);
-        playerInfo.setVisible(false);
-        ///////////////////////////////////
 
         teamButtons[currentSelectedTeamIndex].setForeground(myOrange);
         infoArray[currentSelectedTeamIndex].setVisible(true);
@@ -595,6 +605,128 @@ public class App implements ActionListener{
         betButtonW.setVisible(true);
         betButtonL.setVisible(true);
     } 
+
+    private void showLeaderboardsPage(){
+
+        List<Player> list = new ArrayList<Player>();
+        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
+            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
+                list.add(teams[teamIndex].roster[playerIndex]);
+            }
+        }
+
+        // Sorts all players based on goals
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o2.goals-o1.goals;
+            }
+        });
+
+        StringBuilder top10goal = new StringBuilder();
+        for(int i = 0; i < 10; i++){
+            top10goal.append(" " + list.get(i).name + " (" + list.get(i).goals + ") \n");
+        }
+
+        // Sorts all players based on points
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o2.points-o1.points;
+            }
+        });
+
+        StringBuilder top10point = new StringBuilder();
+        for(int i = 0; i < 10; i++){
+            top10point.append(list.get(i).name + " (" + list.get(i).points + ") \n");
+        }
+
+        goalsLeadersTitle.setText("Goals leaders:");
+        goalsLeadersTitle.setBounds(70, 170, 200, 30);
+        goalsLeadersTitle.setFont(myFontLighterBigger);
+        goalsLeadersTitle.setBackground(myDarkGray);
+        goalsLeadersTitle.setForeground(Color.white);
+        goalsLeadersTitle.setEditable(false);
+        frame.add(goalsLeadersTitle);
+        goalsLeadersTitle.setVisible(true);
+
+        goalsLeaders.setText(top10goal.toString());
+        goalsLeaders.setBounds(70, 200, 200, 200);
+        goalsLeaders.setFont(myFontLighter);
+        goalsLeaders.setBackground(myDarkGray);
+        goalsLeaders.setForeground(Color.white);
+        goalsLeaders.setEditable(false);
+        frame.add(goalsLeaders);
+        goalsLeaders.setVisible(true);
+
+        pointsLeadersTitle.setText("Points leaders:");
+        pointsLeadersTitle.setBounds(270, 170, 200, 30);
+        pointsLeadersTitle.setFont(myFontLighterBigger);
+        pointsLeadersTitle.setBackground(myDarkGray);
+        pointsLeadersTitle.setForeground(Color.white);
+        pointsLeadersTitle.setEditable(false);
+        frame.add(pointsLeadersTitle);
+        pointsLeadersTitle.setVisible(true);
+
+        pointsLeaders.setText(top10point.toString());
+        pointsLeaders.setBounds(270, 200, 200, 200);
+        pointsLeaders.setFont(myFontLighter);
+        pointsLeaders.setBackground(myDarkGray);
+        pointsLeaders.setForeground(Color.white);
+        pointsLeaders.setEditable(false);
+        frame.add(pointsLeaders);
+        pointsLeaders.setVisible(true);
+    
+    }
+
+    /** Hides all elements of the moreStatsPage */
+    private void hideMoreStatsPageElements() {
+
+        moreStatsButton.setBackground(myDarkGray);
+        moreStatsButton.setVisible(false);
+        topBarTeams.setBackground(myDarkGray);
+
+        moreStatsTeamLogo.setVisible(false);
+        moreStatsTeamName.setVisible(false);
+        seasonPerformance.setVisible(false);
+        dataPointsBackground.setVisible(false);
+
+        for (int i = 0; i < dataPoints.length; i++) {
+            dataPoints[i].setVisible(false);
+        }
+
+        rosterTitle.setVisible(false);
+        roster.setVisible(false);
+        rosterBackground.setVisible(false);
+        rosterSearch.setVisible(false);
+        rosterSearchButton.setVisible(false);
+        playerInfo.setVisible(false);
+    }
+
+    /** Hides all elements of the teamsPage */
+    private void hideTeamsPageElements() {
+
+        for (int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++) {
+            infoArray[teamIndex].setVisible(false);
+            teamButtons[teamIndex].setVisible(false);
+            images[teamIndex].setVisible(false);
+        }
+        
+        moreStatsButton.setVisible(false);
+        betButtonW.setVisible(false);
+        betButtonL.setVisible(false);
+
+    }
+
+    /** Hides all elements of the leaderBoardsPage */
+    private void hideLeaderboardsPageElements() {
+
+        goalsLeadersTitle.setVisible(false);
+        goalsLeaders.setVisible(false);
+        pointsLeadersTitle.setVisible(false);
+        pointsLeaders.setVisible(false);
+    }
+
 
     /** Opens the GitHub page of this project in the default browser */
     private void openGitHub() throws IOException, URISyntaxException{

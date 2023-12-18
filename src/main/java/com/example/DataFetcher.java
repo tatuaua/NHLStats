@@ -113,16 +113,16 @@ class DataFetcher {
             JSONArray jsonArray = jsonObj.getJSONArray("documents").getJSONObject(teamIndex).getJSONArray("roster");
             teams[teamIndex].roster = new Player[jsonArray.length()];
 
-            for(int i = 0; i < jsonArray.length(); i++){
+            for(int playerIndex = 0; playerIndex < jsonArray.length(); playerIndex++){
 
-                JSONObject playerObj = jsonArray.getJSONObject(i);
+                JSONObject playerObj = jsonArray.getJSONObject(playerIndex);
 
-                teams[teamIndex].roster[i] = new Player(playerObj.getString("name") , playerObj.getString("playerId"), playerObj.getString("position"));
-                teams[teamIndex].roster[i].points = playerObj.getInt("points");
-                teams[teamIndex].roster[i].goals = playerObj.getInt("goals");
-                teams[teamIndex].roster[i].assists = playerObj.getInt("assists");
-                teams[teamIndex].roster[i].ppg = playerObj.getDouble("ppg");
-                teams[teamIndex].roster[i].historicalPpg = playerObj.getDouble("historicalPpg");
+                teams[teamIndex].roster[playerIndex] = new Player(playerObj.getString("name") , playerObj.getString("playerId"), playerObj.getString("position"));
+                teams[teamIndex].roster[playerIndex].points = playerObj.getInt("points");
+                teams[teamIndex].roster[playerIndex].goals = playerObj.getInt("goals");
+                teams[teamIndex].roster[playerIndex].assists = playerObj.getInt("assists");
+                teams[teamIndex].roster[playerIndex].ppg = playerObj.getDouble("ppg");
+                teams[teamIndex].roster[playerIndex].historicalPpg = playerObj.getDouble("historicalPpg");
             }
         }
 
@@ -157,7 +157,7 @@ class DataFetcher {
         }
     }
 
-    /** Gets the teamIDs for all teams */
+    /** Reads the TeamIds.java constant array to populate teamIds for all teams */
     private static void getIDs() throws FileNotFoundException{
 
         for(int i = 0; i < TeamIds.dataArray.length; i++){
