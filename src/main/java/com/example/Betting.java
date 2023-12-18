@@ -27,6 +27,8 @@ class Betting {
             bufferedWriter.write(winOrLoss + ":" + teamAb  + ":" + date + ":" + amount);
             bufferedWriter.close();
 
+            System.out.println("Added bet: " + winOrLoss + ":" + teamAb + ":" + date + ":" + amount);
+
         } catch (IOException e) {
             System.err.println("ERROR: problem writing to the bet file");
             e.printStackTrace();
@@ -93,8 +95,8 @@ class Betting {
         }
     }
 
-    /** Part of the betting game, changes the user's points (points.txt) */
-    public static void changePoints(int modifier){
+    /** Part of the betting game, changes the user's points (points.txt). Returns the new points amount */
+    public static int changePoints(int modifier){
 
         String data = "";
 
@@ -117,11 +119,9 @@ class Betting {
 
         int newAmount = currPoints+modifier;
 
-        String fileName = "src\\main\\resources\\points.txt";
-
         try {
 
-            FileWriter fileWriter = new FileWriter(fileName);
+            FileWriter fileWriter = new FileWriter("src\\main\\resources\\points.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write("" + newAmount);
             bufferedWriter.close();
@@ -130,6 +130,8 @@ class Betting {
             System.err.println("ERROR: Problem writing to points file");
             e.printStackTrace();
         }
+
+        return newAmount;
     }
 
     /** Clears the bet file if the active bet was concluded */
@@ -151,5 +153,4 @@ class Betting {
         System.out.println("Bet cleared");
 
     }
-
 }

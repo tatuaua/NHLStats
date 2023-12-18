@@ -26,7 +26,7 @@ public class App implements ActionListener{
     final int TEAM_AMOUNT = 32; // Have to change this if a new NHL team is born
 
     //Part of the teams page
-    JButton teamButton;
+    JButton teamButton, moreStatsButton;
     JButton betButtonW = new JButton("W");
     JButton betButtonL = new JButton("L");
     JButton[] teamButtons = new JButton[TEAM_AMOUNT];
@@ -56,7 +56,8 @@ public class App implements ActionListener{
     DecimalFormat df = new DecimalFormat("0.00");
     static JFrame frame;
     JLabel topBar;
-    JButton topBarTeams, moreStatsButton, topBarLeaderboards;
+    JButton topBarTeams, topBarLeaderboards;
+    JTextPane topBarBettingPoints;
     Team[] teams = new Team[TEAM_AMOUNT];
     JLabel[] images = new JLabel[TEAM_AMOUNT];
     int currentSelectedTeamIndex;
@@ -82,9 +83,11 @@ public class App implements ActionListener{
         frame.setAutoRequestFocus(true);
         setKeyListeners();
 
+        // No idea what these do
         frame.getContentPane().setFocusable(true);
         frame.getContentPane().setFocusTraversalKeysEnabled(false);
-        // Configuring tooltips (when you hover over an element it gives you a hint)
+
+        // Configuring tooltips (when you hover over an element it gives you a hint, this customizes the popup box)
         UIManager.put("ToolTip.background", Color.gray);
         UIManager.put("ToolTip.border", new LineBorder(myOrange));
         UIManager.put("Tooltip.foreground", Color.white);
@@ -92,8 +95,9 @@ public class App implements ActionListener{
         DataFetcher.fetchAndParse();
         teams = DataFetcher.getTeams();
 
-        // Check the status of the currently active bet
+        // Check the status of the currently active bet and set the points accordingly
         Betting.checkBet();
+        int points = Betting.changePoints(0);
 
         ////////////////////////////
 
