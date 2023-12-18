@@ -1,9 +1,7 @@
 package com.example;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.net.URI;
 import java.net.URISyntaxException;

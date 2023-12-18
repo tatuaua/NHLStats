@@ -11,6 +11,13 @@
 		  <version>20160810</version>
 	  </dependency>
 
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
+      <version>1.9</version> <!-- Use the latest version available -->
+    </dependency>
+
+
   </dependencies>
 
 

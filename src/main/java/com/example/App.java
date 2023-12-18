@@ -5,6 +5,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.json.JSONException;
 import java.awt.Image;
 import java.awt.Color;
@@ -62,7 +63,6 @@ public class App implements ActionListener{
     JLabel[] images = new JLabel[TEAM_AMOUNT];
     int currentSelectedTeamIndex;
     int currentPage = 0;
-    String lastSearch;
     
     Font myFont = new Font(null, Font.BOLD, 15);
     Font myFontBigger = new Font(null, Font.BOLD, 20);
@@ -97,7 +97,7 @@ public class App implements ActionListener{
 
         // Check the status of the currently active bet and set the points accordingly
         Betting.checkBet();
-        int points = Betting.changePoints(0);
+        int points = Betting.changePoints(0); //TODO
 
         ////////////////////////////
 
@@ -195,7 +195,7 @@ public class App implements ActionListener{
             teamButtons[teamIndex] = teamButton;
             frame.add(teamButton);
         }
-
+        
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex] = new JTextArea();
@@ -546,7 +546,7 @@ public class App implements ActionListener{
         frame.add(rosterSearchButton);
         rosterSearchButton.setVisible(true);
 
-        rosterBackground.setBounds(40, dataPointsBackground.getY()+310, 500, 300);
+        rosterBackground.setBounds(40, dataPointsBackground.getY()+310, 500, 330);
         rosterBackground.setBackground(myDarkGray);
         rosterBackground.setEditable(false);
         rosterBackground.setBorder(BorderFactory.createLineBorder(myOrange));
@@ -560,12 +560,13 @@ public class App implements ActionListener{
 
         Player foundPlayer = new Player();
 
-        boolean goodSearch = false;
+        boolean exactMatch = false;
         for(Player player : teams[currentSelectedTeamIndex].roster){
             if(player.name.equalsIgnoreCase(name) || player.name.split(" ")[1].equalsIgnoreCase(name)){ // Also works with only last name
                 foundPlayer = player;
-                goodSearch = true;
+                exactMatch = true;
                 System.out.println("Player " + player.name + " adhered to the search term: " + name);
+
             }
         }
 
@@ -577,7 +578,7 @@ public class App implements ActionListener{
         frame.add(playerInfo);
         playerInfo.setVisible(true);
 
-        if(goodSearch){
+        if(exactMatch){
 
             playerInfo.setText(
                 "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
@@ -586,11 +587,18 @@ public class App implements ActionListener{
             );
 
         } else {
-            
-            playerInfo.setText("\n\nPlayer not found");
-        }
 
-        lastSearch = name;
+            // Fuzzy string search and call showplayerinfo with closest string
+            List<String> list = new ArrayList<String>();
+            for(int playerIndex = 0; playerIndex < teams[currentSelectedTeamIndex].roster.length; playerIndex++){
+                list.add(teams[currentSelectedTeamIndex].roster[playerIndex].name);
+            }
+
+            Comparator<String> fuzzyStringComparator = Comparator.comparingInt(s -> calculateLevenshteinDistance(name, s));
+            Collections.sort(list, fuzzyStringComparator);
+
+            playerInfo.setText("\nDid you mean:\n" + list.get(0));
+        }
     }
 
 
@@ -777,4 +785,10 @@ public class App implements ActionListener{
             }
         });
     }
+
+    private static int calculateLevenshteinDistance(String str1, String str2) {
+        LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
+        return levenshteinDistance.apply(str1, str2);
+    }
 }
+
