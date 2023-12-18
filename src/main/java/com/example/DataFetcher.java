@@ -24,110 +24,53 @@ class DataFetcher {
         long start = System.nanoTime();
 
         getJSON();
-        populateTeams();
-        populatePrevMatches();
-        populateNextMatches();
-        populateTeamRosters();
+
+        JSONObject jsonObj = new JSONObject(dataPayload);
+        JSONArray arrObj = jsonObj.getJSONArray("documents");
+
+        for (int i = 0; i < arrObj.length(); i++) {
+            JSONObject teamJson = arrObj.getJSONObject(i);
+
+            // Populate basic info for teams
+            teams[i] = new Team();
+            teams[i].name = teamJson.getString("name");
+            teams[i].ab = teamJson.getString("ab");
+            teams[i].points = teamJson.getInt("points");
+
+            if (teams[i].ab.equals("MTL")) {
+                teams[i].name = "Montreal Canadiens";
+            }
+
+            // Populate previous matches
+            String allSeasonMatches = "";
+            JSONArray gamesJsonArray = teamJson.getJSONArray("allSeasonMatches");
+            for (int j = 0; j < gamesJsonArray.length(); j++) {
+                allSeasonMatches = allSeasonMatches + gamesJsonArray.get(j) + " ";
+            }
+            teams[i].allSeasonMatches = allSeasonMatches.split(" ");
+
+            // Populate next match info
+            teams[i].nextMatch = teamJson.getString("nextMatch");
+
+            // Populate team rosters
+            JSONArray rosterJsonArray = teamJson.getJSONArray("roster");
+            teams[i].roster = new Player[rosterJsonArray.length()];
+            for (int playerIndex = 0; playerIndex < rosterJsonArray.length(); playerIndex++) {
+                JSONObject playerObj = rosterJsonArray.getJSONObject(playerIndex);
+                teams[i].roster[playerIndex] = new Player(playerObj.getString("name"),
+                        playerObj.getString("playerId"), playerObj.getString("position"));
+                teams[i].roster[playerIndex].points = playerObj.getInt("points");
+                teams[i].roster[playerIndex].goals = playerObj.getInt("goals");
+                teams[i].roster[playerIndex].assists = playerObj.getInt("assists");
+                teams[i].roster[playerIndex].ppg = playerObj.getDouble("ppg");
+                teams[i].roster[playerIndex].historicalPpg = playerObj.getDouble("historicalPpg");
+            }
+        }
+
 
         long end = System.nanoTime();
 
         System.out.println("Fetching and parsing took " + (end-start)/1000000 + " ms");
-    }
-
-    /** Populates the basic info for teams */ 
-    public static void populateTeams() throws IOException, URISyntaxException {
-        
-        long start = System.nanoTime();
-
-        JSONObject jsonObj = new JSONObject(dataPayload);
-        
-        //Fetching nested Json using JSONArray
-        JSONArray arrObj = jsonObj.getJSONArray("documents");
-        for (int i = 0; i < arrObj .length(); i++) {
-            
-            teams[i] = new Team();
-            teams[i].name = arrObj.getJSONObject(i).getString("name");
-            teams[i].ab = arrObj.getJSONObject(i).getString("ab");
-            teams[i].points = arrObj.getJSONObject(i).getInt("points");
-
-            if(teams[i].ab.equals("MTL")){
-                teams[i].name = "Montreal Canadiens";
-            }
-        }
-
-        long total = System.nanoTime()-start;
-        System.out.println("Populating arrays took " + total/1000000 + " ms");
-
-        getIDs();
-    }
-
-    /** Gets the last 5 games for all teams */ 
-    public static void populatePrevMatches() throws URISyntaxException, IOException{
-
-        long start = System.nanoTime();
-
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-
-            String allSeasonMatches = "";
-
-            JSONObject jsonObj = new JSONObject(dataPayload);
-            JSONArray gamesJsonArray = jsonObj.getJSONArray("documents").getJSONObject(teamIndex).getJSONArray("allSeasonMatches");
-
-            for(int j = 0; j < gamesJsonArray.length(); j++){
-
-                allSeasonMatches = allSeasonMatches + gamesJsonArray.get(j) + " ";
-
-            }
-
-            teams[teamIndex].allSeasonMatches = allSeasonMatches.split(" ");
-        }
-
-        long total = System.nanoTime()-start;
-        System.out.println("Populating prev matches took " + total/1000000 + " ms");
-
-    }
-
-    /** Gets the next match info for all teams */ 
-    public static void populateNextMatches() throws IOException, URISyntaxException { 
-        long start = System.nanoTime();
-
-        JSONObject jsonObj = new JSONObject(dataPayload);
-
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-
-            teams[teamIndex].nextMatch = jsonObj.getJSONArray("documents").getJSONObject(teamIndex).getString("nextMatch");
-        }
-    
-        long total = System.nanoTime()-start;    
-        System.out.println("Populating next match took " + total/1000000 + " ms");
-    }
-
-    public static void populateTeamRosters() throws JSONException, IOException, URISyntaxException{
-
-        long start = System.nanoTime();
-
-        JSONObject jsonObj = new JSONObject(dataPayload);
-
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-
-            JSONArray jsonArray = jsonObj.getJSONArray("documents").getJSONObject(teamIndex).getJSONArray("roster");
-            teams[teamIndex].roster = new Player[jsonArray.length()];
-
-            for(int playerIndex = 0; playerIndex < jsonArray.length(); playerIndex++){
-
-                JSONObject playerObj = jsonArray.getJSONObject(playerIndex);
-
-                teams[teamIndex].roster[playerIndex] = new Player(playerObj.getString("name") , playerObj.getString("playerId"), playerObj.getString("position"));
-                teams[teamIndex].roster[playerIndex].points = playerObj.getInt("points");
-                teams[teamIndex].roster[playerIndex].goals = playerObj.getInt("goals");
-                teams[teamIndex].roster[playerIndex].assists = playerObj.getInt("assists");
-                teams[teamIndex].roster[playerIndex].ppg = playerObj.getDouble("ppg");
-                teams[teamIndex].roster[playerIndex].historicalPpg = playerObj.getDouble("historicalPpg");
-            }
-        }
-
-        long total = System.nanoTime()-start;    
-        System.out.println("Populating roster took " + total/1000000 + " ms");
     }
 
     private static void getJSON() throws IOException, URISyntaxException {
@@ -154,20 +97,6 @@ class DataFetcher {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    /** Reads the TeamIds.java constant array to populate teamIds for all teams */
-    private static void getIDs() throws FileNotFoundException{
-
-        for(int i = 0; i < TeamIds.dataArray.length; i++){
-
-            for(int j = 0; j < teams.length; j++){
-
-                if(TeamIds.dataArray[i].equals(teams[j].ab)){
-                    teams[j].teamId = Integer.parseInt(TeamIds.dataArray[i+1]);
-                }
-            }
         }
     }
     

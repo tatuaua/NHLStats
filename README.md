@@ -30,17 +30,17 @@ Simply download everything in the repository and run NHL.jar. Make sure you have
 
 **Structure:**
 
-The *images* folder contains the images used in the program
+- The *images* folder contains the images used in the program
 
-The *APIStuff.java* file contains all the calls made to the api
+- The *DataFetcher.java* file contains all calls made to the api
 
-The *App.java* contains all visual elements and logic of the application
+- The *App.java* file contains all visual elements and logic of the application
 
-The *Team.java* contains the data structure thats mainly used in the program for data storage and retrieval
+- The *Team.java* file contains the data structure thats mainly used in the program for data storage and retrieval
 
-The *Player.java* contains the data structure for a player
+- The *Player.java* file contains the data structure for a player
 
-The *Betting.java* contains all logic related to the betting game.
+- The *Betting.java* file contains all logic related to the betting game.
 
 ***
 

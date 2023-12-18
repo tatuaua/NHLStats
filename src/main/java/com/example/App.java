@@ -619,7 +619,7 @@ public class App implements ActionListener{
             }
         }
 
-        // Sorts all players based on goals
+        // Sorts all players based on goals, highest to lowest
         Collections.sort(list, new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
@@ -632,7 +632,7 @@ public class App implements ActionListener{
             top10goal.append(" " + list.get(i).name + " (" + list.get(i).goals + ") \n");
         }
 
-        // Sorts all players based on points
+        // Sorts all players based on points, highest to lowest
         Collections.sort(list, new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
@@ -749,7 +749,7 @@ public class App implements ActionListener{
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 
-                    if(currentSelectedTeamIndex == teamButtons.length-1){
+                    if(currentSelectedTeamIndex == teamButtons.length-1){ // If user goes too low
                         currentSelectedTeamIndex = 0;
                         teamButtons[currentSelectedTeamIndex].doClick();
                     } else {
@@ -765,7 +765,7 @@ public class App implements ActionListener{
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     
-                    if(currentSelectedTeamIndex <= 0){
+                    if(currentSelectedTeamIndex <= 0){ // If user goes over the top
                         currentSelectedTeamIndex = teamButtons.length-1;
                         teamButtons[currentSelectedTeamIndex].doClick();
                     } else {
@@ -774,7 +774,5 @@ public class App implements ActionListener{
                 }
             }
         });
-
-
     }
 }
