@@ -79,7 +79,11 @@ public class App implements ActionListener{
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.DARK_GRAY);
         frame.setResizable(false);
+        frame.setAutoRequestFocus(true);
+        setKeyListeners();
 
+        frame.getContentPane().setFocusable(true);
+        frame.getContentPane().setFocusTraversalKeysEnabled(false);
         // Configuring tooltips (when you hover over an element it gives you a hint)
         UIManager.put("ToolTip.background", Color.gray);
         UIManager.put("ToolTip.border", new LineBorder(myOrange));
@@ -252,7 +256,6 @@ public class App implements ActionListener{
                 playerInfo.setText("");
             }
         });
-
     }
 
 
@@ -261,6 +264,7 @@ public class App implements ActionListener{
 
         @SuppressWarnings("unused")
         App e = new App();
+
     }
 
     /** Handle clicks */
@@ -736,4 +740,41 @@ public class App implements ActionListener{
         }
     }
 
+    /** Allows user to use arrow keys to traverse teams */
+    private void setKeyListeners(){
+
+        frame.getContentPane().addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+
+                    if(currentSelectedTeamIndex == teamButtons.length-1){
+                        currentSelectedTeamIndex = 0;
+                        teamButtons[currentSelectedTeamIndex].doClick();
+                    } else {
+                        teamButtons[currentSelectedTeamIndex+1].doClick();
+                    }
+                }
+            }
+        });
+
+        frame.getContentPane().addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    
+                    if(currentSelectedTeamIndex <= 0){
+                        currentSelectedTeamIndex = teamButtons.length-1;
+                        teamButtons[currentSelectedTeamIndex].doClick();
+                    } else {
+                        teamButtons[currentSelectedTeamIndex-1].doClick();
+                    }
+                }
+            }
+        });
+
+
+    }
 }
