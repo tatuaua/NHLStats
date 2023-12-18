@@ -28,17 +28,17 @@ class DataFetcher {
         JSONObject jsonObj = new JSONObject(dataPayload);
         JSONArray arrObj = jsonObj.getJSONArray("documents");
 
-        for (int i = 0; i < arrObj.length(); i++) {
-            JSONObject teamJson = arrObj.getJSONObject(i);
+        for (int teamIndex = 0; teamIndex < arrObj.length(); teamIndex++) {
+            JSONObject teamJson = arrObj.getJSONObject(teamIndex);
 
-            // Populate basic info for teams
-            teams[i] = new Team();
-            teams[i].name = teamJson.getString("name");
-            teams[i].ab = teamJson.getString("ab");
-            teams[i].points = teamJson.getInt("points");
+            // Populate basic info for team
+            teams[teamIndex] = new Team();
+            teams[teamIndex].name = teamJson.getString("name");
+            teams[teamIndex].ab = teamJson.getString("ab");
+            teams[teamIndex].points = teamJson.getInt("points");
 
-            if (teams[i].ab.equals("MTL")) {
-                teams[i].name = "Montreal Canadiens";
+            if (teams[teamIndex].ab.equals("MTL")) {
+                teams[teamIndex].name = "Montreal Canadiens";
             }
 
             // Populate previous matches
@@ -47,23 +47,23 @@ class DataFetcher {
             for (int j = 0; j < gamesJsonArray.length(); j++) {
                 allSeasonMatches = allSeasonMatches + gamesJsonArray.get(j) + " ";
             }
-            teams[i].allSeasonMatches = allSeasonMatches.split(" ");
+            teams[teamIndex].allSeasonMatches = allSeasonMatches.split(" ");
 
             // Populate next match info
-            teams[i].nextMatch = teamJson.getString("nextMatch");
+            teams[teamIndex].nextMatch = teamJson.getString("nextMatch");
 
-            // Populate team rosters
+            // Populate team roster
             JSONArray rosterJsonArray = teamJson.getJSONArray("roster");
-            teams[i].roster = new Player[rosterJsonArray.length()];
+            teams[teamIndex].roster = new Player[rosterJsonArray.length()];
             for (int playerIndex = 0; playerIndex < rosterJsonArray.length(); playerIndex++) {
                 JSONObject playerObj = rosterJsonArray.getJSONObject(playerIndex);
-                teams[i].roster[playerIndex] = new Player(playerObj.getString("name"),
+                teams[teamIndex].roster[playerIndex] = new Player(playerObj.getString("name"),
                         playerObj.getString("playerId"), playerObj.getString("position"));
-                teams[i].roster[playerIndex].points = playerObj.getInt("points");
-                teams[i].roster[playerIndex].goals = playerObj.getInt("goals");
-                teams[i].roster[playerIndex].assists = playerObj.getInt("assists");
-                teams[i].roster[playerIndex].ppg = playerObj.getDouble("ppg");
-                teams[i].roster[playerIndex].historicalPpg = playerObj.getDouble("historicalPpg");
+                teams[teamIndex].roster[playerIndex].points = playerObj.getInt("points");
+                teams[teamIndex].roster[playerIndex].goals = playerObj.getInt("goals");
+                teams[teamIndex].roster[playerIndex].assists = playerObj.getInt("assists");
+                teams[teamIndex].roster[playerIndex].ppg = playerObj.getDouble("ppg");
+                teams[teamIndex].roster[playerIndex].historicalPpg = playerObj.getDouble("historicalPpg");
             }
         }
 

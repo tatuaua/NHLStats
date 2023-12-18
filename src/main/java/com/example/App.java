@@ -228,7 +228,7 @@ public class App implements ActionListener{
                 try {
                     showPlayerInfo(rosterSearch.getText());
                 } catch (JSONException | IOException | URISyntaxException e1) {
-                    System.out.println("ERROR: problem showing playerinfo when pressing enter");
+                    System.out.println("ERROR: problem showing player info when pressing enter");
                     e1.printStackTrace();
                 }
             }
@@ -338,16 +338,11 @@ public class App implements ActionListener{
 
             System.out.println("Searching for " + searched);
 
-            if(searched.length() == 0){
-                rosterSearch.setText("Insert player name");
-            } else {
-
-                try {
-                    showPlayerInfo(searched);
-                } catch (JSONException | IOException | URISyntaxException e1) {
-                    System.out.println("Problem showing player info");
-                e1.printStackTrace();
-                }
+            try {
+                showPlayerInfo(searched);
+            } catch (JSONException | IOException | URISyntaxException e1) {
+                System.out.println("Problem showing player info");
+            e1.printStackTrace();
             }
         }
 
@@ -561,9 +556,12 @@ public class App implements ActionListener{
 
         Player foundPlayer = new Player();
 
+        boolean goodSearch = false;
         for(Player player : teams[currentSelectedTeamIndex].roster){
             if(player.name.equalsIgnoreCase(name) || player.name.split(" ")[1].equalsIgnoreCase(name)){ // Also works with only last name
                 foundPlayer = player;
+                goodSearch = true;
+                System.out.println("Player " + player.name + " adhered to the search term: " + name);
             }
         }
 
@@ -575,7 +573,7 @@ public class App implements ActionListener{
         frame.add(playerInfo);
         playerInfo.setVisible(true);
 
-        if(foundPlayer.playerId.length() != 0){
+        if(goodSearch){
 
             playerInfo.setText(
                 "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
