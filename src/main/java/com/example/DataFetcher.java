@@ -19,6 +19,7 @@ class DataFetcher {
     public static void fetchAndParse() throws IOException, URISyntaxException{
 
         System.out.println("Starting fetch and parse process");
+        TLog.info("Starting fetch and parse process");
         long start = System.nanoTime();
 
         getJSON();
@@ -69,6 +70,7 @@ class DataFetcher {
         long end = System.nanoTime();
 
         System.out.println("Fetching and parsing took " + (end-start)/1000000 + " ms");
+        TLog.info("Fetching and parsing took " + (end-start)/1000000 + " ms");
     }
 
     private static void getJSON() throws IOException, URISyntaxException {
@@ -94,6 +96,7 @@ class DataFetcher {
             dataPayload = response.body();
 
         } catch (Exception e) {
+            TLog.error("Problem with MongoDB API connection");
             e.printStackTrace();
         }
     }

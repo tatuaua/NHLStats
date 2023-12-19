@@ -1,0 +1,24 @@
+2023-12-19T11:11:30.572912900 [INFO] - Starting fetch and parse process
+2023-12-19T11:11:32.218311800 [INFO] - Fetching and parsing took 1644 ms
+2023-12-19T11:11:39.798429700 [INFO] - Searching for kopitar
+2023-12-19T11:11:39.798429700 [INFO] - Player Anze Kopitar adhered to the search term: kopitar
+2023-12-19T11:17:03.573662600 [INFO] - Starting fetch and parse process
+2023-12-19T11:17:05.965788100 [INFO] - Fetching and parsing took 2389 ms
+2023-12-19T11:18:18.261682200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+
+2023-12-19T11:18:18.372908700 [INFO] - Starting fetch and parse process
+2023-12-19T11:18:20.677880300 [INFO] - Fetching and parsing took 2304 ms
+2023-12-19T11:18:29.172841500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-19T11:18:29.282882100 [INFO] - Starting fetch and parse process
+2023-12-19T11:18:30.856561900 [INFO] - Fetching and parsing took 1572 ms
+2023-12-19T11:18:56.814431600 [INFO] - Searching for asd
+2023-12-19T11:19:01.460554700 [INFO] - Searching for 
+2023-12-19T11:19:03.040567400 [INFO] - Searching for  
+2023-12-19T11:19:08.774142800 [INFO] - Searching for stone
+2023-12-19T11:19:08.774142800 [INFO] - Player Mark Stone adhered to the search term: stone

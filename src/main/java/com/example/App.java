@@ -74,6 +74,8 @@ public class App implements ActionListener{
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException{
 
+        TLog.info("\n\n---------------------LAUNCHING APPLICATION\n");
+
         frame = new JFrame("NHL Stats");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(650, 850);
@@ -96,10 +98,6 @@ public class App implements ActionListener{
         teams = DataFetcher.getTeams();
 
         // Check the status of the currently active bet and set the points accordingly
-        Betting.checkBet();
-        int points = Betting.changePoints(0); //TODO
-
-        ////////////////////////////
 
         topBarTeams = new JButton("Teams");
         topBarTeams.setBounds(20, 10, 80, 30);
@@ -121,6 +119,23 @@ public class App implements ActionListener{
         frame.add(topBarLeaderboards);
         topBarLeaderboards.setVisible(true);
 
+        Betting.checkBet();
+        int points = Betting.changePoints(0); //TODO
+
+        topBarBettingPoints = new JTextPane();
+        topBarBettingPoints.setText(Integer.toString(points));
+        topBarBettingPoints.setFont(myFontBigger);
+        topBarBettingPoints.setBounds(590, 10, 50, 30);
+        if(Betting.checkedBetWon == 1){
+            topBarBettingPoints.setForeground(Color.green);
+        } else if (Betting.checkedBetWon == 2){
+            topBarBettingPoints.setForeground(Color.red);
+        } else {
+            topBarBettingPoints.setForeground(Color.white);
+        }
+        topBarBettingPoints.setBackground(myDarkGray);
+        frame.add(topBarBettingPoints);
+
         betButtonW.setBounds(310, 305, 30, 30);
         betButtonW.setFont(new Font(null, Font.BOLD, 10));
         betButtonW.setForeground(Color.green);
@@ -128,7 +143,7 @@ public class App implements ActionListener{
         betButtonW.addActionListener(this);
         betButtonW.setBorder(new RoundedBorder(10));
         betButtonW.setFocusPainted(false);
-        betButtonW.setToolTipText("Bet 10 points on win");
+        betButtonW.setToolTipText(" Bet 10 points that this team will win their next match ");
         frame.add(betButtonW);
         betButtonW.setVisible(true);
 
@@ -139,7 +154,7 @@ public class App implements ActionListener{
         betButtonL.addActionListener(this);
         betButtonL.setBorder(new RoundedBorder(10));
         betButtonL.setFocusPainted(false);
-        betButtonL.setToolTipText("Bet 10 points on loss");
+        betButtonL.setToolTipText(" Bet 10 points that this team will lose their next match ");
         frame.add(betButtonL);
         betButtonL.setVisible(true);
 
@@ -169,8 +184,6 @@ public class App implements ActionListener{
         topBar.setBackground(myDarkGray);
         frame.add(topBar);
         topBar.setVisible(true);
-
-        ////////////////////////////
 
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the images from a local folder
 
@@ -230,9 +243,11 @@ public class App implements ActionListener{
             public void actionPerformed(ActionEvent e)
             {
                 try {
-                    showPlayerInfo(rosterSearch.getText());
-                } catch (JSONException | IOException | URISyntaxException e1) {
+                    //showPlayerInfo(rosterSearch.getText());
+                    rosterSearchButton.doClick();
+                } catch (JSONException e1) {
                     System.out.println("ERROR: problem showing player info when pressing enter");
+                    TLog.error("Problem showing player info when pressing enter");
                     e1.printStackTrace();
                 }
             }
@@ -297,6 +312,7 @@ public class App implements ActionListener{
 
             } catch (JSONException | IOException | URISyntaxException e1) {
                 System.out.println("ERROR: Problem showing more stats page");
+                TLog.error("Problem showing more stats page");
                 e1.printStackTrace();
             }
         }
@@ -332,6 +348,7 @@ public class App implements ActionListener{
                 openGitHub();
             } catch (IOException | URISyntaxException e1) {
                 System.out.println("ERROR: Problem opening github link");
+                TLog.error("Problem opening github link");
                 e1.printStackTrace();
             }
         }
@@ -340,12 +357,18 @@ public class App implements ActionListener{
 
             String searched = rosterSearch.getText();
 
+            if(searched.length() > 50){
+                searched = searched.substring(0, 50);
+            }
+
             System.out.println("Searching for " + searched);
+            TLog.info("Searching for " + searched);
 
             try {
                 showPlayerInfo(searched);
             } catch (JSONException | IOException | URISyntaxException e1) {
                 System.out.println("Problem showing player info");
+                TLog.error("Problem showing player info");
             e1.printStackTrace();
             }
         }
@@ -360,6 +383,7 @@ public class App implements ActionListener{
 
                 } catch (IOException | URISyntaxException e1) {
                     System.out.println("ERROR: problem showing team info");
+                    TLog.error("Problem showing team info");
                     e1.printStackTrace();
                 }
             } else {
@@ -566,7 +590,7 @@ public class App implements ActionListener{
                 foundPlayer = player;
                 exactMatch = true;
                 System.out.println("Player " + player.name + " adhered to the search term: " + name);
-
+                TLog.info("Player " + player.name + " adhered to the search term: " + name);
             }
         }
 

@@ -14,6 +14,7 @@ class Betting {
     static final int TEAM_AMOUNT = 32;
     // I hope that the teams are populated at this point
     static Team[] teams = DataFetcher.getTeams();
+    static int checkedBetWon;
 
     /** Part of the betting game, rewrites the bet.txt file */ 
     public static void addBet(String winOrLoss, String teamAb, String amount){
@@ -22,15 +23,17 @@ class Betting {
         String date = LocalDate.now().toString();
 
         try {
+
             FileWriter fileWriter = new FileWriter(fileName);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(winOrLoss + ":" + teamAb  + ":" + date + ":" + amount);
             bufferedWriter.close();
-
             System.out.println("Added bet: " + winOrLoss + ":" + teamAb + ":" + date + ":" + amount);
+            TLog.info("Added bet: " + winOrLoss + ":" + teamAb + ":" + date + ":" + amount);
 
         } catch (IOException e) {
             System.err.println("ERROR: problem writing to the bet file");
+            TLog.error("Problem writing to the bet file");
             e.printStackTrace();
         }
     }
@@ -51,11 +54,13 @@ class Betting {
 
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: Problem reading bet file");
+            TLog.error("Problem reading bet file");
             e.printStackTrace();
         }
 
         if(data.length() == 0){
             System.out.println("No active bet");
+            TLog.info("No active bet");
             return;
         }
 
@@ -76,19 +81,20 @@ class Betting {
                 if(teams[i].lastGameDateToNum > betDateToNum){
                                                     //[5] because last5 has leading whitespace 
                     if(teams[i].last5.split(" ")[5].equals("W") && winOrLose.equals("W")){
-                        System.out.println("You had a bet: " + data + " and you won!");
+                        checkedBetWon = 1;
                         changePoints(amount);
                         clearBet();
                     } else if (teams[i].last5.split(" ")[5].equals("L") && winOrLose.equals("L")){
-                        System.out.println("You had a bet: " + data + " and you won!");
+                        checkedBetWon = 1;
                         changePoints(amount);
                         clearBet();
                     } else {
-                        System.out.println("You had a bet: " + data + " and you lost!");
+                        checkedBetWon = 2;
                         changePoints(-amount);
                         clearBet();
                     }
                 } else {
+                    checkedBetWon = 0;
                     System.out.println("Game has not been played yet");
                 }
             }
@@ -112,6 +118,7 @@ class Betting {
 
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: Problem reading points file");
+            TLog.error("Problem reading points file");
             e.printStackTrace();
         }
 
@@ -128,6 +135,7 @@ class Betting {
 
         } catch (IOException e) {
             System.err.println("ERROR: Problem writing to points file");
+            TLog.error("Problem writing to points file");
             e.printStackTrace();
         }
 
@@ -147,9 +155,11 @@ class Betting {
 
         } catch (IOException e) {
             System.err.println("ERROR: problem clearing the bet file");
+            TLog.error("Problem clearing the bet file");
             e.printStackTrace();
         }
 
+        TLog.info("Bet cleared");
         System.out.println("Bet cleared");
 
     }
