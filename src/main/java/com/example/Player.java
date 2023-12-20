@@ -12,6 +12,10 @@ public class Player implements Comparable<Player>{
     double ppg;
     /** Average points per game of career */
     double historicalPpg;
+    /** Save percentage for this season (Null if not a goalie) */
+    double savePctg;
+    /** Relative save percentage for this season (savePctg * (this goalie's games played / team's games played)) */
+    double relSavePctg;
 
     Player(){
 
@@ -27,7 +31,7 @@ public class Player implements Comparable<Player>{
 
         } else if(position.equals("G")){
             this.position = "Goalie";
-        
+            this.savePctg = 0;
         } else {
             this.position = "Defense";
         }

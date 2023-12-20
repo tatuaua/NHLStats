@@ -3,7 +3,6 @@ package com.example;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TLog {
@@ -11,7 +10,7 @@ public class TLog {
     public static void info(String msg){
 
         try {
-            
+
             String date = LocalDateTime.now().toString();
             FileWriter fileWriter = new FileWriter("src\\main\\resources\\logging.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

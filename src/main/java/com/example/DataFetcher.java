@@ -56,13 +56,18 @@ class DataFetcher {
             teams[teamIndex].roster = new Player[rosterJsonArray.length()];
             for (int playerIndex = 0; playerIndex < rosterJsonArray.length(); playerIndex++) {
                 JSONObject playerObj = rosterJsonArray.getJSONObject(playerIndex);
-                teams[teamIndex].roster[playerIndex] = new Player(playerObj.getString("name"),
-                        playerObj.getString("playerId"), playerObj.getString("position"));
-                teams[teamIndex].roster[playerIndex].points = playerObj.getInt("points");
-                teams[teamIndex].roster[playerIndex].goals = playerObj.getInt("goals");
-                teams[teamIndex].roster[playerIndex].assists = playerObj.getInt("assists");
-                teams[teamIndex].roster[playerIndex].ppg = playerObj.getDouble("ppg");
-                teams[teamIndex].roster[playerIndex].historicalPpg = playerObj.getDouble("historicalPpg");
+                Player tempPlayer = new Player(playerObj.getString("name"), playerObj.getString("playerId"), playerObj.getString("position"));
+                if(tempPlayer.position.equals("Goalie")){
+                    tempPlayer.savePctg = playerObj.getDouble("savePctg");
+                    tempPlayer.relSavePctg = playerObj.getDouble("relSavePctg");
+                }
+                tempPlayer.points = playerObj.getInt("points");
+                tempPlayer.goals = playerObj.getInt("goals");
+                tempPlayer.assists = playerObj.getInt("assists");
+                tempPlayer.ppg = playerObj.getDouble("ppg");
+                tempPlayer.historicalPpg = playerObj.getDouble("historicalPpg");
+
+                teams[teamIndex].roster[playerIndex] = tempPlayer;
             }
         }
 
@@ -84,6 +89,7 @@ class DataFetcher {
                 .uri(URI.create(url))
                 .header("Content-Type", "application/json")
                 .header("Access-Control-Request-Headers", "*")
+                // wow extremely bad idea
                 .header("api-key", "wbU8snLQsz21IAQTNGsvfTREnoH3oRh1lZiYzsmWu2f6fIKIOCxleCNk4QkuVzuk")
                 .header("Accept", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))

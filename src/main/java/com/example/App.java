@@ -50,8 +50,10 @@ public class App implements ActionListener{
     //Part of the leaderboards page
     JTextPane goalsLeadersTitle = new JTextPane();
     JTextPane pointsLeadersTitle = new JTextPane();
+    JTextPane goalieLeadersTitle = new JTextPane();
     JTextArea goalsLeaders = new JTextArea();
     JTextArea pointsLeaders = new JTextArea();
+    JTextArea goalieLeaders = new JTextArea();
 
     // General variables
     DecimalFormat df = new DecimalFormat("0.00");
@@ -120,7 +122,7 @@ public class App implements ActionListener{
         topBarLeaderboards.setVisible(true);
 
         Betting.checkBet();
-        int points = Betting.changePoints(0); //TODO
+        int points = Betting.changePoints(0);
 
         topBarBettingPoints = new JTextPane();
         topBarBettingPoints.setText(Integer.toString(points));
@@ -646,41 +648,29 @@ public class App implements ActionListener{
 
     private void showLeaderboardsPage(){
 
-        List<Player> list = new ArrayList<Player>();
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
-                list.add(teams[teamIndex].roster[playerIndex]);
-            }
-        }
-
-        // Sorts all players based on goals, highest to lowest
-        Collections.sort(list, new Comparator<Player>() {
-            @Override
-            public int compare(Player o1, Player o2) {
-                return o2.goals-o1.goals;
-            }
-        });
+        List<Player> list = getTop10Goals();
 
         StringBuilder top10goal = new StringBuilder();
         for(int i = 0; i < 10; i++){
             top10goal.append(" " + list.get(i).name + " (" + list.get(i).goals + ") \n");
         }
 
-        // Sorts all players based on points, highest to lowest
-        Collections.sort(list, new Comparator<Player>() {
-            @Override
-            public int compare(Player o1, Player o2) {
-                return o2.points-o1.points;
-            }
-        });
+        list = getTop10Points();
 
         StringBuilder top10point = new StringBuilder();
         for(int i = 0; i < 10; i++){
             top10point.append(list.get(i).name + " (" + list.get(i).points + ") \n");
         }
 
+        list = getTop10Goalie();
+
+        StringBuilder top10goalie = new StringBuilder();
+        for(int i = 0; i < 10; i++){
+            top10goalie.append(list.get(i).name + " (" + list.get(i).savePctg + ") \n");
+        }
+
         goalsLeadersTitle.setText("Goals leaders:");
-        goalsLeadersTitle.setBounds(70, 170, 200, 30);
+        goalsLeadersTitle.setBounds(20, 170, 200, 30);
         goalsLeadersTitle.setFont(myFontLighterBigger);
         goalsLeadersTitle.setBackground(myDarkGray);
         goalsLeadersTitle.setForeground(Color.white);
@@ -689,7 +679,7 @@ public class App implements ActionListener{
         goalsLeadersTitle.setVisible(true);
 
         goalsLeaders.setText(top10goal.toString());
-        goalsLeaders.setBounds(70, 200, 200, 200);
+        goalsLeaders.setBounds(20, 200, 200, 200);
         goalsLeaders.setFont(myFontLighter);
         goalsLeaders.setBackground(myDarkGray);
         goalsLeaders.setForeground(Color.white);
@@ -698,7 +688,7 @@ public class App implements ActionListener{
         goalsLeaders.setVisible(true);
 
         pointsLeadersTitle.setText("Points leaders:");
-        pointsLeadersTitle.setBounds(270, 170, 200, 30);
+        pointsLeadersTitle.setBounds(220, 170, 200, 30);
         pointsLeadersTitle.setFont(myFontLighterBigger);
         pointsLeadersTitle.setBackground(myDarkGray);
         pointsLeadersTitle.setForeground(Color.white);
@@ -707,13 +697,31 @@ public class App implements ActionListener{
         pointsLeadersTitle.setVisible(true);
 
         pointsLeaders.setText(top10point.toString());
-        pointsLeaders.setBounds(270, 200, 200, 200);
+        pointsLeaders.setBounds(220, 200, 200, 200);
         pointsLeaders.setFont(myFontLighter);
         pointsLeaders.setBackground(myDarkGray);
         pointsLeaders.setForeground(Color.white);
         pointsLeaders.setEditable(false);
         frame.add(pointsLeaders);
         pointsLeaders.setVisible(true);
+
+        goalieLeadersTitle.setText("Goalie leaders:");
+        goalieLeadersTitle.setBounds(420, 170, 200, 30);
+        goalieLeadersTitle.setFont(myFontLighterBigger);
+        goalieLeadersTitle.setBackground(myDarkGray);
+        goalieLeadersTitle.setForeground(Color.white);
+        goalieLeadersTitle.setEditable(false);
+        frame.add(goalieLeadersTitle);
+        goalieLeadersTitle.setVisible(true);
+
+        goalieLeaders.setText(top10goalie.toString());
+        goalieLeaders.setBounds(420, 200, 200, 200);
+        goalieLeaders.setFont(myFontLighter);
+        goalieLeaders.setBackground(myDarkGray);
+        goalieLeaders.setForeground(Color.white);
+        goalieLeaders.setEditable(false);
+        frame.add(goalieLeaders);
+        goalieLeaders.setVisible(true);
     
     }
 
@@ -813,6 +821,72 @@ public class App implements ActionListener{
     private static int calculateLevenshteinDistance(String str1, String str2) {
         LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
         return levenshteinDistance.apply(str1, str2);
+    }
+
+    /** Sorts all players based on goals, highest to lowest */
+    private List<Player> getTop10Goals(){
+
+        List<Player> list = new ArrayList<Player>();
+        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
+            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
+                list.add(teams[teamIndex].roster[playerIndex]);
+            }
+        }
+
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o2.goals-o1.goals;
+            }
+        });
+
+        return list;
+    }
+
+    /** Sorts all players based on points, highest to lowest */
+    private List<Player> getTop10Points(){
+
+        List<Player> list = new ArrayList<Player>();
+        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
+            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
+                list.add(teams[teamIndex].roster[playerIndex]);
+            }
+        }
+
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o2.points-o1.points;
+            }
+        });
+
+        return list;
+    }
+
+    /** Sorts all goalies based on savePctg */
+    private List<Player> getTop10Goalie(){
+
+        List<Player> list = new ArrayList<Player>();
+        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
+            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
+                if(teams[teamIndex].roster[playerIndex].position.equals("Goalie")){
+                    list.add(teams[teamIndex].roster[playerIndex]);
+                }
+            }
+        }
+
+        System.out.println(list.toString());
+
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return Double.compare(o2.savePctg, o1.savePctg);
+            }
+        });
+
+        System.out.println(list.toString());
+
+        return list;
     }
 }
 

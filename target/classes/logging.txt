@@ -22,3 +22,75 @@
 2023-12-19T11:19:03.040567400 [INFO] - Searching for  
 2023-12-19T11:19:08.774142800 [INFO] - Searching for stone
 2023-12-19T11:19:08.774142800 [INFO] - Player Mark Stone adhered to the search term: stone
+2023-12-20T09:08:50.056600600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T09:08:50.189937500 [INFO] - Starting fetch and parse process
+2023-12-20T09:08:54.617344400 [INFO] - Fetching and parsing took 4427 ms
+2023-12-20T09:23:18.948761200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T09:23:19.073958300 [INFO] - Starting fetch and parse process
+2023-12-20T09:23:20.682520700 [INFO] - Fetching and parsing took 1607 ms
+2023-12-20T09:29:43.726618100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T09:29:43.850063500 [INFO] - Starting fetch and parse process
+2023-12-20T09:29:46.179758100 [INFO] - Fetching and parsing took 2328 ms
+2023-12-20T09:31:37.349913200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T09:31:37.481876500 [INFO] - Starting fetch and parse process
+2023-12-20T09:31:38.673392 [INFO] - Fetching and parsing took 1191 ms
+2023-12-20T09:33:41.438070800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T09:33:41.545368700 [INFO] - Starting fetch and parse process
+2023-12-20T09:33:42.666908800 [INFO] - Fetching and parsing took 1121 ms
+2023-12-20T09:33:48.611604 [INFO] - Searching for forsberg
+2023-12-20T09:33:48.613617200 [INFO] - Player Filip Forsberg adhered to the search term: forsberg
+2023-12-20T09:33:54.465381300 [INFO] - Searching for sissons
+2023-12-20T09:33:54.466383300 [INFO] - Player Colton Sissons adhered to the search term: sissons
+2023-12-20T09:33:57.929278700 [INFO] - Searching for trenin
+2023-12-20T09:33:57.929278700 [INFO] - Player Yakov Trenin adhered to the search term: trenin
+2023-12-20T09:34:01.436728100 [INFO] - Searching for sherwood
+2023-12-20T09:34:01.436728100 [INFO] - Player Kiefer Sherwood adhered to the search term: sherwood
+2023-12-20T09:34:04.298935800 [INFO] - Searching for parssinen
+2023-12-20T09:34:04.299839300 [INFO] - Player Juuso Parssinen adhered to the search term: parssinen
+2023-12-20T09:34:08.995844700 [INFO] - Searching for josi
+2023-12-20T09:34:08.995844700 [INFO] - Player Roman Josi adhered to the search term: josi
+2023-12-20T09:34:12.025363200 [INFO] - Searching for carrier
+2023-12-20T09:34:12.025363200 [INFO] - Player Alexandre Carrier adhered to the search term: carrier
+2023-12-20T09:34:14.141616700 [INFO] - Searching for saros
+2023-12-20T09:34:14.141616700 [INFO] - Player Juuse Saros adhered to the search term: saros
+2023-12-20T09:34:16.638755200 [INFO] - Searching for lankinen
+2023-12-20T09:34:16.639757700 [INFO] - Player Kevin Lankinen adhered to the search term: lankinen
+2023-12-20T21:17:31.907747400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T21:17:32.068042700 [INFO] - Starting fetch and parse process
+2023-12-20T21:17:38.428310900 [INFO] - Fetching and parsing took 6360 ms
+2023-12-20T21:18:58.390004100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T21:18:58.502778800 [INFO] - Starting fetch and parse process
+2023-12-20T21:19:00.830228300 [INFO] - Fetching and parsing took 2326 ms
+2023-12-20T21:19:23.340523300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T21:19:23.454570800 [INFO] - Starting fetch and parse process
+2023-12-20T21:19:25.781029400 [INFO] - Fetching and parsing took 2326 ms
+2023-12-20T21:20:21.696822800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-20T21:20:21.813626 [INFO] - Starting fetch and parse process
+2023-12-20T21:20:24.153928800 [INFO] - Fetching and parsing took 2339 ms
