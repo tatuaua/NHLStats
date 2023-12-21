@@ -4,17 +4,13 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
-import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.json.JSONException;
 import java.awt.Image;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.*;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -285,7 +281,6 @@ public class App implements ActionListener{
 
         @SuppressWarnings("unused")
         App e = new App();
-
     }
 
     /** Handle clicks */
@@ -347,7 +342,7 @@ public class App implements ActionListener{
         if(e.getSource() == githubButton){
 
             try {
-                openGitHub();
+                Helpers.openGitHub();
             } catch (IOException | URISyntaxException e1) {
                 System.out.println("ERROR: Problem opening github link");
                 TLog.error("Problem opening github link");
@@ -622,7 +617,7 @@ public class App implements ActionListener{
                 list.add(teams[currentSelectedTeamIndex].roster[playerIndex].name);
             }
 
-            Comparator<String> fuzzyStringComparator = Comparator.comparingInt(s -> calculateLevenshteinDistance(name, s));
+            Comparator<String> fuzzyStringComparator = Comparator.comparingInt(s -> Helpers.calculateLevenshteinDistance(name, s));
             Collections.sort(list, fuzzyStringComparator);
 
             playerInfo.setText("\nDid you mean:\n" + list.get(0));
@@ -651,21 +646,21 @@ public class App implements ActionListener{
 
     private void showLeaderboardsPage(){
 
-        List<Player> list = getTop10Goals();
+        List<Player> list = Helpers.getTop10Goals(teams);
 
         StringBuilder top10goal = new StringBuilder();
         for(int i = 0; i < 10; i++){
             top10goal.append(" " + list.get(i).name + " (" + list.get(i).goals + ") \n");
         }
 
-        list = getTop10Points();
+        list = Helpers.getTop10Points(teams);
 
         StringBuilder top10point = new StringBuilder();
         for(int i = 0; i < 10; i++){
             top10point.append(list.get(i).name + " (" + list.get(i).points + ") \n");
         }
 
-        list = getTop10Goalie();
+        list = Helpers.getTop10Goalie(teams);
 
         StringBuilder top10goalie = new StringBuilder();
         for(int i = 0; i < 10; i++){
@@ -778,15 +773,6 @@ public class App implements ActionListener{
         goalieLeaders.setVisible(false);
     }
 
-
-    /** Opens the GitHub page of this project in the default browser */
-    private void openGitHub() throws IOException, URISyntaxException{
-
-        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-            Desktop.getDesktop().browse(new URI("https://github.com/tatuaua/NHLStats"));
-        }
-    }
-
     /** Allows user to use arrow keys to traverse teams */
     private void setKeyListeners(){
 
@@ -810,73 +796,6 @@ public class App implements ActionListener{
                 }
             }
         });
-    }
-
-    private static int calculateLevenshteinDistance(String str1, String str2) {
-        LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
-        return levenshteinDistance.apply(str1, str2);
-    }
-
-    /** Sorts all players based on goals, highest to lowest */
-    private List<Player> getTop10Goals(){
-
-        List<Player> list = new ArrayList<Player>();
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
-                list.add(teams[teamIndex].roster[playerIndex]);
-            }
-        }
-
-        Collections.sort(list, new Comparator<Player>() {
-            @Override
-            public int compare(Player o1, Player o2) {
-                return o2.goals-o1.goals;
-            }
-        });
-
-        return list;
-    }
-
-    /** Sorts all players based on points, highest to lowest */
-    private List<Player> getTop10Points(){
-
-        List<Player> list = new ArrayList<Player>();
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
-                list.add(teams[teamIndex].roster[playerIndex]);
-            }
-        }
-
-        Collections.sort(list, new Comparator<Player>() {
-            @Override
-            public int compare(Player o1, Player o2) {
-                return o2.points-o1.points;
-            }
-        });
-
-        return list;
-    }
-
-    /** Sorts all goalies based on savePctg */
-    private List<Player> getTop10Goalie(){
-
-        List<Player> list = new ArrayList<Player>();
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
-                if(teams[teamIndex].roster[playerIndex].position.equals("Goalie")){
-                    list.add(teams[teamIndex].roster[playerIndex]);
-                }
-            }
-        }
-
-        Collections.sort(list, new Comparator<Player>() {
-            @Override
-            public int compare(Player o1, Player o2) {
-                return Double.compare(o2.savePctg, o1.savePctg);
-            }
-        });
-
-        return list;
     }
 }
 
