@@ -94,3 +94,75 @@
 
 2023-12-20T21:20:21.813626 [INFO] - Starting fetch and parse process
 2023-12-20T21:20:24.153928800 [INFO] - Fetching and parsing took 2339 ms
+2023-12-21T12:03:45.634281700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:03:45.768358700 [INFO] - Starting fetch and parse process
+2023-12-21T12:03:49.460740800 [INFO] - Fetching and parsing took 3692 ms
+2023-12-21T12:03:57.146336700 [INFO] - Searching for forsberg
+2023-12-21T12:03:57.147339500 [INFO] - Player Filip Forsberg adhered to the search term: forsberg
+2023-12-21T12:06:14.871129700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:06:14.990048400 [INFO] - Starting fetch and parse process
+2023-12-21T12:06:17.272293600 [INFO] - Fetching and parsing took 2281 ms
+2023-12-21T12:06:21.195373400 [INFO] - Searching for ston
+2023-12-21T12:06:23.951681600 [INFO] - Searching for karlsso
+2023-12-21T12:06:30.393890700 [INFO] - Searching for erik karlsso
+2023-12-21T12:06:34.728322800 [INFO] - Searching for william
+2023-12-21T12:06:37.180523100 [INFO] - Searching for william karls
+2023-12-21T12:06:43.913454800 [INFO] - Searching for jonathan
+2023-12-21T12:06:46.194707100 [INFO] - Searching for jonathan marchessa
+2023-12-21T12:06:51.321541100 [INFO] - Searching for ivan 
+2023-12-21T12:06:53.700636600 [INFO] - Searching for ivan barbas
+2023-12-21T12:06:57.410296500 [INFO] - Searching for jack eich
+2023-12-21T12:07:01.843106600 [INFO] - Searching for ack eichel
+2023-12-21T12:07:06.329768600 [INFO] - Searching for jck eichel
+2023-12-21T12:07:12.398495400 [INFO] - Searching for theodor
+2023-12-21T12:07:17.321373 [INFO] - Searching for sheantheodor
+2023-12-21T12:07:18.265281600 [INFO] - Searching for sheantheodore
+2023-12-21T12:07:22.063748400 [INFO] - Searching for shea theodore
+2023-12-21T12:07:22.063748400 [INFO] - Player Shea Theodore adhered to the search term: shea theodore
+2023-12-21T12:07:24.681356400 [INFO] - Searching for theodore
+2023-12-21T12:07:24.681356400 [INFO] - Player Shea Theodore adhered to the search term: theodore
+2023-12-21T12:09:44.899541700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:09:45.031245200 [INFO] - Starting fetch and parse process
+2023-12-21T12:09:46.193021200 [INFO] - Fetching and parsing took 1161 ms
+2023-12-21T12:09:59.399609 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:09:59.500494300 [INFO] - Starting fetch and parse process
+2023-12-21T12:10:01.850518500 [INFO] - Fetching and parsing took 2349 ms
+2023-12-21T12:10:12.246289900 [INFO] - Added bet: W:VGK:2023-12-21:10
+2023-12-21T12:12:44.397618100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:12:44.531348400 [INFO] - Starting fetch and parse process
+2023-12-21T12:12:45.693900900 [INFO] - Fetching and parsing took 1163 ms
+2023-12-21T12:13:10.342142500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:13:10.449852200 [INFO] - Starting fetch and parse process
+2023-12-21T12:13:12.694181600 [INFO] - Fetching and parsing took 2242 ms
+2023-12-21T12:13:26.557120500 [INFO] - Added bet: W:VAN:2023-12-21:10
+2023-12-21T12:14:04.907629 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:14:05.023702500 [INFO] - Starting fetch and parse process
+2023-12-21T12:14:06.164132300 [INFO] - Fetching and parsing took 1138 ms
+2023-12-21T12:14:11.069236 [INFO] - Added bet: W:VGK:2023-12-21:10
+2023-12-21T12:14:51.632494300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-21T12:14:51.744329700 [INFO] - Starting fetch and parse process
+2023-12-21T12:14:53.525243 [INFO] - Fetching and parsing took 1780 ms

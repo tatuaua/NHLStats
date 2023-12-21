@@ -378,6 +378,8 @@ public class App implements ActionListener{
         for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Doing this with a loop to avoid code bloat
             if(e.getSource() == teamButtons[teamIndex]){
 
+                frame.getContentPane().requestFocusInWindow();
+
                 try {
 
                     showTeamInfo(teamIndex);
@@ -537,7 +539,7 @@ public class App implements ActionListener{
 
                 if(teams[index].roster[j].position.equals(position)){
                     String fullName = teams[index].roster[j].name;
-                    roster.setText(roster.getText() + fullName.substring(fullName.indexOf(" ") + 1) + ", ");
+                    roster.setText(roster.getText() + fullName.substring(fullName.indexOf(" ") + 1) + ", "); // Add everything after first name -> Mark de Haas -> de Haas
                 }
             }
         }
@@ -614,7 +616,7 @@ public class App implements ActionListener{
 
         } else {
 
-            // Fuzzy string search and call showplayerinfo with closest string
+            // Fuzzy string search
             List<String> list = new ArrayList<String>();
             for(int playerIndex = 0; playerIndex < teams[currentSelectedTeamIndex].roster.length; playerIndex++){
                 list.add(teams[currentSelectedTeamIndex].roster[playerIndex].name);
@@ -631,6 +633,7 @@ public class App implements ActionListener{
     /** Shows the teams page */
     private void showTeamsPage(){
 
+        frame.getContentPane().requestFocusInWindow();
         moreStatsButton.setBackground(myDarkGray);
         moreStatsButton.setVisible(true);
         topBarTeams.setBackground(myDarkGray);
@@ -771,6 +774,8 @@ public class App implements ActionListener{
         goalsLeaders.setVisible(false);
         pointsLeadersTitle.setVisible(false);
         pointsLeaders.setVisible(false);
+        goalieLeadersTitle.setVisible(false);
+        goalieLeaders.setVisible(false);
     }
 
 
@@ -786,32 +791,21 @@ public class App implements ActionListener{
     private void setKeyListeners(){
 
         frame.getContentPane().addKeyListener(new KeyAdapter() {
-            
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-
-                    if(currentSelectedTeamIndex == teamButtons.length-1){ // If user goes too low
+                    if (currentSelectedTeamIndex == teamButtons.length - 1) { // If user goes too low
                         currentSelectedTeamIndex = 0;
                         teamButtons[currentSelectedTeamIndex].doClick();
                     } else {
-                        teamButtons[currentSelectedTeamIndex+1].doClick();
+                        teamButtons[currentSelectedTeamIndex + 1].doClick();
                     }
-                }
-            }
-        });
-
-        frame.getContentPane().addKeyListener(new KeyAdapter() {
-            
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    
-                    if(currentSelectedTeamIndex <= 0){ // If user goes over the top
-                        currentSelectedTeamIndex = teamButtons.length-1;
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    if (currentSelectedTeamIndex <= 0) { // If user goes over the top
+                        currentSelectedTeamIndex = teamButtons.length - 1;
                         teamButtons[currentSelectedTeamIndex].doClick();
                     } else {
-                        teamButtons[currentSelectedTeamIndex-1].doClick();
+                        teamButtons[currentSelectedTeamIndex - 1].doClick();
                     }
                 }
             }
@@ -875,16 +869,12 @@ public class App implements ActionListener{
             }
         }
 
-        System.out.println(list.toString());
-
         Collections.sort(list, new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
                 return Double.compare(o2.savePctg, o1.savePctg);
             }
         });
-
-        System.out.println(list.toString());
 
         return list;
     }

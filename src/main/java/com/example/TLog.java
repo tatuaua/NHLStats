@@ -21,7 +21,6 @@ public class TLog {
             System.err.println("ERROR: Problem writing to logging file");
             e.printStackTrace();
         }
-
     }
 
     public static void error(String msg){
@@ -38,7 +37,5 @@ public class TLog {
             System.err.println("ERROR: Problem writing to logging file");
             e.printStackTrace();
         }
-
-    }
-    
+    } 
 }
