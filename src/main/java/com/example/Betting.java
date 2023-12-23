@@ -73,12 +73,12 @@ class Betting {
         String date = data.split(":")[2];
         int amount = Integer.parseInt(data.split(":")[3]);
 
-        int betDateToNum = Integer.parseInt(date.split("-")[0]) * Integer.parseInt(date.split("-")[1]) * Integer.parseInt(date.split("-")[2]);
+        int betDateNum = Integer.parseInt(date.split("-")[0]) * Integer.parseInt(date.split("-")[1]) * Integer.parseInt(date.split("-")[2]);
         
         for(int i = 0; i < TEAM_AMOUNT; i++){
             
             if(teams[i].ab.equals(teamAb)){
-                if(teams[i].lastGameDateToNum > betDateToNum){
+                if(teams[i].lastGameDateNum > betDateNum){
                                                     //[5] because last5 has leading whitespace 
                     if(teams[i].last5.split(" ")[5].equals("W") && winOrLose.equals("W")){
                         checkedBetWon = 1;

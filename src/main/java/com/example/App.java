@@ -518,6 +518,7 @@ public class App implements ActionListener{
         rosterTitle.setVisible(true);
 
         String[] positions = {"Offense", "Defense", "Goalie"};
+
         roster.setText("");
 
         for(String position : positions){ // I could make them separate text elements but wheres the fun in that

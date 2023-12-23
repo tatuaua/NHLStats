@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 public class TLog {
 
+    /** Logs an info message into logging.txt */
     public static void info(String msg){
 
         try {
@@ -23,6 +24,7 @@ public class TLog {
         }
     }
 
+    /** Logs an error message into logging.txt */
     public static void error(String msg){
 
         try {
