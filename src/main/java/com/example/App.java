@@ -774,6 +774,7 @@ public class App implements ActionListener{
         goalieLeaders.setVisible(false);
     }
 
+    //TODO: only on page one
     /** Allows user to use arrow keys to traverse teams */
     private void setKeyListeners(){
 
