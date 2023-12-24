@@ -51,6 +51,7 @@ public class App implements ActionListener{
     JTextArea pointsLeaders = new JTextArea();
     JTextArea goalieLeaders = new JTextArea();
 
+
     // General variables
     DecimalFormat df = new DecimalFormat("0.00");
     static JFrame frame;
@@ -275,6 +276,27 @@ public class App implements ActionListener{
         });
     }
 
+    public static void ConfirmChoice(){
+
+        //For Bet confirmation
+        JFrame confirm_window;
+        JLabel confirm_message = new JLabel("Your Bet is Placed");
+
+        confirm_window = new JFrame("Bet Placed");
+        confirm_window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        confirm_window.setSize(500, 650);
+        confirm_window.setLayout(null);
+        confirm_window.getContentPane().setBackground(Color.DARK_GRAY);
+        confirm_window.setResizable(false);
+        confirm_window.setAutoRequestFocus(true);
+
+        confirm_message.setBounds(100,200,200,400);
+        confirm_window.add(confirm_message);
+
+        confirm_window.setVisible(true);
+        confirm_window.getContentPane().setFocusable(true);
+        confirm_window.getContentPane().setFocusTraversalKeysEnabled(false);
+    }
 
     /** Starts an instance of the app */
     public static void main(String[] args) throws IOException, URISyntaxException{ 
@@ -289,10 +311,12 @@ public class App implements ActionListener{
 
         if(e.getSource() == betButtonW){
             Betting.addBet("W", teams[currentSelectedTeamIndex].ab, "10");
+            ConfirmChoice();
         }
 
         if(e.getSource() == betButtonL){
             Betting.addBet("L", teams[currentSelectedTeamIndex].ab, "10");
+            ConfirmChoice();
         }
 
         if(e.getSource() == moreStatsButton && currentPage != 1){
