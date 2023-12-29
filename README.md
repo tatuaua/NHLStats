@@ -44,7 +44,6 @@ Simply download everything in the repository and run NHL.jar. Make sure you have
 
 ***
 
-
 **Screenshots:**
 
 Page 1:
