@@ -282,3 +282,41 @@
 
 2023-12-23T12:14:32.208791 [INFO] - Starting fetch and parse process
 2023-12-23T12:14:36.737732900 [INFO] - Fetching and parsing took 4522 ms
+2023-12-23T12:26:24.508905800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-23T12:26:24.626481700 [INFO] - Starting fetch and parse process
+2023-12-23T12:26:27.218990500 [INFO] - Fetching and parsing took 2591 ms
+2023-12-23T12:27:08.279519700 [INFO] - Added bet: W:VAN:2023-12-23:10
+2023-12-23T12:28:08.834516400 [INFO] - Searching for ston
+2023-12-23T12:28:08.840625500 [INFO] - Searching for ston
+2023-12-23T12:28:08.841631400 [INFO] - Searching for ston
+2023-12-23T12:28:11.130350800 [INFO] - Searching for stone
+2023-12-23T12:28:11.130350800 [INFO] - Player Mark Stone adhered to the search term: stone
+2023-12-23T12:28:11.132248300 [INFO] - Searching for stone
+2023-12-23T12:28:11.133248200 [INFO] - Player Mark Stone adhered to the search term: stone
+2023-12-23T12:28:11.133906600 [INFO] - Searching for stone
+2023-12-23T12:28:11.134913200 [INFO] - Player Mark Stone adhered to the search term: stone
+2023-12-29T23:12:46.492711900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-29T23:12:46.753610800 [INFO] - Starting fetch and parse process
+2023-12-29T23:12:50.455303300 [INFO] - Fetching and parsing took 3700 ms
+2023-12-29T23:14:08.579265100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-29T23:14:08.788197800 [INFO] - Starting fetch and parse process
+2023-12-29T23:14:11.227545600 [INFO] - Fetching and parsing took 2438 ms
+2023-12-29T23:14:18.289814 [INFO] - Searching for kakko
+2023-12-29T23:14:18.289814 [INFO] - Player Kaapo Kakko adhered to the search term: kakko
+2023-12-29T23:14:20.896808100 [INFO] - Searching for fox
+2023-12-29T23:14:20.896808100 [INFO] - Player Adam Fox adhered to the search term: fox
+2023-12-29T23:14:35.379299800 [INFO] - Searching for sturm
+2023-12-29T23:14:35.379299800 [INFO] - Player Nico Sturm adhered to the search term: sturm
+2023-12-29T23:14:35.381201300 [INFO] - Searching for sturm
+2023-12-29T23:14:35.382201300 [INFO] - Player Nico Sturm adhered to the search term: sturm
+2023-12-29T23:14:35.384206200 [INFO] - Searching for sturm
+2023-12-29T23:14:35.384206200 [INFO] - Player Nico Sturm adhered to the search term: sturm

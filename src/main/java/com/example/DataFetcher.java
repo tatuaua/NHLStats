@@ -35,6 +35,8 @@ class DataFetcher {
             teams[teamIndex].name = teamJson.getString("name");
             teams[teamIndex].ab = teamJson.getString("ab");
             teams[teamIndex].points = teamJson.getInt("points");
+            teams[teamIndex].conference = teamJson.getString("conference");
+            teams[teamIndex].division = teamJson.getString("division");
 
             if (teams[teamIndex].ab.equals("MTL")) {
                 teams[teamIndex].name = "Montreal Canadiens";
@@ -67,6 +69,10 @@ class DataFetcher {
                 tempPlayer.ppg = playerObj.getDouble("ppg");
                 tempPlayer.historicalPpg = playerObj.getDouble("historicalPpg");
 
+                if(playerObj.has("country")){
+                    tempPlayer.country = playerObj.getString("country");
+                }
+                
                 teams[teamIndex].roster[playerIndex] = tempPlayer;
             }
         }

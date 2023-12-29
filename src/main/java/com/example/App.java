@@ -20,14 +20,12 @@ import java.util.List;
 
 public class App implements ActionListener{
 
-    final int TEAM_AMOUNT = 32; // Have to change this if a new NHL team is born
-
     //Part of the teams page
     JButton teamButton, moreStatsButton;
     JButton betButtonW = new JButton("W");
     JButton betButtonL = new JButton("L");
-    JButton[] teamButtons = new JButton[TEAM_AMOUNT];
-    JTextArea[] infoArray = new JTextArea[TEAM_AMOUNT];
+    JButton[] teamButtons = new JButton[Constants.TEAM_AMOUNT];
+    JTextArea[] infoArray = new JTextArea[Constants.TEAM_AMOUNT];
     JButton githubButton = new JButton("");
 
     // Part of the more stats page
@@ -50,15 +48,19 @@ public class App implements ActionListener{
     JTextArea goalsLeaders = new JTextArea();
     JTextArea pointsLeaders = new JTextArea();
     JTextArea goalieLeaders = new JTextArea();
+    JTextArea countriesBackground = new JTextArea();
 
     // General variables
-    DecimalFormat df = new DecimalFormat("0.00");
+    DecimalFormat df2 = new DecimalFormat("0.00");
+    DecimalFormat df3 = new DecimalFormat("0.000");
+    static JFrame loadingFrame;
+    JTextPane loadingText;
     static JFrame frame;
     JLabel topBar;
     JButton topBarTeams, topBarLeaderboards;
     JTextPane topBarBettingPoints;
-    Team[] teams = new Team[TEAM_AMOUNT];
-    JLabel[] images = new JLabel[TEAM_AMOUNT];
+    Team[] teams = new Team[Constants.TEAM_AMOUNT];
+    JLabel[] images = new JLabel[Constants.TEAM_AMOUNT];
     int currentSelectedTeamIndex;
     int currentPage = 0;
     
@@ -73,6 +75,26 @@ public class App implements ActionListener{
     App() throws IOException, URISyntaxException{
 
         TLog.info("\n\n---------------------LAUNCHING APPLICATION\n");
+
+        // Temporary frame shown while processing API call
+        loadingFrame = new JFrame("NHL Stats");
+        loadingFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        loadingFrame.setSize(300, 150);
+        loadingFrame.setLayout(null);
+        loadingFrame.getContentPane().setBackground(Color.DARK_GRAY);
+        ImageIcon topLeftIcon = new ImageIcon("images/nhlstatslogo.png");
+        loadingFrame.setIconImage(topLeftIcon.getImage());
+        loadingFrame.setLocationRelativeTo(null);
+        loadingFrame.setVisible(true);
+
+        loadingText = new JTextPane();
+        loadingText.setText("Loading NHL stats...");
+        loadingText.setVisible(true);
+        loadingText.setBounds(40, 30, 200, 30);
+        loadingText.setBackground(null);
+        loadingText.setForeground(myOrange);
+        loadingText.setFont(myFontBigger);
+        loadingFrame.add(loadingText);
 
         frame = new JFrame("NHL Stats");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -95,8 +117,6 @@ public class App implements ActionListener{
         DataFetcher.fetchAndParse();
         teams = DataFetcher.getTeams();
 
-        // Check the status of the currently active bet and set the points accordingly
-
         topBarTeams = new JButton("Teams");
         topBarTeams.setBounds(20, 10, 80, 30);
         topBarTeams.setForeground(myOrange);
@@ -117,6 +137,7 @@ public class App implements ActionListener{
         frame.add(topBarLeaderboards);
         topBarLeaderboards.setVisible(true);
 
+        // Check the status of the currently active bet and set the points accordingly
         Betting.checkBet();
         int points = Betting.changePoints(0);
 
@@ -183,7 +204,7 @@ public class App implements ActionListener{
         frame.add(topBar);
         topBar.setVisible(true);
 
-        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the images from a local folder
+        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){ // Loads the images from a local folder
 
             ImageIcon img = new ImageIcon("images/" + teams[teamIndex].ab + ".png");
             images[teamIndex] = new JLabel();
@@ -193,7 +214,7 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
         }
 
-        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
+        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
 
             teamButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
             teamButton.setBounds(30, teamIndex*21+90, 200, 20);
@@ -207,7 +228,7 @@ public class App implements ActionListener{
             frame.add(teamButton);
         }
         
-        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
+        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex] = new JTextArea();
             infoArray[teamIndex].setBounds(300, 95, 250, 500);
@@ -230,9 +251,8 @@ public class App implements ActionListener{
 
         showTeamInfo(0);
         frame.setLocationRelativeTo(null);
+        loadingFrame.setVisible(false);
         frame.setVisible(true);
-
-        ImageIcon topLeftIcon = new ImageIcon("images/nhlstatslogo.png");
         frame.setIconImage(topLeftIcon.getImage());
 
         Action action = new AbstractAction() // Allows the user to press enter to search
@@ -273,6 +293,8 @@ public class App implements ActionListener{
                 playerInfo.setText("");
             }
         });
+
+        Helpers.setPlayoffStatuses(teams);
     }
 
 
@@ -289,20 +311,22 @@ public class App implements ActionListener{
 
         if(e.getSource() == betButtonW){
             Betting.addBet("W", teams[currentSelectedTeamIndex].ab, "10");
+            JOptionPane.showMessageDialog(frame, "You bet 10 points that the " + teams[currentSelectedTeamIndex].name + " will win their next match", null, 1);
         }
 
         if(e.getSource() == betButtonL){
             Betting.addBet("L", teams[currentSelectedTeamIndex].ab, "10");
+            JOptionPane.showMessageDialog(frame, "You bet 10 points that the " + teams[currentSelectedTeamIndex].name + " will lose their next match", null, 1);
         }
 
-        if(e.getSource() == moreStatsButton && currentPage != 1){
+        if(e.getSource() == moreStatsButton && currentPage != Constants.MORESTATS_PAGE){
 
-            if(currentPage == 2){
+            if(currentPage == Constants.LEADERBOARDS_PAGE){
                 hideLeaderboardsPageElements();
             } else {
                 hideTeamsPageElements();
             }
-            currentPage = 1;
+            currentPage = Constants.MORESTATS_PAGE;
             try {
 
                 showMoreStatsPage(currentSelectedTeamIndex);
@@ -314,27 +338,27 @@ public class App implements ActionListener{
             }
         }
 
-        if(e.getSource() == topBarTeams && currentPage != 0){
+        if(e.getSource() == topBarTeams && currentPage != Constants.TEAMS_PAGE){
 
-            if(currentPage == 2){
+            if(currentPage == Constants.LEADERBOARDS_PAGE){
                 hideLeaderboardsPageElements();
             } else {
                 hideMoreStatsPageElements();
             }
 
-            currentPage = 0;
+            currentPage = Constants.TEAMS_PAGE;
             showTeamsPage();
         }
 
-        if(e.getSource() == topBarLeaderboards && currentPage != 2){
+        if(e.getSource() == topBarLeaderboards && currentPage != Constants.LEADERBOARDS_PAGE){
 
-            if(currentPage == 0){
+            if(currentPage == Constants.TEAMS_PAGE){
                 hideTeamsPageElements();
             } else {
                 hideMoreStatsPageElements();
             }
 
-            currentPage = 2;
+            currentPage = Constants.LEADERBOARDS_PAGE;
 
             showLeaderboardsPage();
         }
@@ -354,7 +378,7 @@ public class App implements ActionListener{
 
             String searched = rosterSearch.getText();
 
-            if(searched.length() > 50){
+            if(searched.length() > Constants.SEARCHLENGTH_MAX){
                 searched = searched.substring(0, 50);
             }
 
@@ -370,7 +394,7 @@ public class App implements ActionListener{
             }
         }
 
-        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){ // Doing this with a loop to avoid code bloat
+        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){ // Doing this with a loop to avoid code bloat
             if(e.getSource() == teamButtons[teamIndex]){
 
                 frame.getContentPane().requestFocusInWindow();
@@ -402,7 +426,7 @@ public class App implements ActionListener{
 
         teamButtons[index].setForeground(myOrange);
 
-        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
+        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
@@ -497,7 +521,7 @@ public class App implements ActionListener{
 
         winPct = (double)wins/(double)teams[index].allSeasonMatches.length*100;
 
-        seasonPerformance.setText("\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df.format(winPct));
+        seasonPerformance.setText("\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df2.format(winPct));
   
         dataPointsBackground.setBounds(40, 145, 500, 300);
         dataPointsBackground.setBackground(myDarkGray);
@@ -586,7 +610,7 @@ public class App implements ActionListener{
 
         boolean exactMatch = false;
         for(Player player : teams[currentSelectedTeamIndex].roster){
-            if(player.name.equalsIgnoreCase(name) || player.name.split(" ")[1].equalsIgnoreCase(name)){ // Also works with only last name
+            if(player.name.equalsIgnoreCase(name) || player.name.substring(player.name.indexOf(' ')).equalsIgnoreCase(name) || player.name.split(" ")[1].equalsIgnoreCase(name)){ // Also works with only last name
                 foundPlayer = player;
                 exactMatch = true;
                 System.out.println("Player " + player.name + " adhered to the search term: " + name);
@@ -594,7 +618,7 @@ public class App implements ActionListener{
             }
         }
 
-        playerInfo.setBounds(315, 665, 200, 60);
+        playerInfo.setBounds(340, 665, 170, 60);
         playerInfo.setFont(myFontLighter);
         playerInfo.setBackground(myDarkGray);
         playerInfo.setForeground(Color.white);
@@ -604,10 +628,12 @@ public class App implements ActionListener{
 
         if(exactMatch){
 
+            System.out.println(foundPlayer.country);
+
             playerInfo.setText(
                 "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
-                + "\nSeason PPG: " + df.format(foundPlayer.ppg)
-                + "\nAll time PPG: " + df.format(foundPlayer.historicalPpg)
+                + "\nSeason PPG: " + df2.format(foundPlayer.ppg)
+                + "\nAll time PPG: " + df2.format(foundPlayer.historicalPpg)
             );
 
         } else {
@@ -634,7 +660,7 @@ public class App implements ActionListener{
         moreStatsButton.setVisible(true);
         topBarTeams.setBackground(myDarkGray);
 
-        for(int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++){
+        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
             teamButtons[teamIndex].setVisible(true);
         }
 
@@ -651,25 +677,25 @@ public class App implements ActionListener{
 
         StringBuilder top10goal = new StringBuilder();
         for(int i = 0; i < 10; i++){
-            top10goal.append(" " + list.get(i).name + " (" + list.get(i).goals + ") \n");
+            top10goal.append(" " + list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).goals + ") \n");
         }
 
         list = Helpers.getTop10Points(teams);
 
         StringBuilder top10point = new StringBuilder();
         for(int i = 0; i < 10; i++){
-            top10point.append(list.get(i).name + " (" + list.get(i).points + ") \n");
+            top10point.append(list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).points + ") \n");
         }
 
         list = Helpers.getTop10Goalie(teams);
 
         StringBuilder top10goalie = new StringBuilder();
         for(int i = 0; i < 10; i++){
-            top10goalie.append(list.get(i).name + " (" + list.get(i).savePctg + ") \n");
+            top10goalie.append(list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + df3.format(list.get(i).savePctg) + ") \n");
         }
 
         goalsLeadersTitle.setText("Goals leaders:");
-        goalsLeadersTitle.setBounds(20, 170, 200, 30);
+        goalsLeadersTitle.setBounds(75, 70, 150, 30);
         goalsLeadersTitle.setFont(myFontLighterBigger);
         goalsLeadersTitle.setBackground(myDarkGray);
         goalsLeadersTitle.setForeground(Color.white);
@@ -678,7 +704,7 @@ public class App implements ActionListener{
         goalsLeadersTitle.setVisible(true);
 
         goalsLeaders.setText(top10goal.toString());
-        goalsLeaders.setBounds(20, 200, 200, 200);
+        goalsLeaders.setBounds(75, 100, 150, 200);
         goalsLeaders.setFont(myFontLighter);
         goalsLeaders.setBackground(myDarkGray);
         goalsLeaders.setForeground(Color.white);
@@ -687,7 +713,7 @@ public class App implements ActionListener{
         goalsLeaders.setVisible(true);
 
         pointsLeadersTitle.setText("Points leaders:");
-        pointsLeadersTitle.setBounds(220, 170, 200, 30);
+        pointsLeadersTitle.setBounds(240, 70, 150, 30);
         pointsLeadersTitle.setFont(myFontLighterBigger);
         pointsLeadersTitle.setBackground(myDarkGray);
         pointsLeadersTitle.setForeground(Color.white);
@@ -696,7 +722,7 @@ public class App implements ActionListener{
         pointsLeadersTitle.setVisible(true);
 
         pointsLeaders.setText(top10point.toString());
-        pointsLeaders.setBounds(220, 200, 200, 200);
+        pointsLeaders.setBounds(240, 100, 150, 200);
         pointsLeaders.setFont(myFontLighter);
         pointsLeaders.setBackground(myDarkGray);
         pointsLeaders.setForeground(Color.white);
@@ -705,7 +731,7 @@ public class App implements ActionListener{
         pointsLeaders.setVisible(true);
 
         goalieLeadersTitle.setText("Goalie leaders:");
-        goalieLeadersTitle.setBounds(420, 170, 200, 30);
+        goalieLeadersTitle.setBounds(405, 70, 150, 30);
         goalieLeadersTitle.setFont(myFontLighterBigger);
         goalieLeadersTitle.setBackground(myDarkGray);
         goalieLeadersTitle.setForeground(Color.white);
@@ -714,13 +740,33 @@ public class App implements ActionListener{
         goalieLeadersTitle.setVisible(true);
 
         goalieLeaders.setText(top10goalie.toString());
-        goalieLeaders.setBounds(420, 200, 200, 200);
+        goalieLeaders.setBounds(405, 100, 150, 200);
         goalieLeaders.setFont(myFontLighter);
         goalieLeaders.setBackground(myDarkGray);
         goalieLeaders.setForeground(Color.white);
         goalieLeaders.setEditable(false);
         frame.add(goalieLeaders);
         goalieLeaders.setVisible(true);
+
+        List<Country> countryList = Helpers.getTop10CountriesByAvgPoints(teams);
+
+        JLabel countryFlag;
+
+        int fuck = 0;
+        for(int i = 4; i >= 0; i--){
+            fuck++;
+            countryFlag = new JLabel();
+            countryFlag.setIcon(Helpers.getImageForCountry(countryList.get(fuck).code));
+            countryFlag.setBounds(i*70+130, 550, countryFlag.getIcon().getIconWidth(), countryFlag.getIcon().getIconHeight());
+            frame.add(countryFlag);
+        }
+
+        countriesBackground.setBounds(100, 380, 400, 250);
+        countriesBackground.setBackground(myDarkGray);
+        countriesBackground.setEditable(false);
+        countriesBackground.setBorder(BorderFactory.createLineBorder(myOrange));
+        frame.add(countriesBackground);
+        countriesBackground.setVisible(true);
     
     }
 
@@ -751,7 +797,7 @@ public class App implements ActionListener{
     /** Hides all elements of the teamsPage */
     private void hideTeamsPageElements() {
 
-        for (int teamIndex = 0; teamIndex < TEAM_AMOUNT; teamIndex++) {
+        for (int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++) {
             infoArray[teamIndex].setVisible(false);
             teamButtons[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
@@ -772,32 +818,36 @@ public class App implements ActionListener{
         pointsLeaders.setVisible(false);
         goalieLeadersTitle.setVisible(false);
         goalieLeaders.setVisible(false);
+
+        countriesBackground.setVisible(false);
     }
 
-    //TODO: only on page one
     /** Allows user to use arrow keys to traverse teams */
     private void setKeyListeners(){
 
         frame.getContentPane().addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPage == Constants.TEAMS_PAGE) {
                     if (currentSelectedTeamIndex == teamButtons.length - 1) { // If user goes too low
                         currentSelectedTeamIndex = 0;
                         teamButtons[currentSelectedTeamIndex].doClick();
                     } else {
                         teamButtons[currentSelectedTeamIndex + 1].doClick();
                     }
-                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                } else if (e.getKeyCode() == KeyEvent.VK_UP && currentPage == Constants.TEAMS_PAGE) {
                     if (currentSelectedTeamIndex <= 0) { // If user goes over the top
                         currentSelectedTeamIndex = teamButtons.length - 1;
                         teamButtons[currentSelectedTeamIndex].doClick();
                     } else {
                         teamButtons[currentSelectedTeamIndex - 1].doClick();
                     }
+                } else if(e.getKeyCode() == KeyEvent.VK_ENTER && currentPage == Constants.TEAMS_PAGE){
+                    moreStatsButton.doClick();
+                } else if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                    topBarTeams.doClick();
                 }
             }
         });
     }
 }
-
