@@ -166,9 +166,8 @@ public class Helpers {
         return list.subList(0, 10);
     }
 
+    /** Divides teams into divisions and conferences and calculates the teams that are currently making the playoffs */
     public static void setPlayoffStatuses(Team[] teams){
-
-
         List<Team> eastern = new ArrayList<>();
         List<Team> atlantic = new ArrayList<>();
         List<Team> metropolitan = new ArrayList<>();
@@ -176,6 +175,8 @@ public class Helpers {
         List<Team> western = new ArrayList<>();
         List<Team> central = new ArrayList<>();
         List<Team> pacific = new ArrayList<>();
+
+        List<Team> playoffTeams = new ArrayList<>();
         
         for(Team team : teams){
 
@@ -195,6 +196,46 @@ public class Helpers {
                 } else {
                     pacific.add(team);
                 }
+            }
+        }
+
+        // Set top 3 of each division to making playoffs
+        Collections.sort(atlantic, Comparator.comparingDouble(team -> ((Team)team).points).reversed()); //???
+        for(int i = 2; i >= 0; i--){
+            atlantic.get(i).isMakingPlayoffs = true;
+        }
+
+        Collections.sort(metropolitan, Comparator.comparingDouble(team -> ((Team)team).points).reversed()); //???
+        for(int i = 2; i >= 0; i--){
+            metropolitan.get(i).isMakingPlayoffs = true;
+        }
+
+        Collections.sort(central, Comparator.comparingDouble(team -> ((Team)team).points).reversed()); //???
+        for(int i = 2; i >= 0; i--){
+            central.get(i).isMakingPlayoffs = true;
+        }
+
+        Collections.sort(pacific, Comparator.comparingDouble(team -> ((Team)team).points).reversed()); //???
+        for(int i = 2; i >= 0; i--){
+            pacific.get(i).isMakingPlayoffs = true;
+        }
+
+        // Set top 2 of each conference to making playoffs (excluding the ones already making)
+        Collections.sort(eastern, Comparator.comparingDouble(team -> ((Team)team).points).reversed()); //???
+        for(int i = 0; i < eastern.size(); i++){
+            if(!eastern.get(i).isMakingPlayoffs){
+                eastern.get(i).isMakingPlayoffs = true;
+                eastern.get(i+1).isMakingPlayoffs = true;
+                break;
+            }
+        }
+
+        Collections.sort(western, Comparator.comparingDouble(team -> ((Team)team).points).reversed()); //???
+        for(int i = 0; i < western.size(); i++){
+            if(!western.get(i).isMakingPlayoffs){
+                western.get(i).isMakingPlayoffs = true;
+                western.get(i+1).isMakingPlayoffs = true;
+                break;
             }
         }
     }

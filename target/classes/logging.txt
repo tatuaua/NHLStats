@@ -320,3 +320,175 @@
 2023-12-29T23:14:35.382201300 [INFO] - Player Nico Sturm adhered to the search term: sturm
 2023-12-29T23:14:35.384206200 [INFO] - Searching for sturm
 2023-12-29T23:14:35.384206200 [INFO] - Player Nico Sturm adhered to the search term: sturm
+2023-12-31T00:48:50.358832500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-31T00:48:50.658430900 [INFO] - Starting fetch and parse process
+2023-12-31T00:48:54.988004300 [INFO] - Fetching and parsing took 4326 ms
+2023-12-31T00:49:01.764829600 [INFO] - Searching for makar
+2023-12-31T00:49:01.764829600 [INFO] - Player Cale Makar adhered to the search term: makar
+2023-12-31T01:34:16.520731800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2023-12-31T01:34:16.714370800 [INFO] - Starting fetch and parse process
+2023-12-31T01:34:19.277438300 [INFO] - Fetching and parsing took 2562 ms
+2023-12-31T01:34:34.306913600 [INFO] - Searching for durzi
+2023-12-31T01:34:34.307912900 [INFO] - Player Sean Durzi adhered to the search term: durzi
+2023-12-31T01:35:11.200814300 [INFO] - Searching for makar
+2023-12-31T01:35:11.200814300 [INFO] - Player Cale Makar adhered to the search term: makar
+2023-12-31T01:35:11.202717600 [INFO] - Searching for makar
+2023-12-31T01:35:11.202717600 [INFO] - Player Cale Makar adhered to the search term: makar
+2023-12-31T01:35:11.203716200 [INFO] - Searching for makar
+2023-12-31T01:35:11.204716700 [INFO] - Player Cale Makar adhered to the search term: makar
+2023-12-31T01:35:11.205716300 [INFO] - Searching for makar
+2023-12-31T01:35:11.205716300 [INFO] - Player Cale Makar adhered to the search term: makar
+2023-12-31T01:35:15.292638 [INFO] - Searching for rantanen
+2023-12-31T01:35:15.292638 [INFO] - Player Mikko Rantanen adhered to the search term: rantanen
+2023-12-31T01:35:15.294546200 [INFO] - Searching for rantanen
+2023-12-31T01:35:15.294546200 [INFO] - Player Mikko Rantanen adhered to the search term: rantanen
+2023-12-31T01:35:15.295546400 [INFO] - Searching for rantanen
+2023-12-31T01:35:15.296546900 [INFO] - Player Mikko Rantanen adhered to the search term: rantanen
+2023-12-31T01:35:15.296546900 [INFO] - Searching for rantanen
+2023-12-31T01:35:15.297552100 [INFO] - Player Mikko Rantanen adhered to the search term: rantanen
+2023-12-31T01:35:23.614753 [INFO] - Searching for lehkonen
+2023-12-31T01:35:23.614753 [INFO] - Player Artturi Lehkonen adhered to the search term: lehkonen
+2023-12-31T01:35:23.616658200 [INFO] - Searching for lehkonen
+2023-12-31T01:35:23.616658200 [INFO] - Player Artturi Lehkonen adhered to the search term: lehkonen
+2023-12-31T01:35:23.617657300 [INFO] - Searching for lehkonen
+2023-12-31T01:35:23.618658500 [INFO] - Player Artturi Lehkonen adhered to the search term: lehkonen
+2023-12-31T01:35:23.618658500 [INFO] - Searching for lehkonen
+2023-12-31T01:35:23.619658800 [INFO] - Player Artturi Lehkonen adhered to the search term: lehkonen
+2023-12-31T01:35:28.030555800 [INFO] - Searching for mackinnon
+2023-12-31T01:35:28.030555800 [INFO] - Player Nathan MacKinnon adhered to the search term: mackinnon
+2023-12-31T01:35:28.032555200 [INFO] - Searching for mackinnon
+2023-12-31T01:35:28.032555200 [INFO] - Player Nathan MacKinnon adhered to the search term: mackinnon
+2023-12-31T01:35:28.033555 [INFO] - Searching for mackinnon
+2023-12-31T01:35:28.033555 [INFO] - Player Nathan MacKinnon adhered to the search term: mackinnon
+2023-12-31T01:35:28.035555700 [INFO] - Searching for mackinnon
+2023-12-31T01:35:28.035555700 [INFO] - Player Nathan MacKinnon adhered to the search term: mackinnon
+2023-12-31T01:35:31.560401900 [INFO] - Searching for nichuskin
+2023-12-31T01:35:31.564402100 [INFO] - Searching for nichuskin
+2023-12-31T01:35:31.565174600 [INFO] - Searching for nichuskin
+2023-12-31T01:35:31.566182300 [INFO] - Searching for nichuskin
+2023-12-31T01:35:41.047717800 [INFO] - Searching for nichushkin
+2023-12-31T01:35:41.047717800 [INFO] - Player Valeri Nichushkin adhered to the search term: nichushkin
+2023-12-31T01:35:41.048621900 [INFO] - Searching for nichushkin
+2023-12-31T01:35:41.049622600 [INFO] - Player Valeri Nichushkin adhered to the search term: nichushkin
+2023-12-31T01:35:41.050726 [INFO] - Searching for nichushkin
+2023-12-31T01:35:41.050726 [INFO] - Player Valeri Nichushkin adhered to the search term: nichushkin
+2023-12-31T01:35:41.051731200 [INFO] - Searching for nichushkin
+2023-12-31T01:35:41.051731200 [INFO] - Player Valeri Nichushkin adhered to the search term: nichushkin
+2023-12-31T01:35:47.900790100 [INFO] - Searching for kiviranta
+2023-12-31T01:35:47.900790100 [INFO] - Player Joel Kiviranta adhered to the search term: kiviranta
+2023-12-31T01:35:47.901792400 [INFO] - Searching for kiviranta
+2023-12-31T01:35:47.902792900 [INFO] - Player Joel Kiviranta adhered to the search term: kiviranta
+2023-12-31T01:35:47.903792700 [INFO] - Searching for kiviranta
+2023-12-31T01:35:47.903792700 [INFO] - Player Joel Kiviranta adhered to the search term: kiviranta
+2023-12-31T01:35:47.904791900 [INFO] - Searching for kiviranta
+2023-12-31T01:35:47.904791900 [INFO] - Player Joel Kiviranta adhered to the search term: kiviranta
+2023-12-31T01:35:52.093652500 [INFO] - Searching for meyers
+2023-12-31T01:35:52.093652500 [INFO] - Player Ben Meyers adhered to the search term: meyers
+2023-12-31T01:35:52.095657400 [INFO] - Searching for meyers
+2023-12-31T01:35:52.095657400 [INFO] - Player Ben Meyers adhered to the search term: meyers
+2023-12-31T01:35:52.096655200 [INFO] - Searching for meyers
+2023-12-31T01:35:52.096655200 [INFO] - Player Ben Meyers adhered to the search term: meyers
+2023-12-31T01:35:52.097655100 [INFO] - Searching for meyers
+2023-12-31T01:35:52.098653700 [INFO] - Player Ben Meyers adhered to the search term: meyers
+2023-12-31T01:35:56.762273300 [INFO] - Searching for byram
+2023-12-31T01:35:56.763182 [INFO] - Player Bowen Byram adhered to the search term: byram
+2023-12-31T01:35:56.764182400 [INFO] - Searching for byram
+2023-12-31T01:35:56.765180100 [INFO] - Player Bowen Byram adhered to the search term: byram
+2023-12-31T01:35:56.766180700 [INFO] - Searching for byram
+2023-12-31T01:35:56.766180700 [INFO] - Player Bowen Byram adhered to the search term: byram
+2023-12-31T01:35:56.767181900 [INFO] - Searching for byram
+2023-12-31T01:35:56.769181 [INFO] - Player Bowen Byram adhered to the search term: byram
+2023-12-31T01:36:04.832156800 [INFO] - Searching for georgiev
+2023-12-31T01:36:04.832156800 [INFO] - Player Alexandar Georgiev adhered to the search term: georgiev
+2023-12-31T01:36:04.833158400 [INFO] - Searching for georgiev
+2023-12-31T01:36:04.834159600 [INFO] - Player Alexandar Georgiev adhered to the search term: georgiev
+2023-12-31T01:36:04.835160100 [INFO] - Searching for georgiev
+2023-12-31T01:36:04.835160100 [INFO] - Player Alexandar Georgiev adhered to the search term: georgiev
+2023-12-31T01:36:04.836160 [INFO] - Searching for georgiev
+2023-12-31T01:36:04.836160 [INFO] - Player Alexandar Georgiev adhered to the search term: georgiev
+2024-01-01T19:11:28.754093300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:11:29.034550300 [INFO] - Starting fetch and parse process
+2024-01-01T19:11:32.682172800 [INFO] - Fetching and parsing took 3647 ms
+2024-01-01T19:12:20.306402700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:12:20.523618200 [INFO] - Starting fetch and parse process
+2024-01-01T19:12:22.889466100 [INFO] - Fetching and parsing took 2365 ms
+2024-01-01T19:15:35.564059400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:15:35.762672700 [INFO] - Starting fetch and parse process
+2024-01-01T19:15:36.924247400 [INFO] - Fetching and parsing took 1160 ms
+2024-01-01T19:17:25.850329200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:17:26.074638400 [INFO] - Starting fetch and parse process
+2024-01-01T19:17:28.420373300 [INFO] - Fetching and parsing took 2345 ms
+2024-01-01T19:24:49.632177700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:24:49.853599200 [INFO] - Starting fetch and parse process
+2024-01-01T19:24:52.242876400 [INFO] - Fetching and parsing took 2388 ms
+2024-01-01T19:25:14.443549200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:25:14.659232400 [INFO] - Starting fetch and parse process
+2024-01-01T19:25:15.779505200 [INFO] - Fetching and parsing took 1117 ms
+2024-01-01T19:25:44.326185500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:25:44.513337600 [INFO] - Starting fetch and parse process
+2024-01-01T19:25:46.926344300 [INFO] - Fetching and parsing took 2413 ms
+2024-01-01T19:26:15.822547100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:26:16.026756400 [INFO] - Starting fetch and parse process
+2024-01-01T19:26:17.715730600 [INFO] - Fetching and parsing took 1687 ms
+2024-01-01T19:26:57.521698 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:26:57.717352 [INFO] - Starting fetch and parse process
+2024-01-01T19:26:58.854547900 [INFO] - Fetching and parsing took 1137 ms
+2024-01-01T19:33:28.931632600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:33:29.131223500 [INFO] - Starting fetch and parse process
+2024-01-01T19:33:30.861247900 [INFO] - Fetching and parsing took 1729 ms
+2024-01-01T19:35:27.450868800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:35:27.639495800 [INFO] - Starting fetch and parse process
+2024-01-01T19:35:28.747693400 [INFO] - Fetching and parsing took 1107 ms
+2024-01-01T19:36:28.174177100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:36:28.364091200 [INFO] - Starting fetch and parse process
+2024-01-01T19:36:29.515767200 [INFO] - Fetching and parsing took 1151 ms
+2024-01-01T19:36:44.772257700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:36:44.965787500 [INFO] - Starting fetch and parse process
+2024-01-01T19:36:46.078560600 [INFO] - Fetching and parsing took 1112 ms
+2024-01-01T19:37:18.069357600 [INFO] - Searching for forsberg
+2024-01-01T19:37:18.069357600 [INFO] - Player Filip Forsberg adhered to the search term: forsberg

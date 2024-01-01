@@ -214,6 +214,8 @@ public class App implements ActionListener{
             images[teamIndex].setVisible(false);
         }
 
+        Helpers.setPlayoffStatuses(teams);
+
         for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
 
             teamButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
@@ -293,8 +295,6 @@ public class App implements ActionListener{
                 playerInfo.setText("");
             }
         });
-
-        Helpers.setPlayoffStatuses(teams);
     }
 
 
@@ -418,10 +418,10 @@ public class App implements ActionListener{
     /** Shows the team info for a specified index */
     private void showTeamInfo(int index) throws IOException, URISyntaxException{
 
-        String bonusMsg = "";
+        String bonusMsg = " (Not making playoffs)";
 
-        if(teams[index].points == teams[0].points){
-            bonusMsg = " (Leading the NHL)";
+        if(teams[index].isMakingPlayoffs){
+            bonusMsg = " (Making the playoffs)";
         }
 
         teamButtons[index].setForeground(myOrange);
