@@ -6,6 +6,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import org.json.JSONException;
 import java.awt.Image;
+import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -48,7 +49,7 @@ public class App implements ActionListener{
     JTextArea goalsLeaders = new JTextArea();
     JTextArea pointsLeaders = new JTextArea();
     JTextArea goalieLeaders = new JTextArea();
-    JTextArea countriesBackground = new JTextArea();
+    JComboBox<String> sortByMenu;
 
     // General variables
     DecimalFormat df2 = new DecimalFormat("0.00");
@@ -72,7 +73,7 @@ public class App implements ActionListener{
     Color myDarkGray = new Color(30, 30, 30);
 
     /** Defining visible elements of the app */
-    App() throws IOException, URISyntaxException{
+    App() throws IOException, URISyntaxException, AWTException{
 
         TLog.info("\n\n---------------------LAUNCHING APPLICATION\n");
 
@@ -299,7 +300,7 @@ public class App implements ActionListener{
 
 
     /** Starts an instance of the app */
-    public static void main(String[] args) throws IOException, URISyntaxException{ 
+    public static void main(String[] args) throws IOException, URISyntaxException, AWTException{ 
 
         @SuppressWarnings("unused")
         App e = new App();
@@ -673,21 +674,21 @@ public class App implements ActionListener{
 
     private void showLeaderboardsPage(){
 
-        List<Player> list = Helpers.getTop10Goals(teams);
+        List<Player> list = Helpers.sortPlayersByGoals(teams);
 
         StringBuilder top10goal = new StringBuilder();
         for(int i = 0; i < 10; i++){
             top10goal.append(" " + list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).goals + ") \n");
         }
 
-        list = Helpers.getTop10Points(teams);
+        list = Helpers.sortPlayersByPoints(teams);
 
         StringBuilder top10point = new StringBuilder();
         for(int i = 0; i < 10; i++){
             top10point.append(list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).points + ") \n");
         }
 
-        list = Helpers.getTop10Goalie(teams);
+        list = Helpers.sortPlayersBySavePctg(teams);
 
         StringBuilder top10goalie = new StringBuilder();
         for(int i = 0; i < 10; i++){
@@ -752,6 +753,30 @@ public class App implements ActionListener{
         PlayerListPanel playerListPanel = new PlayerListPanel(players);
         playerListPanel.setBounds(110, 380, 400, 330);
         frame.add(playerListPanel);
+
+        String[] sortOptions = {"By points", "By goals", "By save%","By points per game"};
+        sortByMenu = new JComboBox<>(sortOptions);
+        sortByMenu.setBounds(110, 360, 150, 20);
+        sortByMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get the selected item from the JComboBox
+                String selectedOption = (String) sortByMenu.getSelectedItem();
+                
+                if(selectedOption.equals(sortOptions[0])){
+                    playerListPanel.sortByPoints();
+                } else if(selectedOption.equals(sortOptions[1])){
+                    playerListPanel.sortByGoals();
+                } else if(selectedOption.equals(sortOptions[2])){
+                    playerListPanel.sortBySavePctg();
+                } else if(selectedOption.equals(sortOptions[3])){
+                    playerListPanel.sortByPpg();
+                }
+            }
+        });
+
+        frame.add(sortByMenu);
+        playerListPanel.sortByPoints();
     }
 
     /** Hides all elements of the moreStatsPage */
@@ -802,8 +827,6 @@ public class App implements ActionListener{
         pointsLeaders.setVisible(false);
         goalieLeadersTitle.setVisible(false);
         goalieLeaders.setVisible(false);
-
-        countriesBackground.setVisible(false);
     }
 
     /** Allows user to use arrow keys to traverse teams */

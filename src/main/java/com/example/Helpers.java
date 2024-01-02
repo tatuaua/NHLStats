@@ -22,7 +22,7 @@ public class Helpers {
     }
 
     /** Sorts all players based on goals, highest to lowest */
-    public static List<Player> getTop10Goals(Team[] teams){
+    public static List<Player> sortPlayersByGoals(Team[] teams){
 
         List<Player> list = getAllPlayers(teams);
 
@@ -36,8 +36,21 @@ public class Helpers {
         return list;
     }
 
+    /** Sorts all players based on goals, highest to lowest */
+    public static ArrayList<Player> sortPlayersByGoals(ArrayList<Player> list){
+
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o2.goals-o1.goals;
+            }
+        });
+
+        return list;
+    }
+
     /** Sorts all players based on points, highest to lowest */
-    public static List<Player> getTop10Points(Team[] teams){
+    public static List<Player> sortPlayersByPoints(Team[] teams){
 
         List<Player> list = getAllPlayers(teams);
 
@@ -51,8 +64,21 @@ public class Helpers {
         return list;
     }
 
+    /** Sorts all players based on points, highest to lowest */
+    public static ArrayList<Player> sortPlayersByPoints(ArrayList<Player> list){
+
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o2.points-o1.points;
+            }
+        });
+
+        return list;
+    }
+
     /** Sorts all goalies based on savePctg */
-    public static List<Player> getTop10Goalie(Team[] teams){
+    public static List<Player> sortPlayersBySavePctg(Team[] teams){
 
         List<Player> list = new ArrayList<Player>();
         for(int teamIndex = 0; teamIndex < 32; teamIndex++){
@@ -67,6 +93,32 @@ public class Helpers {
             @Override
             public int compare(Player o1, Player o2) {
                 return Double.compare(o2.savePctg, o1.savePctg);
+            }
+        });
+
+        return list;
+    }
+
+    /** Sorts all goalies based on savePctg */
+    public static ArrayList<Player> sortPlayersBySavePctg(ArrayList<Player> list){
+
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return Double.compare(o2.savePctg, o1.savePctg);
+            }
+        });
+
+        return list;
+    }
+
+    /** Sorts all players based on ppg */
+    public static ArrayList<Player> sortPlayersByPpg(ArrayList<Player> list){
+
+        Collections.sort(list, new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return Double.compare(o2.ppg, o1.ppg);
             }
         });
 
