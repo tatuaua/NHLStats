@@ -418,10 +418,10 @@ public class App implements ActionListener{
     /** Shows the team info for a specified index */
     private void showTeamInfo(int index) throws IOException, URISyntaxException{
 
-        String bonusMsg = " (Not making playoffs)";
+        String playoffStatus = " (Not making playoffs)";
 
         if(teams[index].isMakingPlayoffs){
-            bonusMsg = " (Making the playoffs)";
+            playoffStatus = " (Making the playoffs)";
         }
 
         teamButtons[index].setForeground(myOrange);
@@ -437,7 +437,7 @@ public class App implements ActionListener{
                 "\n  "
                 + teams[index].name 
                 + "\n\n  Current team points:\n   " 
-                + teams[index].points + bonusMsg
+                + teams[index].points + playoffStatus
                 + "\n\n  Upcoming match:\n   " 
                 + teams[index].nextMatch 
                 + "\n\n  Place bet:\n   " 
@@ -748,26 +748,10 @@ public class App implements ActionListener{
         frame.add(goalieLeaders);
         goalieLeaders.setVisible(true);
 
-        List<Country> countryList = Helpers.getTop10CountriesByAvgPoints(teams);
-
-        JLabel countryFlag;
-
-        int fuck = 0;
-        for(int i = 4; i >= 0; i--){
-            fuck++;
-            countryFlag = new JLabel();
-            countryFlag.setIcon(Helpers.getImageForCountry(countryList.get(fuck).code));
-            countryFlag.setBounds(i*70+130, 550, countryFlag.getIcon().getIconWidth(), countryFlag.getIcon().getIconHeight());
-            frame.add(countryFlag);
-        }
-
-        countriesBackground.setBounds(100, 380, 400, 250);
-        countriesBackground.setBackground(myDarkGray);
-        countriesBackground.setEditable(false);
-        countriesBackground.setBorder(BorderFactory.createLineBorder(myOrange));
-        frame.add(countriesBackground);
-        countriesBackground.setVisible(true);
-    
+        ArrayList<Player> players = Helpers.getAllPlayers(teams);
+        PlayerListPanel playerListPanel = new PlayerListPanel(players);
+        playerListPanel.setBounds(110, 380, 400, 330);
+        frame.add(playerListPanel);
     }
 
     /** Hides all elements of the moreStatsPage */

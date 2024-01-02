@@ -1,5 +1,8 @@
 package com.example;
 
+import java.awt.Color;
+import java.awt.Font;
+
 public class Constants {
 
     final static int TEAM_AMOUNT = 32;
@@ -7,6 +10,12 @@ public class Constants {
     final static int MORESTATS_PAGE = 1;
     final static int LEADERBOARDS_PAGE = 2;
     final static int SEARCHLENGTH_MAX = 50;
+    final static Font myFont = new Font(null, Font.BOLD, 15);
+    final static Font myFontBigger = new Font(null, Font.BOLD, 20);
+    final static Font myFontLighter = new Font(null, Font.PLAIN, 15);
+    final static Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
+    final static Color myOrange = new Color(248,158,124);
+    final static Color myDarkGray = new Color(30, 30, 30);
 
     final static String[] countryCodes = {
         "AF", // Afghanistan

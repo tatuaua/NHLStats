@@ -24,12 +24,7 @@ public class Helpers {
     /** Sorts all players based on goals, highest to lowest */
     public static List<Player> getTop10Goals(Team[] teams){
 
-        List<Player> list = new ArrayList<Player>();
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
-                list.add(teams[teamIndex].roster[playerIndex]);
-            }
-        }
+        List<Player> list = getAllPlayers(teams);
 
         Collections.sort(list, new Comparator<Player>() {
             @Override
@@ -44,12 +39,7 @@ public class Helpers {
     /** Sorts all players based on points, highest to lowest */
     public static List<Player> getTop10Points(Team[] teams){
 
-        List<Player> list = new ArrayList<Player>();
-        for(int teamIndex = 0; teamIndex < 32; teamIndex++){
-            for(int playerIndex = 0; playerIndex < teams[teamIndex].roster.length; playerIndex++){
-                list.add(teams[teamIndex].roster[playerIndex]);
-            }
-        }
+        List<Player> list = getAllPlayers(teams);
 
         Collections.sort(list, new Comparator<Player>() {
             @Override
@@ -175,8 +165,6 @@ public class Helpers {
         List<Team> western = new ArrayList<>();
         List<Team> central = new ArrayList<>();
         List<Team> pacific = new ArrayList<>();
-
-        List<Team> playoffTeams = new ArrayList<>();
         
         for(Team team : teams){
 
@@ -238,5 +226,16 @@ public class Helpers {
                 break;
             }
         }
+    }
+
+    public static ArrayList<Player> getAllPlayers(Team[] teams){
+
+        ArrayList<Player> list = new ArrayList<>();
+        for(Team team : teams){
+            for(Player player : team.roster){
+                list.add(player);
+            }
+        }
+        return list;
     }
 }

@@ -492,3 +492,95 @@
 2024-01-01T19:36:46.078560600 [INFO] - Fetching and parsing took 1112 ms
 2024-01-01T19:37:18.069357600 [INFO] - Searching for forsberg
 2024-01-01T19:37:18.069357600 [INFO] - Player Filip Forsberg adhered to the search term: forsberg
+2024-01-01T19:39:12.602952500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-01T19:39:12.804698 [INFO] - Starting fetch and parse process
+2024-01-01T19:39:14.493623900 [INFO] - Fetching and parsing took 1688 ms
+2024-01-02T13:45:13.926083500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T13:45:14.204071100 [INFO] - Starting fetch and parse process
+2024-01-02T13:45:18.633159200 [INFO] - Fetching and parsing took 4428 ms
+2024-01-02T13:45:30.685710300 [INFO] - Searching for karlsson
+2024-01-02T13:45:30.686712300 [INFO] - Player Erik Karlsson adhered to the search term: karlsson
+2024-01-02T13:45:30.688712 [INFO] - Searching for karlsson
+2024-01-02T13:45:30.689712700 [INFO] - Player Erik Karlsson adhered to the search term: karlsson
+2024-01-02T13:45:36.115877700 [INFO] - Searching for crosby
+2024-01-02T13:45:36.116837200 [INFO] - Player Sidney Crosby adhered to the search term: crosby
+2024-01-02T13:45:36.117838600 [INFO] - Searching for crosby
+2024-01-02T13:45:36.118838800 [INFO] - Player Sidney Crosby adhered to the search term: crosby
+2024-01-02T13:45:40.843042400 [INFO] - Searching for malkin
+2024-01-02T13:45:40.843042400 [INFO] - Player Evgeni Malkin adhered to the search term: malkin
+2024-01-02T13:45:40.844043500 [INFO] - Searching for malkin
+2024-01-02T13:45:40.845044100 [INFO] - Player Evgeni Malkin adhered to the search term: malkin
+2024-01-02T13:45:46.566953400 [INFO] - Searching for rust
+2024-01-02T13:45:46.567918900 [INFO] - Player Bryan Rust adhered to the search term: rust
+2024-01-02T13:45:46.568919500 [INFO] - Searching for rust
+2024-01-02T13:45:46.568919500 [INFO] - Player Bryan Rust adhered to the search term: rust
+2024-01-02T13:45:48.967941400 [INFO] - Searching for nieto
+2024-01-02T13:45:48.967941400 [INFO] - Player Matt Nieto adhered to the search term: nieto
+2024-01-02T13:45:48.969948400 [INFO] - Searching for nieto
+2024-01-02T13:45:48.969948400 [INFO] - Player Matt Nieto adhered to the search term: nieto
+2024-01-02T13:52:42.033056600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T13:52:42.216610900 [INFO] - Starting fetch and parse process
+2024-01-02T13:52:44.646308 [INFO] - Fetching and parsing took 2429 ms
+2024-01-02T14:05:58.403925400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:05:58.607627300 [INFO] - Starting fetch and parse process
+2024-01-02T14:06:00.231326 [INFO] - Fetching and parsing took 1623 ms
+2024-01-02T14:07:20.840699300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:07:21.049084500 [INFO] - Starting fetch and parse process
+2024-01-02T14:07:23.456351100 [INFO] - Fetching and parsing took 2406 ms
+2024-01-02T14:09:45.201645700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:09:45.408443400 [INFO] - Starting fetch and parse process
+2024-01-02T14:09:47.601766100 [INFO] - Fetching and parsing took 2192 ms
+2024-01-02T14:10:39.331426500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:10:39.521434600 [INFO] - Starting fetch and parse process
+2024-01-02T14:10:41.822341500 [INFO] - Fetching and parsing took 2300 ms
+2024-01-02T14:11:01.336282700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:11:01.533728300 [INFO] - Starting fetch and parse process
+2024-01-02T14:11:02.680900100 [INFO] - Fetching and parsing took 1146 ms
+2024-01-02T14:12:02.266535400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:12:02.469104300 [INFO] - Starting fetch and parse process
+2024-01-02T14:12:04.745503100 [INFO] - Fetching and parsing took 2275 ms
+2024-01-02T14:12:26.569200800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:12:26.776490100 [INFO] - Starting fetch and parse process
+2024-01-02T14:12:29.221293600 [INFO] - Fetching and parsing took 2442 ms
+2024-01-02T14:12:50.370942400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:12:50.569161800 [INFO] - Starting fetch and parse process
+2024-01-02T14:12:51.696910800 [INFO] - Fetching and parsing took 1127 ms
+2024-01-02T14:13:12.584314400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-02T14:13:12.792025600 [INFO] - Starting fetch and parse process
+2024-01-02T14:13:13.923148400 [INFO] - Fetching and parsing took 1130 ms
