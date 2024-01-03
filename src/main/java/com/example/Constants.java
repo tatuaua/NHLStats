@@ -2,6 +2,7 @@ package com.example;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.text.DecimalFormat;
 
 public class Constants {
 
@@ -16,6 +17,8 @@ public class Constants {
     final static Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
     final static Color myOrange = new Color(248,158,124);
     final static Color myDarkGray = new Color(30, 30, 30);
+    final static DecimalFormat df2 = new DecimalFormat("0.00");
+    final static DecimalFormat df3 = new DecimalFormat("0.000");
 
     final static String[] countryCodes = {
         "AF", // Afghanistan

@@ -35,31 +35,52 @@ public class PlayerListPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    private void updateListModel() {
+    private void updateListModel(int type) {
+
         listModel.clear();
-        for (Player player : players) {
-            listModel.addElement(player.name);
+        switch(type){
+            case 0:
+                for (Player player : players) {
+                    listModel.addElement(player.name + " (" + player.points + ")");
+                }
+                break;
+            case 1:
+                for (Player player : players) {
+                    listModel.addElement(player.name + " (" + player.goals + ")");
+                }
+                break;
+            case 2:
+                for (Player player : players) {
+                    listModel.addElement(player.name + " (" + Constants.df3.format(player.savePctg) + ")");
+                }
+                break;
+            case 3:
+                for (Player player : players) {
+                    listModel.addElement(player.name + " (" + Constants.df2.format(player.ppg) + ")");
+                }
+                break;
+            default:
         }
     }
 
     public void sortByPoints() {
         players = Helpers.sortPlayersByPoints(players);
-        updateListModel();
+        updateListModel(0);
     }
 
     public void sortByGoals() {
         players = Helpers.sortPlayersByGoals(players);
-        updateListModel();
+        updateListModel(1);
     }
 
     public void sortBySavePctg() {
         players = Helpers.sortPlayersBySavePctg(players);
-        updateListModel();
+        updateListModel(2);
     }
 
     public void sortByPpg() {
         players = Helpers.sortPlayersByPpg(players);
-        updateListModel();
+        updateListModel(3);
     }
 
 }

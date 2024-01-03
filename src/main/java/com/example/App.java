@@ -64,13 +64,6 @@ public class App implements ActionListener{
     JLabel[] images = new JLabel[Constants.TEAM_AMOUNT];
     int currentSelectedTeamIndex;
     int currentPage = 0;
-    
-    Font myFont = new Font(null, Font.BOLD, 15);
-    Font myFontBigger = new Font(null, Font.BOLD, 20);
-    Font myFontLighter = new Font(null, Font.PLAIN, 15);
-    Font myFontLighterBigger = new Font(null, Font.PLAIN, 20);
-    Color myOrange = new Color(248,158,124);
-    Color myDarkGray = new Color(30, 30, 30);
 
     /** Defining visible elements of the app */
     App() throws IOException, URISyntaxException, AWTException{
@@ -93,8 +86,8 @@ public class App implements ActionListener{
         loadingText.setVisible(true);
         loadingText.setBounds(40, 30, 200, 30);
         loadingText.setBackground(null);
-        loadingText.setForeground(myOrange);
-        loadingText.setFont(myFontBigger);
+        loadingText.setForeground(Constants.myOrange);
+        loadingText.setFont(Constants.myFontBigger);
         loadingFrame.add(loadingText);
 
         frame = new JFrame("NHL Stats");
@@ -112,7 +105,7 @@ public class App implements ActionListener{
 
         // Configuring tooltips (when you hover over an element it gives you a hint, this customizes the popup box)
         UIManager.put("ToolTip.background", Color.gray);
-        UIManager.put("ToolTip.border", new LineBorder(myOrange));
+        UIManager.put("ToolTip.border", new LineBorder(Constants.myOrange));
         UIManager.put("Tooltip.foreground", Color.white);
 
         DataFetcher.fetchAndParse();
@@ -120,8 +113,8 @@ public class App implements ActionListener{
 
         topBarTeams = new JButton("Teams");
         topBarTeams.setBounds(20, 10, 80, 30);
-        topBarTeams.setForeground(myOrange);
-        topBarTeams.setBackground(myDarkGray);
+        topBarTeams.setForeground(Constants.myOrange);
+        topBarTeams.setBackground(Constants.myDarkGray);
         topBarTeams.addActionListener(this);
         topBarTeams.setBorder(new RoundedBorder(20));
         topBarTeams.setFocusPainted(false);
@@ -130,8 +123,8 @@ public class App implements ActionListener{
 
         topBarLeaderboards = new JButton("Leaderboards");
         topBarLeaderboards.setBounds(120, 10, 150, 30);
-        topBarLeaderboards.setForeground(myOrange);
-        topBarLeaderboards.setBackground(myDarkGray);
+        topBarLeaderboards.setForeground(Constants.myOrange);
+        topBarLeaderboards.setBackground(Constants.myDarkGray);
         topBarLeaderboards.addActionListener(this);
         topBarLeaderboards.setBorder(new RoundedBorder(20));
         topBarLeaderboards.setFocusPainted(false);
@@ -144,7 +137,7 @@ public class App implements ActionListener{
 
         topBarBettingPoints = new JTextPane();
         topBarBettingPoints.setText(Integer.toString(points));
-        topBarBettingPoints.setFont(myFontBigger);
+        topBarBettingPoints.setFont(Constants.myFontBigger);
         topBarBettingPoints.setBounds(590, 10, 50, 30);
         if(Betting.checkedBetWon == 1){
             topBarBettingPoints.setForeground(Color.green);
@@ -153,13 +146,13 @@ public class App implements ActionListener{
         } else {
             topBarBettingPoints.setForeground(Color.white);
         }
-        topBarBettingPoints.setBackground(myDarkGray);
+        topBarBettingPoints.setBackground(Constants.myDarkGray);
         frame.add(topBarBettingPoints);
 
         betButtonW.setBounds(310, 305, 30, 30);
         betButtonW.setFont(new Font(null, Font.BOLD, 10));
         betButtonW.setForeground(Color.green);
-        betButtonW.setBackground(myDarkGray);
+        betButtonW.setBackground(Constants.myDarkGray);
         betButtonW.addActionListener(this);
         betButtonW.setBorder(new RoundedBorder(10));
         betButtonW.setFocusPainted(false);
@@ -170,7 +163,7 @@ public class App implements ActionListener{
         betButtonL.setBounds(345, 305, 30, 30);
         betButtonL.setFont(new Font(null, Font.BOLD, 8));
         betButtonL.setForeground(Color.red);
-        betButtonL.setBackground(myDarkGray);
+        betButtonL.setBackground(Constants.myDarkGray);
         betButtonL.addActionListener(this);
         betButtonL.setBorder(new RoundedBorder(10));
         betButtonL.setFocusPainted(false);
@@ -180,8 +173,8 @@ public class App implements ActionListener{
 
         moreStatsButton = new JButton("More stats");
         moreStatsButton.setBounds(310, 555, 120, 30);
-        moreStatsButton.setForeground(myOrange);
-        moreStatsButton.setBackground(myDarkGray);
+        moreStatsButton.setForeground(Constants.myOrange);
+        moreStatsButton.setBackground(Constants.myDarkGray);
         moreStatsButton.addActionListener(this);
         moreStatsButton.setBorder(new RoundedBorder(20));
         moreStatsButton.setFocusPainted(false);
@@ -201,7 +194,7 @@ public class App implements ActionListener{
         ImageIcon topBarImg = new ImageIcon("images/topBar.png");
         topBar = new JLabel(topBarImg);
         topBar.setBounds(0, 0, 650, 50);
-        topBar.setBackground(myDarkGray);
+        topBar.setBackground(Constants.myDarkGray);
         frame.add(topBar);
         topBar.setVisible(true);
 
@@ -223,7 +216,7 @@ public class App implements ActionListener{
             teamButton.setBounds(30, teamIndex*21+90, 200, 20);
             teamButton.setForeground(Color.white);
             teamButton.setBackground(null);
-            teamButton.setFont(myFont);
+            teamButton.setFont(Constants.myFont);
             teamButton.setBorder(null);
             teamButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             teamButton.addActionListener(this);
@@ -235,11 +228,11 @@ public class App implements ActionListener{
 
             infoArray[teamIndex] = new JTextArea();
             infoArray[teamIndex].setBounds(300, 95, 250, 500);
-            infoArray[teamIndex].setBackground(myDarkGray);
+            infoArray[teamIndex].setBackground(Constants.myDarkGray);
             infoArray[teamIndex].setForeground(Color.white);
-            infoArray[teamIndex].setFont(myFontLighter);
+            infoArray[teamIndex].setFont(Constants.myFontLighter);
             infoArray[teamIndex].setEditable(false);
-            infoArray[teamIndex].setBorder(BorderFactory.createLineBorder(myOrange));
+            infoArray[teamIndex].setBorder(BorderFactory.createLineBorder(Constants.myOrange));
             frame.add(infoArray[teamIndex]);
             infoArray[teamIndex].setVisible(false);
         }
@@ -425,7 +418,7 @@ public class App implements ActionListener{
             playoffStatus = " (Making the playoffs)";
         }
 
-        teamButtons[index].setForeground(myOrange);
+        teamButtons[index].setForeground(Constants.myOrange);
 
         for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
 
@@ -449,8 +442,8 @@ public class App implements ActionListener{
     /** Shows more stats for chosen team */
     private void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException{
 
-        moreStatsButton.setBackground(myDarkGray);
-        topBarTeams.setBackground(myDarkGray);
+        moreStatsButton.setBackground(Constants.myDarkGray);
+        topBarTeams.setBackground(Constants.myDarkGray);
         
         ImageIcon resizedLogo = new ImageIcon("images/" + teams[index].ab + ".png");
         resizedLogo = new ImageIcon(resizedLogo.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH));
@@ -461,7 +454,7 @@ public class App implements ActionListener{
 
         moreStatsTeamName.setText(teams[index].name);
         moreStatsTeamName.setBounds(38, 95, 230, 30);
-        moreStatsTeamName.setFont(myFontBigger);
+        moreStatsTeamName.setFont(Constants.myFontBigger);
         moreStatsTeamName.setBackground(Color.darkGray);
         moreStatsTeamName.setForeground(Color.white);
         moreStatsTeamName.setEditable(false);
@@ -469,8 +462,8 @@ public class App implements ActionListener{
         moreStatsTeamName.setVisible(true);
 
         seasonPerformance.setBounds(70, 170, 130, 220);
-        seasonPerformance.setFont(myFontLighterBigger);
-        seasonPerformance.setBackground(myDarkGray);
+        seasonPerformance.setFont(Constants.myFontLighterBigger);
+        seasonPerformance.setBackground(Constants.myDarkGray);
         seasonPerformance.setForeground(Color.white);
         seasonPerformance.setEditable(false);
         frame.add(seasonPerformance);
@@ -525,9 +518,9 @@ public class App implements ActionListener{
         seasonPerformance.setText("\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df2.format(winPct));
   
         dataPointsBackground.setBounds(40, 145, 500, 300);
-        dataPointsBackground.setBackground(myDarkGray);
+        dataPointsBackground.setBackground(Constants.myDarkGray);
         dataPointsBackground.setEditable(false);
-        dataPointsBackground.setBorder(BorderFactory.createLineBorder(myOrange));
+        dataPointsBackground.setBorder(BorderFactory.createLineBorder(Constants.myOrange));
         frame.add(dataPointsBackground);
         dataPointsBackground.setVisible(true);
 
@@ -535,8 +528,8 @@ public class App implements ActionListener{
 
         rosterTitle.setText(teams[index].name + " roster:");
         rosterTitle.setBounds(70, 480, 440, 50);
-        rosterTitle.setFont(myFontLighterBigger);
-        rosterTitle.setBackground(myDarkGray);
+        rosterTitle.setFont(Constants.myFontLighterBigger);
+        rosterTitle.setBackground(Constants.myDarkGray);
         rosterTitle.setForeground(Color.white);
         rosterTitle.setEditable(false);
         frame.add(rosterTitle);
@@ -568,18 +561,18 @@ public class App implements ActionListener{
         roster.setText(roster.getText().substring(0, roster.getText().length()-2)); // Removes last comma
         
         roster.setBounds(70, 530, 440, 170);
-        roster.setFont(myFontLighter);
-        roster.setBackground(myDarkGray);
+        roster.setFont(Constants.myFontLighter);
+        roster.setBackground(Constants.myDarkGray);
         roster.setForeground(Color.white);
         roster.setEditable(false);
         frame.add(roster);
         roster.setVisible(true);
 
         rosterSearch.setBounds(70, 700, 200, 30);
-        rosterSearch.setFont(myFontLighter);
-        rosterSearch.setBackground(myDarkGray);
+        rosterSearch.setFont(Constants.myFontLighter);
+        rosterSearch.setBackground(Constants.myDarkGray);
         rosterSearch.setForeground(Color.white);
-        rosterSearch.setBorder(BorderFactory.createLineBorder(myOrange));
+        rosterSearch.setBorder(BorderFactory.createLineBorder(Constants.myOrange));
         rosterSearch.setEditable(true);
         rosterSearch.setText("Insert player name");
         frame.add(rosterSearch);
@@ -589,16 +582,16 @@ public class App implements ActionListener{
         searchIcon = new ImageIcon(searchIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
         rosterSearchButton.setIcon(searchIcon);
         rosterSearchButton.setBorder(null);
-        rosterSearchButton.setBackground(myDarkGray);
+        rosterSearchButton.setBackground(Constants.myDarkGray);
         rosterSearchButton.setBounds(275, 700, 30, 30);
         rosterSearchButton.addActionListener(this);
         frame.add(rosterSearchButton);
         rosterSearchButton.setVisible(true);
 
         rosterBackground.setBounds(40, dataPointsBackground.getY()+310, 500, 330);
-        rosterBackground.setBackground(myDarkGray);
+        rosterBackground.setBackground(Constants.myDarkGray);
         rosterBackground.setEditable(false);
-        rosterBackground.setBorder(BorderFactory.createLineBorder(myOrange));
+        rosterBackground.setBorder(BorderFactory.createLineBorder(Constants.myOrange));
         frame.add(rosterBackground);
         rosterBackground.setVisible(true);
 
@@ -620,8 +613,8 @@ public class App implements ActionListener{
         }
 
         playerInfo.setBounds(340, 665, 170, 60);
-        playerInfo.setFont(myFontLighter);
-        playerInfo.setBackground(myDarkGray);
+        playerInfo.setFont(Constants.myFontLighter);
+        playerInfo.setBackground(Constants.myDarkGray);
         playerInfo.setForeground(Color.white);
         playerInfo.setEditable(false);
         frame.add(playerInfo);
@@ -657,15 +650,15 @@ public class App implements ActionListener{
     private void showTeamsPage(){
 
         frame.getContentPane().requestFocusInWindow();
-        moreStatsButton.setBackground(myDarkGray);
+        moreStatsButton.setBackground(Constants.myDarkGray);
         moreStatsButton.setVisible(true);
-        topBarTeams.setBackground(myDarkGray);
+        topBarTeams.setBackground(Constants.myDarkGray);
 
         for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
             teamButtons[teamIndex].setVisible(true);
         }
 
-        teamButtons[currentSelectedTeamIndex].setForeground(myOrange);
+        teamButtons[currentSelectedTeamIndex].setForeground(Constants.myOrange);
         infoArray[currentSelectedTeamIndex].setVisible(true);
         images[currentSelectedTeamIndex].setVisible(true);
         betButtonW.setVisible(true);
@@ -697,8 +690,8 @@ public class App implements ActionListener{
 
         goalsLeadersTitle.setText("Goals leaders:");
         goalsLeadersTitle.setBounds(75, 70, 150, 30);
-        goalsLeadersTitle.setFont(myFontLighterBigger);
-        goalsLeadersTitle.setBackground(myDarkGray);
+        goalsLeadersTitle.setFont(Constants.myFontLighterBigger);
+        goalsLeadersTitle.setBackground(Constants.myDarkGray);
         goalsLeadersTitle.setForeground(Color.white);
         goalsLeadersTitle.setEditable(false);
         frame.add(goalsLeadersTitle);
@@ -706,8 +699,8 @@ public class App implements ActionListener{
 
         goalsLeaders.setText(top10goal.toString());
         goalsLeaders.setBounds(75, 100, 150, 200);
-        goalsLeaders.setFont(myFontLighter);
-        goalsLeaders.setBackground(myDarkGray);
+        goalsLeaders.setFont(Constants.myFontLighter);
+        goalsLeaders.setBackground(Constants.myDarkGray);
         goalsLeaders.setForeground(Color.white);
         goalsLeaders.setEditable(false);
         frame.add(goalsLeaders);
@@ -715,8 +708,8 @@ public class App implements ActionListener{
 
         pointsLeadersTitle.setText("Points leaders:");
         pointsLeadersTitle.setBounds(240, 70, 150, 30);
-        pointsLeadersTitle.setFont(myFontLighterBigger);
-        pointsLeadersTitle.setBackground(myDarkGray);
+        pointsLeadersTitle.setFont(Constants.myFontLighterBigger);
+        pointsLeadersTitle.setBackground(Constants.myDarkGray);
         pointsLeadersTitle.setForeground(Color.white);
         pointsLeadersTitle.setEditable(false);
         frame.add(pointsLeadersTitle);
@@ -724,8 +717,8 @@ public class App implements ActionListener{
 
         pointsLeaders.setText(top10point.toString());
         pointsLeaders.setBounds(240, 100, 150, 200);
-        pointsLeaders.setFont(myFontLighter);
-        pointsLeaders.setBackground(myDarkGray);
+        pointsLeaders.setFont(Constants.myFontLighter);
+        pointsLeaders.setBackground(Constants.myDarkGray);
         pointsLeaders.setForeground(Color.white);
         pointsLeaders.setEditable(false);
         frame.add(pointsLeaders);
@@ -733,8 +726,8 @@ public class App implements ActionListener{
 
         goalieLeadersTitle.setText("Goalie leaders:");
         goalieLeadersTitle.setBounds(405, 70, 150, 30);
-        goalieLeadersTitle.setFont(myFontLighterBigger);
-        goalieLeadersTitle.setBackground(myDarkGray);
+        goalieLeadersTitle.setFont(Constants.myFontLighterBigger);
+        goalieLeadersTitle.setBackground(Constants.myDarkGray);
         goalieLeadersTitle.setForeground(Color.white);
         goalieLeadersTitle.setEditable(false);
         frame.add(goalieLeadersTitle);
@@ -742,8 +735,8 @@ public class App implements ActionListener{
 
         goalieLeaders.setText(top10goalie.toString());
         goalieLeaders.setBounds(405, 100, 150, 200);
-        goalieLeaders.setFont(myFontLighter);
-        goalieLeaders.setBackground(myDarkGray);
+        goalieLeaders.setFont(Constants.myFontLighter);
+        goalieLeaders.setBackground(Constants.myDarkGray);
         goalieLeaders.setForeground(Color.white);
         goalieLeaders.setEditable(false);
         frame.add(goalieLeaders);
@@ -782,9 +775,9 @@ public class App implements ActionListener{
     /** Hides all elements of the moreStatsPage */
     private void hideMoreStatsPageElements() {
 
-        moreStatsButton.setBackground(myDarkGray);
+        moreStatsButton.setBackground(Constants.myDarkGray);
         moreStatsButton.setVisible(false);
-        topBarTeams.setBackground(myDarkGray);
+        topBarTeams.setBackground(Constants.myDarkGray);
 
         moreStatsTeamLogo.setVisible(false);
         moreStatsTeamName.setVisible(false);
