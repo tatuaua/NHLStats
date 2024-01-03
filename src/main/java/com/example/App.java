@@ -62,7 +62,7 @@ public class App implements ActionListener{
     JTextPane topBarBettingPoints;
     Team[] teams = new Team[Constants.TEAM_AMOUNT];
     JLabel[] images = new JLabel[Constants.TEAM_AMOUNT];
-    int currentSelectedTeamIndex;
+    int currentSelectedTeamIndex = 0;
     int currentPage = 0;
 
     /** Defining visible elements of the app */
@@ -394,10 +394,8 @@ public class App implements ActionListener{
                 frame.getContentPane().requestFocusInWindow();
 
                 try {
-
-                    showTeamInfo(teamIndex);
                     currentSelectedTeamIndex = teamIndex;
-
+                    showTeamInfo(teamIndex);
                 } catch (IOException | URISyntaxException e1) {
                     System.out.println("ERROR: problem showing team info");
                     TLog.error("Problem showing team info");
@@ -412,19 +410,22 @@ public class App implements ActionListener{
     /** Shows the team info for a specified index */
     private void showTeamInfo(int index) throws IOException, URISyntaxException{
 
-        String playoffStatus = " (Not making playoffs)";
+        String playoffStatus;
 
         if(teams[index].isMakingPlayoffs){
             playoffStatus = " (Making the playoffs)";
+        } else {
+            playoffStatus = " (Not making playoffs)";
         }
-
-        teamButtons[index].setForeground(Constants.myOrange);
 
         for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
 
             infoArray[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
+            teamButtons[teamIndex].setForeground(Color.white);
         }
+
+        teamButtons[index].setForeground(Constants.myOrange);
         
         infoArray[index].setVisible(true);
         infoArray[index].setText(
@@ -621,8 +622,6 @@ public class App implements ActionListener{
         playerInfo.setVisible(true);
 
         if(exactMatch){
-
-            System.out.println(foundPlayer.country);
 
             playerInfo.setText(
                 "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
@@ -829,18 +828,34 @@ public class App implements ActionListener{
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPage == Constants.TEAMS_PAGE) {
-                    if (currentSelectedTeamIndex == teamButtons.length - 1) { // If user goes too low
+                    if (currentSelectedTeamIndex == teamButtons.length-1) { // If user goes too low
                         currentSelectedTeamIndex = 0;
-                        teamButtons[currentSelectedTeamIndex].doClick();
+                        try {
+                            showTeamInfo(currentSelectedTeamIndex);
+                        } catch (IOException | URISyntaxException e1) {
+                            TLog.error("Exception during key press");
+                        }
                     } else {
-                        teamButtons[currentSelectedTeamIndex + 1].doClick();
+                        try {
+                            showTeamInfo(++currentSelectedTeamIndex);
+                        } catch (IOException | URISyntaxException e1) {
+                            TLog.error("Exception during key press");
+                        }
                     }
                 } else if (e.getKeyCode() == KeyEvent.VK_UP && currentPage == Constants.TEAMS_PAGE) {
                     if (currentSelectedTeamIndex <= 0) { // If user goes over the top
                         currentSelectedTeamIndex = teamButtons.length - 1;
-                        teamButtons[currentSelectedTeamIndex].doClick();
+                        try {
+                            showTeamInfo(currentSelectedTeamIndex);
+                        } catch (IOException | URISyntaxException e1) {
+                            TLog.error("Exception during key press");
+                        }
                     } else {
-                        teamButtons[currentSelectedTeamIndex - 1].doClick();
+                        try {
+                            showTeamInfo(--currentSelectedTeamIndex);
+                        } catch (IOException | URISyntaxException e1) {
+                            TLog.error("Exception during key press");
+                        }
                     }
                 } else if(e.getKeyCode() == KeyEvent.VK_ENTER && currentPage == Constants.TEAMS_PAGE){
                     moreStatsButton.doClick();

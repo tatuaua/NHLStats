@@ -774,3 +774,143 @@
 2024-01-03T11:47:10.461125300 [INFO] - Player Anze Kopitar adhered to the search term: kopitar
 2024-01-03T11:47:13.956763400 [INFO] - Searching for lewis
 2024-01-03T11:47:13.956763400 [INFO] - Player Trevor Lewis adhered to the search term: lewis
+2024-01-03T11:50:41.884783900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T11:50:42.077914800 [INFO] - Starting fetch and parse process
+2024-01-03T11:50:44.375582600 [INFO] - Fetching and parsing took 2295 ms
+2024-01-03T11:53:10.169656800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T11:53:10.365369200 [INFO] - Starting fetch and parse process
+2024-01-03T11:53:12.745545700 [INFO] - Fetching and parsing took 2378 ms
+2024-01-03T11:53:49.250446 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T11:53:49.468632600 [INFO] - Starting fetch and parse process
+2024-01-03T11:53:51.627173200 [INFO] - Fetching and parsing took 2157 ms
+2024-01-03T11:54:43.132624600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T11:54:43.349640100 [INFO] - Starting fetch and parse process
+2024-01-03T11:54:45.776187100 [INFO] - Fetching and parsing took 2426 ms
+2024-01-03T11:55:00.207846400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T11:55:00.409960400 [INFO] - Starting fetch and parse process
+2024-01-03T11:55:01.557665900 [INFO] - Fetching and parsing took 1146 ms
+2024-01-03T11:55:18.772263400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T11:55:18.984906100 [INFO] - Starting fetch and parse process
+2024-01-03T11:55:20.178876200 [INFO] - Fetching and parsing took 1193 ms
+2024-01-03T11:56:12.740902 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T11:56:12.934983400 [INFO] - Starting fetch and parse process
+2024-01-03T11:56:14.048160 [INFO] - Fetching and parsing took 1112 ms
+2024-01-03T12:02:45.845977600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T12:02:46.055225200 [INFO] - Starting fetch and parse process
+2024-01-03T12:02:48.194233300 [INFO] - Fetching and parsing took 2138 ms
+2024-01-03T12:05:14.407936800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T12:05:14.606618800 [INFO] - Starting fetch and parse process
+2024-01-03T12:05:16.956692 [INFO] - Fetching and parsing took 2350 ms
+2024-01-03T17:15:11.267897300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:15:11.532084900 [INFO] - Starting fetch and parse process
+2024-01-03T17:15:16.422015500 [INFO] - Fetching and parsing took 4888 ms
+2024-01-03T17:16:40.950869200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:16:41.153964700 [INFO] - Starting fetch and parse process
+2024-01-03T17:16:46.549457600 [INFO] - Fetching and parsing took 5394 ms
+2024-01-03T17:17:09.615529600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:17:09.830422500 [INFO] - Starting fetch and parse process
+2024-01-03T17:17:13.634030400 [INFO] - Fetching and parsing took 3802 ms
+2024-01-03T17:17:53.308557600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:17:53.511122800 [INFO] - Starting fetch and parse process
+2024-01-03T17:17:56.543135900 [INFO] - Fetching and parsing took 3031 ms
+2024-01-03T17:19:50.041042600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:19:50.330838600 [INFO] - Starting fetch and parse process
+2024-01-03T17:19:52.982509800 [INFO] - Fetching and parsing took 2650 ms
+2024-01-03T17:20:14.460988600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:20:14.669168800 [INFO] - Starting fetch and parse process
+2024-01-03T17:20:17.969142100 [INFO] - Fetching and parsing took 3299 ms
+2024-01-03T17:22:13.517989900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:22:13.721039200 [INFO] - Starting fetch and parse process
+2024-01-03T17:22:18.886840300 [INFO] - Fetching and parsing took 5164 ms
+2024-01-03T17:25:09.574700500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:25:09.787584100 [INFO] - Starting fetch and parse process
+2024-01-03T17:25:12.381902500 [INFO] - Fetching and parsing took 2593 ms
+2024-01-03T17:25:35.518921100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:25:35.718826500 [INFO] - Starting fetch and parse process
+2024-01-03T17:25:38.824913800 [INFO] - Fetching and parsing took 3105 ms
+2024-01-03T17:27:41.213433500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:27:41.427933400 [INFO] - Starting fetch and parse process
+2024-01-03T17:27:43.922896400 [INFO] - Fetching and parsing took 2494 ms
+2024-01-03T17:28:30.699631300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:28:30.914908500 [INFO] - Starting fetch and parse process
+2024-01-03T17:28:32.208055500 [INFO] - Fetching and parsing took 1292 ms
+2024-01-03T17:28:55.493702100 [INFO] - Searching for kucherov
+2024-01-03T17:28:55.494703500 [INFO] - Player Nikita Kucherov adhered to the search term: kucherov
+2024-01-03T17:28:55.495705200 [INFO] - Searching for kucherov
+2024-01-03T17:28:55.496704600 [INFO] - Player Nikita Kucherov adhered to the search term: kucherov
+2024-01-03T17:28:55.497704800 [INFO] - Searching for kucherov
+2024-01-03T17:28:55.497704800 [INFO] - Player Nikita Kucherov adhered to the search term: kucherov
+2024-01-03T17:28:55.498704900 [INFO] - Searching for kucherov
+2024-01-03T17:28:55.499704800 [INFO] - Player Nikita Kucherov adhered to the search term: kucherov
+2024-01-03T17:28:55.500209400 [INFO] - Searching for kucherov
+2024-01-03T17:28:55.500209400 [INFO] - Player Nikita Kucherov adhered to the search term: kucherov
+2024-01-03T17:28:55.501215900 [INFO] - Searching for kucherov
+2024-01-03T17:28:55.501215900 [INFO] - Player Nikita Kucherov adhered to the search term: kucherov
+2024-01-03T17:28:55.502222400 [INFO] - Searching for kucherov
+2024-01-03T17:28:55.502222400 [INFO] - Player Nikita Kucherov adhered to the search term: kucherov
+2024-01-03T17:29:31.684532 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:29:31.904207900 [INFO] - Starting fetch and parse process
+2024-01-03T17:29:34.434831800 [INFO] - Fetching and parsing took 2530 ms
