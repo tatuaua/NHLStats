@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 class Betting {
@@ -40,6 +41,8 @@ class Betting {
 
     /** Part of the betting game, checks the bet.txt file and updates the points accordingly */
     public static void checkBet() throws URISyntaxException, IOException{
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         
         String data = "";
 
@@ -70,15 +73,17 @@ class Betting {
         for(int i = 0; i < TEAM_AMOUNT; i++){
         }
         
-        String date = data.split(":")[2];
+        String betDate = data.split(":")[2];
         int amount = Integer.parseInt(data.split(":")[3]);
-
-        int betDateNum = Integer.parseInt(date.split("-")[0]) * Integer.parseInt(date.split("-")[1]) * Integer.parseInt(date.split("-")[2]);
         
         for(int i = 0; i < TEAM_AMOUNT; i++){
             
             if(teams[i].ab.equals(teamAb)){
-                if(teams[i].lastGameDateNum > betDateNum){
+
+                LocalDate lastGameDate = LocalDate.parse(teams[i].lastGameDate, formatter);
+                LocalDate betDatee = LocalDate.parse(betDate, formatter);
+
+                if(lastGameDate.isAfter(betDatee)){
                                                     //[5] because last5 has leading whitespace 
                     if(teams[i].last5.split(" ")[5].equals("W") && winOrLose.equals("W")){
                         checkedBetWon = 1;

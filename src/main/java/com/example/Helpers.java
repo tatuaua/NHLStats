@@ -109,6 +109,12 @@ public class Helpers {
             }
         });
 
+        for(int i = 0; i < list.size()-1; i++){
+            if(list.get(i).gamesPlayed < 10){
+                list.remove(i);
+            }
+        }
+
         return list;
     }
 
@@ -278,6 +284,19 @@ public class Helpers {
                 break;
             }
         }
+    }
+
+    public static ArrayList<Player> filterPlayersByCountry(String country, ArrayList<Player> players){
+
+        ArrayList<Player> list = new ArrayList<>();
+
+        for(Player player : players){
+            if(player.country.equals(country)){
+                list.add(player);
+            }
+        }
+
+        return list;
     }
 
     public static ArrayList<Player> getAllPlayers(Team[] teams){

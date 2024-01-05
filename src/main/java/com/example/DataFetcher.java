@@ -33,10 +33,11 @@ class DataFetcher {
             // Populate basic info for team
             teams[teamIndex] = new Team();
             teams[teamIndex].name = teamJson.getString("name");
-            teams[teamIndex].ab = teamJson.getString("ab");
-            teams[teamIndex].points = teamJson.getInt("points");
             teams[teamIndex].conference = teamJson.getString("conference");
             teams[teamIndex].division = teamJson.getString("division");
+            teams[teamIndex].lastGameDate = teamJson.getString("lastGameDate");
+            teams[teamIndex].points = teamJson.getInt("points");
+            teams[teamIndex].ab = teamJson.getString("ab");
 
             if (teams[teamIndex].ab.equals("MTL")) {
                 teams[teamIndex].name = "Montreal Canadiens";
@@ -66,6 +67,7 @@ class DataFetcher {
                 tempPlayer.points = playerObj.getInt("points");
                 tempPlayer.goals = playerObj.getInt("goals");
                 tempPlayer.assists = playerObj.getInt("assists");
+                tempPlayer.gamesPlayed = playerObj.getInt("gamesPlayed");
                 tempPlayer.ppg = playerObj.getDouble("ppg");
                 tempPlayer.historicalPpg = playerObj.getDouble("historicalPpg");
 

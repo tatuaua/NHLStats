@@ -6,7 +6,7 @@ public class Team {
     String conference;
     String division;
     /** Used for the guessing game */
-    int lastGameDateNum;
+    String lastGameDate;
     int points;
     /** Abbreviation (eg. VGK - Las Vegas Golden Knights) */
     String ab;

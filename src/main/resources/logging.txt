@@ -914,3 +914,94 @@
 
 2024-01-03T17:29:31.904207900 [INFO] - Starting fetch and parse process
 2024-01-03T17:29:34.434831800 [INFO] - Fetching and parsing took 2530 ms
+2024-01-03T17:37:36.804479100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:37:37.026983800 [INFO] - Starting fetch and parse process
+2024-01-03T17:37:38.926701200 [INFO] - Fetching and parsing took 1899 ms
+2024-01-03T17:38:37.647921200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:38:37.859102100 [INFO] - Starting fetch and parse process
+2024-01-03T17:38:39.098881600 [INFO] - Fetching and parsing took 1239 ms
+2024-01-03T17:39:46.110266700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-03T17:39:46.316517300 [INFO] - Starting fetch and parse process
+2024-01-03T17:39:49.662609100 [INFO] - Fetching and parsing took 3345 ms
+2024-01-05T10:26:34.956819900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T10:26:35.223035600 [INFO] - Starting fetch and parse process
+2024-01-05T10:26:39.992295900 [INFO] - Fetching and parsing took 4768 ms
+2024-01-05T10:32:43.065413400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T10:32:43.346923 [INFO] - Starting fetch and parse process
+2024-01-05T10:32:45.773884600 [INFO] - Fetching and parsing took 2425 ms
+2024-01-05T10:40:57.285891100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T10:40:57.480651400 [INFO] - Starting fetch and parse process
+2024-01-05T10:40:58.667175100 [INFO] - Fetching and parsing took 1185 ms
+2024-01-05T10:52:13.677529800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T10:52:13.881319900 [INFO] - Starting fetch and parse process
+2024-01-05T10:52:15.552408300 [INFO] - Fetching and parsing took 1670 ms
+2024-01-05T10:52:33.339067500 [INFO] - Searching for granlund
+2024-01-05T10:52:33.339067500 [INFO] - Player Mikael Granlund adhered to the search term: granlund
+2024-01-05T10:52:33.341073800 [INFO] - Searching for granlund
+2024-01-05T10:52:33.341073800 [INFO] - Player Mikael Granlund adhered to the search term: granlund
+2024-01-05T10:52:36.184240200 [INFO] - Searching for hertl
+2024-01-05T10:52:36.184240200 [INFO] - Player Tomas Hertl adhered to the search term: hertl
+2024-01-05T10:52:36.185243200 [INFO] - Searching for hertl
+2024-01-05T10:52:36.186243500 [INFO] - Player Tomas Hertl adhered to the search term: hertl
+2024-01-05T11:02:15.188975900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T11:02:15.382567600 [INFO] - Starting fetch and parse process
+2024-01-05T11:02:17.657618800 [INFO] - Fetching and parsing took 2274 ms
+2024-01-05T11:04:12.402913 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T11:04:12.612923200 [INFO] - Starting fetch and parse process
+2024-01-05T11:04:15.035210600 [INFO] - Fetching and parsing took 2420 ms
+2024-01-05T11:06:37.518230900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T11:06:37.728202500 [INFO] - Starting fetch and parse process
+2024-01-05T11:06:38.903845600 [INFO] - Fetching and parsing took 1174 ms
+2024-01-05T11:09:08.251684900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T11:09:08.461231900 [INFO] - Starting fetch and parse process
+2024-01-05T11:09:10.863583500 [INFO] - Fetching and parsing took 2400 ms
+2024-01-05T11:09:36.944931400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T11:09:37.159432200 [INFO] - Starting fetch and parse process
+2024-01-05T11:09:39.630131400 [INFO] - Fetching and parsing took 2469 ms
+2024-01-05T11:21:01.104683400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T11:21:01.388825300 [INFO] - Starting fetch and parse process
+2024-01-05T11:22:46.979780200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-05T11:22:47.189271100 [INFO] - Starting fetch and parse process
+2024-01-05T11:22:49.493552200 [INFO] - Fetching and parsing took 2303 ms

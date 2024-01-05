@@ -4,11 +4,14 @@ public class Player implements Comparable<Player>{
 
     String name = "";
     String playerId = "";
+    /** eg. "G", "D", "R", "L", "C" */
     String position = "";
+    /** eg. "CAN" */
     String country = "";
     int points;
     int goals;
     int assists;
+    int gamesPlayed;
     /** Points per game this season */
     double ppg;
     /** Average points per game of career */

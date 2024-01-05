@@ -50,6 +50,7 @@ public class App implements ActionListener{
     JTextArea pointsLeaders = new JTextArea();
     JTextArea goalieLeaders = new JTextArea();
     JComboBox<String> sortByMenu;
+    PlayerListPanel playerListPanel;
 
     // General variables
     DecimalFormat df2 = new DecimalFormat("0.00");
@@ -132,7 +133,7 @@ public class App implements ActionListener{
         topBarLeaderboards.setVisible(true);
 
         // Check the status of the currently active bet and set the points accordingly
-        Betting.checkBet();
+        //Betting.checkBet(); //TODO: fix
         int points = Betting.changePoints(0);
 
         topBarBettingPoints = new JTextPane();
@@ -742,7 +743,7 @@ public class App implements ActionListener{
         goalieLeaders.setVisible(true);
 
         ArrayList<Player> players = Helpers.getAllPlayers(teams);
-        PlayerListPanel playerListPanel = new PlayerListPanel(players);
+        playerListPanel = new PlayerListPanel(players);
         playerListPanel.setBounds(110, 380, 400, 330);
         frame.add(playerListPanel);
 
@@ -819,6 +820,8 @@ public class App implements ActionListener{
         pointsLeaders.setVisible(false);
         goalieLeadersTitle.setVisible(false);
         goalieLeaders.setVisible(false);
+        playerListPanel.setVisible(false);
+        sortByMenu.setVisible(false);
     }
 
     /** Allows user to use arrow keys to traverse teams */
