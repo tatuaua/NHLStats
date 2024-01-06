@@ -776,16 +776,14 @@ public class App implements ActionListener {
             }
         });
 
-        String[] countryFilters = new String[Helpers.getCountriesWithPlayers(teams).length + 1];
+        ArrayList<String> temp = Helpers.getCountriesWithPlayers(teams);
+        temp.add(0, "ALL COUNTRIES");
+        String[] countryFilters = new String[temp.size()];
 
-        for (int i = 0; i < countryFilters.length; i++) {
-            if (i == 0) {
-                countryFilters[i] = "NONE";
-            } else {
-                countryFilters[i] = Helpers.getCountriesWithPlayers(teams)[i - 1];
-            }
-
+        for(int i = 0; i < temp.size()-1; i++){
+            countryFilters[i] = temp.get(i);
         }
+
         filterByMenu = new JComboBox<>(countryFilters);
         filterByMenu.setBounds(260, 360, 150, 20);
         filterByMenu.addActionListener(new ActionListener() {

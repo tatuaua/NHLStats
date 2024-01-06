@@ -89,7 +89,7 @@ public class PlayerListPanel extends JPanel {
     }
 
     public void filterByCountry(String country){
-        if(country.equals("NONE")){
+        if(country.equals("ALL COUNTRIES")){
             players = Helpers.getAllPlayers(DataFetcher.getTeams());
         } else {
             players = Helpers.sortPlayersByPoints(Helpers.filterPlayersByCountry(country, Helpers.getAllPlayers(DataFetcher.getTeams())));
