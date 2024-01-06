@@ -19,9 +19,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class App implements ActionListener{
+public class App implements ActionListener {
 
-    //Part of the teams page
+    // Part of the teams page
     JButton teamButton, moreStatsButton;
     JButton betButtonW = new JButton("W");
     JButton betButtonL = new JButton("L");
@@ -42,7 +42,7 @@ public class App implements ActionListener{
     JTextField rosterSearch = new JTextField();
     JButton rosterSearchButton = new JButton("");
 
-    //Part of the leaderboards page
+    // Part of the leaderboards page
     JTextPane goalsLeadersTitle = new JTextPane();
     JTextPane pointsLeadersTitle = new JTextPane();
     JTextPane goalieLeadersTitle = new JTextPane();
@@ -50,6 +50,7 @@ public class App implements ActionListener{
     JTextArea pointsLeaders = new JTextArea();
     JTextArea goalieLeaders = new JTextArea();
     JComboBox<String> sortByMenu;
+    JComboBox<String> filterByMenu;
     PlayerListPanel playerListPanel;
 
     // General variables
@@ -67,7 +68,7 @@ public class App implements ActionListener{
     int currentPage = 0;
 
     /** Defining visible elements of the app */
-    App() throws IOException, URISyntaxException, AWTException{
+    App() throws IOException, URISyntaxException, AWTException {
 
         TLog.info("\n\n---------------------LAUNCHING APPLICATION\n");
 
@@ -104,7 +105,8 @@ public class App implements ActionListener{
         frame.getContentPane().setFocusable(true);
         frame.getContentPane().setFocusTraversalKeysEnabled(false);
 
-        // Configuring tooltips (when you hover over an element it gives you a hint, this customizes the popup box)
+        // Configuring tooltips (when you hover over an element it gives you a hint,
+        // this customizes the popup box)
         UIManager.put("ToolTip.background", Color.gray);
         UIManager.put("ToolTip.border", new LineBorder(Constants.myOrange));
         UIManager.put("Tooltip.foreground", Color.white);
@@ -133,16 +135,16 @@ public class App implements ActionListener{
         topBarLeaderboards.setVisible(true);
 
         // Check the status of the currently active bet and set the points accordingly
-        //Betting.checkBet(); //TODO: fix
+        // Betting.checkBet(); //TODO: fix
         int points = Betting.changePoints(0);
 
         topBarBettingPoints = new JTextPane();
         topBarBettingPoints.setText(Integer.toString(points));
         topBarBettingPoints.setFont(Constants.myFontBigger);
         topBarBettingPoints.setBounds(590, 10, 50, 30);
-        if(Betting.checkedBetWon == 1){
+        if (Betting.checkedBetWon == 1) {
             topBarBettingPoints.setForeground(Color.green);
-        } else if (Betting.checkedBetWon == 2){
+        } else if (Betting.checkedBetWon == 2) {
             topBarBettingPoints.setForeground(Color.red);
         } else {
             topBarBettingPoints.setForeground(Color.white);
@@ -199,7 +201,7 @@ public class App implements ActionListener{
         frame.add(topBar);
         topBar.setVisible(true);
 
-        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){ // Loads the images from a local folder
+        for (int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++) { // Loads the images from a local folder
 
             ImageIcon img = new ImageIcon("images/" + teams[teamIndex].ab + ".png");
             images[teamIndex] = new JLabel();
@@ -211,10 +213,10 @@ public class App implements ActionListener{
 
         Helpers.setPlayoffStatuses(teams);
 
-        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){ // Loads the team name buttons
+        for (int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++) { // Loads the team name buttons
 
             teamButton = new JButton(teams[teamIndex].name + " (" + teams[teamIndex].points + ")");
-            teamButton.setBounds(30, teamIndex*21+90, 200, 20);
+            teamButton.setBounds(30, teamIndex * 21 + 90, 200, 20);
             teamButton.setForeground(Color.white);
             teamButton.setBackground(null);
             teamButton.setFont(Constants.myFont);
@@ -224,8 +226,8 @@ public class App implements ActionListener{
             teamButtons[teamIndex] = teamButton;
             frame.add(teamButton);
         }
-        
-        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
+
+        for (int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++) {
 
             infoArray[teamIndex] = new JTextArea();
             infoArray[teamIndex].setBounds(300, 95, 250, 500);
@@ -255,10 +257,9 @@ public class App implements ActionListener{
         Action action = new AbstractAction() // Allows the user to press enter to search
         {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 try {
-                    //showPlayerInfo(rosterSearch.getText());
+                    // showPlayerInfo(rosterSearch.getText());
                     rosterSearchButton.doClick();
                 } catch (JSONException e1) {
                     System.out.println("ERROR: problem showing player info when pressing enter");
@@ -269,7 +270,8 @@ public class App implements ActionListener{
         };
 
         rosterSearch.addActionListener(action);
-        rosterSearch.getDocument().addDocumentListener(new DocumentListener() { // Empties the playerinfo when a change is noticed
+        rosterSearch.getDocument().addDocumentListener(new DocumentListener() { // Empties the playerinfo when a change
+                                                                                // is noticed
 
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -292,9 +294,8 @@ public class App implements ActionListener{
         });
     }
 
-
     /** Starts an instance of the app */
-    public static void main(String[] args) throws IOException, URISyntaxException, AWTException{ 
+    public static void main(String[] args) throws IOException, URISyntaxException, AWTException {
 
         @SuppressWarnings("unused")
         App e = new App();
@@ -304,19 +305,22 @@ public class App implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource() == betButtonW){
+        if (e.getSource() == betButtonW) {
             Betting.addBet("W", teams[currentSelectedTeamIndex].ab, "10");
-            JOptionPane.showMessageDialog(frame, "You bet 10 points that the " + teams[currentSelectedTeamIndex].name + " will win their next match", null, 1);
+            JOptionPane.showMessageDialog(frame,
+                    "You bet 10 points that the " + teams[currentSelectedTeamIndex].name + " will win their next match",
+                    null, 1);
         }
 
-        if(e.getSource() == betButtonL){
+        if (e.getSource() == betButtonL) {
             Betting.addBet("L", teams[currentSelectedTeamIndex].ab, "10");
-            JOptionPane.showMessageDialog(frame, "You bet 10 points that the " + teams[currentSelectedTeamIndex].name + " will lose their next match", null, 1);
+            JOptionPane.showMessageDialog(frame, "You bet 10 points that the " + teams[currentSelectedTeamIndex].name
+                    + " will lose their next match", null, 1);
         }
 
-        if(e.getSource() == moreStatsButton && currentPage != Constants.MORESTATS_PAGE){
+        if (e.getSource() == moreStatsButton && currentPage != Constants.MORESTATS_PAGE) {
 
-            if(currentPage == Constants.LEADERBOARDS_PAGE){
+            if (currentPage == Constants.LEADERBOARDS_PAGE) {
                 hideLeaderboardsPageElements();
             } else {
                 hideTeamsPageElements();
@@ -333,9 +337,9 @@ public class App implements ActionListener{
             }
         }
 
-        if(e.getSource() == topBarTeams && currentPage != Constants.TEAMS_PAGE){
+        if (e.getSource() == topBarTeams && currentPage != Constants.TEAMS_PAGE) {
 
-            if(currentPage == Constants.LEADERBOARDS_PAGE){
+            if (currentPage == Constants.LEADERBOARDS_PAGE) {
                 hideLeaderboardsPageElements();
             } else {
                 hideMoreStatsPageElements();
@@ -345,9 +349,9 @@ public class App implements ActionListener{
             showTeamsPage();
         }
 
-        if(e.getSource() == topBarLeaderboards && currentPage != Constants.LEADERBOARDS_PAGE){
+        if (e.getSource() == topBarLeaderboards && currentPage != Constants.LEADERBOARDS_PAGE) {
 
-            if(currentPage == Constants.TEAMS_PAGE){
+            if (currentPage == Constants.TEAMS_PAGE) {
                 hideTeamsPageElements();
             } else {
                 hideMoreStatsPageElements();
@@ -358,7 +362,7 @@ public class App implements ActionListener{
             showLeaderboardsPage();
         }
 
-        if(e.getSource() == githubButton){
+        if (e.getSource() == githubButton) {
 
             try {
                 Helpers.openGitHub();
@@ -369,11 +373,11 @@ public class App implements ActionListener{
             }
         }
 
-        if(e.getSource() == rosterSearchButton){
+        if (e.getSource() == rosterSearchButton) {
 
             String searched = rosterSearch.getText();
 
-            if(searched.length() > Constants.SEARCHLENGTH_MAX){
+            if (searched.length() > Constants.SEARCHLENGTH_MAX) {
                 searched = searched.substring(0, 50);
             }
 
@@ -385,12 +389,12 @@ public class App implements ActionListener{
             } catch (JSONException | IOException | URISyntaxException e1) {
                 System.out.println("Problem showing player info");
                 TLog.error("Problem showing player info");
-            e1.printStackTrace();
+                e1.printStackTrace();
             }
         }
 
-        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){ // Doing this with a loop to avoid code bloat
-            if(e.getSource() == teamButtons[teamIndex]){
+        for (int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++) { // Doing this with a loop to avoid code bloat
+            if (e.getSource() == teamButtons[teamIndex]) {
 
                 frame.getContentPane().requestFocusInWindow();
 
@@ -409,17 +413,17 @@ public class App implements ActionListener{
     }
 
     /** Shows the team info for a specified index */
-    private void showTeamInfo(int index) throws IOException, URISyntaxException{
+    private void showTeamInfo(int index) throws IOException, URISyntaxException {
 
         String playoffStatus;
 
-        if(teams[index].isMakingPlayoffs){
+        if (teams[index].isMakingPlayoffs) {
             playoffStatus = " (Making the playoffs)";
         } else {
             playoffStatus = " (Not making playoffs)";
         }
 
-        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
+        for (int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++) {
 
             infoArray[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
@@ -427,30 +431,29 @@ public class App implements ActionListener{
         }
 
         teamButtons[index].setForeground(Constants.myOrange);
-        
+
         infoArray[index].setVisible(true);
         infoArray[index].setText(
                 "\n  "
-                + teams[index].name 
-                + "\n\n  Current team points:\n   " 
+                + teams[index].name
+                + "\n\n  Current team points:\n   "
                 + teams[index].points + playoffStatus
-                + "\n\n  Upcoming match:\n   " 
-                + teams[index].nextMatch 
-                + "\n\n  Place bet:\n   " 
-            );
+                + "\n\n  Upcoming match:\n   "
+                + teams[index].nextMatch
+                + "\n\n  Place bet:\n   ");
         images[index].setVisible(true);
     }
 
     /** Shows more stats for chosen team */
-    private void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException{
+    private void showMoreStatsPage(int index) throws JSONException, IOException, URISyntaxException {
 
         moreStatsButton.setBackground(Constants.myDarkGray);
         topBarTeams.setBackground(Constants.myDarkGray);
-        
+
         ImageIcon resizedLogo = new ImageIcon("images/" + teams[index].ab + ".png");
         resizedLogo = new ImageIcon(resizedLogo.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH));
         moreStatsTeamLogo.setIcon(resizedLogo);
-        moreStatsTeamLogo.setBounds((teams[index].name.length()*11)+26, 75, 70, 70);
+        moreStatsTeamLogo.setBounds((teams[index].name.length() * 11) + 26, 75, 70, 70);
         frame.add(moreStatsTeamLogo);
         moreStatsTeamLogo.setVisible(true);
 
@@ -478,21 +481,23 @@ public class App implements ActionListener{
         int losses = 0;
         double winPct = 0.0;
 
-        // Draw data for all games in the season for this team. Green point means win, red means loss. Win increases Y by 5 pixels and loss decreases by 5
-        for(int matchIndex = 0; matchIndex < teams[index].allSeasonMatches.length; matchIndex++){
+        // Draw data for all games in the season for this team. Green point means win,
+        // red means loss. Win increases Y by 5 pixels and loss decreases by 5
+        for (int matchIndex = 0; matchIndex < teams[index].allSeasonMatches.length; matchIndex++) {
 
             dataPoints[matchIndex] = new JLabel();
 
-            if(teams[index].allSeasonMatches[matchIndex].equals("W")){
-    
+            if (teams[index].allSeasonMatches[matchIndex].equals("W")) {
+
                 wins++;
-                
+
                 dataPoints[matchIndex].setIcon(greenPoint);
 
-                if(matchIndex == 0){
+                if (matchIndex == 0) {
                     dataPoints[matchIndex].setBounds(230, 280, 5, 5);
                 } else {
-                    dataPoints[matchIndex].setBounds(dataPoints[matchIndex-1].getX()+6, dataPoints[matchIndex-1].getY()-5, 5, 5);
+                    dataPoints[matchIndex].setBounds(dataPoints[matchIndex - 1].getX() + 6,
+                            dataPoints[matchIndex - 1].getY() - 5, 5, 5);
                 }
                 frame.add(dataPoints[matchIndex]);
                 dataPoints[matchIndex].setVisible(true);
@@ -503,10 +508,11 @@ public class App implements ActionListener{
 
                 dataPoints[matchIndex].setIcon(redPoint);
 
-                if(matchIndex == 0){
+                if (matchIndex == 0) {
                     dataPoints[matchIndex].setBounds(230, 280, 5, 5);
                 } else {
-                    dataPoints[matchIndex].setBounds(dataPoints[matchIndex-1].getX()+6, dataPoints[matchIndex-1].getY()+5, 5, 5);
+                    dataPoints[matchIndex].setBounds(dataPoints[matchIndex - 1].getX() + 6,
+                            dataPoints[matchIndex - 1].getY() + 5, 5, 5);
                 }
                 frame.add(dataPoints[matchIndex]);
                 dataPoints[matchIndex].setVisible(true);
@@ -514,11 +520,10 @@ public class App implements ActionListener{
             }
         }
 
-
-        winPct = (double)wins/(double)teams[index].allSeasonMatches.length*100;
+        winPct = (double) wins / (double) teams[index].allSeasonMatches.length * 100;
 
         seasonPerformance.setText("\n\nWins: " + wins + "\n\nLosses: " + losses + "\n\nWin %: " + df2.format(winPct));
-  
+
         dataPointsBackground.setBounds(40, 145, 500, 300);
         dataPointsBackground.setBackground(Constants.myDarkGray);
         dataPointsBackground.setEditable(false);
@@ -537,31 +542,31 @@ public class App implements ActionListener{
         frame.add(rosterTitle);
         rosterTitle.setVisible(true);
 
-        String[] positions = {"Offense", "Defense", "Goalie"};
+        String[] positions = { "Offense", "Defense", "Goalie" };
 
         roster.setText("");
 
-        for(String position : positions){ // I could make them separate text elements but wheres the fun in that
+        for (String position : positions) { // I could make them separate text elements but wheres the fun in that
 
-            for(int j = 0; j < teams[index].roster.length; j++){
+            for (int j = 0; j < teams[index].roster.length; j++) {
 
-                if(j == 0 && !position.equals("Offense")){
+                if (j == 0 && !position.equals("Offense")) {
                     roster.setText(roster.getText() + "\n\n");
                 }
 
-                if(j == 0){
+                if (j == 0) {
                     roster.setText(roster.getText() + position + ": ");
                 }
 
-                if(teams[index].roster[j].position.equals(position)){
+                if (teams[index].roster[j].position.equals(position)) {
                     String fullName = teams[index].roster[j].name;
-                    roster.setText(roster.getText() + fullName.substring(fullName.indexOf(" ") + 1) + ", "); // Add everything after first name -> Mark de Haas -> de Haas
+                    roster.setText(roster.getText() + fullName.substring(fullName.indexOf(" ") + 1) + ", "); 
                 }
             }
         }
 
-        roster.setText(roster.getText().substring(0, roster.getText().length()-2)); // Removes last comma
-        
+        roster.setText(roster.getText().substring(0, roster.getText().length() - 2)); // Removes last comma
+
         roster.setBounds(70, 530, 440, 170);
         roster.setFont(Constants.myFontLighter);
         roster.setBackground(Constants.myDarkGray);
@@ -590,7 +595,7 @@ public class App implements ActionListener{
         frame.add(rosterSearchButton);
         rosterSearchButton.setVisible(true);
 
-        rosterBackground.setBounds(40, dataPointsBackground.getY()+310, 500, 330);
+        rosterBackground.setBounds(40, dataPointsBackground.getY() + 310, 500, 330);
         rosterBackground.setBackground(Constants.myDarkGray);
         rosterBackground.setEditable(false);
         rosterBackground.setBorder(BorderFactory.createLineBorder(Constants.myOrange));
@@ -599,14 +604,16 @@ public class App implements ActionListener{
 
     }
 
-    /** Shows player info for a given name */ 
-    private void showPlayerInfo(String name) throws JSONException, IOException, URISyntaxException{
+    /** Shows player info for a given name */
+    private void showPlayerInfo(String name) throws JSONException, IOException, URISyntaxException {
 
         Player foundPlayer = new Player();
 
         boolean exactMatch = false;
-        for(Player player : teams[currentSelectedTeamIndex].roster){
-            if(player.name.equalsIgnoreCase(name) || player.name.substring(player.name.indexOf(' ')).equalsIgnoreCase(name) || player.name.split(" ")[1].equalsIgnoreCase(name)){ // Also works with only last name
+        for (Player player : teams[currentSelectedTeamIndex].roster) {
+            if (player.name.equalsIgnoreCase(name)
+                    || player.name.substring(player.name.indexOf(' ')).equalsIgnoreCase(name)
+                    || player.name.split(" ")[1].equalsIgnoreCase(name)) { // Also works with only last name
                 foundPlayer = player;
                 exactMatch = true;
                 System.out.println("Player " + player.name + " adhered to the search term: " + name);
@@ -622,39 +629,38 @@ public class App implements ActionListener{
         frame.add(playerInfo);
         playerInfo.setVisible(true);
 
-        if(exactMatch){
+        if (exactMatch) {
 
             playerInfo.setText(
-                "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points 
-                + "\nSeason PPG: " + df2.format(foundPlayer.ppg)
-                + "\nAll time PPG: " + df2.format(foundPlayer.historicalPpg)
-            );
+                    "G: " + foundPlayer.goals + ", A: " + foundPlayer.assists + ", P: " + foundPlayer.points
+                            + "\nSeason PPG: " + df2.format(foundPlayer.ppg)
+                            + "\nAll time PPG: " + df2.format(foundPlayer.historicalPpg));
 
         } else {
 
             // Fuzzy string search
             List<String> list = new ArrayList<String>();
-            for(int playerIndex = 0; playerIndex < teams[currentSelectedTeamIndex].roster.length; playerIndex++){
+            for (int playerIndex = 0; playerIndex < teams[currentSelectedTeamIndex].roster.length; playerIndex++) {
                 list.add(teams[currentSelectedTeamIndex].roster[playerIndex].name);
             }
 
-            Comparator<String> fuzzyStringComparator = Comparator.comparingInt(s -> Helpers.calculateLevenshteinDistance(name, s));
+            Comparator<String> fuzzyStringComparator = Comparator
+                    .comparingInt(s -> Helpers.calculateLevenshteinDistance(name, s));
             Collections.sort(list, fuzzyStringComparator);
 
             playerInfo.setText("\nDid you mean:\n" + list.get(0));
         }
     }
 
-
     /** Shows the teams page */
-    private void showTeamsPage(){
+    private void showTeamsPage() {
 
         frame.getContentPane().requestFocusInWindow();
         moreStatsButton.setBackground(Constants.myDarkGray);
         moreStatsButton.setVisible(true);
         topBarTeams.setBackground(Constants.myDarkGray);
 
-        for(int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++){
+        for (int teamIndex = 0; teamIndex < Constants.TEAM_AMOUNT; teamIndex++) {
             teamButtons[teamIndex].setVisible(true);
         }
 
@@ -663,29 +669,32 @@ public class App implements ActionListener{
         images[currentSelectedTeamIndex].setVisible(true);
         betButtonW.setVisible(true);
         betButtonL.setVisible(true);
-    } 
+    }
 
-    private void showLeaderboardsPage(){
+    private void showLeaderboardsPage() {
 
         List<Player> list = Helpers.sortPlayersByGoals(teams);
 
         StringBuilder top10goal = new StringBuilder();
-        for(int i = 0; i < 10; i++){
-            top10goal.append(" " + list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).goals + ") \n");
+        for (int i = 0; i < 10; i++) {
+            top10goal.append(" " + list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).goals
+                    + ") \n");
         }
 
         list = Helpers.sortPlayersByPoints(teams);
 
         StringBuilder top10point = new StringBuilder();
-        for(int i = 0; i < 10; i++){
-            top10point.append(list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).points + ") \n");
+        for (int i = 0; i < 10; i++) {
+            top10point.append(
+                    list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + list.get(i).points + ") \n");
         }
 
         list = Helpers.sortPlayersBySavePctg(teams);
 
         StringBuilder top10goalie = new StringBuilder();
-        for(int i = 0; i < 10; i++){
-            top10goalie.append(list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " (" + df3.format(list.get(i).savePctg) + ") \n");
+        for (int i = 0; i < 10; i++) {
+            top10goalie.append(list.get(i).name.substring(list.get(i).name.indexOf(' ')) + " ("
+                    + df3.format(list.get(i).savePctg) + ") \n");
         }
 
         goalsLeadersTitle.setText("Goals leaders:");
@@ -747,7 +756,7 @@ public class App implements ActionListener{
         playerListPanel.setBounds(110, 380, 400, 330);
         frame.add(playerListPanel);
 
-        String[] sortOptions = {"By points", "By goals", "By save%","By points per game"};
+        String[] sortOptions = { "By points", "By goals", "By save%", "By points per game" };
         sortByMenu = new JComboBox<>(sortOptions);
         sortByMenu.setBounds(110, 360, 150, 20);
         sortByMenu.addActionListener(new ActionListener() {
@@ -755,20 +764,41 @@ public class App implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 // Get the selected item from the JComboBox
                 String selectedOption = (String) sortByMenu.getSelectedItem();
-                
-                if(selectedOption.equals(sortOptions[0])){
+                if (selectedOption.equals(sortOptions[0])) {
                     playerListPanel.sortByPoints();
-                } else if(selectedOption.equals(sortOptions[1])){
+                } else if (selectedOption.equals(sortOptions[1])) {
                     playerListPanel.sortByGoals();
-                } else if(selectedOption.equals(sortOptions[2])){
+                } else if (selectedOption.equals(sortOptions[2])) {
                     playerListPanel.sortBySavePctg();
-                } else if(selectedOption.equals(sortOptions[3])){
+                } else if (selectedOption.equals(sortOptions[3])) {
                     playerListPanel.sortByPpg();
                 }
             }
         });
 
+        String[] countryFilters = new String[Helpers.getCountriesWithPlayers(teams).length + 1];
+
+        for (int i = 0; i < countryFilters.length; i++) {
+            if (i == 0) {
+                countryFilters[i] = "NONE";
+            } else {
+                countryFilters[i] = Helpers.getCountriesWithPlayers(teams)[i - 1];
+            }
+
+        }
+        filterByMenu = new JComboBox<>(countryFilters);
+        filterByMenu.setBounds(260, 360, 150, 20);
+        filterByMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get the selected item from the JComboBox
+                String selectedOption = (String) filterByMenu.getSelectedItem();
+                playerListPanel.filterByCountry(selectedOption);
+            }
+        });
+
         frame.add(sortByMenu);
+        frame.add(filterByMenu);
         playerListPanel.sortByPoints();
     }
 
@@ -804,7 +834,7 @@ public class App implements ActionListener{
             teamButtons[teamIndex].setVisible(false);
             images[teamIndex].setVisible(false);
         }
-        
+
         moreStatsButton.setVisible(false);
         betButtonW.setVisible(false);
         betButtonL.setVisible(false);
@@ -825,13 +855,13 @@ public class App implements ActionListener{
     }
 
     /** Allows user to use arrow keys to traverse teams */
-    private void setKeyListeners(){
+    private void setKeyListeners() {
 
         frame.getContentPane().addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPage == Constants.TEAMS_PAGE) {
-                    if (currentSelectedTeamIndex == teamButtons.length-1) { // If user goes too low
+                    if (currentSelectedTeamIndex == teamButtons.length - 1) { // If user goes too low
                         currentSelectedTeamIndex = 0;
                         try {
                             showTeamInfo(currentSelectedTeamIndex);
@@ -860,9 +890,9 @@ public class App implements ActionListener{
                             TLog.error("Exception during key press");
                         }
                     }
-                } else if(e.getKeyCode() == KeyEvent.VK_ENTER && currentPage == Constants.TEAMS_PAGE){
+                } else if (e.getKeyCode() == KeyEvent.VK_ENTER && currentPage == Constants.TEAMS_PAGE) {
                     moreStatsButton.doClick();
-                } else if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     topBarTeams.doClick();
                 }
             }

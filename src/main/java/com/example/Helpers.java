@@ -309,4 +309,26 @@ public class Helpers {
         }
         return list;
     }
+
+    public static String[] getCountriesWithPlayers(Team[] teams){
+
+        ArrayList<Country> countries = getCountries(teams);
+        ArrayList<String> list = new ArrayList<>();
+
+        for(Country c : countries){
+            if(c.players.size() > 0){
+                list.add(c.code);
+            }
+        }
+
+        String[] arr = new String[list.size()];
+        int index = 0;
+        for(Object o : list){
+                    
+            arr[index] = String.valueOf(o);
+            index++;
+        }
+
+        return arr;
+    }
 }

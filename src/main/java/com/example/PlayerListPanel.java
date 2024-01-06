@@ -14,6 +14,7 @@ public class PlayerListPanel extends JPanel {
     DefaultListModel<String> listModel;
     ArrayList<Player> players;
     JScrollPane scrollPane;
+    int currSortOption;
 
     public PlayerListPanel(ArrayList<Player> players) {
         setLayout(new BorderLayout());
@@ -35,10 +36,10 @@ public class PlayerListPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
-    private void updateListModel(int type) {
+    private void updateListModel(int sortOption) {
 
         listModel.clear();
-        switch(type){
+        switch(sortOption){
             case 0:
                 for (Player player : players) {
                     listModel.addElement(player.name + " (" + player.points + ")");
@@ -64,23 +65,36 @@ public class PlayerListPanel extends JPanel {
     }
 
     public void sortByPoints() {
+        currSortOption = 0;
         players = Helpers.sortPlayersByPoints(players);
-        updateListModel(0);
+        updateListModel(currSortOption);
     }
 
     public void sortByGoals() {
+        currSortOption = 1;
         players = Helpers.sortPlayersByGoals(players);
-        updateListModel(1);
+        updateListModel(currSortOption);
     }
 
     public void sortBySavePctg() {
+        currSortOption = 2;
         players = Helpers.sortPlayersBySavePctg(players);
-        updateListModel(2);
+        updateListModel(currSortOption);
     }
 
     public void sortByPpg() {
+        currSortOption = 3;
         players = Helpers.sortPlayersByPpg(players);
-        updateListModel(3);
+        updateListModel(currSortOption);
+    }
+
+    public void filterByCountry(String country){
+        if(country.equals("NONE")){
+            players = Helpers.getAllPlayers(DataFetcher.getTeams());
+        } else {
+            players = Helpers.sortPlayersByPoints(Helpers.filterPlayersByCountry(country, Helpers.getAllPlayers(DataFetcher.getTeams())));
+        }
+        updateListModel(currSortOption);
     }
 
 }
