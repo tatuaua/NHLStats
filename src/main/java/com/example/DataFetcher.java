@@ -1,8 +1,10 @@
 package com.example;
 
 import java.io.IOException;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -14,6 +16,10 @@ class DataFetcher {
     final static int TEAM_AMOUNT = 32;
     public static Team[] teams = new Team[TEAM_AMOUNT];
     static String dataPayload;
+
+    public static void main(String[] args) throws IOException, URISyntaxException {
+        fetchAndParse();
+    }
 
     /** Runs the method to fetch data from the MongoDB and the methods to parse that data into objects */
     public static void fetchAndParse() throws IOException, URISyntaxException{

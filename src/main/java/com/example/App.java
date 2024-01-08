@@ -792,6 +792,8 @@ public class App implements ActionListener {
                 // Get the selected item from the JComboBox
                 String selectedOption = (String) filterByMenu.getSelectedItem();
                 playerListPanel.filterByCountry(selectedOption);
+                playerListPanel.sortByPoints();
+                sortByMenu.setSelectedItem(sortOptions[0]);
             }
         });
 
