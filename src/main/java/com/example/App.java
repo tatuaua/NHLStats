@@ -852,6 +852,7 @@ public class App implements ActionListener {
         goalieLeaders.setVisible(false);
         playerListPanel.setVisible(false);
         sortByMenu.setVisible(false);
+        filterByMenu.setVisible(false);
     }
 
     /** Allows user to use arrow keys to traverse teams */

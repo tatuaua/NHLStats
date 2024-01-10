@@ -1143,3 +1143,183 @@
 
 2024-01-06T23:51:02.126595900 [INFO] - Starting fetch and parse process
 2024-01-06T23:51:04.563865 [INFO] - Fetching and parsing took 2434 ms
+2024-01-09T00:59:46.018832700 [INFO] - Starting fetch and parse process
+2024-01-09T01:01:18.368310100 [INFO] - Starting fetch and parse process
+2024-01-09T01:01:49.740908700 [INFO] - Starting fetch and parse process
+2024-01-09T01:02:09.215295200 [INFO] - Starting fetch and parse process
+2024-01-09T01:03:03.981481100 [INFO] - Starting fetch and parse process
+2024-01-09T01:05:25.034565500 [INFO] - Starting fetch and parse process
+2024-01-09T01:05:26.638952700 [INFO] - Fetching and parsing took 1592 ms
+2024-01-09T01:07:08.349194600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-09T01:07:08.664532900 [INFO] - Starting fetch and parse process
+2024-01-09T01:07:10.111959300 [INFO] - Fetching and parsing took 1443 ms
+2024-01-09T01:07:35.988155400 [INFO] - Searching for kako
+2024-01-09T01:07:37.336734200 [INFO] - Searching for kakko
+2024-01-09T01:07:37.336734200 [INFO] - Player Kaapo Kakko adhered to the search term: kakko
+2024-01-09T01:07:42.022326400 [INFO] - Searching for kaapo kak
+2024-01-09T01:07:43.922566 [INFO] - Searching for kaapo kakko
+2024-01-09T01:07:43.922566 [INFO] - Player Kaapo Kakko adhered to the search term: kaapo kakko
+2024-01-09T01:08:06.048525800 [INFO] - Starting fetch and parse process
+2024-01-09T01:09:45.282484200 [INFO] - Starting fetch and parse process
+2024-01-09T01:10:16.894067400 [INFO] - Starting fetch and parse process
+2024-01-09T01:11:59.448487800 [INFO] - Starting fetch and parse process
+2024-01-09T01:12:29.474411 [INFO] - Starting fetch and parse process
+2024-01-09T01:12:48.102985500 [INFO] - Starting fetch and parse process
+2024-01-09T01:13:39.148273100 [INFO] - Starting fetch and parse process
+2024-01-09T01:15:35.440601700 [INFO] - Starting fetch and parse process
+2024-01-09T01:15:36.966279300 [INFO] - Fetching and parsing took 1514 ms
+2024-01-09T01:15:50.004453700 [INFO] - Starting fetch and parse process
+2024-01-09T01:15:51.445803600 [INFO] - Fetching and parsing took 1430 ms
+2024-01-09T01:15:56.441338500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-09T01:15:56.657021400 [INFO] - Starting fetch and parse process
+2024-01-09T01:15:57.799479 [INFO] - Fetching and parsing took 1138 ms
+2024-01-10T15:06:53.946426500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-10T15:06:54.224856700 [INFO] - Starting fetch and parse process
+2024-01-10T15:06:55.997256600 [INFO] - Fetching and parsing took 1769 ms
+2024-01-10T15:07:32.029531700 [INFO] - Searching for cates
+2024-01-10T15:07:32.030535700 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.037047500 [INFO] - Searching for cates
+2024-01-10T15:07:32.037047500 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.038053900 [INFO] - Searching for cates
+2024-01-10T15:07:32.039052800 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.040053200 [INFO] - Searching for cates
+2024-01-10T15:07:32.040053200 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.041056100 [INFO] - Searching for cates
+2024-01-10T15:07:32.041056100 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.042054200 [INFO] - Searching for cates
+2024-01-10T15:07:32.043053900 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.044054800 [INFO] - Searching for cates
+2024-01-10T15:07:32.044054800 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.045055800 [INFO] - Searching for cates
+2024-01-10T15:07:32.046256500 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.047262700 [INFO] - Searching for cates
+2024-01-10T15:07:32.047262700 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.048263 [INFO] - Searching for cates
+2024-01-10T15:07:32.048263 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.049263900 [INFO] - Searching for cates
+2024-01-10T15:07:32.050263500 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.050263500 [INFO] - Searching for cates
+2024-01-10T15:07:32.051262800 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:32.052265900 [INFO] - Searching for cates
+2024-01-10T15:07:32.052265900 [INFO] - Player Noah Cates adhered to the search term: cates
+2024-01-10T15:07:36.706733100 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.706733100 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.708734700 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.708734700 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.709733200 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.709733200 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.711037700 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.711037700 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.712037900 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.712037900 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.713037700 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.713037700 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.714037800 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.714037800 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.715545 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.715545 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.716552100 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.716552100 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.717552500 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.718553200 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.718553200 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.719551900 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.720553100 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.720553100 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:36.721553200 [INFO] - Searching for atkinson
+2024-01-10T15:07:36.722552800 [INFO] - Player Cam Atkinson adhered to the search term: atkinson
+2024-01-10T15:07:43.193067400 [INFO] - Searching for laughton
+2024-01-10T15:07:43.193067400 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.194070200 [INFO] - Searching for laughton
+2024-01-10T15:07:43.195069900 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.195575 [INFO] - Searching for laughton
+2024-01-10T15:07:43.195575 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.197587400 [INFO] - Searching for laughton
+2024-01-10T15:07:43.197587400 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.199587500 [INFO] - Searching for laughton
+2024-01-10T15:07:43.199587500 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.200587200 [INFO] - Searching for laughton
+2024-01-10T15:07:43.201587400 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.201587400 [INFO] - Searching for laughton
+2024-01-10T15:07:43.202588200 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.203586700 [INFO] - Searching for laughton
+2024-01-10T15:07:43.203586700 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.203586700 [INFO] - Searching for laughton
+2024-01-10T15:07:43.203586700 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.205093600 [INFO] - Searching for laughton
+2024-01-10T15:07:43.206099900 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.207102 [INFO] - Searching for laughton
+2024-01-10T15:07:43.207102 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.208607500 [INFO] - Searching for laughton
+2024-01-10T15:07:43.208607500 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:43.209614600 [INFO] - Searching for laughton
+2024-01-10T15:07:43.209614600 [INFO] - Player Scott Laughton adhered to the search term: laughton
+2024-01-10T15:07:47.746157800 [INFO] - Searching for konecny
+2024-01-10T15:07:47.746157800 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.746157800 [INFO] - Searching for konecny
+2024-01-10T15:07:47.746157800 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.746157800 [INFO] - Searching for konecny
+2024-01-10T15:07:47.746157800 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.746157800 [INFO] - Searching for konecny
+2024-01-10T15:07:47.746157800 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.746157800 [INFO] - Searching for konecny
+2024-01-10T15:07:47.746157800 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.746157800 [INFO] - Searching for konecny
+2024-01-10T15:07:47.746157800 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.753840700 [INFO] - Searching for konecny
+2024-01-10T15:07:47.753840700 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.755345800 [INFO] - Searching for konecny
+2024-01-10T15:07:47.755345800 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.756352300 [INFO] - Searching for konecny
+2024-01-10T15:07:47.756352300 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.757357200 [INFO] - Searching for konecny
+2024-01-10T15:07:47.758358300 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.758358300 [INFO] - Searching for konecny
+2024-01-10T15:07:47.759358300 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.759358300 [INFO] - Searching for konecny
+2024-01-10T15:07:47.760358100 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:07:47.760358100 [INFO] - Searching for konecny
+2024-01-10T15:07:47.761358600 [INFO] - Player Travis Konecny adhered to the search term: konecny
+2024-01-10T15:48:03.744369500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-10T15:48:03.962542400 [INFO] - Starting fetch and parse process
+2024-01-10T15:49:05.868636800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-10T15:49:06.062257800 [INFO] - Starting fetch and parse process
+2024-01-10T15:49:07.190725600 [INFO] - Fetching and parsing took 1128 ms
+2024-01-10T15:49:13.148828900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-10T15:49:13.348854500 [INFO] - Starting fetch and parse process
+2024-01-10T15:49:14.814730700 [INFO] - Fetching and parsing took 1462 ms
+2024-01-10T15:58:16.028406 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-10T15:58:16.233046800 [INFO] - Starting fetch and parse process
+2024-01-10T15:58:17.855361400 [INFO] - Fetching and parsing took 1619 ms
+2024-01-10T15:59:25.113065100 [INFO] - Starting fetch and parse process
+2024-01-10T16:00:34.819748600 [INFO] - Starting fetch and parse process
+2024-01-10T16:01:18.213872800 [INFO] - Starting fetch and parse process
+2024-01-10T16:02:30.677228 [INFO] - Starting fetch and parse process
+2024-01-10T16:02:33.116021 [INFO] - Fetching and parsing took 2428 ms
+2024-01-10T16:02:41.244774300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-10T16:02:41.462947300 [INFO] - Starting fetch and parse process
+2024-01-10T16:02:43.809509700 [INFO] - Fetching and parsing took 2345 ms

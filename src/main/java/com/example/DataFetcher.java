@@ -1,12 +1,16 @@
 package com.example;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -30,8 +34,10 @@ class DataFetcher {
 
         getJSON();
 
+        System.out.println(dataPayload.substring(0, 50));
         JSONObject jsonObj = new JSONObject(dataPayload);
         JSONArray arrObj = jsonObj.getJSONArray("documents");
+        //JSONArray arrObj = new JSONArray(dataPayload);
 
         for (int teamIndex = 0; teamIndex < arrObj.length(); teamIndex++) {
             JSONObject teamJson = arrObj.getJSONObject(teamIndex);
@@ -77,7 +83,7 @@ class DataFetcher {
                 tempPlayer.ppg = playerObj.getDouble("ppg");
                 tempPlayer.historicalPpg = playerObj.getDouble("historicalPpg");
 
-                if(playerObj.has("country")){
+                if(playerObj.has("country") && !playerObj.get("country").toString().equals("null")){
                     tempPlayer.country = playerObj.getString("country");
                 }
                 
@@ -119,6 +125,31 @@ class DataFetcher {
             TLog.error("Problem with MongoDB API connection");
             e.printStackTrace();
         }
+
+        /*try {
+            String url = "https://3tjdsspg-8080.euw.devtunnels.ms/api/v1/teams/all";
+            URL obj = new URI(url).toURL();
+            HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+            connection.setRequestMethod("GET");
+            int responseCode = connection.getResponseCode();
+            System.out.println("Response Code: " + responseCode);
+
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String inputLine;
+            StringBuilder response = new StringBuilder();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            dataPayload = response.toString();
+            System.out.println(response.toString().substring(0, 50));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
     }
     
     /** Returns all the teams */ 
