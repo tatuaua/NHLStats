@@ -1,0 +1,9 @@
+{
+    "bet": {
+        "type": "W",
+        "team": "VAN",
+        "betDate": "2023-12-23",
+        "betAmount": 10
+    },
+    "points" : 140
+}

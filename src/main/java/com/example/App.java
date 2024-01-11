@@ -135,7 +135,7 @@ public class App implements ActionListener {
         topBarLeaderboards.setVisible(true);
 
         // Check the status of the currently active bet and set the points accordingly
-        // Betting.checkBet(); //TODO: fix
+        Betting.checkBet(); //TODO: fix
         int points = Betting.changePoints(0);
 
         topBarBettingPoints = new JTextPane();

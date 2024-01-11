@@ -84,12 +84,11 @@ class Betting {
                 LocalDate betDatee = LocalDate.parse(betDate, formatter);
 
                 if(lastGameDate.isAfter(betDatee)){
-                                                    //[5] because last5 has leading whitespace 
-                    if(teams[i].last5.split(" ")[5].equals("W") && winOrLose.equals("W")){
+                    if(teams[i].allSeasonMatches[teams[i].allSeasonMatches.length-1].equals("W") && winOrLose.equals("W")){
                         checkedBetWon = 1;
                         changePoints(amount);
                         clearBet();
-                    } else if (teams[i].last5.split(" ")[5].equals("L") && winOrLose.equals("L")){
+                    } else if (teams[i].allSeasonMatches[teams[i].allSeasonMatches.length-1].equals("L") && winOrLose.equals("L")){
                         checkedBetWon = 1;
                         changePoints(amount);
                         clearBet();

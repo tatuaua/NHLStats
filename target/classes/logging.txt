@@ -1323,3 +1323,45 @@
 
 2024-01-10T16:02:41.462947300 [INFO] - Starting fetch and parse process
 2024-01-10T16:02:43.809509700 [INFO] - Fetching and parsing took 2345 ms
+2024-01-11T16:58:21.271400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-11T16:58:21.561728500 [INFO] - Starting fetch and parse process
+2024-01-11T16:58:26.108228900 [INFO] - Fetching and parsing took 4544 ms
+2024-01-11T16:58:26.110657200 [ERROR] - Problem reading localdata.json file
+2024-01-11T16:58:26.116241200 [ERROR] - Problem reading/writing localdata.json file
+2024-01-11T16:59:21.760109400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-11T16:59:21.964165400 [INFO] - Starting fetch and parse process
+2024-01-11T16:59:23.087165600 [INFO] - Fetching and parsing took 1120 ms
+2024-01-11T16:59:23.101346500 [ERROR] - Problem reading localdata.json file
+2024-01-11T16:59:23.103346500 [ERROR] - Problem reading/writing localdata.json file
+2024-01-11T17:00:16.209090500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-11T17:00:16.428451400 [INFO] - Starting fetch and parse process
+2024-01-11T17:00:18.845458300 [INFO] - Fetching and parsing took 2416 ms
+2024-01-11T17:01:22.201073200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-11T17:01:22.399824 [INFO] - Starting fetch and parse process
+2024-01-11T17:01:24.755132200 [INFO] - Fetching and parsing took 2354 ms
+2024-01-11T17:04:04.560246900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-11T17:04:04.780491200 [INFO] - Starting fetch and parse process
+2024-01-11T17:04:05.951112800 [INFO] - Fetching and parsing took 1169 ms
+2024-01-11T17:04:05.966653200 [INFO] - Bet cleared
+2024-01-11T17:04:32.893360200 [INFO] - Added bet: W:WPG:2024-01-11:10
+2024-01-11T17:05:37.060333500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-11T17:05:37.264808900 [INFO] - Starting fetch and parse process
+2024-01-11T17:05:39.594815 [INFO] - Fetching and parsing took 2328 ms
