@@ -27,7 +27,6 @@ public class App implements ActionListener {
     JButton betButtonL = new JButton("L");
     JButton[] teamButtons = new JButton[Constants.TEAM_AMOUNT];
     JTextArea[] infoArray = new JTextArea[Constants.TEAM_AMOUNT];
-    JButton githubButton = new JButton("");
 
     // Part of the more stats page
     JTextPane playerInfo = new JTextPane();
@@ -62,6 +61,9 @@ public class App implements ActionListener {
     JLabel topBar;
     JButton topBarTeams, topBarLeaderboards;
     JTextPane topBarBettingPoints;
+    JButton githubButton = new JButton("");
+    JButton mailButton = new JButton();
+    JPanel mailInputPanel = new JPanel();
     Team[] teams = new Team[Constants.TEAM_AMOUNT];
     JLabel[] images = new JLabel[Constants.TEAM_AMOUNT];
     int currentSelectedTeamIndex = 0;
@@ -111,8 +113,8 @@ public class App implements ActionListener {
         UIManager.put("ToolTip.border", new LineBorder(Constants.myOrange));
         UIManager.put("Tooltip.foreground", Color.white);
 
-        DataFetcher.fetchAndParse();
-        teams = DataFetcher.getTeams();
+        APICommunication.fetchAndParse();
+        teams = APICommunication.getTeams();
 
         topBarTeams = new JButton("Teams");
         topBarTeams.setBounds(20, 10, 80, 30);
@@ -190,9 +192,21 @@ public class App implements ActionListener {
         githubButton.setBorder(null);
         githubButton.setBackground(Color.darkGray);
         githubButton.setBounds(550, 750, 80, 40);
+        githubButton.setToolTipText("Open the NHLStats GitHub repository in your browser");
         githubButton.addActionListener(this);
         frame.add(githubButton);
         githubButton.setVisible(true);
+
+        ImageIcon mailIcon = new ImageIcon("images/mail.png");
+        mailIcon = new ImageIcon(mailIcon.getImage().getScaledInstance(55, 50, Image.SCALE_SMOOTH));
+        mailButton.setIcon(mailIcon);
+        mailButton.setBorder(null);
+        mailButton.setBackground(Color.darkGray);
+        mailButton.setBounds(480, 750, 55, 50);
+        mailButton.setToolTipText("Configure email notifications");
+        mailButton.addActionListener(this);
+        frame.add(mailButton);
+        mailButton.setVisible(true);
 
         ImageIcon topBarImg = new ImageIcon("images/topBar.png");
         topBar = new JLabel(topBarImg);
@@ -304,6 +318,24 @@ public class App implements ActionListener {
     /** Handle clicks */
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource() == mailButton){
+            JTextField emailField = new JTextField(5);
+            JTextField pwField = new JTextField(5);
+      
+            mailInputPanel.add(new JLabel("Email:"));
+            mailInputPanel.add(emailField);
+            mailInputPanel.add(Box.createHorizontalStrut(15)); // a spacer
+            mailInputPanel.add(new JLabel("Password:"));
+            mailInputPanel.add(pwField);
+      
+            int result = JOptionPane.showConfirmDialog(null, mailInputPanel, 
+                     "Please enter your email and a password", JOptionPane.OK_CANCEL_OPTION);
+            if (result == JOptionPane.OK_OPTION) {
+                //APICommunication.handleUser(emailField.getText(), pwField.getText(), new String[]{"VGK", "LAK","CAR"});
+                mailInputPanel.removeAll();
+            }
+        }
 
         if (e.getSource() == betButtonW) {
             Betting.addBet("W", teams[currentSelectedTeamIndex].ab, "10");

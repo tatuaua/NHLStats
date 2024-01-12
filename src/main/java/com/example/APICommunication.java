@@ -3,6 +3,7 @@ package com.example;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,8 +15,10 @@ import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
-class DataFetcher {
+class APICommunication {
 
     final static int TEAM_AMOUNT = 32;
     public static Team[] teams = new Team[TEAM_AMOUNT];
@@ -34,10 +37,9 @@ class DataFetcher {
 
         getJSON();
 
-        System.out.println(dataPayload.substring(0, 50));
-        JSONObject jsonObj = new JSONObject(dataPayload);
-        JSONArray arrObj = jsonObj.getJSONArray("documents");
-        //JSONArray arrObj = new JSONArray(dataPayload);
+        //JSONObject jsonObj = new JSONObject(dataPayload);
+        //JSONArray arrObj = jsonObj.getJSONArray("documents");
+        JSONArray arrObj = new JSONArray(dataPayload);
 
         for (int teamIndex = 0; teamIndex < arrObj.length(); teamIndex++) {
             JSONObject teamJson = arrObj.getJSONObject(teamIndex);
@@ -100,7 +102,7 @@ class DataFetcher {
 
     private static void getJSON() throws IOException, URISyntaxException {
 
-        HttpClient httpClient = HttpClient.newHttpClient();
+        /*HttpClient httpClient = HttpClient.newHttpClient();
 
         String url = "https://data.mongodb-api.com/app/data-hflvq/endpoint/data/v1/action/find";
         String jsonPayload = "{\"dataSource\":\"Cluster0\",\"database\":\"movie-api-db\",\"collection\":\"nhldata\"}";
@@ -124,9 +126,9 @@ class DataFetcher {
         } catch (Exception e) {
             TLog.error("Problem with MongoDB API connection");
             e.printStackTrace();
-        }
+        }*/
 
-        /*try {
+        try {
             String url = "https://3tjdsspg-8080.euw.devtunnels.ms/api/v1/teams/all";
             URL obj = new URI(url).toURL();
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
@@ -149,7 +151,64 @@ class DataFetcher {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
+    }
+
+    public static int handleUser(String email, String password, String[] favTeams){
+
+        int responseCode = 0;
+        StringBuilder response = new StringBuilder();
+
+        StringBuilder b = new StringBuilder();
+
+        for(int i = 0; i < favTeams.length; i++){
+            if(i == 0){b.append("[");}
+            b.append("\"" + favTeams[i] + "\"");
+            if(i != favTeams.length-1){b.append(",");}
+            if(i == favTeams.length-1){b.append("]");}
+        }
+
+        String favTeamsStr = b.toString();
+
+        try {
+            String url = "https://3tjdsspg-8080.euw.devtunnels.ms/api/v1/users/new";
+            URL obj = new URI(url).toURL();
+            HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
+
+            String jsonInputString =   "{\"email\":\"" + email
+                                    + "\",\"password\":\"" + password + "\"}"
+                                    + "\",\"favTeams\":" + favTeamsStr + "\"}"
+                                    + "\",\"authId\":\"" + "\"}"
+                                    + "\",\"isAuthenticated\":" + "false" + "}";
+
+            try (OutputStream os = connection.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
+            }
+
+            responseCode = connection.getResponseCode();
+            System.out.println("Response Code: " + responseCode);
+
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+                String inputLine;
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+
+                System.out.println(response.toString());
+            }
+
+        } catch (Exception e) {
+             
+            System.out.println(response.toString());
+        }
+
+        return responseCode;
     }
     
     /** Returns all the teams */ 

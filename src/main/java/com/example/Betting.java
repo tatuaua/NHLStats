@@ -14,7 +14,7 @@ class Betting {
 
     static final int TEAM_AMOUNT = 32;
     // I hope that the teams are populated at this point
-    static Team[] teams = DataFetcher.getTeams();
+    static Team[] teams = APICommunication.getTeams();
     static int checkedBetWon;
 
     /** Part of the betting game, rewrites the bet.txt file */ 
