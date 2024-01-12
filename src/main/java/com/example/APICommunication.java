@@ -200,11 +200,12 @@ class APICommunication {
                     response.append(inputLine);
                 }
 
+                TLog.info(response.toString());
                 System.out.println(response.toString());
             }
 
         } catch (Exception e) {
-             
+            TLog.error(response.toString());
             System.out.println(response.toString());
         }
 
