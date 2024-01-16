@@ -10,6 +10,7 @@ import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -332,7 +333,38 @@ public class App implements ActionListener {
             int result = JOptionPane.showConfirmDialog(null, mailInputPanel, 
                      "Please enter your email and a password", JOptionPane.OK_CANCEL_OPTION);
             if (result == JOptionPane.OK_OPTION) {
-                //APICommunication.handleUser(emailField.getText(), pwField.getText(), new String[]{"VGK", "LAK","CAR"});
+
+                String[] teamAbbreviations = new String[Constants.TEAM_AMOUNT];
+                for (int i = 0; i < teams.length; i++) {
+                    teamAbbreviations[i] = teams[i].ab;
+                }
+                JPanel teamCheckBoxPanel = new JPanel(new GridLayout(0, 2));
+                JCheckBox[] checkBoxes = new JCheckBox[teamAbbreviations.length];
+                for (int i = 0; i < teamAbbreviations.length; i++) {
+                    checkBoxes[i] = new JCheckBox(teamAbbreviations[i]);
+                    teamCheckBoxPanel.add(checkBoxes[i]);
+                }
+                
+                int teamSelectionResult = JOptionPane.showConfirmDialog(null, teamCheckBoxPanel,
+                        "Select NHL teams", JOptionPane.OK_CANCEL_OPTION);
+                ArrayList<String> selectedTeams = new ArrayList<>();
+                if (teamSelectionResult == JOptionPane.OK_OPTION) {
+                    // User clicked OK, collect selected teams
+                    for (JCheckBox checkBox : checkBoxes) {
+                        if (checkBox.isSelected()) {
+                            selectedTeams.add(checkBox.getText());
+                        }
+                    }
+                    int response = APICommunication.handleUser(emailField.getText(), pwField.getText(), selectedTeams);
+
+                    if (response == 201) {
+                        JOptionPane.showMessageDialog(null, "Account created");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Creating account failed");
+                    }
+                }
+                mailInputPanel.removeAll();
+            } else {
                 mailInputPanel.removeAll();
             }
         }

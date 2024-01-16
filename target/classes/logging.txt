@@ -1729,3 +1729,173 @@
 
 2024-01-12T18:44:16.920807500 [INFO] - Starting fetch and parse process
 2024-01-12T18:44:19.908254300 [INFO] - Fetching and parsing took 2986 ms
+2024-01-12T22:07:36.630931300 [INFO] - Starting fetch and parse process
+2024-01-12T22:21:24.655650800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-12T22:21:24.962888900 [INFO] - Starting fetch and parse process
+2024-01-12T22:25:27.362304100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-12T22:25:27.573311 [INFO] - Starting fetch and parse process
+2024-01-12T22:25:44.814933200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-12T22:25:45.026753100 [INFO] - Starting fetch and parse process
+2024-01-12T22:25:46.509718700 [INFO] - Fetching and parsing took 1479 ms
+2024-01-12T23:01:22.336508900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-12T23:01:22.554132 [INFO] - Starting fetch and parse process
+2024-01-12T23:01:24.929139300 [INFO] - Fetching and parsing took 2372 ms
+2024-01-12T23:01:36.739292700 [ERROR] - 
+2024-01-12T23:03:16.163291 [ERROR] - 
+2024-01-12T23:04:30.753668500 [ERROR] - 
+2024-01-12T23:04:51.752809700 [ERROR] - 
+2024-01-12T23:06:30.150625600 [INFO] - tatu.niemikorpi@gmail.com [created]
+2024-01-12T23:07:31.641315300 [INFO] - tatu.niemikorpi@gmail.com [created]
+2024-01-13T19:28:26.606753600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-13T19:28:26.922001200 [INFO] - Starting fetch and parse process
+2024-01-13T19:30:57.913458500 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-13T19:30:58.115401300 [INFO] - Starting fetch and parse process
+2024-01-13T19:30:59.825988200 [INFO] - Fetching and parsing took 1708 ms
+2024-01-13T19:32:10.561609300 [ERROR] - 
+2024-01-13T19:32:23.933079200 [ERROR] - 
+2024-01-13T19:34:01.281137 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-13T19:34:01.503332400 [INFO] - Starting fetch and parse process
+2024-01-13T19:34:04.040946800 [INFO] - Fetching and parsing took 2534 ms
+2024-01-13T19:34:17.042439800 [ERROR] - 
+2024-01-13T19:34:36.334372400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-13T19:34:36.549389 [INFO] - Starting fetch and parse process
+2024-01-13T19:34:38.615421900 [INFO] - Fetching and parsing took 2063 ms
+2024-01-13T19:34:47.361571100 [ERROR] - 
+2024-01-13T19:36:48.017470100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-13T19:36:48.229671800 [INFO] - Starting fetch and parse process
+2024-01-13T19:36:51.732813 [INFO] - Fetching and parsing took 3501 ms
+2024-01-13T19:36:57.893965600 [INFO] - tatu.niemikorpi@gmail.com [created]
+2024-01-13T22:50:39.804908200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-13T22:50:40.030676800 [INFO] - Starting fetch and parse process
+2024-01-13T22:51:11.721906400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-13T22:51:11.920296700 [INFO] - Starting fetch and parse process
+2024-01-13T22:51:13.584090100 [INFO] - Fetching and parsing took 1660 ms
+2024-01-13T22:51:41.806855300 [ERROR] - 
+2024-01-13T22:53:31.761684200 [INFO] - QZ/qaD+LE9apo6r5DsQ3vBuouRAG1nMepEbnFSmYjt13l2wJa5H8G75yMtQ8K9nY+EeRcx7mGtzc9Iz7vbJHLw== [created]
+2024-01-15T11:17:11.436817400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-15T11:17:11.694935200 [INFO] - Starting fetch and parse process
+2024-01-15T11:17:14.559023300 [INFO] - Fetching and parsing took 2863 ms
+2024-01-15T17:03:08.244432300 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-15T17:03:08.526168600 [INFO] - Starting fetch and parse process
+2024-01-15T17:03:11.056175400 [INFO] - Fetching and parsing took 2529 ms
+2024-01-16T10:57:13.934715100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T10:57:14.178718800 [INFO] - Starting fetch and parse process
+2024-01-16T10:57:17.001393300 [INFO] - Fetching and parsing took 2822 ms
+2024-01-16T21:05:59.916837100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:06:00.242546400 [INFO] - Starting fetch and parse process
+2024-01-16T21:06:02.605080 [INFO] - Fetching and parsing took 2360 ms
+2024-01-16T21:06:02.627619100 [INFO] - Bet cleared
+2024-01-16T21:08:16.868113400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:08:17.072534800 [INFO] - Starting fetch and parse process
+2024-01-16T21:08:19.231373700 [INFO] - Fetching and parsing took 2156 ms
+2024-01-16T21:08:19.237380700 [INFO] - No active bet
+2024-01-16T21:08:24.755396300 [ERROR] - 
+2024-01-16T21:08:41.324231600 [ERROR] - 
+2024-01-16T21:09:48.589494400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:09:48.797668400 [INFO] - Starting fetch and parse process
+2024-01-16T21:09:51.231450800 [INFO] - Fetching and parsing took 2432 ms
+2024-01-16T21:09:51.236450900 [INFO] - No active bet
+2024-01-16T21:10:05.686253200 [INFO] - ydKQ11ORLQAJxLwqn6VBrLEGcYg64yuVs9ErdadRwzmOmYX1t5foZAsL5T0vP0GB6NBpb8uKktR/c91ROCFquw== [created]
+2024-01-16T21:15:13.249620400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:15:13.455316800 [INFO] - Starting fetch and parse process
+2024-01-16T21:15:15.902075200 [INFO] - Fetching and parsing took 2443 ms
+2024-01-16T21:15:15.909580300 [INFO] - No active bet
+2024-01-16T21:15:51.492535100 [INFO] - Tj2s9RYw4VScS1cS+m+8BBuTtbZ6cGzodQ3brbgPK1ruyPgBhvpHbtIOwGXO6ji1ZsPevrAQqctIcE1B0+73ew== [created]
+2024-01-16T21:17:28.501325800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:17:28.716156900 [INFO] - Starting fetch and parse process
+2024-01-16T21:17:31.541668800 [INFO] - Fetching and parsing took 2823 ms
+2024-01-16T21:17:31.547665100 [INFO] - No active bet
+2024-01-16T21:17:42.379191600 [INFO] - myNskFAlfDTxE2c1eia7p8qRIpMgIw1d3XG4aiYg6tivtd64cm228shZmQu7Oii9gcEP3zfLplTstOj8l4bNjg== [created]
+2024-01-16T21:19:53.551136400 [INFO] - oeq37m6xi4LXtPCIKsv6bylcRtIiS0yM1iaaRIdNeftIseYmWaduhXff8tmFMQbJiqPvahVLdMeE/CcYGJC2HA== [created]
+2024-01-16T21:24:24.273496800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:24:24.497792700 [INFO] - Starting fetch and parse process
+2024-01-16T21:24:26.743462500 [INFO] - Fetching and parsing took 2243 ms
+2024-01-16T21:24:26.750972800 [INFO] - No active bet
+2024-01-16T21:24:49.993489200 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:24:50.211232400 [INFO] - Starting fetch and parse process
+2024-01-16T21:24:52.571746 [INFO] - Fetching and parsing took 2357 ms
+2024-01-16T21:24:52.577743400 [INFO] - No active bet
+2024-01-16T21:25:09.030398900 [INFO] - +pesOuxJsQ6wm4HdzwGVcBXz24KnYTyOKzrlUOuRRMdJv+NIs2eLQrYcGJ8+ircf5BBqW/JHMY805aW/q8Cbbg== [created]
+2024-01-16T21:26:46.284535 [ERROR] - 
+2024-01-16T21:27:06.331368100 [INFO] - 35p8qZ3BBxw5SZ/3bY58oWvOpDi9vyP2d6Z4Iwvs1ODaPAJtvuzdlvs2wAVQhfPn28lDKACvjR0N/jzXM5nVtw== [created]
+2024-01-16T21:33:24.930012100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:33:25.140232700 [INFO] - Starting fetch and parse process
+2024-01-16T21:33:27.765087200 [INFO] - Fetching and parsing took 2621 ms
+2024-01-16T21:33:27.772348400 [INFO] - No active bet
+2024-01-16T21:33:48.729724600 [ERROR] - 
+2024-01-16T21:34:44.061835900 [INFO] -  [created]
+2024-01-16T21:35:51.490969200 [ERROR] - 
+2024-01-16T21:37:05.830450800 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-16T21:37:06.041288200 [INFO] - Starting fetch and parse process
+2024-01-16T21:37:08.493790500 [INFO] - Fetching and parsing took 2450 ms
+2024-01-16T21:37:08.499296300 [INFO] - No active bet
+2024-01-16T21:37:22.591176900 [ERROR] - 

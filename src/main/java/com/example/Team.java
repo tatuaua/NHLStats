@@ -11,6 +11,7 @@ public class Team {
     /** Abbreviation (eg. VGK - Las Vegas Golden Knights) */
     String ab;
     String nextMatch;
+    String nextMatchTime;
     String last5;
     String[] allSeasonMatches;
     Player[] roster;

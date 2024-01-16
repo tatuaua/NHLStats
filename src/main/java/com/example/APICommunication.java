@@ -12,11 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 class APICommunication {
 
@@ -52,6 +49,8 @@ class APICommunication {
             teams[teamIndex].lastGameDate = teamJson.getString("lastGameDate");
             teams[teamIndex].points = teamJson.getInt("points");
             teams[teamIndex].ab = teamJson.getString("ab");
+            teams[teamIndex].nextMatch = teamJson.getString("nextMatch");
+            teams[teamIndex].nextMatchTime = teamJson.getString("nextMatchTime");
 
             if (teams[teamIndex].ab.equals("MTL")) {
                 teams[teamIndex].name = "Montreal Canadiens";
@@ -64,9 +63,6 @@ class APICommunication {
                 allSeasonMatches = allSeasonMatches + gamesJsonArray.get(j) + " ";
             }
             teams[teamIndex].allSeasonMatches = allSeasonMatches.split(" ");
-
-            // Populate next match info
-            teams[teamIndex].nextMatch = teamJson.getString("nextMatch");
 
             // Populate team roster
             JSONArray rosterJsonArray = teamJson.getJSONArray("roster");
@@ -102,32 +98,6 @@ class APICommunication {
 
     private static void getJSON() throws IOException, URISyntaxException {
 
-        /*HttpClient httpClient = HttpClient.newHttpClient();
-
-        String url = "https://data.mongodb-api.com/app/data-hflvq/endpoint/data/v1/action/find";
-        String jsonPayload = "{\"dataSource\":\"Cluster0\",\"database\":\"movie-api-db\",\"collection\":\"nhldata\"}";
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .header("Content-Type", "application/json")
-                .header("Access-Control-Request-Headers", "*")
-                // wow extremely bad idea
-                .header("api-key", "wbU8snLQsz21IAQTNGsvfTREnoH3oRh1lZiYzsmWu2f6fIKIOCxleCNk4QkuVzuk")
-                .header("Accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))
-                .build();
-
-        try {
-
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-            dataPayload = response.body();
-
-        } catch (Exception e) {
-            TLog.error("Problem with MongoDB API connection");
-            e.printStackTrace();
-        }*/
-
         try {
             String url = "https://3tjdsspg-8080.euw.devtunnels.ms/api/v1/teams/all";
             URL obj = new URI(url).toURL();
@@ -154,18 +124,18 @@ class APICommunication {
         }
     }
 
-    public static int handleUser(String email, String password, String[] favTeams){
+    public static int handleUser(String email, String password, ArrayList<String> favTeams){
 
         int responseCode = 0;
         StringBuilder response = new StringBuilder();
 
         StringBuilder b = new StringBuilder();
 
-        for(int i = 0; i < favTeams.length; i++){
+        for(int i = 0; i < favTeams.size(); i++){
             if(i == 0){b.append("[");}
-            b.append("\"" + favTeams[i] + "\"");
-            if(i != favTeams.length-1){b.append(",");}
-            if(i == favTeams.length-1){b.append("]");}
+            b.append("\"" + favTeams.get(i) + "\"");
+            if(i != favTeams.size()-1){b.append(",");}
+            if(i == favTeams.size()-1){b.append("]");}
         }
 
         String favTeamsStr = b.toString();
@@ -180,10 +150,11 @@ class APICommunication {
             connection.setDoOutput(true);
 
             String jsonInputString =   "{\"email\":\"" + email
-                                    + "\",\"password\":\"" + password + "\"}"
-                                    + "\",\"favTeams\":" + favTeamsStr + "\"}"
-                                    + "\",\"authId\":\"" + "\"}"
-                                    + "\",\"isAuthenticated\":" + "false" + "}";
+                                    + "\",\"password\":\"" + password + "\""
+                                    + ",\"favTeams\":" + favTeamsStr 
+                                    + "}";
+
+                                    System.out.println(jsonInputString);
 
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
