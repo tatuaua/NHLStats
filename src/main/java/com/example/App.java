@@ -355,13 +355,14 @@ public class App implements ActionListener {
                             selectedTeams.add(checkBox.getText());
                         }
                     }
-                    int response = APICommunication.handleUser(emailField.getText(), pwField.getText(), selectedTeams);
 
-                    if (response == 201) {
-                        JOptionPane.showMessageDialog(null, "Account created");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Creating account failed");
-                    }
+                    if(selectedTeams.size() == 0){selectedTeams.add(checkBoxes[0].getText());} //Default to first team if no teams selected
+
+                    String response = APICommunication.handleUser(emailField.getText(), pwField.getText(), selectedTeams);
+
+                    if(response.length() > 50){response = response.substring(0, 50);} //Incase server shits the bed
+
+                    JOptionPane.showMessageDialog(null, response);
                 }
                 mailInputPanel.removeAll();
             } else {

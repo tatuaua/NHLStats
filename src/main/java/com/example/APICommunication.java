@@ -124,7 +124,7 @@ class APICommunication {
         }
     }
 
-    public static int handleUser(String email, String password, ArrayList<String> favTeams){
+    public static String handleUser(String email, String password, ArrayList<String> favTeams){
 
         int responseCode = 0;
         StringBuilder response = new StringBuilder();
@@ -154,7 +154,7 @@ class APICommunication {
                                     + ",\"favTeams\":" + favTeamsStr 
                                     + "}";
 
-                                    System.out.println(jsonInputString);
+                                    System.out.println("Sending to server -> " + jsonInputString);
 
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
@@ -162,25 +162,40 @@ class APICommunication {
             }
 
             responseCode = connection.getResponseCode();
-            System.out.println("Response Code: " + responseCode);
+            System.out.println("FROM SERVER -> Response Code: " + responseCode);
 
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-                String inputLine;
-
-                while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
+            if(responseCode == 201){
+                try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+                    String inputLine;
+    
+                    while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+    
+                    TLog.info(response.toString());
+                    System.out.println("FROM SERVER -> " + response.toString());
                 }
-
-                TLog.info(response.toString());
-                System.out.println(response.toString());
+            } else {
+                try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getErrorStream()))) {
+                    String inputLine;
+    
+                    while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+    
+                    TLog.info(response.toString());
+                    System.out.println("FROM SERVER -> " + response.toString());
+                }
             }
+            
 
         } catch (Exception e) {
             TLog.error(response.toString());
-            System.out.println(response.toString());
+            System.out.println("FROM SERVER -> " + response.toString());
+            return response.toString();
         }
 
-        return responseCode;
+        return response.toString();
     }
     
     /** Returns all the teams */ 
