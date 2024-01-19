@@ -1,6 +1,7 @@
 
-## NHL Stats
+!!**WARNING** App is not currently deployed!!
 
+## NHL Stats
 
 **Credits:**
 

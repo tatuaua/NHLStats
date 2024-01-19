@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,6 +22,7 @@ class APICommunication {
     final static int TEAM_AMOUNT = 32;
     public static Team[] teams = new Team[TEAM_AMOUNT];
     static String dataPayload;
+    static Dotenv dotenv = Dotenv.load();
 
     public static void main(String[] args) throws IOException, URISyntaxException {
         fetchAndParse();
@@ -99,7 +102,8 @@ class APICommunication {
     private static void getJSON() throws IOException, URISyntaxException {
 
         try {
-            String url = "https://3tjdsspg-8080.euw.devtunnels.ms/api/v1/teams/all";
+            String url = dotenv.get("NHLSTATS_API_URL") + "/api/v1/teams/all";
+            System.out.println(url);
             URL obj = new URI(url).toURL();
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
             connection.setRequestMethod("GET");
@@ -141,20 +145,32 @@ class APICommunication {
         String favTeamsStr = b.toString();
 
         try {
-            String url = "https://3tjdsspg-8080.euw.devtunnels.ms/api/v1/users/new";
+            String url = dotenv.get("NHLSTATS_API_URL") + "/api/v1/users/new";
             URL obj = new URI(url).toURL();
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setDoOutput(true);
+            String jsonInputString;
 
-            String jsonInputString =   "{\"email\":\"" + email
+            /*jsonInputString =   "{\"email\":\"" + email
                                     + "\",\"password\":\"" + password + "\""
                                     + ",\"favTeams\":" + favTeamsStr 
-                                    + "}";
+                                    + "}";*/
 
-                                    System.out.println("Sending to server -> " + jsonInputString);
+            jsonInputString = String.format("""
+            {
+                "email": "%s",
+                "password": "%s",
+                "favTeams": %s
+            }
+            """,
+            email, password, favTeamsStr)
+            .replace("\n", "")
+            .replace(" ", "");
+
+            System.out.println("Sending to server -> " + jsonInputString);
 
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);

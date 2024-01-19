@@ -1982,3 +1982,110 @@
 2024-01-17T17:43:34.881205300 [INFO] - Fetching and parsing took 1409 ms
 2024-01-17T17:43:34.888496900 [INFO] - No active bet
 2024-01-17T17:43:57.837334100 [INFO] - Account successfully created
+2024-01-18T00:04:16.113918 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T00:04:16.416793700 [INFO] - Starting fetch and parse process
+2024-01-18T00:04:48.990057400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T00:04:49.186269100 [INFO] - Starting fetch and parse process
+2024-01-18T00:05:03.722856900 [INFO] - Fetching and parsing took 14533 ms
+2024-01-18T00:05:03.740882900 [INFO] - No active bet
+2024-01-18T00:05:14.463698400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T00:05:14.685010100 [INFO] - Starting fetch and parse process
+2024-01-18T00:05:16.051691400 [INFO] - Fetching and parsing took 1364 ms
+2024-01-18T00:05:16.058204900 [INFO] - No active bet
+2024-01-18T00:08:35.090298800 [INFO] - Starting fetch and parse process
+2024-01-18T00:08:36.637396600 [INFO] - Fetching and parsing took 1527 ms
+2024-01-18T00:08:41.011251700 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T00:08:41.216369600 [INFO] - Starting fetch and parse process
+2024-01-18T00:08:42.647672400 [INFO] - Fetching and parsing took 1428 ms
+2024-01-18T00:08:42.652673 [INFO] - No active bet
+2024-01-18T00:08:55.452077300 [INFO] - Account successfully created
+2024-01-18T00:09:51.123049900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T00:09:51.330213200 [INFO] - Starting fetch and parse process
+2024-01-18T00:09:52.634405300 [INFO] - Fetching and parsing took 1301 ms
+2024-01-18T00:09:52.640514400 [INFO] - No active bet
+2024-01-18T00:10:09.177618300 [INFO] - Account successfully created
+2024-01-18T00:11:42.858840300 [INFO] - Account successfully created
+2024-01-18T02:38:26.307353900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T02:38:26.544575400 [INFO] - Starting fetch and parse process
+2024-01-18T02:38:27.556328500 [INFO] - Fetching and parsing took 1011 ms
+2024-01-18T02:38:27.560328 [INFO] - No active bet
+2024-01-18T15:25:23.449608900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T15:25:23.714711100 [INFO] - Starting fetch and parse process
+2024-01-18T15:25:54.254615 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T15:25:54.476463300 [INFO] - Starting fetch and parse process
+2024-01-18T15:25:56.029111900 [INFO] - Fetching and parsing took 1549 ms
+2024-01-18T15:25:56.032789300 [INFO] - No active bet
+2024-01-18T15:26:44.052557100 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T15:26:44.260754800 [INFO] - Starting fetch and parse process
+2024-01-18T15:26:45.453044700 [INFO] - Fetching and parsing took 1188 ms
+2024-01-18T15:26:45.459050200 [INFO] - No active bet
+2024-01-18T15:26:58.226266100 [INFO] - Account successfully created
+2024-01-18T15:34:41.670940400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T15:34:41.901877500 [INFO] - Starting fetch and parse process
+2024-01-18T15:34:43.574028300 [INFO] - Fetching and parsing took 1670 ms
+2024-01-18T15:34:43.580536600 [INFO] - No active bet
+2024-01-18T15:34:58.913157700 [INFO] - Bad email / Bad password
+2024-01-18T15:36:15.173271 [INFO] - Account successfully created
+2024-01-18T15:36:27.648623900 [INFO] - Bad email / Bad password
+2024-01-18T15:36:44.112877400 [ERROR] - 
+2024-01-18T15:37:41.348064 [INFO] - Bad email / Bad password
+2024-01-18T15:43:57.903543400 [INFO] - Starting fetch and parse process
+2024-01-18T15:44:45.466118500 [INFO] - Starting fetch and parse process
+2024-01-18T15:48:15.874016600 [INFO] - Starting fetch and parse process
+2024-01-18T15:48:17.301552600 [INFO] - Fetching and parsing took 1426 ms
+2024-01-18T15:48:31.141329600 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-18T15:48:31.366579500 [INFO] - Starting fetch and parse process
+2024-01-18T15:48:32.807444400 [INFO] - Fetching and parsing took 1435 ms
+2024-01-18T15:48:32.811442100 [INFO] - No active bet
+2024-01-19T17:24:49.449769400 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-19T17:24:49.676617500 [INFO] - Starting fetch and parse process
+2024-01-19T17:24:50.527507600 [INFO] - Fetching and parsing took 849 ms
+2024-01-19T17:24:50.531507300 [INFO] - No active bet
+2024-01-19T17:25:24.706485 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-19T17:25:24.988427200 [INFO] - Starting fetch and parse process
+2024-01-19T17:28:41.379771900 [INFO] - 
+
+---------------------LAUNCHING APPLICATION
+
+2024-01-19T17:28:41.607432100 [INFO] - Starting fetch and parse process
+2024-01-19T17:28:43.323560800 [INFO] - Fetching and parsing took 1706 ms
+2024-01-19T17:28:43.337345200 [INFO] - No active bet
